@@ -6,6 +6,8 @@
 
 前序报告：[面向多步骤 Agent 的用户要求保真与证据驱动纠偏](agent-intent-fidelity-research-proposal.md)
 
+后续执行细则：[实验规划指南：动态学习率与证据驱动纠偏](experimental-planning-guide.md)，补充训练调度、动态修复规则、分组预算和独立测试要求。
+
 状态：研究设计，尚未实现本报告中的任务集、验证器和实验；本文没有新增实验结果。
 
 ## 执行结论
