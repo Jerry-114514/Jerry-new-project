@@ -24,6 +24,9 @@ def summarize(records):
                           "checks": sum(r["cost"]["checks"] for r in rows),
                           "rejected_candidates": sum(r["cost"]["rejected"] for r in rows),
                           "verification_calls": sum(r["cost"]["verifications"] for r in rows)}
+        measured = [r["elapsed_seconds"] for r in rows if "elapsed_seconds" in r]
+        result[policy]["timed_runs"] = len(measured)
+        result[policy]["mean_elapsed_seconds"] = sum(measured) / len(measured) if measured else None
     return result
 
 

@@ -8,7 +8,9 @@
     "actor_calls": 80,
     "checks": 80,
     "rejected_candidates": 0,
-    "verification_calls": 0
+    "verification_calls": 0,
+    "timed_runs": 80,
+    "mean_elapsed_seconds": 0.00011590375000309905
   },
   "fixed": {
     "runs": 80,
@@ -19,7 +21,9 @@
     "actor_calls": 248,
     "checks": 248,
     "rejected_candidates": 168,
-    "verification_calls": 0
+    "verification_calls": 0,
+    "timed_runs": 80,
+    "mean_elapsed_seconds": 0.0003489587499927893
   },
   "fixed-full": {
     "runs": 80,
@@ -30,7 +34,9 @@
     "actor_calls": 248,
     "checks": 248,
     "rejected_candidates": 168,
-    "verification_calls": 0
+    "verification_calls": 0,
+    "timed_runs": 80,
+    "mean_elapsed_seconds": 0.000380322499961494
   },
   "dynamic": {
     "runs": 80,
@@ -41,6 +47,8 @@
     "actor_calls": 174,
     "checks": 254,
     "rejected_candidates": 42,
-    "verification_calls": 80
+    "verification_calls": 80,
+    "timed_runs": 80,
+    "mean_elapsed_seconds": 0.0002928712500136044
   }
 }

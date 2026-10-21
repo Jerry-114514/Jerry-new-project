@@ -8,6 +8,8 @@
     "actor_calls": 10,
     "checks": 10,
     "rejected_candidates": 4,
-    "verification_calls": 0
+    "verification_calls": 0,
+    "timed_runs": 4,
+    "mean_elapsed_seconds": 0.0004016000001456632
   }
 }

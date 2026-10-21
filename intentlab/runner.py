@@ -1,5 +1,7 @@
 """Bounded propose/validate/commit loop with separate final scoring."""
 
+import time
+
 from .analysis import analyze, gate, score
 from .core import initial_state, public_task
 from .oracle import evaluate
@@ -11,6 +13,7 @@ from .learning import predict
 def run_task(task, actor, policy="dynamic", max_repairs=3, redact_events=False, analyzer=None, risk_weights=None):
     if policy not in {"none", "fixed", "fixed-full", "dynamic"}:
         raise ValueError("Unknown policy")
+    started = time.perf_counter()
     state = initial_state(task)
     def inspect(public, observed_state, visible_history):
         rows = (analyzer or analyze)(public, observed_state, visible_history)
@@ -72,4 +75,5 @@ def run_task(task, actor, policy="dynamic", max_repairs=3, redact_events=False, 
     return {"task_id": task["id"], "family": task["family"], "split": task["split"], "policy": policy,
             "parsed_requirements": requirements,
             "actor": type(actor).__name__, "status": status, "metrics": final, "cost": counters,
+            "elapsed_seconds": time.perf_counter() - started,
             "history": history, "final_state": {"files": state.files, "events": state.events}}
