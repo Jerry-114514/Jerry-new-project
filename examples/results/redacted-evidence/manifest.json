@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "python": "3.14.6",
+  "actor": "scripted",
+  "task_hash": "2d53006def01849458d0680900d358a6e34a72789b3b5214e5e69bf9c0d0a1d4",
+  "policies": [
+    "none",
+    "fixed",
+    "dynamic"
+  ],
+  "repeats": 2,
+  "max_repairs": 3,
+  "redact_events": true,
+  "split": "all",
+  "warning": "Scripted repeats are duplicates, not independent statistical samples."
+}

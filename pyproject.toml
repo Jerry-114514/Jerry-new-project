@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "intent-lab"
+version = "0.1.0"
+description = "Reproducible evidence-driven agent repair experiments"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+intent-lab = "intentlab.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["intentlab*"]

@@ -2,7 +2,7 @@
 
 日期：2026-10-20
 
-状态：实验设计，尚未实现训练脚本或开展本指南中的训练、消融及独立测试。
+状态：研究实验设计。2026-10-21 已补充最小离线工具链、规则分析及轻量 CPU 训练；尚未开展本指南中的 QLoRA、完整四组消融和独立确认性测试。实际实现范围见[实现与复现指南](implementation-guide.md)。
 
 关联文档：[研究建议报告](agent-intent-fidelity-research-proposal.md) · [稳定成果产出方案](agent-error-analysis-stable-output-plan.md)
 

@@ -1,0 +1,9 @@
+{
+  "type": "synthetic_diagnostic_fixture",
+  "tasks": 40,
+  "trajectories": 160,
+  "views": 320,
+  "task_hash": "2d53006def01849458d0680900d358a6e34a72789b3b5214e5e69bf9c0d0a1d4",
+  "split_rule": "train=dedupe/filter/project/validate; validation=aggregate; test=split",
+  "warning": "Code-generated smoke data, not independently human-annotated benchmark."
+}

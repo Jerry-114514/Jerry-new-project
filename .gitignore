@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+*.egg-info/
+build/
+dist/
+tmp/
+runs/
+checkpoints/
+.env
+.env.*
+!.env.example
+/codex-sandbox-repair.log
+/repair-codex-sandbox.ps1

@@ -1,0 +1,2766 @@
+[
+  {
+    "id": "dedupe-000",
+    "case": 0,
+    "family": "dedupe",
+    "split": "train",
+    "request": "合并输入，按 id 去重，保留日期最早记录，按 id 排序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 10
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 30
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 20
+        }
+      ]
+    },
+    "spec": {
+      "operation": "dedupe",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 20,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 20
+          },
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 30
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "filter-001",
+    "case": 1,
+    "family": "filter",
+    "split": "train",
+    "request": "保留 amount >= 21 的记录，保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 11
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 31
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 21
+        }
+      ]
+    },
+    "spec": {
+      "operation": "filter",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 21,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 31
+          },
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 21
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "aggregate-002",
+    "case": 2,
+    "family": "aggregate",
+    "split": "validation",
+    "request": "按 group 分组，求 amount 的和，输出 group、total，按 group 排序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 12
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 32
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 22
+        }
+      ]
+    },
+    "spec": {
+      "operation": "aggregate",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 22,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "group": "x",
+            "total": 34
+          },
+          {
+            "group": "y",
+            "total": 32
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "project-003",
+    "case": 3,
+    "family": "project",
+    "split": "train",
+    "request": "仅输出 id、amount 字段，保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 13
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 33
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 23
+        }
+      ]
+    },
+    "spec": {
+      "operation": "project",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 23,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "a",
+            "amount": 13
+          },
+          {
+            "id": "b",
+            "amount": 33
+          },
+          {
+            "id": "a",
+            "amount": 23
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 3
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "validate-004",
+    "case": 4,
+    "family": "validate",
+    "split": "train",
+    "request": "检查必需字段；任一记录缺字段则仅生成 blocked 报告，不生成数据文件。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 14
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 34
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x"
+        }
+      ]
+    },
+    "spec": {
+      "operation": "validate",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 24,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/report.json": {
+          "status": "blocked",
+          "input_rows": 3
+        }
+      },
+      "blocked": true
+    }
+  },
+  {
+    "id": "split-005",
+    "case": 5,
+    "family": "split",
+    "split": "test",
+    "request": "amount >= 25 写到 data.json，其余写到 rejected.json，各自保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 15
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 35
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 25
+        }
+      ]
+    },
+    "spec": {
+      "operation": "split",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 25,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/rejected.json": [
+          {
+            "id": "a",
+            "date": "2024-01-01",
+            "group": "x",
+            "amount": 15
+          }
+        ],
+        "output/data.json": [
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 35
+          },
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 25
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "dedupe-006",
+    "case": 6,
+    "family": "dedupe",
+    "split": "train",
+    "request": "合并输入，按 id 去重，保留日期最早记录，按 id 排序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 16
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 36
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 26
+        }
+      ]
+    },
+    "spec": {
+      "operation": "dedupe",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 26,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 26
+          },
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 36
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "filter-007",
+    "case": 7,
+    "family": "filter",
+    "split": "train",
+    "request": "保留 amount >= 27 的记录，保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 17
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 37
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 27
+        }
+      ]
+    },
+    "spec": {
+      "operation": "filter",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 27,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 37
+          },
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 27
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "aggregate-008",
+    "case": 8,
+    "family": "aggregate",
+    "split": "validation",
+    "request": "按 group 分组，求 amount 的和，输出 group、total，按 group 排序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 18
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 38
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 28
+        }
+      ]
+    },
+    "spec": {
+      "operation": "aggregate",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 28,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "group": "x",
+            "total": 46
+          },
+          {
+            "group": "y",
+            "total": 38
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "project-009",
+    "case": 9,
+    "family": "project",
+    "split": "train",
+    "request": "仅输出 id、amount 字段，保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 19
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 39
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 29
+        }
+      ]
+    },
+    "spec": {
+      "operation": "project",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 29,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "a",
+            "amount": 19
+          },
+          {
+            "id": "b",
+            "amount": 39
+          },
+          {
+            "id": "a",
+            "amount": 29
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 3
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "validate-010",
+    "case": 10,
+    "family": "validate",
+    "split": "train",
+    "request": "检查必需字段；任一记录缺字段则仅生成 blocked 报告，不生成数据文件。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 20
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 40
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x"
+        }
+      ]
+    },
+    "spec": {
+      "operation": "validate",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 30,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/report.json": {
+          "status": "blocked",
+          "input_rows": 3
+        }
+      },
+      "blocked": true
+    }
+  },
+  {
+    "id": "split-011",
+    "case": 11,
+    "family": "split",
+    "split": "test",
+    "request": "amount >= 31 写到 data.json，其余写到 rejected.json，各自保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 21
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 41
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 31
+        }
+      ]
+    },
+    "spec": {
+      "operation": "split",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 31,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/rejected.json": [
+          {
+            "id": "a",
+            "date": "2024-01-01",
+            "group": "x",
+            "amount": 21
+          }
+        ],
+        "output/data.json": [
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 41
+          },
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 31
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "dedupe-012",
+    "case": 12,
+    "family": "dedupe",
+    "split": "train",
+    "request": "合并输入，按 id 去重，保留日期最早记录，按 id 排序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 22
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 42
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 32
+        }
+      ]
+    },
+    "spec": {
+      "operation": "dedupe",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 32,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 32
+          },
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 42
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "filter-013",
+    "case": 13,
+    "family": "filter",
+    "split": "train",
+    "request": "保留 amount >= 33 的记录，保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 23
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 43
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 33
+        }
+      ]
+    },
+    "spec": {
+      "operation": "filter",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 33,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 43
+          },
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 33
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "aggregate-014",
+    "case": 14,
+    "family": "aggregate",
+    "split": "validation",
+    "request": "按 group 分组，求 amount 的和，输出 group、total，按 group 排序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 24
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 44
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 34
+        }
+      ]
+    },
+    "spec": {
+      "operation": "aggregate",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 34,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "group": "x",
+            "total": 58
+          },
+          {
+            "group": "y",
+            "total": 44
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "project-015",
+    "case": 15,
+    "family": "project",
+    "split": "train",
+    "request": "仅输出 id、amount 字段，保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 25
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 45
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 35
+        }
+      ]
+    },
+    "spec": {
+      "operation": "project",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 35,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "a",
+            "amount": 25
+          },
+          {
+            "id": "b",
+            "amount": 45
+          },
+          {
+            "id": "a",
+            "amount": 35
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 3
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "validate-016",
+    "case": 16,
+    "family": "validate",
+    "split": "train",
+    "request": "检查必需字段；任一记录缺字段则仅生成 blocked 报告，不生成数据文件。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 26
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 46
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x"
+        }
+      ]
+    },
+    "spec": {
+      "operation": "validate",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 36,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/report.json": {
+          "status": "blocked",
+          "input_rows": 3
+        }
+      },
+      "blocked": true
+    }
+  },
+  {
+    "id": "split-017",
+    "case": 17,
+    "family": "split",
+    "split": "test",
+    "request": "amount >= 37 写到 data.json，其余写到 rejected.json，各自保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 27
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 47
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 37
+        }
+      ]
+    },
+    "spec": {
+      "operation": "split",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 37,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/rejected.json": [
+          {
+            "id": "a",
+            "date": "2024-01-01",
+            "group": "x",
+            "amount": 27
+          }
+        ],
+        "output/data.json": [
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 47
+          },
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 37
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "dedupe-018",
+    "case": 18,
+    "family": "dedupe",
+    "split": "train",
+    "request": "合并输入，按 id 去重，保留日期最早记录，按 id 排序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 28
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 48
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 38
+        }
+      ]
+    },
+    "spec": {
+      "operation": "dedupe",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 38,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 38
+          },
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 48
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "filter-019",
+    "case": 19,
+    "family": "filter",
+    "split": "train",
+    "request": "保留 amount >= 39 的记录，保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 29
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 49
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 39
+        }
+      ]
+    },
+    "spec": {
+      "operation": "filter",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 39,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 49
+          },
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 39
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "aggregate-020",
+    "case": 20,
+    "family": "aggregate",
+    "split": "validation",
+    "request": "按 group 分组，求 amount 的和，输出 group、total，按 group 排序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 30
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 50
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 40
+        }
+      ]
+    },
+    "spec": {
+      "operation": "aggregate",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 40,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "group": "x",
+            "total": 70
+          },
+          {
+            "group": "y",
+            "total": 50
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "project-021",
+    "case": 21,
+    "family": "project",
+    "split": "train",
+    "request": "仅输出 id、amount 字段，保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 31
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 51
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 41
+        }
+      ]
+    },
+    "spec": {
+      "operation": "project",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 41,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "a",
+            "amount": 31
+          },
+          {
+            "id": "b",
+            "amount": 51
+          },
+          {
+            "id": "a",
+            "amount": 41
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 3
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "validate-022",
+    "case": 22,
+    "family": "validate",
+    "split": "train",
+    "request": "检查必需字段；任一记录缺字段则仅生成 blocked 报告，不生成数据文件。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 32
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 52
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x"
+        }
+      ]
+    },
+    "spec": {
+      "operation": "validate",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 42,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/report.json": {
+          "status": "blocked",
+          "input_rows": 3
+        }
+      },
+      "blocked": true
+    }
+  },
+  {
+    "id": "split-023",
+    "case": 23,
+    "family": "split",
+    "split": "test",
+    "request": "amount >= 43 写到 data.json，其余写到 rejected.json，各自保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 33
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 53
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 43
+        }
+      ]
+    },
+    "spec": {
+      "operation": "split",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 43,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/rejected.json": [
+          {
+            "id": "a",
+            "date": "2024-01-01",
+            "group": "x",
+            "amount": 33
+          }
+        ],
+        "output/data.json": [
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 53
+          },
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 43
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "dedupe-024",
+    "case": 24,
+    "family": "dedupe",
+    "split": "train",
+    "request": "合并输入，按 id 去重，保留日期最早记录，按 id 排序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 34
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 54
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 44
+        }
+      ]
+    },
+    "spec": {
+      "operation": "dedupe",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 44,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 44
+          },
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 54
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "filter-025",
+    "case": 25,
+    "family": "filter",
+    "split": "train",
+    "request": "保留 amount >= 45 的记录，保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 35
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 55
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 45
+        }
+      ]
+    },
+    "spec": {
+      "operation": "filter",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 45,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 55
+          },
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 45
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "aggregate-026",
+    "case": 26,
+    "family": "aggregate",
+    "split": "validation",
+    "request": "按 group 分组，求 amount 的和，输出 group、total，按 group 排序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 36
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 56
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 46
+        }
+      ]
+    },
+    "spec": {
+      "operation": "aggregate",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 46,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "group": "x",
+            "total": 82
+          },
+          {
+            "group": "y",
+            "total": 56
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "project-027",
+    "case": 27,
+    "family": "project",
+    "split": "train",
+    "request": "仅输出 id、amount 字段，保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 37
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 57
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 47
+        }
+      ]
+    },
+    "spec": {
+      "operation": "project",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 47,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "a",
+            "amount": 37
+          },
+          {
+            "id": "b",
+            "amount": 57
+          },
+          {
+            "id": "a",
+            "amount": 47
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 3
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "validate-028",
+    "case": 28,
+    "family": "validate",
+    "split": "train",
+    "request": "检查必需字段；任一记录缺字段则仅生成 blocked 报告，不生成数据文件。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 38
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 58
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x"
+        }
+      ]
+    },
+    "spec": {
+      "operation": "validate",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 48,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/report.json": {
+          "status": "blocked",
+          "input_rows": 3
+        }
+      },
+      "blocked": true
+    }
+  },
+  {
+    "id": "split-029",
+    "case": 29,
+    "family": "split",
+    "split": "test",
+    "request": "amount >= 49 写到 data.json，其余写到 rejected.json，各自保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 39
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 59
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 49
+        }
+      ]
+    },
+    "spec": {
+      "operation": "split",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 49,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/rejected.json": [
+          {
+            "id": "a",
+            "date": "2024-01-01",
+            "group": "x",
+            "amount": 39
+          }
+        ],
+        "output/data.json": [
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 59
+          },
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 49
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "dedupe-030",
+    "case": 30,
+    "family": "dedupe",
+    "split": "train",
+    "request": "合并输入，按 id 去重，保留日期最早记录，按 id 排序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 40
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 60
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 50
+        }
+      ]
+    },
+    "spec": {
+      "operation": "dedupe",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 50,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 50
+          },
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 60
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "filter-031",
+    "case": 31,
+    "family": "filter",
+    "split": "train",
+    "request": "保留 amount >= 51 的记录，保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 41
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 61
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 51
+        }
+      ]
+    },
+    "spec": {
+      "operation": "filter",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 51,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 61
+          },
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 51
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "aggregate-032",
+    "case": 32,
+    "family": "aggregate",
+    "split": "validation",
+    "request": "按 group 分组，求 amount 的和，输出 group、total，按 group 排序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 42
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 62
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 52
+        }
+      ]
+    },
+    "spec": {
+      "operation": "aggregate",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 52,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "group": "x",
+            "total": 94
+          },
+          {
+            "group": "y",
+            "total": 62
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "project-033",
+    "case": 33,
+    "family": "project",
+    "split": "train",
+    "request": "仅输出 id、amount 字段，保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 43
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 63
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 53
+        }
+      ]
+    },
+    "spec": {
+      "operation": "project",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 53,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "a",
+            "amount": 43
+          },
+          {
+            "id": "b",
+            "amount": 63
+          },
+          {
+            "id": "a",
+            "amount": 53
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 3
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "validate-034",
+    "case": 34,
+    "family": "validate",
+    "split": "train",
+    "request": "检查必需字段；任一记录缺字段则仅生成 blocked 报告，不生成数据文件。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 44
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 64
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x"
+        }
+      ]
+    },
+    "spec": {
+      "operation": "validate",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 54,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/report.json": {
+          "status": "blocked",
+          "input_rows": 3
+        }
+      },
+      "blocked": true
+    }
+  },
+  {
+    "id": "split-035",
+    "case": 35,
+    "family": "split",
+    "split": "test",
+    "request": "amount >= 55 写到 data.json，其余写到 rejected.json，各自保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 45
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 65
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 55
+        }
+      ]
+    },
+    "spec": {
+      "operation": "split",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 55,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/rejected.json": [
+          {
+            "id": "a",
+            "date": "2024-01-01",
+            "group": "x",
+            "amount": 45
+          }
+        ],
+        "output/data.json": [
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 65
+          },
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 55
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "dedupe-036",
+    "case": 36,
+    "family": "dedupe",
+    "split": "train",
+    "request": "合并输入，按 id 去重，保留日期最早记录，按 id 排序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 46
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 66
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 56
+        }
+      ]
+    },
+    "spec": {
+      "operation": "dedupe",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 56,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 56
+          },
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 66
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "filter-037",
+    "case": 37,
+    "family": "filter",
+    "split": "train",
+    "request": "保留 amount >= 57 的记录，保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 47
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 67
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 57
+        }
+      ]
+    },
+    "spec": {
+      "operation": "filter",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 57,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "b",
+            "date": "2023-01-01",
+            "group": "y",
+            "amount": 67
+          },
+          {
+            "id": "a",
+            "date": "2023-01-01",
+            "group": "x",
+            "amount": 57
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "aggregate-038",
+    "case": 38,
+    "family": "aggregate",
+    "split": "validation",
+    "request": "按 group 分组，求 amount 的和，输出 group、total，按 group 排序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 48
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 68
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 58
+        }
+      ]
+    },
+    "spec": {
+      "operation": "aggregate",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 58,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "group": "x",
+            "total": 106
+          },
+          {
+            "group": "y",
+            "total": 68
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 2
+        }
+      },
+      "blocked": false
+    }
+  },
+  {
+    "id": "project-039",
+    "case": 39,
+    "family": "project",
+    "split": "train",
+    "request": "仅输出 id、amount 字段，保持原顺序。 必须先检查 id、date、group、amount 字段；缺字段停止数据处理并报告。不得写入或删除输入文件。输出到 output/，报告 input_rows 以及成功时的 output_rows。",
+    "inputs": {
+      "input/part-a.json": [
+        {
+          "id": "a",
+          "date": "2024-01-01",
+          "group": "x",
+          "amount": 49
+        },
+        {
+          "id": "b",
+          "date": "2023-01-01",
+          "group": "y",
+          "amount": 69
+        }
+      ],
+      "input/part-b.json": [
+        {
+          "id": "a",
+          "date": "2023-01-01",
+          "group": "x",
+          "amount": 59
+        }
+      ]
+    },
+    "spec": {
+      "operation": "project",
+      "required_fields": [
+        "id",
+        "date",
+        "group",
+        "amount"
+      ],
+      "threshold": 59,
+      "columns": [
+        "id",
+        "amount"
+      ]
+    },
+    "output_path": "output/data.json",
+    "report_path": "output/report.json",
+    "oracle": {
+      "files": {
+        "output/data.json": [
+          {
+            "id": "a",
+            "amount": 49
+          },
+          {
+            "id": "b",
+            "amount": 69
+          },
+          {
+            "id": "a",
+            "amount": 59
+          }
+        ],
+        "output/report.json": {
+          "status": "ok",
+          "input_rows": 3,
+          "output_rows": 3
+        }
+      },
+      "blocked": false
+    }
+  }
+]

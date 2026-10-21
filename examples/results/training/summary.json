@@ -1,0 +1,85 @@
+{
+  "type": "logistic_rule_signal_smoke_baseline",
+  "runs": [
+    {
+      "schedule": "cosine",
+      "seed": 0,
+      "test": {
+        "loss": 0.26990536696361,
+        "accuracy": 0.875,
+        "false_positive": 0,
+        "false_negative": 24,
+        "n": 192
+      },
+      "best_validation_loss": 0.26990536696360995,
+      "lr_reductions": 0
+    },
+    {
+      "schedule": "cosine",
+      "seed": 1,
+      "test": {
+        "loss": 0.2700666939833552,
+        "accuracy": 0.875,
+        "false_positive": 0,
+        "false_negative": 24,
+        "n": 192
+      },
+      "best_validation_loss": 0.27006669398335514,
+      "lr_reductions": 0
+    },
+    {
+      "schedule": "cosine",
+      "seed": 2,
+      "test": {
+        "loss": 0.26991236919534045,
+        "accuracy": 0.875,
+        "false_positive": 0,
+        "false_negative": 24,
+        "n": 192
+      },
+      "best_validation_loss": 0.26991236919534045,
+      "lr_reductions": 0
+    },
+    {
+      "schedule": "plateau",
+      "seed": 0,
+      "test": {
+        "loss": 0.23829856973924943,
+        "accuracy": 0.875,
+        "false_positive": 0,
+        "false_negative": 24,
+        "n": 192
+      },
+      "best_validation_loss": 0.23829856973924946,
+      "lr_reductions": 0
+    },
+    {
+      "schedule": "plateau",
+      "seed": 1,
+      "test": {
+        "loss": 0.23829049591402682,
+        "accuracy": 0.875,
+        "false_positive": 0,
+        "false_negative": 24,
+        "n": 192
+      },
+      "best_validation_loss": 0.2382904959140268,
+      "lr_reductions": 0
+    },
+    {
+      "schedule": "plateau",
+      "seed": 2,
+      "test": {
+        "loss": 0.23831912635860056,
+        "accuracy": 0.875,
+        "false_positive": 0,
+        "false_negative": 24,
+        "n": 192
+      },
+      "best_validation_loss": 0.23831912635860059,
+      "lr_reductions": 0
+    }
+  ],
+  "data_hash": "7557586bd37638d688cb1cf2e21d25a564f384679fcc400d2453ee63476c81d3",
+  "warning": "Not QLoRA, not a learned LLM actor, and not evidence of scheduler innovation."
+}
