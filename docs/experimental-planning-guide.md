@@ -2,7 +2,7 @@
 
 日期：2026-10-20
 
-状态：研究实验设计。2026-10-21 已补充最小离线工具链、规则分析及轻量 CPU 训练；尚未开展本指南中的 QLoRA、完整四组消融和独立确认性测试。实际实现范围见[实现与复现指南](implementation-guide.md)。
+状态：研究实验设计。2026-10-21 已补充离线工具链、规则分析、轻量训练、微型因果语言模型与 LoRA 的 CPU 训练和完整断点恢复；QLoRA 代码入口已提供，但尚未在目标显卡验证，也未开展完整四组研究消融和独立确认性测试。实际实现范围见[实现与复现指南](implementation-guide.md)及[神经模型训练指南](neural-training.md)。
 
 关联文档：[研究建议报告](agent-intent-fidelity-research-proposal.md) · [稳定成果产出方案](agent-error-analysis-stable-output-plan.md)
 

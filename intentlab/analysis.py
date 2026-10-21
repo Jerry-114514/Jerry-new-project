@@ -17,7 +17,7 @@ def analyze(task, state, events_visible=True):
     touched = sum(e.get("path") in inputs for e in mutations)
     changed = any(state.files.get(k) != v for k, v in inputs.items())
     protected = "violated" if touched or changed else ("satisfied" if events_visible else "unknown")
-    ordered = True
+    ordered = any(e["op"] == "validate" and e["ok"] == fields_ok for e in events)
     for event in mutations:
         prior = [e for e in events if e["index"] < event["index"] and e["op"] == "validate"]
         if not prior or prior[-1]["ok"] != fields_ok:
@@ -49,10 +49,11 @@ def analyze(task, state, events_visible=True):
             data = [r for r in rows if r["amount"] >= spec["threshold"]]
         expected[task["output_path"]] = data
     report = {"status": "blocked", "input_rows": len(rows)} if blocked else {
-        "status": "ok", "input_rows": len(rows), "output_rows": len(expected[task["output_path"]])}
+        "status": "ok", "input_rows": len(rows), "output_rows": len(state.files.get(task["output_path"], []))
+        if isinstance(state.files.get(task["output_path"]), list) else None}
     paths = set(state.files) - set(inputs) - {task["report_path"]}
     data_bad = paths != set(expected) or any(state.files.get(k) != v for k, v in expected.items())
-    report_bad = state.files.get(task["report_path"]) != report
+    report_bad = state.files.get(task["report_path"]) != report or (not blocked and report["output_rows"] is None)
     statuses = [protected, order_status, "violated" if data_bad else "satisfied", "violated" if report_bad else "satisfied"]
     reasons = ["Input write/delete history or changed snapshot", "Field validation must precede mutations",
                "Compare result with the public operation and scope", "Report counts must match public operation"]

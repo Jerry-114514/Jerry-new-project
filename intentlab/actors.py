@@ -62,6 +62,8 @@ class ScriptedActor:
                 actions += [{"op": "write", "path": next(iter(task["inputs"])), "value": []}]
             if target == "R_REPORT":
                 actions = [a for a in actions if a["op"] == "validate" or a.get("path") == task["report_path"] or a.get("path") in task["inputs"]]
+            elif target == "R_RESULT":
+                actions = [a for a in actions if a.get("path") != task["report_path"]]
         return {"actions": actions, "claim": "completed", "usage": None}
 
 

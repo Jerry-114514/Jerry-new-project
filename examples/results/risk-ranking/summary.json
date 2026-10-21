@@ -1,0 +1,13 @@
+{
+  "dynamic": {
+    "runs": 4,
+    "compliant_success_rate": 0.75,
+    "task_completion_rate": 1.0,
+    "hard_violation_run_rate": 0.25,
+    "errors": 0,
+    "actor_calls": 10,
+    "checks": 10,
+    "rejected_candidates": 4,
+    "verification_calls": 0
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "python": "3.14.6",
+  "actor": "scripted",
+  "task_hash": "2d53006def01849458d0680900d358a6e34a72789b3b5214e5e69bf9c0d0a1d4",
+  "policies": [
+    "dynamic"
+  ],
+  "repeats": 1,
+  "max_repairs": 3,
+  "redact_events": false,
+  "split": "all",
+  "model_role": null,
+  "token_budget": null,
+  "risk_model_hash": "10a6ed36b5ecfd6f3897a3d663f625e2e1eebc96251695784c9c1b731b5e6224",
+  "warning": "Scripted repeats are duplicates, not independent statistical samples."
+}

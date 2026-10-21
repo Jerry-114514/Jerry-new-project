@@ -1,0 +1,20 @@
+{
+  "data": "data\\sft",
+  "model": "tiny",
+  "revision": null,
+  "mode": "full",
+  "device": "cpu",
+  "schedule": "cosine",
+  "steps": 12,
+  "eval_every": 4,
+  "batch_size": 1,
+  "accumulation": 2,
+  "max_length": 2048,
+  "lr": 0.001,
+  "minimum_lr": 5e-06,
+  "rank": 4,
+  "alpha": 8,
+  "seed": 0,
+  "limit": 8,
+  "threads": 2
+}

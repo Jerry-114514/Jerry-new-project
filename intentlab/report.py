@@ -35,13 +35,15 @@ def save_experiment(records, directory, manifest):
     summary = summarize(records)
     save_json(directory / "summary.json", summary)
     save_json(directory / "manifest.json", manifest)
-    lines = ["# Local functional experiment", "", "This is an engineered scripted-actor demonstration, not evidence of LLM improvement."
-             if manifest["actor"] == "scripted" else "HTTP actor experiment; inspect provider, budgets and dataset limitations before interpreting.", "",
+    explanation = {"scripted": "This is an engineered scripted-actor demonstration, not evidence of LLM improvement.",
+                   "local_model": "Real local causal-LM inference. Inspect JSON errors, token usage and dataset limitations; a smoke run is not efficacy evidence.",
+                   "http": "HTTP actor experiment; inspect provider, budgets and dataset limitations before interpreting."}
+    lines = ["# Local functional experiment", "", explanation[manifest["actor"]], "",
              "| Policy | Runs | Compliant success | Completion | Hard-violation runs | Checks | Rejected |", "| --- | ---: | ---: | ---: | ---: | ---: | ---: |"]
     for policy, row in summary.items():
         lines.append(f"| {policy} | {row['runs']} | {row['compliant_success_rate']:.3f} | {row['task_completion_rate']:.3f} | {row['hard_violation_run_rate']:.3f} | {row['checks']} | {row['rejected_candidates']} |")
     lines += ["", "Unknown evidence is not a pass. Historical input writes remain violations even after restoration.",
               "Candidate effects occur only in cloned virtual state; a rejected candidate never commits.",
-              "Counters measure calls/actions; they are not a matched-token or matched-wall-clock comparison."]
+              "Call/action counters alone do not establish compute fairness; local model_usage records tokens separately."]
     (directory / "REPORT.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     return summary

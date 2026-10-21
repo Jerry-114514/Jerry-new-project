@@ -24,11 +24,18 @@ def main(argv=None):
     run = sub.add_parser("run")
     run.add_argument("--tasks", type=Path, default=Path("data/tasks.json"))
     run.add_argument("--out", type=Path, default=Path("runs/demo"))
-    run.add_argument("--policies", nargs="+", choices=["none", "fixed", "dynamic"], default=["none", "fixed", "dynamic"])
+    run.add_argument("--policies", nargs="+", choices=["none", "fixed", "fixed-full", "dynamic"], default=["none", "fixed", "fixed-full", "dynamic"])
     run.add_argument("--repeats", type=int, default=2)
     run.add_argument("--max-repairs", type=int, default=3)
     run.add_argument("--redact-events", action="store_true")
     run.add_argument("--actor-url", default=None)
+    run.add_argument("--model-path", type=Path, help="Local saved model for real language-model inference")
+    run.add_argument("--model-role", choices=["actor", "analyzer", "both"], default="analyzer")
+    run.add_argument("--device", choices=["cpu", "cuda"], default="cpu")
+    run.add_argument("--max-new-tokens", type=int, default=256)
+    run.add_argument("--token-budget", type=int, default=20000)
+    run.add_argument("--limit", type=int, help="Limit selected tasks for a local model smoke run")
+    run.add_argument("--risk-model", type=Path, help="Optional train-baseline model for target ranking only")
     run.add_argument("--split", choices=["all", "train", "validation", "test"], default="all")
     learning = sub.add_parser("train-baseline")
     learning.add_argument("--data", type=Path, default=Path("runs/data/diagnostic_views.jsonl"))
@@ -58,20 +65,51 @@ def main(argv=None):
             parser.error("Invalid repeat or repair count")
         all_tasks = load_tasks(args.tasks)
         tasks = [t for t in all_tasks if args.split == "all" or t["split"] == args.split]
+        if args.limit is not None:
+            if args.limit < 1:
+                parser.error("Task limit must be positive")
+            tasks = tasks[:args.limit]
         if not tasks:
             parser.error("No tasks in selected split")
         records = []
+        risk_weights = None
+        if args.risk_model:
+            risk_model = json.loads(args.risk_model.read_text(encoding="utf-8"))
+            if risk_model.get("model_type") != "logistic_rule_signal_smoke_baseline":
+                parser.error("Unsupported risk model type")
+            risk_weights = risk_model["weights"]
+        backend = None
+        if args.model_path:
+            if args.actor_url:
+                parser.error("Choose either a local model or HTTP actor")
+            from .model_backend import LocalBackend, LanguageModelActor, LanguageModelAnalyzer
+            backend = LocalBackend(args.model_path, args.device, args.max_new_tokens, args.token_budget)
         for policy in dict.fromkeys(args.policies):
             for repetition in range(args.repeats):
                 for task in tasks:
                     actor = HTTPActor(args.actor_url) if args.actor_url else ScriptedActor()
-                    result = run_task(task, actor, policy, args.max_repairs, args.redact_events)
+                    analyzer = None
+                    if backend:
+                        backend.reset()
+                        if args.model_role in {"actor", "both"}:
+                            actor = LanguageModelActor(backend)
+                        if args.model_role in {"analyzer", "both"}:
+                            analyzer = LanguageModelAnalyzer(backend)
+                    result = run_task(task, actor, policy, args.max_repairs, args.redact_events, analyzer, risk_weights)
+                    if backend:
+                        result["model_usage"] = dict(backend.usage)
+                        result["model_generations"] = list(backend.generations)
+                        result["analyzer_errors"] = analyzer.errors if analyzer else []
                     result["repetition"] = repetition
                     records.append(result)
-        manifest = {"version": __version__, "python": platform.python_version(), "actor": "http" if args.actor_url else "scripted",
+        manifest = {"version": __version__, "python": platform.python_version(), "actor": "local_model" if backend else "http" if args.actor_url else "scripted",
                     "task_hash": digest(all_tasks), "policies": args.policies, "repeats": args.repeats,
                     "max_repairs": args.max_repairs, "redact_events": args.redact_events, "split": args.split,
-                    "warning": "Scripted repeats are duplicates, not independent statistical samples."}
+                    "model_role": args.model_role if backend else None, "token_budget": args.token_budget if backend else None,
+                    "risk_model_hash": digest(risk_weights) if risk_weights else None,
+                    "warning": ("Greedy model repeats are not independent statistical samples." if backend else
+                                "HTTP repeats require provider configuration to assess independence." if args.actor_url else
+                                "Scripted repeats are duplicates, not independent statistical samples.")}
         print(json.dumps(save_experiment(records, args.out, manifest), indent=2))
     elif args.command == "replay":
         tasks = {t["id"]: t for t in load_tasks(args.tasks)}

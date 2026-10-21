@@ -1,0 +1,34 @@
+{
+  "kind": "real_causal_lm_infrastructure_audit",
+  "schedules": [
+    {
+      "schedule": "cosine",
+      "bitwise_resume_equivalent": true,
+      "validation_loss": 5.935366930280413,
+      "test": {
+        "loss": 5.941601572809993,
+        "target_tokens": 592
+      },
+      "trainable_parameters": 191808
+    },
+    {
+      "schedule": "plateau",
+      "bitwise_resume_equivalent": true,
+      "validation_loss": 5.512871279035296,
+      "test": {
+        "loss": 5.524113062265757,
+        "target_tokens": 592
+      },
+      "trainable_parameters": 191808
+    }
+  ],
+  "lora_parameters": 6144,
+  "lora_total_parameters": 197952,
+  "lora_generation_usage": {
+    "prompt_tokens": 4,
+    "completion_tokens": 12
+  },
+  "inference_calls": 4,
+  "inference_json_errors": 4,
+  "warning": "Validates real gradients, resume, adapter loading and model invocation; not pretrained-LLM efficacy or 5090 throughput."
+}

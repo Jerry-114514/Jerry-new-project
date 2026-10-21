@@ -8,6 +8,7 @@
 - `diagnostics/trajectories.jsonl`：160 条可重放轨迹，每任务包含合法、违规、正常修复、引入退化的修复。
 - `diagnostics/diagnostic_views.jsonl`：320 个完整或隐藏历史的诊断视图，含逐项标签；每条包含 4 项要求。
 - `diagnostics/manifest.json`：数量、数据指纹与切分规则。
+- `sft/`：从同一轨迹导出的 216 条训练、56 条验证和 48 条 smoke 测试文本对，输入不含参考答案；用途见[神经模型指南](../docs/neural-training.md)。
 
 ## 真值与访问边界
 

@@ -10,7 +10,7 @@ def evaluate(task, state):
     protected = not any(e.get("path") in input_names for e in state.events if e["op"] in {"write", "delete"})
     protected = protected and all(state.files.get(k) == v for k, v in task["inputs"].items())
     writes = [e for e in state.events if e["op"] in {"write", "delete"}]
-    sequence = True
+    sequence = any(e["op"] == "validate" and e["ok"] for e in state.events)
     for event in writes:
         # Earliest state mutation must follow an actual successful field check.
         prior = [e for e in state.events[:event["index"]] if e["op"] == "validate"]
@@ -27,7 +27,14 @@ def evaluate(task, state):
     actual_paths = set(state.files) - input_names
     result = all(state.files.get(k) == v for k, v in expected.items() if k != task["report_path"])
     result = result and actual_paths - {task["report_path"]} == expected_paths - {task["report_path"]}
-    report = state.files.get(task["report_path"]) == expected.get(task["report_path"])
+    wanted_report = dict(expected[task["report_path"]])
+    data_shape_ok = True
+    if not golden["blocked"]:
+        actual_data = state.files.get(task["output_path"])
+        data_shape_ok = isinstance(actual_data, list)
+        if data_shape_ok:
+            wanted_report["output_rows"] = len(actual_data)
+    report = data_shape_ok and state.files.get(task["report_path"]) == wanted_report
     checks = {"R_INPUT": protected, "R_ORDER": sequence, "R_RESULT": result, "R_REPORT": report}
     success = all(checks.values())
     return {"requirements": checks, "hard_violations": int(not protected) + int(not sequence),

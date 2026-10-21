@@ -21,6 +21,17 @@
     "rejected_candidates": 42,
     "verification_calls": 0
   },
+  "fixed-full": {
+    "runs": 80,
+    "compliant_success_rate": 0.85,
+    "task_completion_rate": 1.0,
+    "hard_violation_run_rate": 0.15,
+    "errors": 0,
+    "actor_calls": 174,
+    "checks": 174,
+    "rejected_candidates": 42,
+    "verification_calls": 0
+  },
   "dynamic": {
     "runs": 80,
     "compliant_success_rate": 0.85,

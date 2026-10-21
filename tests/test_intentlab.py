@@ -55,11 +55,25 @@ class EnvironmentTests(unittest.TestCase):
                      {"op": "write", "path": name, "value": self.task["inputs"][name]}])
         self.assertFalse(evaluate(self.task, state)["requirements"]["R_INPUT"])
 
+    def test_report_describes_actual_output_not_reference_answer(self):
+        state = diagnostic_states(self.task)["valid"]
+        state.apply([{"op": "write", "path": self.task["output_path"], "value": []},
+                     {"op": "write", "path": self.task["report_path"],
+                      "value": {"status": "ok", "input_rows": 3, "output_rows": 0}}])
+        checks = evaluate(self.task, state)["requirements"]
+        self.assertFalse(checks["R_RESULT"])
+        self.assertTrue(checks["R_REPORT"])
+
     def test_order_checks_actual_history(self):
         state = initial_state(self.task)
         actions = solve(public_task(self.task))
         state.apply(actions[1:] + actions[:1])
         self.assertFalse(evaluate(self.task, state)["requirements"]["R_ORDER"])
+
+    def test_mandatory_validation_is_not_vacuously_satisfied(self):
+        state = initial_state(self.task)
+        self.assertFalse(evaluate(self.task, state)["requirements"]["R_ORDER"])
+        self.assertEqual(analyze(public_task(self.task), state)[1]["status"], "violated")
 
     def test_blocked_report_must_follow_failed_check(self):
         task = self.tasks[4]
@@ -103,7 +117,9 @@ class EnvironmentTests(unittest.TestCase):
     def test_static_oracle_not_generated_by_actor(self):
         state = diagnostic_states(self.task)["valid"]
         modified = public_task(self.task)
-        modified["oracle"] = {"files": {}, "blocked": False}
+        modified["oracle"] = {"files": {self.task["output_path"]: [],
+                                         self.task["report_path"]: self.task["oracle"]["files"][self.task["report_path"]]},
+                              "blocked": False}
         self.assertFalse(evaluate(modified, state)["compliant_success"])
 
     def test_replay_checks_tools_and_rejects_tampered_evidence(self):
@@ -117,6 +133,28 @@ class EnvironmentTests(unittest.TestCase):
 
 
 class RunnerTests(unittest.TestCase):
+    def test_dependency_group_repair_and_strong_full_baseline(self):
+        task = build_tasks()[0]
+        class DependentActor:
+            def propose(self, public, state, phase, target=None, attempt=0):
+                actions = solve(public)
+                if phase == "initial":
+                    for action in actions:
+                        if action.get("path") == public["output_path"]:
+                            action["value"] = []
+                        if action.get("path") == public["report_path"]:
+                            action["value"]["output_rows"] = 0
+                elif target == "R_RESULT":
+                    actions = [a for a in actions if a.get("path") != public["report_path"]]
+                return {"actions": actions}
+        fixed = run_task(task, DependentActor(), "fixed")
+        dynamic = run_task(task, DependentActor(), "dynamic")
+        full = run_task(task, DependentActor(), "fixed-full")
+        self.assertFalse(fixed["metrics"]["task_complete"])
+        self.assertTrue(dynamic["metrics"]["compliant_success"])
+        self.assertTrue(full["metrics"]["compliant_success"])
+        self.assertTrue(any(isinstance(e.get("target"), list) for e in dynamic["history"]))
+
     def test_rejected_candidate_does_not_touch_input(self):
         task = build_tasks()[1]
         record = run_task(task, ScriptedActor(), "dynamic")

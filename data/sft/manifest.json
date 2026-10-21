@@ -1,0 +1,11 @@
+{
+  "task_hash": "2d53006def01849458d0680900d358a6e34a72789b3b5214e5e69bf9c0d0a1d4",
+  "counts": {
+    "train": 216,
+    "validation": 56,
+    "test": 48
+  },
+  "source": "synthetic executed diagnostic trajectories",
+  "split_unit": "operation family",
+  "warning": "Synthetic supervision; original test is a smoke holdout, not a newly human-verified benchmark."
+}

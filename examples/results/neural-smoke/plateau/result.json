@@ -1,0 +1,113 @@
+{
+  "kind": "causal_lm_sft",
+  "completed": true,
+  "config": {
+    "data": "data\\sft",
+    "model": "tiny",
+    "revision": null,
+    "mode": "full",
+    "device": "cpu",
+    "schedule": "plateau",
+    "steps": 12,
+    "eval_every": 4,
+    "batch_size": 1,
+    "accumulation": 2,
+    "max_length": 2048,
+    "lr": 0.001,
+    "minimum_lr": 5e-06,
+    "rank": 4,
+    "alpha": 8,
+    "seed": 0,
+    "limit": 8,
+    "threads": 2
+  },
+  "data_hash": "7bd855c6c86ddbe9f5e5a32d96c046f52ddf6e4848e8febfc48ee7da5e998af2",
+  "base_identity": "83cd4a473b215ba63e2f69a1d3db0d4782349f0bf0718a9834a784a28fa3b4fc",
+  "step": 12,
+  "history": [
+    {
+      "step": 4,
+      "train_loss": 6.279652244166324,
+      "validation": {
+        "loss": 6.157379041399275,
+        "target_tokens": 560
+      },
+      "lr_used": 0.001,
+      "gradient_norm": 1.758834958076477,
+      "scheduler": {
+        "old_lr": 0.001,
+        "new_lr": 0.001,
+        "reduced": false,
+        "lr": 0.001,
+        "factor": 0.5,
+        "patience": 2,
+        "threshold": 0.001,
+        "cooldown": 1,
+        "min_lr": 5e-06,
+        "best": 6.157379041399275,
+        "bad": 0,
+        "remaining": 0
+      }
+    },
+    {
+      "step": 8,
+      "train_loss": 5.89941371570934,
+      "validation": {
+        "loss": 5.8183168683733255,
+        "target_tokens": 560
+      },
+      "lr_used": 0.001,
+      "gradient_norm": 1.7874407768249512,
+      "scheduler": {
+        "old_lr": 0.001,
+        "new_lr": 0.001,
+        "reduced": false,
+        "lr": 0.001,
+        "factor": 0.5,
+        "patience": 2,
+        "threshold": 0.001,
+        "cooldown": 1,
+        "min_lr": 5e-06,
+        "best": 5.8183168683733255,
+        "bad": 0,
+        "remaining": 0
+      }
+    },
+    {
+      "step": 12,
+      "train_loss": 5.5921971797943115,
+      "validation": {
+        "loss": 5.512871279035296,
+        "target_tokens": 560
+      },
+      "lr_used": 0.001,
+      "gradient_norm": 1.9305776357650757,
+      "scheduler": {
+        "old_lr": 0.001,
+        "new_lr": 0.001,
+        "reduced": false,
+        "lr": 0.001,
+        "factor": 0.5,
+        "patience": 2,
+        "threshold": 0.001,
+        "cooldown": 1,
+        "min_lr": 5e-06,
+        "best": 5.512871279035296,
+        "bad": 0,
+        "remaining": 0
+      }
+    }
+  ],
+  "train_tokens": 14115,
+  "parameters": 191808,
+  "trainable_parameters": 191808,
+  "seconds_this_invocation": 0.7002830999999787,
+  "versions": {
+    "torch": "2.14.1+cpu",
+    "transformers": "5.20.2"
+  },
+  "test": {
+    "loss": 5.524113062265757,
+    "target_tokens": 592
+  }
+}

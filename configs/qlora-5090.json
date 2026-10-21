@@ -1,0 +1,20 @@
+{
+  "data": "data/sft",
+  "model": "REPLACE_WITH_A_LOCAL_3B_MODEL_OR_PINNED_HF_ID",
+  "revision": null,
+  "mode": "qlora",
+  "device": "cuda",
+  "schedule": "plateau",
+  "steps": 1000,
+  "eval_every": 50,
+  "batch_size": 1,
+  "accumulation": 8,
+  "max_length": 4096,
+  "lr": 0.00005,
+  "minimum_lr": 0.000005,
+  "rank": 16,
+  "alpha": 32,
+  "seed": 0,
+  "limit": 0,
+  "threads": 2
+}

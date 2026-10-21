@@ -4,10 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "intent-lab"
-version = "0.1.0"
+version = "0.2.0"
 description = "Reproducible evidence-driven agent repair experiments"
 requires-python = ">=3.11"
 dependencies = []
+
+[project.optional-dependencies]
+ml = ["torch==2.14.1", "transformers==5.20.2", "peft==0.21.2", "accelerate==1.15.0"]
 
 [project.scripts]
 intent-lab = "intentlab.cli:main"

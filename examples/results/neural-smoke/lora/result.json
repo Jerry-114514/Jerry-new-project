@@ -1,0 +1,74 @@
+{
+  "kind": "causal_lm_sft",
+  "completed": true,
+  "config": {
+    "data": "data\\sft",
+    "model": "tiny",
+    "revision": null,
+    "mode": "lora",
+    "device": "cpu",
+    "schedule": "cosine",
+    "steps": 12,
+    "eval_every": 4,
+    "batch_size": 1,
+    "accumulation": 2,
+    "max_length": 2048,
+    "lr": 0.001,
+    "minimum_lr": 5e-06,
+    "rank": 4,
+    "alpha": 8,
+    "seed": 0,
+    "limit": 8,
+    "threads": 2
+  },
+  "data_hash": "7bd855c6c86ddbe9f5e5a32d96c046f52ddf6e4848e8febfc48ee7da5e998af2",
+  "base_identity": "83cd4a473b215ba63e2f69a1d3db0d4782349f0bf0718a9834a784a28fa3b4fc",
+  "step": 12,
+  "history": [
+    {
+      "step": 4,
+      "train_loss": 6.673767892937911,
+      "validation": {
+        "loss": 6.65265361240932,
+        "target_tokens": 560
+      },
+      "lr_used": 0.0009049859547015363,
+      "gradient_norm": 0.21664924919605255,
+      "scheduler": null
+    },
+    {
+      "step": 8,
+      "train_loss": 6.625866283069957,
+      "validation": {
+        "loss": 6.6338447570800785,
+        "target_tokens": 560
+      },
+      "lr_used": 0.0003487640452984637,
+      "gradient_norm": 0.2688028812408447,
+      "scheduler": null
+    },
+    {
+      "step": 12,
+      "train_loss": 6.611588001251221,
+      "validation": {
+        "loss": 6.630672836303711,
+        "target_tokens": 560
+      },
+      "lr_used": 5e-06,
+      "gradient_norm": 0.2767752707004547,
+      "scheduler": null
+    }
+  ],
+  "train_tokens": 14115,
+  "parameters": 197952,
+  "trainable_parameters": 6144,
+  "seconds_this_invocation": 0.6197317999999541,
+  "versions": {
+    "torch": "2.14.1+cpu",
+    "transformers": "5.20.2"
+  },
+  "test": {
+    "loss": 6.632573823671083,
+    "target_tokens": 592
+  }
+}

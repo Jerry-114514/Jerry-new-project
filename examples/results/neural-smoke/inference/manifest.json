@@ -1,0 +1,5 @@
+{
+  "actor": "local_model",
+  "role": "analyzer",
+  "warning": "Tiny randomly initialized LM smoke; JSON failures are measured, not hidden."
+}
