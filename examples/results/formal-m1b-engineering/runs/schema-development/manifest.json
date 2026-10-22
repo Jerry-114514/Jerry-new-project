@@ -1,0 +1,25 @@
+{
+  "kind": "formal_diagnostic_inference",
+  "cases_hash": "e519231a84ddcc5f4120193fd1d055b73f5907e67f0409bb0dbb257d28b0cd87",
+  "examples_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "example_count": 0,
+  "model_identity": {
+    "path": "/root/autodl-tmp/models/Qwen3.5-9B",
+    "weights_fingerprint": "457bf3ae902e56e0a24588f4a691ae1aa611de4c8f7cb7429d8b5d100b7ca1ef",
+    "device": "cuda",
+    "max_new_tokens": 512,
+    "token_budget": 8192
+  },
+  "condition": "schema_zero_shot",
+  "status": "completed",
+  "budget_unit": "diagnostic evidence view; reset per case",
+  "gold_loaded": false,
+  "case_count": 8,
+  "errors": 0,
+  "warning": "Inference completion is not a diagnostic accuracy result or preregistration.",
+  "seconds": 27.142932452261448,
+  "file_sha256": {
+    "predictions.jsonl": "7aa5ae8b82c12ed3e7061863975ceb8b20795c30d59971e08cb7609fa2c978c6",
+    "calls.jsonl": "ac8cc756a01d1e34b5f22c2084f71cd92aefe6ebabe0ff89f23e8fcb622cdf86"
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "kind": "real_separate_role_interface_audit",
+  "status": "completed",
+  "identities": {
+    "actor": {
+      "path": "/root/autodl-tmp/models/Qwen3.5-9B",
+      "artifact_fingerprint": "457bf3ae902e56e0a24588f4a691ae1aa611de4c8f7cb7429d8b5d100b7ca1ef"
+    },
+    "analyzer": {
+      "path": "/root/autodl-tmp/intentlab/runs/qwen35-5090-pilot-v2/plateau-seed-0/model",
+      "artifact_fingerprint": "ffd3e4f8c14690167a58548eaec10b8f631ef0cccc91bdeab2cc94917e19773b"
+    }
+  },
+  "snapshot": {
+    "shared_token_ledger": {
+      "limit": 8192,
+      "charged_tokens": 773,
+      "remaining_tokens": 7419,
+      "calls": 3,
+      "denied_calls": 0,
+      "known_prompt_tokens": 689,
+      "known_completion_tokens": 84,
+      "failed_reservations": 0,
+      "failure_accounting": "Unknown failed generation length conservatively charges its full reservation",
+      "events": [
+        {
+          "role": "actor",
+          "status": "completed",
+          "prompt_hash": "22f5f74411f4a091edf0080ab7d530d5ddb5bc8b42a0a590b79d50e433aeed5b",
+          "prompt_tokens": 22,
+          "completion_allowance": 256,
+          "completion_tokens": 6,
+          "charged_tokens": 28,
+          "elapsed_seconds": 1.007106939330697
+        },
+        {
+          "role": "analyzer",
+          "status": "completed",
+          "prompt_hash": "246bcf7e36d7adb6b234a0414eed6a471f7ad0ef549dff20c062d2927f148747",
+          "prompt_tokens": 645,
+          "completion_allowance": 256,
+          "completion_tokens": 72,
+          "charged_tokens": 717,
+          "elapsed_seconds": 3.642396155744791
+        },
+        {
+          "role": "actor",
+          "status": "completed",
+          "prompt_hash": "22f5f74411f4a091edf0080ab7d530d5ddb5bc8b42a0a590b79d50e433aeed5b",
+          "prompt_tokens": 22,
+          "completion_allowance": 256,
+          "completion_tokens": 6,
+          "charged_tokens": 28,
+          "elapsed_seconds": 0.20422162488102913
+        }
+      ]
+    },
+    "models": {
+      "actor": "/root/autodl-tmp/models/Qwen3.5-9B",
+      "analyzer": "/root/autodl-tmp/intentlab/runs/qwen35-5090-pilot-v2/plateau-seed-0/model"
+    },
+    "model_loads": [
+      {
+        "role": "actor",
+        "path": "/root/autodl-tmp/models/Qwen3.5-9B",
+        "status": "loaded",
+        "seconds": 8.029387975111604
+      },
+      {
+        "role": "analyzer",
+        "path": "/root/autodl-tmp/intentlab/runs/qwen35-5090-pilot-v2/plateau-seed-0/model",
+        "status": "loaded",
+        "seconds": 8.075575206428766
+      },
+      {
+        "role": "actor",
+        "path": "/root/autodl-tmp/models/Qwen3.5-9B",
+        "status": "loaded",
+        "seconds": 4.552243182435632
+      }
+    ],
+    "generations": [
+      {
+        "prompt_hash": "22f5f74411f4a091edf0080ab7d530d5ddb5bc8b42a0a590b79d50e433aeed5b",
+        "text": "{\"actions\": []}",
+        "usage": {
+          "prompt_tokens": 22,
+          "completion_tokens": 6
+        },
+        "role": "actor",
+        "model_path": "/root/autodl-tmp/models/Qwen3.5-9B"
+      },
+      {
+        "prompt_hash": "246bcf7e36d7adb6b234a0414eed6a471f7ad0ef549dff20c062d2927f148747",
+        "text": "{\"findings\":[{\"evidence\":[\"file:input/data.json\",\"file:output/data.json\",\"input:input/data.json\",\"request\"],\"id\":\"R_INPUT\",\"status\":\"satisfied\"},{\"evidence\":[\"file:input/data.json\",\"file:output/data.json\",\"input:input/data.json\",\"request\"],\"id\":\"R_RESULT\",\"status\":\"satisfied\"}]}",
+        "usage": {
+          "prompt_tokens": 645,
+          "completion_tokens": 72
+        },
+        "role": "analyzer",
+        "model_path": "/root/autodl-tmp/intentlab/runs/qwen35-5090-pilot-v2/plateau-seed-0/model"
+      },
+      {
+        "prompt_hash": "22f5f74411f4a091edf0080ab7d530d5ddb5bc8b42a0a590b79d50e433aeed5b",
+        "text": "{\"actions\": []}",
+        "usage": {
+          "prompt_tokens": 22,
+          "completion_tokens": 6
+        },
+        "role": "actor",
+        "model_path": "/root/autodl-tmp/models/Qwen3.5-9B"
+      }
+    ],
+    "resident_model_limit": 1
+  },
+  "responses": [
+    {
+      "role": "actor",
+      "text": "{\"actions\": []}",
+      "usage": {
+        "prompt_tokens": 22,
+        "completion_tokens": 6
+      }
+    },
+    {
+      "role": "analyzer",
+      "text": "{\"findings\":[{\"evidence\":[\"file:input/data.json\",\"file:output/data.json\",\"input:input/data.json\",\"request\"],\"id\":\"R_INPUT\",\"status\":\"satisfied\"},{\"evidence\":[\"file:input/data.json\",\"file:output/data.json\",\"input:input/data.json\",\"request\"],\"id\":\"R_RESULT\",\"status\":\"satisfied\"}]}",
+      "usage": {
+        "prompt_tokens": 645,
+        "completion_tokens": 72
+      }
+    },
+    {
+      "role": "actor",
+      "text": "{\"actions\": []}",
+      "usage": {
+        "prompt_tokens": 22,
+        "completion_tokens": 6
+      }
+    }
+  ],
+  "wall_seconds": 26.157179217785597,
+  "warning": "Three engineering calls with an existing development adapter; not formal closed-loop quality or fairness evidence.",
+  "peak_allocated_bytes": 18319865344,
+  "peak_reserved_bytes": 18417188864
+}
