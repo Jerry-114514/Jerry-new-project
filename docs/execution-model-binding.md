@@ -31,4 +31,4 @@ python -m intentlab.execution_models verify --protocol runs/formal-private/proto
 
 原始日志及矩阵证据保存在 [M1i 工程证据](../examples/results/formal-m1i-execution-models/README.md)。微型权重来自临时测试目录，未作为持久模型备份发布；归档的 JSON 和哈希不能让离线使用者重新逐张量验证已经删除的二进制。
 
-正式 M5 的九条件封存预测、一次性揭晓与目标 token 加权测试损失，以及随后 M6 的冻结四条件运行入口仍待实现。真实新数据、人工双审、功效/预算证据及正式冻结未完成前，不启动六次正式 9B 训练。
+正式 M5 的九条件封存预测、一次性揭晓与目标 token 加权损失入口见 [M5 指南](frozen-diagnostic-guide.md)，目前只做工程验证。随后 M6 的冻结四条件运行入口仍待实现。真实新数据、人工双审、功效/预算证据及正式冻结未完成前，不启动六次正式 9B 训练。

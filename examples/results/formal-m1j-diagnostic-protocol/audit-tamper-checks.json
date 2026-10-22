@@ -1,0 +1,10 @@
+{
+  "matrix/diagnostic-predictions/A/predictions.jsonl": {
+    "rejected": true,
+    "reason": "Diagnostic seal, receipt or archived output changed"
+  },
+  "matrix/diagnostic-inputs/gold.jsonl": {
+    "rejected": true,
+    "reason": "Archived gold differs from frozen synthetic export"
+  }
+}

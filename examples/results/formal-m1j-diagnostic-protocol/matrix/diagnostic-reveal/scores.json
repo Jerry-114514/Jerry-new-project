@@ -1,0 +1,714 @@
+{
+  "A": {
+    "test": {
+      "counts": {
+        "cases": 1,
+        "missing_predictions": 0,
+        "strict_valid": 0,
+        "normalized_valid": 0,
+        "status_items": 4,
+        "strict_errors": 4,
+        "normalized_errors": 4,
+        "unsafe_opportunities": 2,
+        "unsafe_satisfied": 0
+      },
+      "task_mean_error_rate": 1.0,
+      "source_task_groups": 1,
+      "per_task_error_rate": {
+        "dev-unicode-normalization": 1.0
+      },
+      "confusion": [
+        {
+          "gold": "unknown",
+          "predicted": "invalid",
+          "count": 4
+        }
+      ],
+      "records": [
+        {
+          "case_id": "unit-view-test",
+          "source_task_id": "dev-unicode-normalization",
+          "normalized_error_rate": 1.0,
+          "parse_errors": {
+            "strict": "Expecting value: line 1 column 1 (char 0)",
+            "normalized": "Expecting value: line 1 column 1 (char 0)"
+          }
+        }
+      ],
+      "evidence_semantic_support": "not automatically scored; requires independent review",
+      "normalization": "Accept findings or ID-keyed objects; do not modify any predicted status"
+    },
+    "ood": {
+      "counts": {
+        "cases": 1,
+        "missing_predictions": 0,
+        "strict_valid": 0,
+        "normalized_valid": 0,
+        "status_items": 4,
+        "strict_errors": 4,
+        "normalized_errors": 4,
+        "unsafe_opportunities": 2,
+        "unsafe_satisfied": 0
+      },
+      "task_mean_error_rate": 1.0,
+      "source_task_groups": 1,
+      "per_task_error_rate": {
+        "dev-stable-ordering": 1.0
+      },
+      "confusion": [
+        {
+          "gold": "unknown",
+          "predicted": "invalid",
+          "count": 4
+        }
+      ],
+      "records": [
+        {
+          "case_id": "unit-view-ood",
+          "source_task_id": "dev-stable-ordering",
+          "normalized_error_rate": 1.0,
+          "parse_errors": {
+            "strict": "Expecting value: line 3 column 1 (char 2)",
+            "normalized": "Expecting value: line 3 column 1 (char 2)"
+          }
+        }
+      ],
+      "evidence_semantic_support": "not automatically scored; requires independent review",
+      "normalization": "Accept findings or ID-keyed objects; do not modify any predicted status"
+    }
+  },
+  "B": {
+    "test": {
+      "counts": {
+        "cases": 1,
+        "missing_predictions": 0,
+        "strict_valid": 0,
+        "normalized_valid": 0,
+        "status_items": 4,
+        "strict_errors": 4,
+        "normalized_errors": 4,
+        "unsafe_opportunities": 2,
+        "unsafe_satisfied": 0
+      },
+      "task_mean_error_rate": 1.0,
+      "source_task_groups": 1,
+      "per_task_error_rate": {
+        "dev-unicode-normalization": 1.0
+      },
+      "confusion": [
+        {
+          "gold": "unknown",
+          "predicted": "invalid",
+          "count": 4
+        }
+      ],
+      "records": [
+        {
+          "case_id": "unit-view-test",
+          "source_task_id": "dev-unicode-normalization",
+          "normalized_error_rate": 1.0,
+          "parse_errors": {
+            "strict": "Expecting value: line 1 column 1 (char 0)",
+            "normalized": "Expecting value: line 1 column 1 (char 0)"
+          }
+        }
+      ],
+      "evidence_semantic_support": "not automatically scored; requires independent review",
+      "normalization": "Accept findings or ID-keyed objects; do not modify any predicted status"
+    },
+    "ood": {
+      "counts": {
+        "cases": 1,
+        "missing_predictions": 0,
+        "strict_valid": 0,
+        "normalized_valid": 0,
+        "status_items": 4,
+        "strict_errors": 4,
+        "normalized_errors": 4,
+        "unsafe_opportunities": 2,
+        "unsafe_satisfied": 0
+      },
+      "task_mean_error_rate": 1.0,
+      "source_task_groups": 1,
+      "per_task_error_rate": {
+        "dev-stable-ordering": 1.0
+      },
+      "confusion": [
+        {
+          "gold": "unknown",
+          "predicted": "invalid",
+          "count": 4
+        }
+      ],
+      "records": [
+        {
+          "case_id": "unit-view-ood",
+          "source_task_id": "dev-stable-ordering",
+          "normalized_error_rate": 1.0,
+          "parse_errors": {
+            "strict": "Expecting value: line 1 column 1 (char 0)",
+            "normalized": "Expecting value: line 1 column 1 (char 0)"
+          }
+        }
+      ],
+      "evidence_semantic_support": "not automatically scored; requires independent review",
+      "normalization": "Accept findings or ID-keyed objects; do not modify any predicted status"
+    }
+  },
+  "C": {
+    "test": {
+      "counts": {
+        "cases": 1,
+        "missing_predictions": 0,
+        "strict_valid": 1,
+        "normalized_valid": 1,
+        "status_items": 4,
+        "strict_errors": 4,
+        "normalized_errors": 4,
+        "unsafe_opportunities": 2,
+        "unsafe_satisfied": 1,
+        "parsed_evidence_items": 4,
+        "reference_valid_items": 4,
+        "nonempty_reference_items": 4
+      },
+      "task_mean_error_rate": 1.0,
+      "source_task_groups": 1,
+      "per_task_error_rate": {
+        "dev-unicode-normalization": 1.0
+      },
+      "confusion": [
+        {
+          "gold": "unknown",
+          "predicted": "satisfied",
+          "count": 1
+        },
+        {
+          "gold": "unknown",
+          "predicted": "violated",
+          "count": 3
+        }
+      ],
+      "records": [
+        {
+          "case_id": "unit-view-test",
+          "source_task_id": "dev-unicode-normalization",
+          "normalized_error_rate": 1.0,
+          "parse_errors": {}
+        }
+      ],
+      "evidence_semantic_support": "not automatically scored; requires independent review",
+      "normalization": "Accept findings or ID-keyed objects; do not modify any predicted status"
+    },
+    "ood": {
+      "counts": {
+        "cases": 1,
+        "missing_predictions": 0,
+        "strict_valid": 1,
+        "normalized_valid": 1,
+        "status_items": 4,
+        "strict_errors": 4,
+        "normalized_errors": 4,
+        "unsafe_opportunities": 2,
+        "unsafe_satisfied": 1,
+        "parsed_evidence_items": 4,
+        "reference_valid_items": 4,
+        "nonempty_reference_items": 4
+      },
+      "task_mean_error_rate": 1.0,
+      "source_task_groups": 1,
+      "per_task_error_rate": {
+        "dev-stable-ordering": 1.0
+      },
+      "confusion": [
+        {
+          "gold": "unknown",
+          "predicted": "satisfied",
+          "count": 1
+        },
+        {
+          "gold": "unknown",
+          "predicted": "violated",
+          "count": 3
+        }
+      ],
+      "records": [
+        {
+          "case_id": "unit-view-ood",
+          "source_task_id": "dev-stable-ordering",
+          "normalized_error_rate": 1.0,
+          "parse_errors": {}
+        }
+      ],
+      "evidence_semantic_support": "not automatically scored; requires independent review",
+      "normalization": "Accept findings or ID-keyed objects; do not modify any predicted status"
+    }
+  },
+  "D-seed-0": {
+    "test": {
+      "counts": {
+        "cases": 1,
+        "missing_predictions": 0,
+        "strict_valid": 0,
+        "normalized_valid": 0,
+        "status_items": 4,
+        "strict_errors": 4,
+        "normalized_errors": 4,
+        "unsafe_opportunities": 2,
+        "unsafe_satisfied": 0
+      },
+      "task_mean_error_rate": 1.0,
+      "source_task_groups": 1,
+      "per_task_error_rate": {
+        "dev-unicode-normalization": 1.0
+      },
+      "confusion": [
+        {
+          "gold": "unknown",
+          "predicted": "invalid",
+          "count": 4
+        }
+      ],
+      "records": [
+        {
+          "case_id": "unit-view-test",
+          "source_task_id": "dev-unicode-normalization",
+          "normalized_error_rate": 1.0,
+          "parse_errors": {
+            "strict": "Expecting value: line 1 column 1 (char 0)",
+            "normalized": "Expecting value: line 1 column 1 (char 0)"
+          }
+        }
+      ],
+      "evidence_semantic_support": "not automatically scored; requires independent review",
+      "normalization": "Accept findings or ID-keyed objects; do not modify any predicted status"
+    },
+    "ood": {
+      "counts": {
+        "cases": 1,
+        "missing_predictions": 0,
+        "strict_valid": 0,
+        "normalized_valid": 0,
+        "status_items": 4,
+        "strict_errors": 4,
+        "normalized_errors": 4,
+        "unsafe_opportunities": 2,
+        "unsafe_satisfied": 0
+      },
+      "task_mean_error_rate": 1.0,
+      "source_task_groups": 1,
+      "per_task_error_rate": {
+        "dev-stable-ordering": 1.0
+      },
+      "confusion": [
+        {
+          "gold": "unknown",
+          "predicted": "invalid",
+          "count": 4
+        }
+      ],
+      "records": [
+        {
+          "case_id": "unit-view-ood",
+          "source_task_id": "dev-stable-ordering",
+          "normalized_error_rate": 1.0,
+          "parse_errors": {
+            "strict": "Extra data: line 1 column 4 (char 3)",
+            "normalized": "Extra data: line 1 column 4 (char 3)"
+          }
+        }
+      ],
+      "evidence_semantic_support": "not automatically scored; requires independent review",
+      "normalization": "Accept findings or ID-keyed objects; do not modify any predicted status"
+    }
+  },
+  "D-seed-1": {
+    "test": {
+      "counts": {
+        "cases": 1,
+        "missing_predictions": 0,
+        "strict_valid": 0,
+        "normalized_valid": 0,
+        "status_items": 4,
+        "strict_errors": 4,
+        "normalized_errors": 4,
+        "unsafe_opportunities": 2,
+        "unsafe_satisfied": 0
+      },
+      "task_mean_error_rate": 1.0,
+      "source_task_groups": 1,
+      "per_task_error_rate": {
+        "dev-unicode-normalization": 1.0
+      },
+      "confusion": [
+        {
+          "gold": "unknown",
+          "predicted": "invalid",
+          "count": 4
+        }
+      ],
+      "records": [
+        {
+          "case_id": "unit-view-test",
+          "source_task_id": "dev-unicode-normalization",
+          "normalized_error_rate": 1.0,
+          "parse_errors": {
+            "strict": "Expecting value: line 1 column 1 (char 0)",
+            "normalized": "Expecting value: line 1 column 1 (char 0)"
+          }
+        }
+      ],
+      "evidence_semantic_support": "not automatically scored; requires independent review",
+      "normalization": "Accept findings or ID-keyed objects; do not modify any predicted status"
+    },
+    "ood": {
+      "counts": {
+        "cases": 1,
+        "missing_predictions": 0,
+        "strict_valid": 0,
+        "normalized_valid": 0,
+        "status_items": 4,
+        "strict_errors": 4,
+        "normalized_errors": 4,
+        "unsafe_opportunities": 2,
+        "unsafe_satisfied": 0
+      },
+      "task_mean_error_rate": 1.0,
+      "source_task_groups": 1,
+      "per_task_error_rate": {
+        "dev-stable-ordering": 1.0
+      },
+      "confusion": [
+        {
+          "gold": "unknown",
+          "predicted": "invalid",
+          "count": 4
+        }
+      ],
+      "records": [
+        {
+          "case_id": "unit-view-ood",
+          "source_task_id": "dev-stable-ordering",
+          "normalized_error_rate": 1.0,
+          "parse_errors": {
+            "strict": "Extra data: line 1 column 4 (char 3)",
+            "normalized": "Extra data: line 1 column 4 (char 3)"
+          }
+        }
+      ],
+      "evidence_semantic_support": "not automatically scored; requires independent review",
+      "normalization": "Accept findings or ID-keyed objects; do not modify any predicted status"
+    }
+  },
+  "D-seed-2": {
+    "test": {
+      "counts": {
+        "cases": 1,
+        "missing_predictions": 0,
+        "strict_valid": 0,
+        "normalized_valid": 0,
+        "status_items": 4,
+        "strict_errors": 4,
+        "normalized_errors": 4,
+        "unsafe_opportunities": 2,
+        "unsafe_satisfied": 0
+      },
+      "task_mean_error_rate": 1.0,
+      "source_task_groups": 1,
+      "per_task_error_rate": {
+        "dev-unicode-normalization": 1.0
+      },
+      "confusion": [
+        {
+          "gold": "unknown",
+          "predicted": "invalid",
+          "count": 4
+        }
+      ],
+      "records": [
+        {
+          "case_id": "unit-view-test",
+          "source_task_id": "dev-unicode-normalization",
+          "normalized_error_rate": 1.0,
+          "parse_errors": {
+            "strict": "Expecting value: line 1 column 1 (char 0)",
+            "normalized": "Expecting value: line 1 column 1 (char 0)"
+          }
+        }
+      ],
+      "evidence_semantic_support": "not automatically scored; requires independent review",
+      "normalization": "Accept findings or ID-keyed objects; do not modify any predicted status"
+    },
+    "ood": {
+      "counts": {
+        "cases": 1,
+        "missing_predictions": 0,
+        "strict_valid": 0,
+        "normalized_valid": 0,
+        "status_items": 4,
+        "strict_errors": 4,
+        "normalized_errors": 4,
+        "unsafe_opportunities": 2,
+        "unsafe_satisfied": 0
+      },
+      "task_mean_error_rate": 1.0,
+      "source_task_groups": 1,
+      "per_task_error_rate": {
+        "dev-stable-ordering": 1.0
+      },
+      "confusion": [
+        {
+          "gold": "unknown",
+          "predicted": "invalid",
+          "count": 4
+        }
+      ],
+      "records": [
+        {
+          "case_id": "unit-view-ood",
+          "source_task_id": "dev-stable-ordering",
+          "normalized_error_rate": 1.0,
+          "parse_errors": {
+            "strict": "Expecting value: line 1 column 1 (char 0)",
+            "normalized": "Expecting value: line 1 column 1 (char 0)"
+          }
+        }
+      ],
+      "evidence_semantic_support": "not automatically scored; requires independent review",
+      "normalization": "Accept findings or ID-keyed objects; do not modify any predicted status"
+    }
+  },
+  "E-seed-0": {
+    "test": {
+      "counts": {
+        "cases": 1,
+        "missing_predictions": 0,
+        "strict_valid": 0,
+        "normalized_valid": 0,
+        "status_items": 4,
+        "strict_errors": 4,
+        "normalized_errors": 4,
+        "unsafe_opportunities": 2,
+        "unsafe_satisfied": 0
+      },
+      "task_mean_error_rate": 1.0,
+      "source_task_groups": 1,
+      "per_task_error_rate": {
+        "dev-unicode-normalization": 1.0
+      },
+      "confusion": [
+        {
+          "gold": "unknown",
+          "predicted": "invalid",
+          "count": 4
+        }
+      ],
+      "records": [
+        {
+          "case_id": "unit-view-test",
+          "source_task_id": "dev-unicode-normalization",
+          "normalized_error_rate": 1.0,
+          "parse_errors": {
+            "strict": "Expecting value: line 1 column 1 (char 0)",
+            "normalized": "Expecting value: line 1 column 1 (char 0)"
+          }
+        }
+      ],
+      "evidence_semantic_support": "not automatically scored; requires independent review",
+      "normalization": "Accept findings or ID-keyed objects; do not modify any predicted status"
+    },
+    "ood": {
+      "counts": {
+        "cases": 1,
+        "missing_predictions": 0,
+        "strict_valid": 0,
+        "normalized_valid": 0,
+        "status_items": 4,
+        "strict_errors": 4,
+        "normalized_errors": 4,
+        "unsafe_opportunities": 2,
+        "unsafe_satisfied": 0
+      },
+      "task_mean_error_rate": 1.0,
+      "source_task_groups": 1,
+      "per_task_error_rate": {
+        "dev-stable-ordering": 1.0
+      },
+      "confusion": [
+        {
+          "gold": "unknown",
+          "predicted": "invalid",
+          "count": 4
+        }
+      ],
+      "records": [
+        {
+          "case_id": "unit-view-ood",
+          "source_task_id": "dev-stable-ordering",
+          "normalized_error_rate": 1.0,
+          "parse_errors": {
+            "strict": "Extra data: line 1 column 4 (char 3)",
+            "normalized": "Extra data: line 1 column 4 (char 3)"
+          }
+        }
+      ],
+      "evidence_semantic_support": "not automatically scored; requires independent review",
+      "normalization": "Accept findings or ID-keyed objects; do not modify any predicted status"
+    }
+  },
+  "E-seed-1": {
+    "test": {
+      "counts": {
+        "cases": 1,
+        "missing_predictions": 0,
+        "strict_valid": 0,
+        "normalized_valid": 0,
+        "status_items": 4,
+        "strict_errors": 4,
+        "normalized_errors": 4,
+        "unsafe_opportunities": 2,
+        "unsafe_satisfied": 0
+      },
+      "task_mean_error_rate": 1.0,
+      "source_task_groups": 1,
+      "per_task_error_rate": {
+        "dev-unicode-normalization": 1.0
+      },
+      "confusion": [
+        {
+          "gold": "unknown",
+          "predicted": "invalid",
+          "count": 4
+        }
+      ],
+      "records": [
+        {
+          "case_id": "unit-view-test",
+          "source_task_id": "dev-unicode-normalization",
+          "normalized_error_rate": 1.0,
+          "parse_errors": {
+            "strict": "Expecting value: line 1 column 1 (char 0)",
+            "normalized": "Expecting value: line 1 column 1 (char 0)"
+          }
+        }
+      ],
+      "evidence_semantic_support": "not automatically scored; requires independent review",
+      "normalization": "Accept findings or ID-keyed objects; do not modify any predicted status"
+    },
+    "ood": {
+      "counts": {
+        "cases": 1,
+        "missing_predictions": 0,
+        "strict_valid": 0,
+        "normalized_valid": 0,
+        "status_items": 4,
+        "strict_errors": 4,
+        "normalized_errors": 4,
+        "unsafe_opportunities": 2,
+        "unsafe_satisfied": 0
+      },
+      "task_mean_error_rate": 1.0,
+      "source_task_groups": 1,
+      "per_task_error_rate": {
+        "dev-stable-ordering": 1.0
+      },
+      "confusion": [
+        {
+          "gold": "unknown",
+          "predicted": "invalid",
+          "count": 4
+        }
+      ],
+      "records": [
+        {
+          "case_id": "unit-view-ood",
+          "source_task_id": "dev-stable-ordering",
+          "normalized_error_rate": 1.0,
+          "parse_errors": {
+            "strict": "Extra data: line 1 column 4 (char 3)",
+            "normalized": "Extra data: line 1 column 4 (char 3)"
+          }
+        }
+      ],
+      "evidence_semantic_support": "not automatically scored; requires independent review",
+      "normalization": "Accept findings or ID-keyed objects; do not modify any predicted status"
+    }
+  },
+  "E-seed-2": {
+    "test": {
+      "counts": {
+        "cases": 1,
+        "missing_predictions": 0,
+        "strict_valid": 0,
+        "normalized_valid": 0,
+        "status_items": 4,
+        "strict_errors": 4,
+        "normalized_errors": 4,
+        "unsafe_opportunities": 2,
+        "unsafe_satisfied": 0
+      },
+      "task_mean_error_rate": 1.0,
+      "source_task_groups": 1,
+      "per_task_error_rate": {
+        "dev-unicode-normalization": 1.0
+      },
+      "confusion": [
+        {
+          "gold": "unknown",
+          "predicted": "invalid",
+          "count": 4
+        }
+      ],
+      "records": [
+        {
+          "case_id": "unit-view-test",
+          "source_task_id": "dev-unicode-normalization",
+          "normalized_error_rate": 1.0,
+          "parse_errors": {
+            "strict": "Expecting value: line 1 column 1 (char 0)",
+            "normalized": "Expecting value: line 1 column 1 (char 0)"
+          }
+        }
+      ],
+      "evidence_semantic_support": "not automatically scored; requires independent review",
+      "normalization": "Accept findings or ID-keyed objects; do not modify any predicted status"
+    },
+    "ood": {
+      "counts": {
+        "cases": 1,
+        "missing_predictions": 0,
+        "strict_valid": 0,
+        "normalized_valid": 0,
+        "status_items": 4,
+        "strict_errors": 4,
+        "normalized_errors": 4,
+        "unsafe_opportunities": 2,
+        "unsafe_satisfied": 0
+      },
+      "task_mean_error_rate": 1.0,
+      "source_task_groups": 1,
+      "per_task_error_rate": {
+        "dev-stable-ordering": 1.0
+      },
+      "confusion": [
+        {
+          "gold": "unknown",
+          "predicted": "invalid",
+          "count": 4
+        }
+      ],
+      "records": [
+        {
+          "case_id": "unit-view-ood",
+          "source_task_id": "dev-stable-ordering",
+          "normalized_error_rate": 1.0,
+          "parse_errors": {
+            "strict": "Expecting value: line 1 column 1 (char 0)",
+            "normalized": "Expecting value: line 1 column 1 (char 0)"
+          }
+        }
+      ],
+      "evidence_semantic_support": "not automatically scored; requires independent review",
+      "normalization": "Accept findings or ID-keyed objects; do not modify any predicted status"
+    }
+  }
+}

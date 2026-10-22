@@ -197,11 +197,14 @@ class ExecutionMatrixIntegrationTests(unittest.TestCase):
             export_sft(build_tasks(), root / "base-data")
             train_neural(dict(configuration(root / "base-data"), steps=2, eval_every=1, defer_test=True), root / "base")
             spec = fixture(root / "fixture", root / "base/model", Path(__file__).resolve().parents[1])
+            spec["budgets"]["max_new_tokens"] = 2  # Tiny engineering generations, not a quality experiment.
             lock = freeze(spec, root / "lock.json")
+            public_tasks_backup = Path(spec["execution"]["tasks"]).read_bytes()
             for path in (spec["execution"]["tasks"], spec["execution"]["references"],
                          spec["evidence"]["execution_and_oracle_audit"], spec["dataset"]["reviews"]):
                 Path(path).unlink()
-            for path in (Path(spec["dataset"]["export"]) / "heldout").rglob("gold.jsonl"):
+            gold_backup = {path: path.read_bytes() for path in (Path(spec["dataset"]["export"]) / "heldout").rglob("gold.jsonl")}
+            for path in gold_backup:
                 path.unlink()
             partial = run_matrix(lock, root / "matrix", engineering=True, stop_after_updates=1)
             self.assertEqual(partial["status"], "interrupted")
@@ -243,12 +246,40 @@ class ExecutionMatrixIntegrationTests(unittest.TestCase):
             finally:
                 proof_path.write_bytes(original)
             self.assertTrue(verify_execution_models(lock, binding, engineering=True)["verified"])
+            from intentlab.diagnostic_protocol import generate, reveal, verify_reveal
+            # Public contracts become visible for M5; references/reviews/gold
+            # remain absent until after predictions have been sealed.
+            Path(spec["execution"]["tasks"]).write_bytes(public_tasks_backup)
+            predictions = generate(lock, binding, root / "diagnostic-predictions", engineering=True)
+            self.assertEqual(predictions["status"], "sealed")
+            self.assertFalse(predictions["test_backend_injected"])
+            for path, raw in gold_backup.items():
+                path.write_bytes(raw)
+            scores = reveal(lock, binding, root / "diagnostic-predictions", root / "diagnostic-reveal", engineering=True)
+            self.assertEqual(scores["status"], "completed")
+            self.assertFalse(scores["test_loss_injected"])
+            self.assertEqual(len(list((root / "diagnostic-reveal").glob("*-loss.jsonl"))), 6)
+            for path in gold_backup:
+                path.unlink()
+            self.assertTrue(verify_reveal(lock, binding, root / "diagnostic-predictions", root / "diagnostic-reveal", True)["verified"])
             target = os.environ.get("INTENTLAB_EXECUTION_MATRIX_AUDIT_DIR")
             if target:
                 target = Path(target)
                 target.mkdir(parents=True, exist_ok=False)
                 shutil.copyfile(root / "lock.json", target / "protocol.engineering.lock.json")
                 shutil.copyfile(root / "execution-model-lock.json", target / "execution-model-lock.json")
+                for directory in ("diagnostic-predictions", "diagnostic-reveal"):
+                    shutil.copytree(root / directory, target / directory)
+                # Publish synthetic engineering inputs for independent offline
+                # replay; never use this path to publish sealed formal gold.
+                from intentlab.diagnostic_protocol import public_inputs
+                audit_cases, audit_examples, _ = public_inputs(lock)
+                (target / "diagnostic-inputs").mkdir()
+                write_jsonl(target / "diagnostic-inputs/cases.jsonl", audit_cases)
+                write_jsonl(target / "diagnostic-inputs/gold.jsonl", [json.loads(line)
+                    for raw in gold_backup.values() for line in raw.decode("utf-8").splitlines() if line.strip()])
+                (target / "diagnostic-inputs/examples.json").write_text(json.dumps(audit_examples), encoding="utf-8")
+                shutil.copyfile(spec["execution"]["tasks"], target / "diagnostic-inputs/tasks.jsonl")
                 for path in (root / "matrix").rglob("*"):
                     if path.is_file() and path.suffix in {".json", ".log"} and "model" not in path.parts:
                         destination = target / path.relative_to(root / "matrix")

@@ -1,0 +1,42 @@
+test_v2_six_real_workers_resume_without_execution_references_or_reviews (test_execution_protocol.ExecutionMatrixIntegrationTests.test_v2_six_real_workers_resume_without_execution_references_or_reviews) ... 
+
+
+{"step": 1, "validation_loss": 6.47598671913147, "lr": 0.001, "elapsed_seconds": 0.1979634240269661}
+{"step": 2, "validation_loss": 6.322148323059082, "lr": 0.001, "elapsed_seconds": 0.34654341638088226}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 382.69it/s]
+ERROR
+test_bad_selection_or_ablation_settings_cannot_freeze (test_execution_protocol.ExecutionProtocolTests.test_bad_selection_or_ablation_settings_cannot_freeze) ... ok
+test_changed_public_contract_even_with_updated_audit_hash_is_rejected (test_execution_protocol.ExecutionProtocolTests.test_changed_public_contract_even_with_updated_audit_hash_is_rejected) ... ok
+test_changed_reference_after_freeze_is_rejected (test_execution_protocol.ExecutionProtocolTests.test_changed_reference_after_freeze_is_rejected) ... ok
+test_duplicate_or_unverified_contract_review_is_rejected (test_execution_protocol.ExecutionProtocolTests.test_duplicate_or_unverified_contract_review_is_rejected) ... ok
+test_formal_freezer_cannot_pin_a_different_implementation_checkout (test_execution_protocol.ExecutionProtocolTests.test_formal_freezer_cannot_pin_a_different_implementation_checkout) ... ok
+test_legacy_formal_spec_cannot_silently_omit_execution (test_execution_protocol.ExecutionProtocolTests.test_legacy_formal_spec_cannot_silently_omit_execution) ... ok
+test_multiple_reviewed_variants_keep_the_same_source_group (test_execution_protocol.ExecutionProtocolTests.test_multiple_reviewed_variants_keep_the_same_source_group) ... ok
+test_training_verification_never_opens_execution_inputs_or_reference_audit (test_execution_protocol.ExecutionProtocolTests.test_training_verification_never_opens_execution_inputs_or_reference_audit) ... ok
+test_valid_v2_records_exact_tasks_and_condition_map (test_execution_protocol.ExecutionProtocolTests.test_valid_v2_records_exact_tasks_and_condition_map) ... ok
+
+======================================================================
+ERROR: test_v2_six_real_workers_resume_without_execution_references_or_reviews (test_execution_protocol.ExecutionMatrixIntegrationTests.test_v2_six_real_workers_resume_without_execution_references_or_reviews)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/autodl-tmp/formal-m1j-diagnostic-protocol/tests/test_execution_protocol.py", line 249, in test_v2_six_real_workers_resume_without_execution_references_or_reviews
+    predictions = generate(lock, binding, root / "diagnostic-predictions", engineering=True)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/formal-m1j-diagnostic-protocol/intentlab/diagnostic_protocol.py", line 145, in generate
+    cases, examples, tasks = public_inputs(protocol)
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/formal-m1j-diagnostic-protocol/intentlab/diagnostic_protocol.py", line 81, in public_inputs
+    if file_hash(record["path"]) != record["sha256"]:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/formal-m1j-diagnostic-protocol/intentlab/protocol.py", line 32, in file_hash
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmpkndyvrah/fixture/execution-tasks.jsonl'
+
+----------------------------------------------------------------------
+Ran 10 tests in 39.498s
+
+FAILED (errors=1)

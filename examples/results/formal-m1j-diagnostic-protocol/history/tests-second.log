@@ -1,0 +1,35 @@
+test_v2_six_real_workers_resume_without_execution_references_or_reviews (test_execution_protocol.ExecutionMatrixIntegrationTests.test_v2_six_real_workers_resume_without_execution_references_or_reviews) ... 
+
+
+{"step": 1, "validation_loss": 6.47598671913147, "lr": 0.001, "elapsed_seconds": 0.19980096817016602}
+{"step": 2, "validation_loss": 6.322148323059082, "lr": 0.001, "elapsed_seconds": 0.34657066874206066}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 470.16it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10264.88it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 13423.31it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11807.81it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10702.68it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11038.68it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11253.40it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 8984.13it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10691.96it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11091.85it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10822.02it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12487.03it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11956.88it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11142.36it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11062.60it/s]
+ok
+test_bad_selection_or_ablation_settings_cannot_freeze (test_execution_protocol.ExecutionProtocolTests.test_bad_selection_or_ablation_settings_cannot_freeze) ... ok
+test_changed_public_contract_even_with_updated_audit_hash_is_rejected (test_execution_protocol.ExecutionProtocolTests.test_changed_public_contract_even_with_updated_audit_hash_is_rejected) ... ok
+test_changed_reference_after_freeze_is_rejected (test_execution_protocol.ExecutionProtocolTests.test_changed_reference_after_freeze_is_rejected) ... ok
+test_duplicate_or_unverified_contract_review_is_rejected (test_execution_protocol.ExecutionProtocolTests.test_duplicate_or_unverified_contract_review_is_rejected) ... ok
+test_formal_freezer_cannot_pin_a_different_implementation_checkout (test_execution_protocol.ExecutionProtocolTests.test_formal_freezer_cannot_pin_a_different_implementation_checkout) ... ok
+test_legacy_formal_spec_cannot_silently_omit_execution (test_execution_protocol.ExecutionProtocolTests.test_legacy_formal_spec_cannot_silently_omit_execution) ... ok
+test_multiple_reviewed_variants_keep_the_same_source_group (test_execution_protocol.ExecutionProtocolTests.test_multiple_reviewed_variants_keep_the_same_source_group) ... ok
+test_training_verification_never_opens_execution_inputs_or_reference_audit (test_execution_protocol.ExecutionProtocolTests.test_training_verification_never_opens_execution_inputs_or_reference_audit) ... ok
+test_valid_v2_records_exact_tasks_and_condition_map (test_execution_protocol.ExecutionProtocolTests.test_valid_v2_records_exact_tasks_and_condition_map) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 41.572s
+
+OK
