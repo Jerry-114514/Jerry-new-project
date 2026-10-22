@@ -8,6 +8,7 @@
 - `matrix/matrix.json`, per-job and attempt records/logs: six tiny worker jobs, seven attempts including one interrupted/resumed job; all three paired seeds agree in data/base identity and token/example exposure.
 - `matrix/engineering-scope.json`: execution task/reference/audit files, initial reviews and held-out gold were removed before workers ran. Training and resume completed without them.
 - `verification.json`, `checksums.json`: saved result/config and paired-exposure recomputation plus file hashes.
+- `deployment.json`, `readiness-clean-checkout.json`: code commit `02ba2d9` was deployed to a separate clean AutoDL checkout; actual formal preparation check reports ready=false with 13 missing inputs/evidence items. It is not a formal freeze or training launch.
 
 Each pair used only four example exposures and 208 supervised tokens. These are infrastructure checks, not a substitute for the six planned official Qwen3.5-9B trainings or a scheduler efficacy finding. No actual human labels are generated or accepted by this audit.
 

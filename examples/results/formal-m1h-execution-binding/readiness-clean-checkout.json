@@ -1,0 +1,19 @@
+{
+  "ready": false,
+  "blockers": [
+    "Missing frozen execution input: tasks",
+    "Missing frozen execution input: references",
+    "Freeze an explicit nonempty list of reviewed development example IDs",
+    "Missing reviewed evidence file: power_analysis",
+    "Missing reviewed evidence file: length_and_compute_budget",
+    "Missing reviewed evidence file: semantic_dedup_review",
+    "Missing reviewed evidence file: provenance_and_release_review",
+    "Missing reviewed evidence file: test_sealing",
+    "Missing reviewed evidence file: execution_and_oracle_audit",
+    "Missing reviewed evidence file: controller_ablation_audit",
+    "Missing annotation input: cases",
+    "Missing annotation input: reviews",
+    "Missing reviewed data export"
+  ],
+  "scope": "formal"
+}

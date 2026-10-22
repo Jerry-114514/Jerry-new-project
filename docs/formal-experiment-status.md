@@ -29,6 +29,8 @@
 
 v2 工程验证已在 AutoDL 通过全部 124 项测试，并在删除执行材料/审核和测试 gold 后完成六个微型 CPU 训练 worker、七次启动及恢复，三对种子的训练量一致。合成单元署名不计人工审核；正式六次 9B 训练仍未启动，见 [v2 工程证据](../examples/results/formal-m1h-execution-binding/README.md)。
 
+`02ba2d9` 已部署到独立干净检出 `/root/autodl-tmp/Jerry-formal-v2-20261022`，保留旧工作树改动。正式准备检查 ready=false，共 13 项缺口，主要为执行任务/参考、真实审核与导出、少样本选择、功效/预算及科学审核/封存证据；这不是可以启动正式训练的状态。
+
 ## 审计发现和本轮修正
 
 1. 原训练器总是在完成训练时读取并评估 test。新增 `--defer-test`，开启后不打开、不分词、不计入数据指纹、不评价 test；只读 train 和 validation。原探索协议默认行为保留，正式开发和训练必须明确开启该参数。验证方式是在 test 文件放入非法 JSON，训练仍可完成且结果含 `test_deferred=true`。

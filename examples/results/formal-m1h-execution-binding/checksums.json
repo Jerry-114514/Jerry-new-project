@@ -1,4 +1,5 @@
 {
+  "deployment.json": "ccf1d3fa37c3b49d28d850705ecb00e49603e042b7c3f80776e871aec14e8c3b",
   "matrix/attempts/40af87e398b6494e950f7edb0ee762a8.ack.json": "f1b39c5230fe9055839e526365da596a244c7d8c1bfc04f9c1c712c8866ddeab",
   "matrix/attempts/40af87e398b6494e950f7edb0ee762a8.result.json": "3694219d9d5502afb1e6400b2a7870e4305505b8cf531ecb8325da3439202681",
   "matrix/attempts/5e42e234ad0241cea1984a0383d90c60.ack.json": "e2a0cb9757bb5a9752092e2ddc8a37a35d0d2216d4e26b92c5a4d4e9088184ee",
@@ -40,7 +41,8 @@
   "matrix/plateau-seed-2.config.json": "be7f56824843ec422366a1b554a7a3efbb3865a03de45963fd41fea5e1248411",
   "matrix/plateau-seed-2.log": "3d43d39244be39896891cabfe0736ca7b1d012a10d470a5e37abb42943859214",
   "matrix/protocol.engineering.lock.json": "3175476fafc639b13398afa5d85045c5e4bd86efd489f98a877bf3519a809492",
-  "README.md": "4b1b943111877b7f99a6eec4f4d065046ecbb6a6e07659a521f6db78436d116a",
+  "readiness-clean-checkout.json": "1c28399354b408ed0c49ef76b762e267b485ec5413e3891c71a07d64d673aed2",
+  "README.md": "2e677d575740208060e8a2aa9af475c6a42edb31a5dfcf3a0827c9708e3f55fb",
   "runtime-identity.json": "f80553684e0ab6cbb1493932795ffa0acd9a73d7da1fe1b11f2096f42617d8d3",
   "tests-autodl.log": "58855173c0a5341de6af7e2107c2cfac686496d25b61b20fe2002ef47fe64729",
   "tests-local.log": "594a25835c037454e230ea36c8a1caef6f4019303cd1ff6b34de56e2a05eaf21",

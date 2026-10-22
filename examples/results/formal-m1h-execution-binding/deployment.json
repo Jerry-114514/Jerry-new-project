@@ -1,0 +1,14 @@
+{
+  "kind": "formal_v2_clean_checkout_preparation",
+  "scope": "formal_preparation",
+  "code_commit": "02ba2d9002658fcf8a3cff83b0fe52782914b5be",
+  "source_root": "/root/autodl-tmp/Jerry-formal-v2-20261022",
+  "git_clean_at_check": true,
+  "active_implementation_matches_source_root": true,
+  "protocol_ready": false,
+  "blockers": 13,
+  "human_reviews_completed": 0,
+  "formal_protocol_frozen": false,
+  "formal_9b_training_started": false,
+  "warning": "Content readiness check only, not a GPU availability guarantee or a formal experiment. Other worktrees were preserved."
+}
