@@ -27,6 +27,16 @@ def summarize(records):
         measured = [r["elapsed_seconds"] for r in rows if "elapsed_seconds" in r]
         result[policy]["timed_runs"] = len(measured)
         result[policy]["mean_elapsed_seconds"] = sum(measured) / len(measured) if measured else None
+        ledgers = [r.get("shared_token_ledger") or r.get("model_pool", {}).get("shared_token_ledger") for r in rows]
+        ledgers = [ledger for ledger in ledgers if ledger is not None]
+        if ledgers:
+            result[policy]["budgeted_runs"] = len(ledgers)
+            result[policy]["charged_model_tokens"] = sum(ledger["charged_tokens"] for ledger in ledgers)
+            result[policy]["known_prompt_tokens"] = sum(ledger["known_prompt_tokens"] for ledger in ledgers)
+            result[policy]["known_completion_tokens"] = sum(ledger["known_completion_tokens"] for ledger in ledgers)
+            result[policy]["failed_generation_reservations"] = sum(ledger["failed_reservations"] for ledger in ledgers)
+            result[policy]["denied_model_calls"] = sum(ledger["denied_calls"] for ledger in ledgers)
+            result[policy]["token_accounting"] = "Charged totals include conservative reservations on failed generation"
     return result
 
 

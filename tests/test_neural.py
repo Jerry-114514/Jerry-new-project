@@ -23,6 +23,27 @@ def configuration(data, schedule="cosine", mode="full"):
 
 @unittest.skipUnless(AVAILABLE, "Install optional ML dependencies to run real-transformer tests")
 class NeuralIntegrationTests(unittest.TestCase):
+    def test_separate_role_models_reload_with_one_shared_budget(self):
+        from intentlab.model_pool import LocalModelPool
+        from intentlab.neural import train_neural
+        with tempfile.TemporaryDirectory() as name:
+            root = Path(name)
+            export_sft(build_tasks(), root / "data")
+            train_neural(configuration(root / "data"), root / "actor")
+            train_neural(configuration(root / "data", mode="lora"), root / "analyzer")
+            pool = LocalModelPool({"actor": root / "actor/model", "analyzer": root / "analyzer/model"},
+                                  max_new_tokens=2, token_budget=100)
+            try:
+                for role in ("actor", "analyzer", "actor"):
+                    reply = pool.role(role).complete("JSON:\n")
+                    self.assertIsInstance(reply["text"], str)
+                self.assertEqual(len(pool.loads), 3)
+                self.assertEqual(pool.ledger.snapshot()["calls"], 3)
+                self.assertLessEqual(pool.ledger.snapshot()["charged_tokens"], 100)
+                self.assertEqual([row["role"] for row in pool.generations], ["actor", "analyzer", "actor"])
+            finally:
+                pool.close()
+
     def test_deferred_test_training_never_opens_holdout(self):
         from intentlab.neural import train_neural
         with tempfile.TemporaryDirectory() as name:
@@ -67,6 +88,9 @@ class NeuralIntegrationTests(unittest.TestCase):
                 resumed = train_neural(config, interrupted, resume=interrupted / "latest.pt")
                 self.assertEqual(full["history"], resumed["history"])
                 self.assertEqual(full["test"], resumed["test"])
+                self.assertEqual(full["sample_exposures"], resumed["sample_exposures"])
+                self.assertEqual(full["supervised_tokens"], resumed["supervised_tokens"])
+                self.assertEqual(full["examples_seen"], config["steps"] * config["batch_size"] * config["accumulation"])
                 full_state = torch.load(root / (schedule + "-full") / "latest.pt", weights_only=True)
                 resumed_state = torch.load(interrupted / "latest.pt", weights_only=True)
                 self.assertTrue(all(torch.equal(t, resumed_state["weights"][k]) for k, t in full_state["weights"].items()))

@@ -1,0 +1,66 @@
+{
+  "kind": "formal_engineering_second_round",
+  "tests": {
+    "autodl_total": 71,
+    "autodl_skipped": 0,
+    "local_total": 71,
+    "local_skipped": 6
+  },
+  "development_inference": {
+    "cases": 8,
+    "strict_schema_valid": 8,
+    "gold_loaded": false,
+    "artifact_hash_checks": {
+      "predictions.jsonl": true,
+      "calls.jsonl": true
+    }
+  },
+  "role_audit": {
+    "calls": 3,
+    "charged_tokens": 773,
+    "loads": 3
+  },
+  "human_reviews_completed": 0,
+  "formal_training_started": false,
+  "source_normalized_utf8_sha256": {
+    "intentlab/__init__.py": "b426fd08c4fa2c4e6f8b9d7253752322cfa0f082f2981113219f3898bc5b3e86",
+    "intentlab/__main__.py": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279",
+    "intentlab/actors.py": "9e7d0926fa490917a1e381d7e2c2702e854626cb9026e50890a241854e40c810",
+    "intentlab/analysis.py": "df19d7f684f3a65da78a49bcfa6c89d18bef67df139e65a41fb24c24c05290ce",
+    "intentlab/budget.py": "a4639bca3d298068a22476db2f2aca7b1457e40f41f55670f83f37beb7bbb286",
+    "intentlab/cli.py": "0316263e96a340bd2309f10baf627f4cbcf0ac602cb38f64b7597093aa50b6b2",
+    "intentlab/core.py": "1f4485a7e2e082f084d3499ef7ea2ed7b6191095cfdee57808397fe889a64c5a",
+    "intentlab/fixtures.py": "dcea141943a2e07fd56b11458c3967b6a7de5e4090b26b605d9522ad1afbdc1f",
+    "intentlab/formal_data.py": "754007ed56784c07a0232108b9e0c1f2e00a21d8780cc09a8ae7fb8424fa9e74",
+    "intentlab/formal_eval.py": "91ea0fb5475f2f2b8f9095219f391620d179cb32590acd7062139867ebb13b2a",
+    "intentlab/formal_inference.py": "14097fcf24ad962ff34cadd2d6799fd869bfe8622b394bea9c0aed6238081c25",
+    "intentlab/hard_guard.py": "89dd736894fa749052de19c6458afd72a244ff4d1d179798c63ed579c12b1079",
+    "intentlab/learning.py": "259dea7e78c71835d0046ecb9f04a95115e03ec671333d1e2e92a4e63a1f8180",
+    "intentlab/model_backend.py": "8826b91354c88c966ea958a6c9b59056cb9405960694ac92e13ecce7c6eb93e8",
+    "intentlab/model_pool.py": "1d82d8db6dc0c30afb645585443d076857416085a6b3bbf646c5a64e292856b3",
+    "intentlab/neural.py": "ffc63ab096ff776b04629ac1019833e8add95412d9c3b0299772715375500151",
+    "intentlab/neural_audit.py": "cc1e3ae6b07b8e2b4e647c4f3554ee3a94cd8e89c947d8a59a6de3c71fff3e4d",
+    "intentlab/oracle.py": "0cba24a23b326e6dd42e4b18759baf1235885c5b06e2f68f3676d11e946e8df1",
+    "intentlab/planner.py": "603ccaa632a2c58cd523f9bb7cead50b4066d3b7c10ff236631d1c568aad4a9e",
+    "intentlab/prompts.py": "f6e9acfa527f76301f2ba842e24d53ae2208f779fc7ecfe3f9a9af7768223528",
+    "intentlab/report.py": "21c402727e4dfdc18aacee07043e79c6dc3301a168c12ebd042a6bc6b74780f7",
+    "intentlab/requirements.py": "035bfd762333835f01ddd6a474c4f0d401a4bcc9e6cc7173f54b5b1b4a9ca0af",
+    "intentlab/runner.py": "211723e72041e68cdb3ad4409d7a615118761069981869d79c9052d431d97f45",
+    "intentlab/schedules.py": "ebb5413c04d95716c5e44905a4b11736637c76dbfe360b44b489260f7f7cb717",
+    "intentlab/sft_data.py": "240a8850af33771dff22c39afd32c9228e1720fc1f2a6ff7cd016c16eb51d184",
+    "tests/test_formal_data.py": "133bf79dc70d58d7bf3362c57b4ecdfc124a92ffcc8ab0eb8fcd66e2aa6bafba",
+    "tests/test_formal_eval.py": "dcfb9c13b297b9925799a747ff8588893778fd29cfa9e43738de458033df717c",
+    "tests/test_formal_inference.py": "706201b6cc5a35db92e0a203157940c8d21a1c083dc0de7f79bc453897440bb2",
+    "tests/test_hard_guard.py": "0d6cadff47f4c8831881be530c3b21cdeffb76d4121652bd877546f1d558dbe8",
+    "tests/test_intentlab.py": "a31881f245eba2f591677df8c301715b4a0876099647228c1879a897695a0d40",
+    "tests/test_model_budget.py": "d7d7e7ba3d75e145a60bc4c7e495fe5f770421b5513fe133e6c9287d7bff728e",
+    "tests/test_model_interfaces.py": "bc7355dd78bbd1d782bf1dd1105ab3c09ad5d385091001e619d425856871bb58",
+    "tests/test_neural.py": "5ca0d48857d04532738c531df9d10153205a01e5fee385392179911fb0f40058",
+    "tests/test_prompts.py": "f56175ca3f995535c3388229feb031633730bfef01fa2aebe30792fe67be5fa4",
+    "scripts/analyze_gpu_diagnostics.py": "dea43042b93d13745b890f6ba208ba903f35ef245e1e0ec6720145a77398d301",
+    "scripts/audit_role_models.py": "db4b63e3557a3a3be88b7f1e00a0c528a4a5a0e6e195ae0d62a8ebd79b533963",
+    "scripts/build_formal_candidates.py": "62103af4c5830922d8c0e19fc20db459f100753967626c2594b4ab5485a0da9a",
+    "scripts/gpu_pilot.py": "6b37d4cd880863fd3582d816a601156a6e77444f8d9da81a048cca71bbe54166",
+    "scripts/run_guarded_closure.py": "1dadef699638e62fcf92d0ad2415a12d4cac37f550181f5f2a34a0844dab5511"
+  }
+}

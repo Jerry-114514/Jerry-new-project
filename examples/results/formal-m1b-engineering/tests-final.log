@@ -1,0 +1,152 @@
+test_derivatives_templates_and_normalized_requests_cannot_cross_splits (test_formal_data.FormalDataTests.test_derivatives_templates_and_normalized_requests_cannot_cross_splits) ... ok
+test_disagreement_requires_independent_explicit_adjudication (test_formal_data.FormalDataTests.test_disagreement_requires_independent_explicit_adjudication) ... ok
+test_dispute_packet_does_not_auto_adjudicate_review_disagreement (test_formal_data.FormalDataTests.test_dispute_packet_does_not_auto_adjudicate_review_disagreement) ... ok
+test_evidence_must_exist_and_hidden_events_cannot_be_cited (test_formal_data.FormalDataTests.test_evidence_must_exist_and_hidden_events_cannot_be_cited) ... ok
+test_holdout_gold_is_separate_from_training_files_and_model_inputs (test_formal_data.FormalDataTests.test_holdout_gold_is_separate_from_training_files_and_model_inputs) ... ok
+test_packet_is_unlabeled_and_export_has_provenance (test_formal_data.FormalDataTests.test_packet_is_unlabeled_and_export_has_provenance) ... ok
+test_prompt_uses_only_allowlisted_public_input_and_snapshots (test_formal_data.FormalDataTests.test_prompt_uses_only_allowlisted_public_input_and_snapshots) ... ok
+test_unverified_duplicate_or_missing_humans_cannot_export (test_formal_data.FormalDataTests.test_unverified_duplicate_or_missing_humans_cannot_export) ... ok
+test_bad_evidence_does_not_silently_change_correct_state (test_formal_eval.FormalEvaluationTests.test_bad_evidence_does_not_silently_change_correct_state) ... ok
+test_bootstrap_is_paired_and_rejects_mismatched_task_sets (test_formal_eval.FormalEvaluationTests.test_bootstrap_is_paired_and_rejects_mismatched_task_sets) ... ok
+test_duplicate_predictions_and_duplicate_json_keys_are_rejected (test_formal_eval.FormalEvaluationTests.test_duplicate_predictions_and_duplicate_json_keys_are_rejected) ... ok
+test_normalization_separates_interface_and_state_without_changing_status (test_formal_eval.FormalEvaluationTests.test_normalization_separates_interface_and_state_without_changing_status) ... ok
+test_task_weighting_does_not_treat_views_as_independent_tasks (test_formal_eval.FormalEvaluationTests.test_task_weighting_does_not_treat_views_as_independent_tasks) ... ok
+test_fewshot_requires_reviewed_development_and_blocks_overlap (test_formal_inference.FormalInferenceTests.test_fewshot_requires_reviewed_development_and_blocks_overlap) ... ok
+test_no_labels_enter_query_and_failed_cases_are_saved (test_formal_inference.FormalInferenceTests.test_no_labels_enter_query_and_failed_cases_are_saved) ... ok
+test_schema_adapter_keeps_snapshot_violation_without_history (test_formal_inference.FormalInferenceTests.test_schema_adapter_keeps_snapshot_violation_without_history) ... ok
+test_ablation_exposes_false_pass_regression_without_changing_model_gate (test_hard_guard.HardGuardTests.test_ablation_exposes_false_pass_regression_without_changing_model_gate) ... ok
+test_failed_tool_check_allows_report_but_blocks_data_write (test_hard_guard.HardGuardTests.test_failed_tool_check_allows_report_but_blocks_data_write) ... ok
+test_model_false_pass_cannot_commit_input_regression (test_hard_guard.HardGuardTests.test_model_false_pass_cannot_commit_input_regression) ... ok
+test_mutation_without_prior_validation_is_rejected (test_hard_guard.HardGuardTests.test_mutation_without_prior_validation_is_rejected) ... ok
+test_write_then_restore_is_rejected_even_when_snapshot_matches (test_hard_guard.HardGuardTests.test_write_then_restore_is_rejected_even_when_snapshot_matches) ... ok
+test_generation_training_and_test_separation (test_intentlab.DataLearningTests.test_generation_training_and_test_separation) ... ok
+test_task_loader_rejects_duplicate_ids (test_intentlab.DataLearningTests.test_task_loader_rejects_duplicate_ids) ... ok
+test_all_goldens_have_legal_execution (test_intentlab.EnvironmentTests.test_all_goldens_have_legal_execution) ... ok
+test_bad_paths (test_intentlab.EnvironmentTests.test_bad_paths) ... ok
+test_blocked_report_must_follow_failed_check (test_intentlab.EnvironmentTests.test_blocked_report_must_follow_failed_check) ... ok
+test_claimed_validation_does_not_override_tool (test_intentlab.EnvironmentTests.test_claimed_validation_does_not_override_tool) ... ok
+test_gate_accepts_verified_repair (test_intentlab.EnvironmentTests.test_gate_accepts_verified_repair) ... ok
+test_gate_does_not_accept_unknown_hard_constraints (test_intentlab.EnvironmentTests.test_gate_does_not_accept_unknown_hard_constraints) ... ok
+test_gate_rejects_regression_and_leaves_live_state (test_intentlab.EnvironmentTests.test_gate_rejects_regression_and_leaves_live_state) ... ok
+test_hidden_oracle_and_input_isolation (test_intentlab.EnvironmentTests.test_hidden_oracle_and_input_isolation) ... ok
+test_invalid_proposal_is_atomic (test_intentlab.EnvironmentTests.test_invalid_proposal_is_atomic) ... ok
+test_mandatory_validation_is_not_vacuously_satisfied (test_intentlab.EnvironmentTests.test_mandatory_validation_is_not_vacuously_satisfied) ... ok
+test_order_checks_actual_history (test_intentlab.EnvironmentTests.test_order_checks_actual_history) ... ok
+test_replay_checks_tools_and_rejects_tampered_evidence (test_intentlab.EnvironmentTests.test_replay_checks_tools_and_rejects_tampered_evidence) ... ok
+test_report_describes_actual_output_not_reference_answer (test_intentlab.EnvironmentTests.test_report_describes_actual_output_not_reference_answer) ... ok
+test_restore_does_not_erase_history (test_intentlab.EnvironmentTests.test_restore_does_not_erase_history) ... ok
+test_static_oracle_not_generated_by_actor (test_intentlab.EnvironmentTests.test_static_oracle_not_generated_by_actor) ... ok
+test_unknown_evidence_is_not_satisfied (test_intentlab.EnvironmentTests.test_unknown_evidence_is_not_satisfied) ... ok
+test_budget_respected (test_intentlab.RunnerTests.test_budget_respected) ... ok
+test_dependency_group_repair_and_strong_full_baseline (test_intentlab.RunnerTests.test_dependency_group_repair_and_strong_full_baseline) ... ok
+test_dynamic_verification_is_counted (test_intentlab.RunnerTests.test_dynamic_verification_is_counted) ... ok
+test_failed_actor_is_reported (test_intentlab.RunnerTests.test_failed_actor_is_reported) ... ok
+test_http_payload_excludes_oracle (test_intentlab.RunnerTests.test_http_payload_excludes_oracle) ... ok
+test_http_response_limit (test_intentlab.RunnerTests.test_http_response_limit) ... ok
+test_rejected_candidate_does_not_touch_input (test_intentlab.RunnerTests.test_rejected_candidate_does_not_touch_input) ... ok
+test_cosine_endpoints_and_nan (test_intentlab.SchedulerTests.test_cosine_endpoints_and_nan) ... ok
+test_lower_bound_and_serialized_resume (test_intentlab.SchedulerTests.test_lower_bound_and_serialized_resume) ... ok
+test_plateau_patience_and_cooldown (test_intentlab.SchedulerTests.test_plateau_patience_and_cooldown) ... ok
+test_relative_improvement (test_intentlab.SchedulerTests.test_relative_improvement) ... ok
+test_actor_and_analyzer_reservations_share_a_hard_cap (test_model_budget.BudgetTests.test_actor_and_analyzer_reservations_share_a_hard_cap) ... ok
+test_cli_dedicated_roles_are_both_called_and_share_recorded_budget (test_model_budget.BudgetTests.test_cli_dedicated_roles_are_both_called_and_share_recorded_budget) ... ok
+test_failed_generation_is_not_a_free_retry_or_reported_as_known_tokens (test_model_budget.BudgetTests.test_failed_generation_is_not_a_free_retry_or_reported_as_known_tokens) ... ok
+test_reservations_cannot_be_reset_or_settled_twice (test_model_budget.BudgetTests.test_reservations_cannot_be_reset_or_settled_twice) ... ok
+test_role_switches_keep_budget_and_never_keep_two_models_resident (test_model_budget.BudgetTests.test_role_switches_keep_budget_and_never_keep_two_models_resident) ... ok
+test_same_model_identity_is_reused_across_roles (test_model_budget.BudgetTests.test_same_model_identity_is_reused_across_roles) ... ok
+test_actor_gets_no_reference_answer (test_model_interfaces.ModelInterfaceTests.test_actor_gets_no_reference_answer) ... ok
+test_analyzer_abstains_on_invented_evidence (test_model_interfaces.ModelInterfaceTests.test_analyzer_abstains_on_invented_evidence) ... ok
+test_analyzer_preserves_snapshot_judgment_when_history_is_hidden (test_model_interfaces.ModelInterfaceTests.test_analyzer_preserves_snapshot_judgment_when_history_is_hidden) ... ok
+test_learned_risk_scores_do_not_override_hard_constraints (test_model_interfaces.ModelInterfaceTests.test_learned_risk_scores_do_not_override_hard_constraints) ... ok
+test_sft_export_and_group_isolation (test_model_interfaces.ModelInterfaceTests.test_sft_export_and_group_isolation) ... ok
+test_source_spans_and_unsupported_grammar (test_model_interfaces.ModelInterfaceTests.test_source_spans_and_unsupported_grammar) ... ok
+test_training_json_configuration_and_explicit_overrides (test_model_interfaces.ModelInterfaceTests.test_training_json_configuration_and_explicit_overrides) ... ok
+test_controlled_plateau_reduces_actual_optimizer_lr (test_neural.NeuralIntegrationTests.test_controlled_plateau_reduces_actual_optimizer_lr)
+Injected validation fixture tests control wiring, not empirical loss behavior. ... 
+
+
+{"step": 1, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.29583920538425446}
+{"step": 2, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.4175828527659178}
+{"step": 3, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.5351602528244257}
+{"step": 4, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.6390092484652996}
+{"step": 5, "validation_loss": 1.0, "lr": 0.0005, "elapsed_seconds": 0.7462511789053679}
+{"step": 6, "validation_loss": 1.0, "lr": 0.0005, "elapsed_seconds": 0.8562198877334595}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 490.05it/s]
+ok
+test_deferred_test_training_never_opens_holdout (test_neural.NeuralIntegrationTests.test_deferred_test_training_never_opens_holdout) ... 
+
+
+{"step": 2, "validation_loss": 6.322148323059082, "lr": 0.001, "elapsed_seconds": 0.22992827743291855}
+{"step": 4, "validation_loss": 6.177117347717285, "lr": 0.0005025, "elapsed_seconds": 0.47150159254670143}
+{"step": 6, "validation_loss": 6.161113739013672, "lr": 5e-06, "elapsed_seconds": 0.7060860134661198}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 496.13it/s]
+ok
+test_lora_trains_and_saved_adapter_generates_with_budget (test_neural.NeuralIntegrationTests.test_lora_trains_and_saved_adapter_generates_with_budget) ... 
+
+
+{"step": 2, "validation_loss": 6.652384042739868, "lr": 0.001, "elapsed_seconds": 0.27968137338757515}
+{"step": 4, "validation_loss": 6.640649080276489, "lr": 0.0005025, "elapsed_seconds": 0.5423772893846035}
+{"step": 6, "validation_loss": 6.639206647872925, "lr": 5e-06, "elapsed_seconds": 0.7977157514542341}
+ok
+test_masking_and_truncation_guards (test_neural.NeuralIntegrationTests.test_masking_and_truncation_guards) ... 
+
+
+ok
+test_resumed_training_matches_uninterrupted_training (test_neural.NeuralIntegrationTests.test_resumed_training_matches_uninterrupted_training) ... 
+
+
+{"step": 2, "validation_loss": 6.322148323059082, "lr": 0.001, "elapsed_seconds": 0.23843837715685368}
+{"step": 4, "validation_loss": 6.177117347717285, "lr": 0.0005025, "elapsed_seconds": 0.47925909608602524}
+{"step": 6, "validation_loss": 6.161113739013672, "lr": 5e-06, "elapsed_seconds": 0.7163433879613876}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 973.16it/s]
+
+
+
+{"step": 2, "validation_loss": 6.322148323059082, "lr": 0.001, "elapsed_seconds": 0.23008287139236927}
+
+
+
+{"step": 4, "validation_loss": 6.177117347717285, "lr": 0.0005025, "elapsed_seconds": 0.1144954115152359}
+{"step": 6, "validation_loss": 6.161113739013672, "lr": 5e-06, "elapsed_seconds": 0.3462090138345957}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 1005.83it/s]
+
+
+
+{"step": 2, "validation_loss": 6.322148323059082, "lr": 0.001, "elapsed_seconds": 0.22989997826516628}
+{"step": 4, "validation_loss": 6.117976188659668, "lr": 0.001, "elapsed_seconds": 0.45487785525619984}
+{"step": 6, "validation_loss": 5.94657564163208, "lr": 0.001, "elapsed_seconds": 0.6853108648210764}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 1022.00it/s]
+
+
+
+{"step": 2, "validation_loss": 6.322148323059082, "lr": 0.001, "elapsed_seconds": 0.22357646003365517}
+
+
+
+{"step": 4, "validation_loss": 6.117976188659668, "lr": 0.001, "elapsed_seconds": 0.11833740025758743}
+{"step": 6, "validation_loss": 5.94657564163208, "lr": 0.001, "elapsed_seconds": 0.3502919636666775}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 993.91it/s]
+ok
+test_separate_role_models_reload_with_one_shared_budget (test_neural.NeuralIntegrationTests.test_separate_role_models_reload_with_one_shared_budget) ... 
+
+
+{"step": 2, "validation_loss": 6.322148323059082, "lr": 0.001, "elapsed_seconds": 0.24081743694841862}
+{"step": 4, "validation_loss": 6.177117347717285, "lr": 0.0005025, "elapsed_seconds": 0.47416370548307896}
+{"step": 6, "validation_loss": 6.161113739013672, "lr": 5e-06, "elapsed_seconds": 0.7062256280332804}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 918.59it/s]
+
+
+
+{"step": 2, "validation_loss": 6.652384042739868, "lr": 0.001, "elapsed_seconds": 0.23831022530794144}
+{"step": 4, "validation_loss": 6.640649080276489, "lr": 0.0005025, "elapsed_seconds": 0.4731311500072479}
+{"step": 6, "validation_loss": 6.639206647872925, "lr": 5e-06, "elapsed_seconds": 0.7063429392874241}
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12235.94it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11363.38it/s]
+ok
+test_chat_prefix_disables_thinking_without_adding_an_extra_bos (test_prompts.PromptTests.test_chat_prefix_disables_thinking_without_adding_an_extra_bos) ... ok
+test_plain_tokenizer_keeps_the_existing_tiny_model_prefix (test_prompts.PromptTests.test_plain_tokenizer_keeps_the_existing_tiny_model_prefix) ... ok
+
+----------------------------------------------------------------------
+Ran 71 tests in 12.895s
+
+OK

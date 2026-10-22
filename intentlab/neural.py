@@ -105,6 +105,18 @@ def trainable_state(model):
     return {name: param.detach().cpu().clone() for name, param in model.named_parameters() if param.requires_grad}
 
 
+def sample_indices(step, count, per_step, seed, cache):
+    indices = []
+    for absolute in range(step * per_step, (step + 1) * per_step):
+        epoch, position = divmod(absolute, count)
+        if epoch not in cache:
+            order = list(range(count))
+            random.Random(seed + epoch).shuffle(order)
+            cache[epoch] = order
+        indices.append(cache[epoch][position])
+    return indices
+
+
 def restore_trainable(model, state):
     names = {name for name, param in model.named_parameters() if param.requires_grad}
     if names != set(state):
@@ -200,11 +212,15 @@ def train_neural(config, out, stop_after=None, resume=None):
         torch.cuda.reset_peak_memory_stats()
         torch.cuda.synchronize()
     encoded = {split: [encode_pair(tokenizer, row, config["max_length"]) for row in rows] for split, rows in splits.items()}
+    exposures = [0] * len(encoded["train"])
+    order_cache = {}
+    supervised_counts = [sum(label != -100 for label in row["labels"][1:]) for row in encoded["train"]]
     parameters = [p for p in model.parameters() if p.requires_grad]
     optimizer = torch.optim.AdamW(parameters, lr=config["lr"])
     scheduler = Plateau(config["lr"], min_lr=config["minimum_lr"])
     start, history, best_loss, best_weights = 0, [], float("inf"), None
     used_tokens = 0
+    used_supervised_tokens = 0
     if resume:
         saved = torch.load(resume, map_location="cpu", weights_only=True)
         if saved["config"] != config or saved["data_hash"] != fingerprint or saved["base_identity"] != identity:
@@ -215,6 +231,20 @@ def train_neural(config, out, stop_after=None, resume=None):
         start, history = saved["step"], saved["history"]
         best_loss, best_weights = saved["best_loss"], saved["best_weights"]
         used_tokens = saved["used_tokens"]
+        if "sample_exposures" in saved:
+            exposures = saved["sample_exposures"]
+        else:
+            # Older development checkpoints did not store exposure counters.
+            # Reconstruct them from the original deterministic sample order.
+            for old_step in range(start):
+                for index in sample_indices(old_step, len(exposures), config["batch_size"] * config["accumulation"],
+                                            config["seed"], order_cache):
+                    exposures[index] += 1
+        if len(exposures) != len(encoded["train"]) or sum(exposures) != start * config["batch_size"] * config["accumulation"]:
+            raise ValueError("Checkpoint exposure counts do not match training position")
+        used_supervised_tokens = sum(count * tokens for count, tokens in zip(exposures, supervised_counts))
+        if saved.get("used_supervised_tokens", used_supervised_tokens) != used_supervised_tokens:
+            raise ValueError("Checkpoint supervised-token count differs from sample exposures")
         random.setstate(saved["python_rng"])
         torch.set_rng_state(saved["torch_rng"])
         if device == "cuda":
@@ -229,13 +259,7 @@ def train_neural(config, out, stop_after=None, resume=None):
     n = len(encoded["train"])
     examples_per_step = config["batch_size"] * config["accumulation"]
     for step in range(start, end):
-        indices = []
-        for offset in range(examples_per_step):
-            absolute = step * examples_per_step + offset
-            epoch, position = divmod(absolute, n)
-            order = list(range(n))
-            random.Random(config["seed"] + epoch).shuffle(order)
-            indices.append(order[position])
+        indices = sample_indices(step, n, examples_per_step, config["seed"], order_cache)
         micros = [indices[i:i + config["batch_size"]] for i in range(0, len(indices), config["batch_size"])]
         total_targets = sum(sum(label != -100 for label in encoded["train"][i]["labels"][1:]) for i in indices)
         lr = (warmup_cosine(step, config["steps"], config["lr"], config["minimum_lr"], warmup)
@@ -255,6 +279,9 @@ def train_neural(config, out, stop_after=None, resume=None):
             used_tokens += sum(len(item["input_ids"]) for item in items)
         grad_norm = torch.nn.utils.clip_grad_norm_(parameters, 1.0, error_if_nonfinite=True)
         optimizer.step()
+        used_supervised_tokens += total_targets
+        for index in indices:
+            exposures[index] += 1
         if (step + 1) % config["eval_every"] == 0 or step + 1 == config["steps"]:
             validation = evaluate_loss(model, encoded["validation"], tokenizer, device, config["batch_size"])
             event = scheduler.step(validation["loss"]) if config["schedule"] == "plateau" and step + 1 >= warmup else None
@@ -269,6 +296,7 @@ def train_neural(config, out, stop_after=None, resume=None):
         checkpoint = {"config": config, "data_hash": fingerprint, "base_identity": identity, "step": step + 1,
             "weights": trainable_state(model), "optimizer": optimizer.state_dict(), "scheduler": asdict(scheduler),
             "history": history, "best_loss": best_loss, "best_weights": best_weights, "used_tokens": used_tokens,
+            "used_supervised_tokens": used_supervised_tokens, "sample_exposures": exposures,
             "python_rng": random.getstate(), "torch_rng": torch.get_rng_state(),
             "cuda_rng": torch.cuda.get_rng_state_all() if device == "cuda" else []}
         # Atomic replacement prevents a failed save from destroying the last good checkpoint.
@@ -277,6 +305,10 @@ def train_neural(config, out, stop_after=None, resume=None):
         temporary.replace(out / "latest.pt")
     result = {"kind": "causal_lm_sft", "completed": end == config["steps"], "config": config,
         "data_hash": fingerprint, "base_identity": identity, "step": end, "history": history, "train_tokens": used_tokens,
+        "supervised_tokens": used_supervised_tokens, "examples_seen": sum(exposures),
+        "sample_exposures": [{"index": index, "task_id": row["task_id"], "case_id": row.get("case_id"),
+                              "pair_hash": digest({"prompt": row["prompt"], "completion": row["completion"]}),
+                              "count": exposures[index]} for index, row in enumerate(splits["train"])],
         "parameters": sum(p.numel() for p in model.parameters()), "trainable_parameters": sum(p.numel() for p in parameters),
         "seconds_this_invocation": time.perf_counter() - started,
         "versions": {name: importlib.metadata.version(name) for name in ("torch", "transformers")}}

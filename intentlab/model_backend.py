@@ -1,6 +1,7 @@
 """Local Hugging Face generation, strict JSON interfaces and bounded token use."""
 
 import json
+import gc
 from pathlib import Path
 
 from .analysis import REQUIREMENTS
@@ -8,14 +9,11 @@ from .core import canonical, digest
 from .neural import dependencies
 from .sft_data import analysis_prompt
 from .prompts import prompt_ids
-
-
-class BudgetExceeded(ValueError):
-    pass
+from .budget import BudgetExceeded, TokenLedger
 
 
 class LocalBackend:
-    def __init__(self, model_path, device="cpu", max_new_tokens=256, token_budget=20000):
+    def __init__(self, model_path, device="cpu", max_new_tokens=256, token_budget=20000, ledger=None):
         if max_new_tokens < 1 or token_budget < 1:
             raise ValueError("Positive generation and token budgets required")
         torch, transformers = dependencies()
@@ -41,7 +39,10 @@ class LocalBackend:
             self.model = transformers.AutoModelForCausalLM.from_pretrained(self.path, **load_kwargs)
         self.model.to(device).eval()
         self.device, self.max_new_tokens, self.limit = device, max_new_tokens, token_budget
-        self.context = getattr(self.model.config, "max_position_embeddings", getattr(self.model.config, "n_positions", 2048))
+        self.owns_ledger = ledger is None
+        self.ledger = TokenLedger(token_budget) if ledger is None else ledger
+        text_config = getattr(self.model.config, "text_config", self.model.config)
+        self.context = getattr(text_config, "max_position_embeddings", getattr(text_config, "n_positions", 2048))
         configured_eos = self.model.generation_config.eos_token_id
         self.eos_ids = list(dict.fromkeys(
             [i for i in [self.tokenizer.eos_token_id] +
@@ -49,23 +50,39 @@ class LocalBackend:
         self.reset()
 
     def reset(self):
+        if self.owns_ledger:
+            self.ledger.reset()
         self.usage = {"prompt_tokens": 0, "completion_tokens": 0, "calls": 0}
         self.generations = []
 
-    def complete(self, prompt):
+    def close(self):
+        if hasattr(self, "model"):
+            del self.model
+        gc.collect()
+        if self.device == "cuda":
+            self.torch.cuda.empty_cache()
+
+    def complete(self, prompt, role="model"):
         ids = prompt_ids(self.tokenizer, prompt)
+        # Preserve the legacy mutable per-backend cap, including callers that
+        # lower backend.limit between calls, while also enforcing shared limits.
         used = self.usage["prompt_tokens"] + self.usage["completion_tokens"]
-        allowance = min(self.max_new_tokens, self.limit - used - len(ids), self.context - len(ids))
-        if allowance < 1:
-            raise BudgetExceeded("Prompt exceeds remaining token budget or model context")
-        batch = self.torch.tensor([ids], device=self.device)
+        context = min(self.context, max(1, self.limit - used))
+        ticket, allowance = self.ledger.begin(role, len(ids), self.max_new_tokens, context, digest(prompt))
         self.usage["prompt_tokens"] += len(ids)
         self.usage["calls"] += 1
-        with self.torch.no_grad():
-            generated = self.model.generate(input_ids=batch, attention_mask=self.torch.ones_like(batch),
-                max_new_tokens=allowance, do_sample=False, pad_token_id=self.tokenizer.pad_token_id,
-                eos_token_id=self.eos_ids or None)
-        new_ids = generated[0, len(ids):].tolist()
+        try:
+            batch = self.torch.tensor([ids], device=self.device)
+            with self.torch.no_grad():
+                generated = self.model.generate(input_ids=batch, attention_mask=self.torch.ones_like(batch),
+                    max_new_tokens=allowance, do_sample=False, pad_token_id=self.tokenizer.pad_token_id,
+                    eos_token_id=self.eos_ids or None)
+            new_ids = generated[0, len(ids):].tolist()
+            self.ledger.finish(ticket, len(new_ids))
+        except Exception as exc:
+            if ticket in self.ledger.pending:
+                self.ledger.fail(ticket, type(exc).__name__)
+            raise
         self.usage["completion_tokens"] += len(new_ids)
         result = {"text": self.tokenizer.decode(new_ids, skip_special_tokens=True),
                   "usage": {"prompt_tokens": len(ids), "completion_tokens": len(new_ids)}}
@@ -135,3 +152,31 @@ class LanguageModelAnalyzer:
             by_id = {rid: {"id": rid, "status": "unknown", "evidence": []} for rid in REQUIREMENTS}
         return [{"id": rid, "status": by_id[rid]["status"], "evidence": by_id[rid].get("evidence", []),
                  "hard": rid in {"R_INPUT", "R_ORDER"}, "reason": "language_model_judgment"} for rid in REQUIREMENTS]
+
+
+class SchemaLanguageModelAnalyzer:
+    """Full schema and snapshot references, adapted to the existing runner."""
+
+    def __init__(self, backend):
+        self.backend, self.errors = backend, []
+
+    def __call__(self, task, state, events_visible=True):
+        from .formal_data import formal_prompt, validate_findings
+        from .formal_eval import parse_prediction
+        from .requirements import extract_requirements
+        requirements = task.get("requirements")
+        if requirements is None:
+            requirements = [{"id": row["id"], "quote": row["quote"], "hard": row["type"] == "hard"}
+                            for row in extract_requirements(task["request"])]
+        public = {"request": task["request"], "inputs": task["inputs"], "requirements": requirements,
+                  "observation": {"files": state.files, "events": state.events if events_visible else None}}
+        response = self.backend.complete(formal_prompt(public))
+        try:
+            parsed = parse_prediction(response["text"], requirements)
+            findings = validate_findings(list(parsed.values()), public)
+        except (ValueError, KeyError, TypeError) as exc:
+            self.errors.append(str(exc))
+            findings = {row["id"]: {"status": "unknown", "evidence": []} for row in requirements}
+        return [{"id": row["id"], "status": findings[row["id"]]["status"], "hard": row["hard"],
+                 "evidence": findings[row["id"]]["evidence"], "reason": "schema_language_model_judgment"}
+                for row in requirements]

@@ -32,6 +32,9 @@ def main(argv=None):
                      help="Independent guard ablation in the virtual environment; model gate remains active")
     run.add_argument("--actor-url", default=None)
     run.add_argument("--model-path", type=Path, help="Local saved model for real language-model inference")
+    run.add_argument("--actor-model-path", type=Path, help="Fixed local execution model, separate from analyzer")
+    run.add_argument("--analyzer-model-path", type=Path, help="Local diagnostic model, separate from actor")
+    run.add_argument("--analyzer-interface", choices=["legacy", "schema"], default="legacy")
     run.add_argument("--model-role", choices=["actor", "analyzer", "both"], default="analyzer")
     run.add_argument("--device", choices=["cpu", "cuda"], default="cpu")
     run.add_argument("--max-new-tokens", type=int, default=256)
@@ -80,40 +83,71 @@ def main(argv=None):
             if risk_model.get("model_type") != "logistic_rule_signal_smoke_baseline":
                 parser.error("Unsupported risk model type")
             risk_weights = risk_model["weights"]
-        backend = None
+        backend, pool = None, None
+        separate = args.actor_model_path is not None or args.analyzer_model_path is not None
+        if separate:
+            if args.model_path or args.actor_url:
+                parser.error("Dedicated role paths cannot be combined with --model-path or --actor-url")
+            from .model_backend import LanguageModelActor, LanguageModelAnalyzer, SchemaLanguageModelAnalyzer
+            from .model_pool import LocalModelPool
+            paths = {role: path for role, path in (("actor", args.actor_model_path),
+                                                  ("analyzer", args.analyzer_model_path)) if path is not None}
+            pool = LocalModelPool(paths, args.device, args.max_new_tokens, args.token_budget)
         if args.model_path:
             if args.actor_url:
                 parser.error("Choose either a local model or HTTP actor")
-            from .model_backend import LocalBackend, LanguageModelActor, LanguageModelAnalyzer
+            from .model_backend import LocalBackend, LanguageModelActor, LanguageModelAnalyzer, SchemaLanguageModelAnalyzer
             backend = LocalBackend(args.model_path, args.device, args.max_new_tokens, args.token_budget)
         for policy in dict.fromkeys(args.policies):
             for repetition in range(args.repeats):
                 for task in tasks:
                     actor = HTTPActor(args.actor_url) if args.actor_url else ScriptedActor()
                     analyzer = None
+                    analyzer_type = None
+                    if backend or pool:
+                        analyzer_type = SchemaLanguageModelAnalyzer if args.analyzer_interface == "schema" else LanguageModelAnalyzer
+                    if pool:
+                        pool.reset()
+                        if "actor" in pool.paths:
+                            actor = LanguageModelActor(pool.role("actor"))
+                        if "analyzer" in pool.paths:
+                            analyzer = analyzer_type(pool.role("analyzer"))
                     if backend:
                         backend.reset()
                         if args.model_role in {"actor", "both"}:
                             actor = LanguageModelActor(backend)
                         if args.model_role in {"analyzer", "both"}:
-                            analyzer = LanguageModelAnalyzer(backend)
+                            analyzer = analyzer_type(backend)
                     result = run_task(task, actor, policy, args.max_repairs, args.redact_events, analyzer, risk_weights,
                                       hard_guard=not args.disable_hard_guard)
                     if backend:
                         result["model_usage"] = dict(backend.usage)
                         result["model_generations"] = list(backend.generations)
                         result["analyzer_errors"] = analyzer.errors if analyzer else []
+                        result["shared_token_ledger"] = backend.ledger.snapshot()
+                    if pool:
+                        result["model_pool"] = pool.snapshot()
+                        result["analyzer_errors"] = analyzer.errors if analyzer else []
                     result["repetition"] = repetition
                     records.append(result)
-        manifest = {"version": __version__, "python": platform.python_version(), "actor": "local_model" if backend else "http" if args.actor_url else "scripted",
+        manifest = {"version": __version__, "python": platform.python_version(), "actor": "local_model" if backend or pool else "http" if args.actor_url else "scripted",
                     "task_hash": digest(all_tasks), "policies": args.policies, "repeats": args.repeats,
                     "max_repairs": args.max_repairs, "redact_events": args.redact_events, "split": args.split,
                     "hard_guard_enabled": not args.disable_hard_guard,
-                    "model_role": args.model_role if backend else None, "token_budget": args.token_budget if backend else None,
+                    "model_role": list(pool.paths) if pool else args.model_role if backend else None,
+                    "model_paths": pool.paths if pool else {"shared": str(args.model_path)} if backend else None,
+                    "executor_is_language_model": ("actor" in pool.paths if pool else
+                                                    bool(backend and args.model_role in {"actor", "both"})),
+                    "analyzer_interface": args.analyzer_interface if backend or pool else None,
+                    "token_budget": args.token_budget if backend or pool else None,
                     "risk_model_hash": digest(risk_weights) if risk_weights else None,
-                    "warning": ("Greedy model repeats are not independent statistical samples." if backend else
+                    "warning": ("Greedy model repeats are not independent statistical samples." if backend or pool else
                                 "HTTP repeats require provider configuration to assess independence." if args.actor_url else
                                 "Scripted repeats are duplicates, not independent statistical samples.")}
+        if pool:
+            pool.close()
+        if backend:
+            backend.close()
         print(json.dumps(save_experiment(records, args.out, manifest), indent=2))
     elif args.command == "replay":
         tasks = {t["id"]: t for t in load_tasks(args.tasks)}
