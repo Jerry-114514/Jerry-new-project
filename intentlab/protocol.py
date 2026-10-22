@@ -17,6 +17,7 @@ import subprocess
 from .core import canonical, digest
 from .formal_data import formal_prompt, read_jsonl, resolve_reviews, validate_cases
 from .report import save_json
+from .execution_protocol import validate_execution_binding, validate_execution_settings, execution_condition_map
 
 
 EVIDENCE = ("power_analysis", "length_and_compute_budget", "semantic_dedup_review",
@@ -108,10 +109,27 @@ def check_spec(spec):
     required = {"schema_version", "scope", "source_root", "dataset", "models", "training", "seeds",
                 "schedules", "minimum_tasks", "conditions", "statistics", "budgets", "evidence", "dependencies",
                 "few_shot_case_ids"}
-    if not isinstance(spec, dict) or set(spec) != required or spec.get("schema_version") != 1:
-        return {"ready": False, "blockers": ["Protocol fields do not match schema_version=1"]}
+    version = spec.get("schema_version") if isinstance(spec, dict) else None
+    if version == 2:
+        required.add("execution")
+    if not isinstance(spec, dict) or set(spec) != required or type(version) is not int or version not in {1, 2}:
+        return {"ready": False, "blockers": ["Protocol fields do not match schema_version=1/2"]}
     if spec["scope"] not in {"formal", "engineering"}:
         blockers.append("scope must be formal or engineering")
+    if spec["scope"] == "formal" and version != 2:
+        blockers.append("Formal protocols require schema_version=2 with an execution binding")
+    if version == 2:
+        execution = spec["execution"]
+        if not isinstance(execution, dict) or set(execution) != {"tasks", "references", "settings"}:
+            blockers.append("Execution requires tasks/references/settings")
+        else:
+            for name in ("tasks", "references"):
+                if not isinstance(execution[name], str) or not Path(execution[name]).is_file():
+                    blockers.append("Missing frozen execution input: " + name)
+            try:
+                validate_execution_settings(execution["settings"])
+            except (ValueError, TypeError, KeyError) as exc:
+                blockers.append(str(exc))
     if spec["schedules"] != ["cosine", "plateau"] or spec["seeds"] != [0, 1, 2]:
         blockers.append("Main matrix must contain cosine/plateau and seeds 0,1,2")
     training = spec["training"]
@@ -167,6 +185,8 @@ def check_spec(spec):
     if not isinstance(spec["source_root"], str) or not (Path(spec["source_root"]) / "intentlab/neural.py").is_file():
         blockers.append("Missing source_root with training implementation")
     elif spec["scope"] == "formal":
+        if Path(spec["source_root"]).resolve() != Path(__file__).resolve().parents[1]:
+            blockers.append("Formal source_root must be the active protocol implementation checkout")
         git_state = source_git(spec["source_root"])
         if git_state["commit"] is None or not git_state["clean"]:
             blockers.append("Formal source must be a clean Git checkout with a recorded commit")
@@ -199,6 +219,8 @@ def check_spec(spec):
         audit = validate_cases(cases)
         selected, _ = resolve_reviews(cases, read_jsonl(data["reviews"]),
             read_jsonl(data["adjudications"]) if data["adjudications"] else [])
+        if version == 2:
+            validate_execution_binding(spec["execution"], cases, spec["evidence"]["execution_and_oracle_audit"])
         by_id = {case["case_id"]: case for case in cases}
         if any(cid not in by_id or by_id[cid]["split"] not in {"train", "validation"} for cid in examples):
             raise ValueError("Few-shot selection includes missing or held-out cases")
@@ -256,6 +278,9 @@ def freeze(spec, out):
             spec["dataset"][key] = str(Path(path).resolve())
     spec["models"] = {role: str(Path(path).resolve()) for role, path in spec["models"].items()}
     spec["evidence"] = {name: str(Path(path).resolve()) for name, path in spec["evidence"].items()}
+    if spec["schema_version"] == 2:
+        for name in ("tasks", "references"):
+            spec["execution"][name] = str(Path(spec["execution"][name]).resolve())
     out = Path(out)
     if out.exists():
         raise ValueError("Frozen protocol must not overwrite prior records")
@@ -272,7 +297,7 @@ def freeze(spec, out):
         if spec["scope"] == "formal":
             if key not in official_checks:
                 official_checks[key] = verify_official_assets(cache[key], spec["source_root"])
-    bundle = {"kind": "experiment_protocol_lock", "schema_version": 1, "spec": spec,
+    bundle = {"kind": "experiment_protocol_lock", "schema_version": spec["schema_version"], "spec": spec,
         "created_utc": datetime.now(timezone.utc).isoformat(), "scope": spec["scope"],
         "source": source_snapshot(spec["source_root"]), "models": models,
         "source_git": source_git(spec["source_root"]),
@@ -286,6 +311,17 @@ def freeze(spec, out):
             name: importlib.metadata.version(name) for name in spec["dependencies"]}},
         "readiness": audit,
         "warning": "Content freeze is not an external preregistration timestamp, identity proof or scientific quality guarantee."}
+    if spec["schema_version"] == 2:
+        paths = {name: spec["execution"][name] for name in ("tasks", "references")}
+        paths["audit"] = spec["evidence"]["execution_and_oracle_audit"]
+        before = {name: file_hash(path) for name, path in paths.items()}
+        if before["audit"] != bundle["evidence"]["execution_and_oracle_audit"]["sha256"]:
+            raise ValueError("Execution audit changed while freezing")
+        summary = validate_execution_binding(spec["execution"], read_jsonl(data["cases"]), paths["audit"])
+        if before != {name: file_hash(path) for name, path in paths.items()}:
+            raise ValueError("Execution inputs changed while freezing")
+        bundle["execution_binding"] = {"files": {name: {"path": path, "sha256": before[name]} for name, path in paths.items()},
+                                       "summary": summary}
     bundle["lock_hash"] = digest(bundle)
     out.parent.mkdir(parents=True, exist_ok=True)
     # Exclusive creation prevents a concurrent invocation replacing a freeze.
@@ -302,9 +338,18 @@ def verify(lock, phase="training"):
     if lock.get("kind") != "experiment_protocol_lock" or digest(payload) != lock.get("lock_hash"):
         raise ValueError("Protocol lock content changed")
     spec = lock["spec"]
+    if lock["scope"] == "formal" and spec.get("schema_version") != 2:
+        raise ValueError("Formal execution binding missing; legacy protocols are engineering only")
+    if spec.get("schema_version") == 2:
+        binding = lock.get("execution_binding")
+        if not isinstance(binding, dict) or set(binding) != {"files", "summary"} \
+                or binding["summary"]["condition_map"] != execution_condition_map(spec["execution"]["settings"]):
+            raise ValueError("Execution binding/settings missing from the frozen protocol")
     if source_snapshot(spec["source_root"]) != lock["source"]:
         raise ValueError("Implementation/configuration changed after freeze")
     if lock["scope"] == "formal":
+        if Path(spec["source_root"]).resolve() != Path(__file__).resolve().parents[1]:
+            raise ValueError("Formal runtime is outside the frozen implementation checkout")
         current_git = source_git(spec["source_root"])
         if current_git != lock["source_git"] or not current_git["clean"]:
             raise ValueError("Frozen formal Git commit/worktree changed")
@@ -333,6 +378,14 @@ def verify(lock, phase="training"):
         for record in list(lock["evidence"].values()) + list(lock["annotation_inputs"].values()):
             if file_hash(record["path"]) != record["sha256"]:
                 raise ValueError("Evidence or annotation input changed after freeze")
+        if spec.get("schema_version") == 2:
+            for record in lock["execution_binding"]["files"].values():
+                if file_hash(record["path"]) != record["sha256"]:
+                    raise ValueError("Execution input changed after freeze")
+            summary = validate_execution_binding(spec["execution"], read_jsonl(spec["dataset"]["cases"]),
+                                                 spec["evidence"]["execution_and_oracle_audit"])
+            if summary != lock["execution_binding"]["summary"]:
+                raise ValueError("Frozen execution binding differs from the reviewed inputs")
     return {"verified": True, "phase": phase, "lock_hash": lock["lock_hash"],
             "heldout_gold_opened": phase == "all"}
 

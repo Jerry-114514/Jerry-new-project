@@ -2,6 +2,8 @@
 
 本指南落实 [idea.md](../idea.md) 的 M1/M3/M4 工程要求。冻结工具和训练矩阵已实现；正式数据、人工审核、功效分析及新任务闭环审核仍未完成，因此现在不能启动确认性 9B 训练。
 
+正式协议现要求 schema_version=2，增加执行任务、独立参考、结构化人工核验、分析器选择及 k 消融绑定，见 [v2 执行协议说明](execution-protocol-binding.md)。旧 v1 仅保留工程兼容；下文文件名中的 v1 是历史命名示例，不代表可以用旧 schema 冻结正式运行。
+
 AutoDL 已建立独立源码检出 `/root/autodl-tmp/Jerry-formal-20261022`，准备检查时 commit 为 `1466bf358b5a770f8796081722b1e620d9d5ed0f`、工作区干净，使用既有 `/root/autodl-tmp/intentlab-venv/bin/python`。见[检出记录](../examples/results/formal-m1c-engineering/source-checkout.json)。该检出尚未冻结正式协议，也没有启动正式矩阵；以后部署新代码前仍须核查活动进程及版本。
 
 ## 1. 准备可审查协议

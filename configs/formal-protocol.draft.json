@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "scope": "formal",
   "source_root": ".",
   "dataset": {
@@ -34,6 +34,29 @@
   "minimum_tasks": {"train": 600, "validation": 150, "test": 200, "ood": 100},
   "conditions": ["A", "B", "C", "D", "E", "P1", "P2", "P3", "P4"],
   "few_shot_case_ids": [],
+  "execution": {
+    "tasks": "runs/formal-private/execution/tasks.jsonl",
+    "references": "runs/formal-private/execution/offline-references.jsonl",
+    "settings": {
+      "analyzer_condition": "D",
+      "analyzer_seed": 0,
+      "checkpoint_selection": "best_validation_loss",
+      "analyzer_mode": "model",
+      "dynamic_policy": "dynamic-k",
+      "intensity": {
+        "schema_version": 1,
+        "fixed_k": 1,
+        "max_k": 3,
+        "thresholds": [0.25, 0.5],
+        "hard_weight": 2.0,
+        "unknown_weight": 0.5
+      },
+      "fixed_k_values": [1, 2, 3],
+      "max_tool_steps": 3,
+      "actor_envelope": "extract",
+      "redact_events": false
+    }
+  },
   "statistics": {
     "unit": "source_task_id",
     "primary": "RQ1",

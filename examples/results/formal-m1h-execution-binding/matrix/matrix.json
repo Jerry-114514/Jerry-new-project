@@ -1,0 +1,336 @@
+{
+  "kind": "paired_training_matrix",
+  "schema_version": 1,
+  "scope": "engineering",
+  "lock_hash": "5dfb61f0651cdd86987556686ba6ab006834e196cd2f02ab46b310a4f65c827e",
+  "status": "completed",
+  "jobs": [
+    {
+      "name": "cosine-seed-0",
+      "config": {
+        "revision": null,
+        "mode": "full",
+        "device": "cpu",
+        "steps": 2,
+        "eval_every": 1,
+        "batch_size": 1,
+        "accumulation": 2,
+        "max_length": 2048,
+        "lr": 0.001,
+        "minimum_lr": 5e-06,
+        "rank": 4,
+        "alpha": 8,
+        "limit": 0,
+        "threads": 1,
+        "defer_test": true,
+        "data": "/tmp/tmparj7n0qp/fixture/reviewed-v2",
+        "model": "/tmp/tmparj7n0qp/base/model",
+        "schedule": "cosine",
+        "seed": 0
+      },
+      "status": "completed",
+      "attempt": "7c632edfc18345d8a3dcb5c43930d0aa",
+      "acknowledgement": "/tmp/tmparj7n0qp/matrix/attempts/7c632edfc18345d8a3dcb5c43930d0aa.ack.json",
+      "pid": 72817,
+      "attempts": [
+        {
+          "attempt": "6a8d92e555f94c2fa5b5a826782b03d9",
+          "status": "interrupted",
+          "pid": 72721,
+          "exit_code": 0
+        },
+        {
+          "attempt": "7c632edfc18345d8a3dcb5c43930d0aa",
+          "status": "completed",
+          "pid": 72817,
+          "exit_code": 0,
+          "result_sha256": "4488acf5dc34d7fd1eb9cf38b76a4916f690cc608da7117c6e10b78c208af895"
+        }
+      ],
+      "host": "autodl-container-bde2419a6c-1fd287c3",
+      "started_utc": "2026-10-22T14:05:49.859906+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-22T14:05:54.410686+00:00",
+      "result_sha256": "4488acf5dc34d7fd1eb9cf38b76a4916f690cc608da7117c6e10b78c208af895",
+      "artifacts_sha256": {
+        "latest.pt": "9844e98e9695b4d72614343ad92f693ea6f5bff27dfcafbcf0752692ae0e5d85",
+        "model/config.json": "43cfe49a5952c1a55ced051284a1238c2dbf8608b14b2df5e87a9f9c90f5566f",
+        "model/generation_config.json": "03c33f6bf812d2c5d5571360c587cc2f6544869513b44bf9d104605889935cdb",
+        "model/model.safetensors": "7673a5da51d5dc348bba0efd1aa2577a669bc2c8827ab920bb24c55bfd3e49c1",
+        "model/tokenizer.json": "130bd9152ed3e5a84dcea7bd9e439a39bc2ddf80fa1d09a8ab334bca2f41b271",
+        "model/tokenizer_config.json": "4771a3eafb4f5e40dbb1b9068cc3a5c823029eae4fcae3fe8ef1ca92da7836c7"
+      }
+    },
+    {
+      "name": "plateau-seed-0",
+      "config": {
+        "revision": null,
+        "mode": "full",
+        "device": "cpu",
+        "steps": 2,
+        "eval_every": 1,
+        "batch_size": 1,
+        "accumulation": 2,
+        "max_length": 2048,
+        "lr": 0.001,
+        "minimum_lr": 5e-06,
+        "rank": 4,
+        "alpha": 8,
+        "limit": 0,
+        "threads": 1,
+        "defer_test": true,
+        "data": "/tmp/tmparj7n0qp/fixture/reviewed-v2",
+        "model": "/tmp/tmparj7n0qp/base/model",
+        "schedule": "plateau",
+        "seed": 0
+      },
+      "status": "completed",
+      "attempt": "b6f02464f4194ac6b463544f1914b875",
+      "acknowledgement": "/tmp/tmparj7n0qp/matrix/attempts/b6f02464f4194ac6b463544f1914b875.ack.json",
+      "pid": 72915,
+      "attempts": [
+        {
+          "attempt": "b6f02464f4194ac6b463544f1914b875",
+          "status": "completed",
+          "pid": 72915,
+          "exit_code": 0,
+          "result_sha256": "b1f8937d955e3b8110605ef65c89918c6ce8ee53e65000f45e1ceb3112e64efc"
+        }
+      ],
+      "host": "autodl-container-bde2419a6c-1fd287c3",
+      "started_utc": "2026-10-22T14:05:54.421724+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-22T14:05:59.368418+00:00",
+      "result_sha256": "b1f8937d955e3b8110605ef65c89918c6ce8ee53e65000f45e1ceb3112e64efc",
+      "artifacts_sha256": {
+        "latest.pt": "b96a78e551b7c76d41f1b0308de7a35df1fb8792f08a8e666de42e3dc7594102",
+        "model/config.json": "43cfe49a5952c1a55ced051284a1238c2dbf8608b14b2df5e87a9f9c90f5566f",
+        "model/generation_config.json": "03c33f6bf812d2c5d5571360c587cc2f6544869513b44bf9d104605889935cdb",
+        "model/model.safetensors": "7673a5da51d5dc348bba0efd1aa2577a669bc2c8827ab920bb24c55bfd3e49c1",
+        "model/tokenizer.json": "130bd9152ed3e5a84dcea7bd9e439a39bc2ddf80fa1d09a8ab334bca2f41b271",
+        "model/tokenizer_config.json": "4771a3eafb4f5e40dbb1b9068cc3a5c823029eae4fcae3fe8ef1ca92da7836c7"
+      }
+    },
+    {
+      "name": "cosine-seed-1",
+      "config": {
+        "revision": null,
+        "mode": "full",
+        "device": "cpu",
+        "steps": 2,
+        "eval_every": 1,
+        "batch_size": 1,
+        "accumulation": 2,
+        "max_length": 2048,
+        "lr": 0.001,
+        "minimum_lr": 5e-06,
+        "rank": 4,
+        "alpha": 8,
+        "limit": 0,
+        "threads": 1,
+        "defer_test": true,
+        "data": "/tmp/tmparj7n0qp/fixture/reviewed-v2",
+        "model": "/tmp/tmparj7n0qp/base/model",
+        "schedule": "cosine",
+        "seed": 1
+      },
+      "status": "completed",
+      "attempt": "bbef1d9198754eeb99c97496df4ebfe5",
+      "acknowledgement": "/tmp/tmparj7n0qp/matrix/attempts/bbef1d9198754eeb99c97496df4ebfe5.ack.json",
+      "pid": 73013,
+      "attempts": [
+        {
+          "attempt": "bbef1d9198754eeb99c97496df4ebfe5",
+          "status": "completed",
+          "pid": 73013,
+          "exit_code": 0,
+          "result_sha256": "69d3e8f0cfac770cde867d33780e364bc3f167ab5b296794fa3a450ff332996b"
+        }
+      ],
+      "host": "autodl-container-bde2419a6c-1fd287c3",
+      "started_utc": "2026-10-22T14:05:59.384280+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-22T14:06:04.596858+00:00",
+      "result_sha256": "69d3e8f0cfac770cde867d33780e364bc3f167ab5b296794fa3a450ff332996b",
+      "artifacts_sha256": {
+        "latest.pt": "cbf5dbd5a630481cd555e47a03360c2b247ee79a0e698ca5c2f59c5eb6304940",
+        "model/config.json": "43cfe49a5952c1a55ced051284a1238c2dbf8608b14b2df5e87a9f9c90f5566f",
+        "model/generation_config.json": "03c33f6bf812d2c5d5571360c587cc2f6544869513b44bf9d104605889935cdb",
+        "model/model.safetensors": "1a1742345b7a38a599661b27afd04db79194495e896d2a720cc72aff9bc70036",
+        "model/tokenizer.json": "130bd9152ed3e5a84dcea7bd9e439a39bc2ddf80fa1d09a8ab334bca2f41b271",
+        "model/tokenizer_config.json": "4771a3eafb4f5e40dbb1b9068cc3a5c823029eae4fcae3fe8ef1ca92da7836c7"
+      }
+    },
+    {
+      "name": "plateau-seed-1",
+      "config": {
+        "revision": null,
+        "mode": "full",
+        "device": "cpu",
+        "steps": 2,
+        "eval_every": 1,
+        "batch_size": 1,
+        "accumulation": 2,
+        "max_length": 2048,
+        "lr": 0.001,
+        "minimum_lr": 5e-06,
+        "rank": 4,
+        "alpha": 8,
+        "limit": 0,
+        "threads": 1,
+        "defer_test": true,
+        "data": "/tmp/tmparj7n0qp/fixture/reviewed-v2",
+        "model": "/tmp/tmparj7n0qp/base/model",
+        "schedule": "plateau",
+        "seed": 1
+      },
+      "status": "completed",
+      "attempt": "40af87e398b6494e950f7edb0ee762a8",
+      "acknowledgement": "/tmp/tmparj7n0qp/matrix/attempts/40af87e398b6494e950f7edb0ee762a8.ack.json",
+      "pid": 73111,
+      "attempts": [
+        {
+          "attempt": "40af87e398b6494e950f7edb0ee762a8",
+          "status": "completed",
+          "pid": 73111,
+          "exit_code": 0,
+          "result_sha256": "3694219d9d5502afb1e6400b2a7870e4305505b8cf531ecb8325da3439202681"
+        }
+      ],
+      "host": "autodl-container-bde2419a6c-1fd287c3",
+      "started_utc": "2026-10-22T14:06:04.607962+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-22T14:06:09.738336+00:00",
+      "result_sha256": "3694219d9d5502afb1e6400b2a7870e4305505b8cf531ecb8325da3439202681",
+      "artifacts_sha256": {
+        "latest.pt": "dade3c46a56b79338f9283840918f5bac08ee103708894d3c3dc0a389450c075",
+        "model/config.json": "43cfe49a5952c1a55ced051284a1238c2dbf8608b14b2df5e87a9f9c90f5566f",
+        "model/generation_config.json": "03c33f6bf812d2c5d5571360c587cc2f6544869513b44bf9d104605889935cdb",
+        "model/model.safetensors": "1a1742345b7a38a599661b27afd04db79194495e896d2a720cc72aff9bc70036",
+        "model/tokenizer.json": "130bd9152ed3e5a84dcea7bd9e439a39bc2ddf80fa1d09a8ab334bca2f41b271",
+        "model/tokenizer_config.json": "4771a3eafb4f5e40dbb1b9068cc3a5c823029eae4fcae3fe8ef1ca92da7836c7"
+      }
+    },
+    {
+      "name": "cosine-seed-2",
+      "config": {
+        "revision": null,
+        "mode": "full",
+        "device": "cpu",
+        "steps": 2,
+        "eval_every": 1,
+        "batch_size": 1,
+        "accumulation": 2,
+        "max_length": 2048,
+        "lr": 0.001,
+        "minimum_lr": 5e-06,
+        "rank": 4,
+        "alpha": 8,
+        "limit": 0,
+        "threads": 1,
+        "defer_test": true,
+        "data": "/tmp/tmparj7n0qp/fixture/reviewed-v2",
+        "model": "/tmp/tmparj7n0qp/base/model",
+        "schedule": "cosine",
+        "seed": 2
+      },
+      "status": "completed",
+      "attempt": "cc53b1b752474e6bbdd66bb505c2ac43",
+      "acknowledgement": "/tmp/tmparj7n0qp/matrix/attempts/cc53b1b752474e6bbdd66bb505c2ac43.ack.json",
+      "pid": 73209,
+      "attempts": [
+        {
+          "attempt": "cc53b1b752474e6bbdd66bb505c2ac43",
+          "status": "completed",
+          "pid": 73209,
+          "exit_code": 0,
+          "result_sha256": "36b5aff933520bee963e70fc91e19d7b0f6ac4c270cfea3e03c99b5b6a093eb4"
+        }
+      ],
+      "host": "autodl-container-bde2419a6c-1fd287c3",
+      "started_utc": "2026-10-22T14:06:09.772012+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-22T14:06:14.904347+00:00",
+      "result_sha256": "36b5aff933520bee963e70fc91e19d7b0f6ac4c270cfea3e03c99b5b6a093eb4",
+      "artifacts_sha256": {
+        "latest.pt": "d472a5ecdb13922a5b8cd4c753e19ad7058c17781670b58301fe7561c2764102",
+        "model/config.json": "43cfe49a5952c1a55ced051284a1238c2dbf8608b14b2df5e87a9f9c90f5566f",
+        "model/generation_config.json": "03c33f6bf812d2c5d5571360c587cc2f6544869513b44bf9d104605889935cdb",
+        "model/model.safetensors": "cd60a748a66bd12f13aefc49484315d35838914d8f6930ea7d3987f0c1389484",
+        "model/tokenizer.json": "130bd9152ed3e5a84dcea7bd9e439a39bc2ddf80fa1d09a8ab334bca2f41b271",
+        "model/tokenizer_config.json": "4771a3eafb4f5e40dbb1b9068cc3a5c823029eae4fcae3fe8ef1ca92da7836c7"
+      }
+    },
+    {
+      "name": "plateau-seed-2",
+      "config": {
+        "revision": null,
+        "mode": "full",
+        "device": "cpu",
+        "steps": 2,
+        "eval_every": 1,
+        "batch_size": 1,
+        "accumulation": 2,
+        "max_length": 2048,
+        "lr": 0.001,
+        "minimum_lr": 5e-06,
+        "rank": 4,
+        "alpha": 8,
+        "limit": 0,
+        "threads": 1,
+        "defer_test": true,
+        "data": "/tmp/tmparj7n0qp/fixture/reviewed-v2",
+        "model": "/tmp/tmparj7n0qp/base/model",
+        "schedule": "plateau",
+        "seed": 2
+      },
+      "status": "completed",
+      "attempt": "5e42e234ad0241cea1984a0383d90c60",
+      "acknowledgement": "/tmp/tmparj7n0qp/matrix/attempts/5e42e234ad0241cea1984a0383d90c60.ack.json",
+      "pid": 73307,
+      "attempts": [
+        {
+          "attempt": "5e42e234ad0241cea1984a0383d90c60",
+          "status": "completed",
+          "pid": 73307,
+          "exit_code": 0,
+          "result_sha256": "48ed4b3860ec11f3ab4c1f0d1d7c55debe681ed275a2f05b324d589ee38675ca"
+        }
+      ],
+      "host": "autodl-container-bde2419a6c-1fd287c3",
+      "started_utc": "2026-10-22T14:06:14.942222+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-22T14:06:19.970364+00:00",
+      "result_sha256": "48ed4b3860ec11f3ab4c1f0d1d7c55debe681ed275a2f05b324d589ee38675ca",
+      "artifacts_sha256": {
+        "latest.pt": "2b9e34e6b24a972bb0647970afe30d93236238b35aa21a78656906137f14b34f",
+        "model/config.json": "43cfe49a5952c1a55ced051284a1238c2dbf8608b14b2df5e87a9f9c90f5566f",
+        "model/generation_config.json": "03c33f6bf812d2c5d5571360c587cc2f6544869513b44bf9d104605889935cdb",
+        "model/model.safetensors": "cd60a748a66bd12f13aefc49484315d35838914d8f6930ea7d3987f0c1389484",
+        "model/tokenizer.json": "130bd9152ed3e5a84dcea7bd9e439a39bc2ddf80fa1d09a8ab334bca2f41b271",
+        "model/tokenizer_config.json": "4771a3eafb4f5e40dbb1b9068cc3a5c823029eae4fcae3fe8ef1ca92da7836c7"
+      }
+    }
+  ],
+  "heldout_evaluated": false,
+  "paired_audit": [
+    {
+      "seed": 0,
+      "paired_exposure_equal": true,
+      "supervised_tokens": 208,
+      "examples_seen": 4
+    },
+    {
+      "seed": 1,
+      "paired_exposure_equal": true,
+      "supervised_tokens": 208,
+      "examples_seen": 4
+    },
+    {
+      "seed": 2,
+      "paired_exposure_equal": true,
+      "supervised_tokens": 208,
+      "examples_seen": 4
+    }
+  ]
+}
