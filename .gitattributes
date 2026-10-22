@@ -4,3 +4,4 @@ examples/results/formal-m1g-resource-audit/** text eol=lf
 examples/results/formal-m1h-execution-binding/** text eol=lf
 examples/results/formal-m1i-execution-models/** text eol=lf
 examples/results/formal-m1j-diagnostic-protocol/** text eol=lf
+examples/results/formal-m1k-frozen-execution/** text eol=lf

@@ -200,6 +200,7 @@ class ExecutionMatrixIntegrationTests(unittest.TestCase):
             spec["budgets"]["max_new_tokens"] = 2  # Tiny engineering generations, not a quality experiment.
             lock = freeze(spec, root / "lock.json")
             public_tasks_backup = Path(spec["execution"]["tasks"]).read_bytes()
+            execution_references_backup = Path(spec["execution"]["references"]).read_bytes()
             for path in (spec["execution"]["tasks"], spec["execution"]["references"],
                          spec["evidence"]["execution_and_oracle_audit"], spec["dataset"]["reviews"]):
                 Path(path).unlink()
@@ -262,13 +263,26 @@ class ExecutionMatrixIntegrationTests(unittest.TestCase):
             for path in gold_backup:
                 path.unlink()
             self.assertTrue(verify_reveal(lock, binding, root / "diagnostic-predictions", root / "diagnostic-reveal", True)["verified"])
+            from intentlab.frozen_execution import interact, reveal as reveal_execution, verify_scoring
+            interactions = interact(lock, binding, root / "diagnostic-predictions", root / "diagnostic-reveal", root / "execution-interactions", True)
+            self.assertEqual(interactions["status"], "sealed")
+            self.assertFalse(interactions["injected_pool"])
+            self.assertFalse(Path(spec["execution"]["references"]).exists())
+            Path(spec["execution"]["references"]).write_bytes(execution_references_backup)
+            execution_score = reveal_execution(lock, binding, root / "diagnostic-predictions", root / "diagnostic-reveal",
+                root / "execution-interactions", root / "execution-reveal", True)
+            self.assertEqual(execution_score["status"], "completed")
+            self.assertEqual(len(read_jsonl(root / "execution-reveal/runs.jsonl")), 8)
+            Path(spec["execution"]["references"]).unlink()
+            self.assertFalse(verify_scoring(lock, binding, root / "diagnostic-predictions", root / "diagnostic-reveal",
+                root / "execution-interactions", root / "execution-reveal", True)["references_reopened"])
             target = os.environ.get("INTENTLAB_EXECUTION_MATRIX_AUDIT_DIR")
             if target:
                 target = Path(target)
                 target.mkdir(parents=True, exist_ok=False)
                 shutil.copyfile(root / "lock.json", target / "protocol.engineering.lock.json")
                 shutil.copyfile(root / "execution-model-lock.json", target / "execution-model-lock.json")
-                for directory in ("diagnostic-predictions", "diagnostic-reveal"):
+                for directory in ("diagnostic-predictions", "diagnostic-reveal", "execution-interactions", "execution-reveal"):
                     shutil.copytree(root / directory, target / directory)
                 # Publish synthetic engineering inputs for independent offline
                 # replay; never use this path to publish sealed formal gold.
@@ -280,6 +294,7 @@ class ExecutionMatrixIntegrationTests(unittest.TestCase):
                     for raw in gold_backup.values() for line in raw.decode("utf-8").splitlines() if line.strip()])
                 (target / "diagnostic-inputs/examples.json").write_text(json.dumps(audit_examples), encoding="utf-8")
                 shutil.copyfile(spec["execution"]["tasks"], target / "diagnostic-inputs/tasks.jsonl")
+                (target / "diagnostic-inputs/references.jsonl").write_bytes(execution_references_backup)
                 for path in (root / "matrix").rglob("*"):
                     if path.is_file() and path.suffix in {".json", ".log"} and "model" not in path.parts:
                         destination = target / path.relative_to(root / "matrix")

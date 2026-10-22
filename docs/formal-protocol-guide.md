@@ -4,7 +4,7 @@
 
 正式协议现要求 schema_version=2，增加执行任务、独立参考、结构化人工核验、分析器选择及 k 消融绑定，见 [v2 执行协议说明](execution-protocol-binding.md)。旧 v1 仅保留工程兼容；下文文件名中的 v1 是历史命名示例，不代表可以用旧 schema 冻结正式运行。
 
-六组训练完成后须执行[最佳权重绑定](execution-model-binding.md)，核验实际导出与验证最优参数相符，并按冻结设置选择分析器。随后按 [M5 隔离诊断指南](frozen-diagnostic-guide.md)生成、封存和一次性揭晓。正式四条件执行入口仍待补齐；这些工程工具不代表正式协议或实际评测已完成。
+六组训练完成后须执行[最佳权重绑定](execution-model-binding.md)，核验实际导出与验证最优参数相符，并按冻结设置选择分析器。随后按 [M5 隔离诊断指南](frozen-diagnostic-guide.md)生成、封存和一次性揭晓，再接 [M6 冻结四条件闭环](frozen-execution-guide.md)。这些工程工具不代表正式协议或实际评测已完成。
 
 AutoDL 已建立独立源码检出 `/root/autodl-tmp/Jerry-formal-20261022`，准备检查时 commit 为 `1466bf358b5a770f8796081722b1e620d9d5ed0f`、工作区干净，使用既有 `/root/autodl-tmp/intentlab-venv/bin/python`。见[检出记录](../examples/results/formal-m1c-engineering/source-checkout.json)。该检出尚未冻结正式协议，也没有启动正式矩阵；以后部署新代码前仍须核查活动进程及版本。
 

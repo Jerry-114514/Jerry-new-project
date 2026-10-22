@@ -1,0 +1,2 @@
+{"files":{"output/data.json":[{"name":"Café"}],"output/report.json":{"input_rows":1,"output_rows":1,"status":"ok"}},"task_id":"exec-dev-unicode-normalization"}
+{"files":{"output/data.json":[{"id":"z","priority":1},{"id":"a","priority":1}],"output/report.json":{"input_rows":2,"output_rows":2,"status":"ok"}},"task_id":"exec-dev-stable-ordering"}

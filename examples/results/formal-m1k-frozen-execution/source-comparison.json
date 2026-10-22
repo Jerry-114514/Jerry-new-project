@@ -1,0 +1,8 @@
+{
+  "implementation_and_tests_match": true,
+  "compared_implementation_and_test_files": 60,
+  "differing_files": [
+    "scripts/audit_frozen_execution_evidence.py"
+  ],
+  "warning": "The standalone offline execution audit helper was added after the remote ML suite and validated by replay/tamper checks; it is not claimed covered by that suite."
+}

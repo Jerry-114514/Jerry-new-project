@@ -1,0 +1,10 @@
+test_formal_pool_injection_is_rejected (test_frozen_execution.FrozenExecutionTests.test_formal_pool_injection_is_rejected) ... ok
+test_missing_m5_receipt_prevents_interaction_claim (test_frozen_execution.FrozenExecutionTests.test_missing_m5_receipt_prevents_interaction_claim) ... ok
+test_paired_guard_control_and_all_interactions_before_reference_access (test_frozen_execution.FrozenExecutionTests.test_paired_guard_control_and_all_interactions_before_reference_access) ... ok
+test_tampering_is_rejected_before_execution_reference_reveal (test_frozen_execution.FrozenExecutionTests.test_tampering_is_rejected_before_execution_reference_reveal) ... ok
+test_wrong_reference_fails_after_claim_without_retry (test_frozen_execution.FrozenExecutionTests.test_wrong_reference_fails_after_claim_without_retry) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.997s
+
+OK

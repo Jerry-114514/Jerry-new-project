@@ -1,0 +1,10 @@
+{
+  "matrix/execution-interactions/interactions.jsonl": {
+    "rejected": true,
+    "reason": "Execution seal, receipt or raw outputs differ"
+  },
+  "matrix/diagnostic-inputs/references.jsonl": {
+    "rejected": true,
+    "reason": "Archived public tasks or engineering static references differ"
+  }
+}

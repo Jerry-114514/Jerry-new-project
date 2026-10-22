@@ -1,0 +1,60 @@
+{
+  "kind": "causal_lm_sft",
+  "completed": false,
+  "config": {
+    "data": "/tmp/tmpjvfyc6_4/fixture/reviewed-v2",
+    "model": "/tmp/tmpjvfyc6_4/base/model",
+    "revision": null,
+    "mode": "full",
+    "device": "cpu",
+    "schedule": "cosine",
+    "steps": 2,
+    "eval_every": 1,
+    "batch_size": 1,
+    "accumulation": 2,
+    "max_length": 2048,
+    "lr": 0.001,
+    "minimum_lr": 5e-06,
+    "rank": 4,
+    "alpha": 8,
+    "seed": 0,
+    "limit": 0,
+    "threads": 1,
+    "defer_test": true
+  },
+  "data_hash": "0e71fcac3663ebb4423b97f51c4758bc6d9236dc66687562992f7fcdbc505fba",
+  "base_identity": "4f27c5b2437f9cc1c4e4508f8e69a1f7912b7135dae0878e2175dfbf8e864781",
+  "step": 1,
+  "history": [
+    {
+      "step": 1,
+      "train_loss": 6.386866349440354,
+      "validation": {
+        "loss": 6.222339336688702,
+        "target_tokens": 52
+      },
+      "lr_used": 0.001,
+      "gradient_norm": 2.5853288173675537,
+      "scheduler": null
+    }
+  ],
+  "train_tokens": 3594,
+  "supervised_tokens": 104,
+  "examples_seen": 2,
+  "sample_exposures": [
+    {
+      "index": 0,
+      "task_id": "dev-decimal-rounding",
+      "case_id": "unit-view-train",
+      "pair_hash": "3fb576ad0900fa2c1fc6cb48953ca7dfd6f8e5dfb706cdbddb9adf0bbb8360db",
+      "count": 2
+    }
+  ],
+  "parameters": 191808,
+  "trainable_parameters": 191808,
+  "seconds_this_invocation": 0.795020904392004,
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.20.2"
+  }
+}

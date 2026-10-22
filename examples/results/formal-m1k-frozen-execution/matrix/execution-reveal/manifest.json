@@ -1,0 +1,24 @@
+{
+  "kind": "frozen_execution_reveal",
+  "schema_version": 1,
+  "scope": "engineering",
+  "status": "completed",
+  "protocol_hash": "fbd8b4dec54085825569b83c952c04910a83073fd36c3f5ef6b302ee10194435",
+  "interaction_seal_hash": "c061036ea9f6826896b44af6c2e4fa4f63203f196a6247922353b3c308c9abe5",
+  "model_binding_hash": "42ffbc3147800fc7cfffc24cf03168e6e30fb9f6622b5ae7698d0862fac0367c",
+  "claim": {
+    "phase": "execution-reveal",
+    "protocol_hash": "fbd8b4dec54085825569b83c952c04910a83073fd36c3f5ef6b302ee10194435",
+    "out": "/tmp/tmpjvfyc6_4/execution-reveal",
+    "pid": 88416,
+    "host": "autodl-container-bde2419a6c-1fd287c3",
+    "created_utc": "2026-10-22T15:34:55.005802+00:00"
+  },
+  "references_accessed_after_claim": true,
+  "files_sha256": {
+    "runs.jsonl": "050b411d723406ec99f45c98274c120a5e5dd265f324801fc9ded436eb74d4c6",
+    "summary.json": "2fd0c7e8ce5fe65a625fffd5a7a1e220a51db237748ffd6e2d85580d72547bd3"
+  },
+  "warning": "Offline counts and trace replay only. M7 ablations, M8 source-task/seed statistics and durable model backup remain required.",
+  "receipt_hash": "dbb8c9ae41b88e1e93f3446c333b81ba139631e00a87e6574cb54fac2352aafc"
+}

@@ -52,7 +52,7 @@ python -m intentlab.diagnostic_protocol reveal --protocol runs/formal-private/pr
 python -m intentlab.diagnostic_protocol verify-reveal --protocol runs/formal-private/protocol-v2.lock.json --binding runs/formal-private/execution-models.lock.json --predictions runs/formal-private/diagnostic-predictions --reveal runs/formal-private/diagnostic-reveal
 ```
 
-它核对协议、模型、封存预测、完成状态、六份损失文件及全部产物哈希，不再次打开 gold。该凭据将供后续 M6 使用；当前正式四条件闭环入口仍待实现。
+它核对协议、模型、封存预测、完成状态、六份损失文件及全部产物哈希，不再次打开 gold。该凭据供 [M6 四条件闭环入口](frozen-execution-guide.md)使用；目前仅完成工程验证，正式数据和模型评测尚未开始。
 
 工程协议须增加 `--engineering`；可注入测试后端/测试损失的路径只在 engineering 使用，并在清单中显式标识，formal 拒绝。实际微型端到端测试使用真实模型及真实损失，没有注入后端或损失。
 
