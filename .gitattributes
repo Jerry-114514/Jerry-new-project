@@ -10,3 +10,4 @@ examples/results/formal-m1m-frozen-ablation/** text eol=lf
 examples/results/formal-m1n-statistics-core/** text eol=lf
 examples/results/formal-m1o-candidate-statistics/** text eol=lf
 examples/results/formal-m2a-natural-training/** text eol=lf
+examples/results/formal-m3a-context-probe/** text eol=lf

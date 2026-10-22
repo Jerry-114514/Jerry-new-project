@@ -1,0 +1,27 @@
+{
+  "scope": "synthetic_hardware_stress_only",
+  "length_views_checked": 24,
+  "results": [
+    {
+      "sequence_tokens": 1024,
+      "updates": 2,
+      "allocated_gib": 16.824745178222656,
+      "reserved_gib": 17.5078125,
+      "training_loop_seconds": 5.296091312542558,
+      "whole_invocation_wall_seconds": 35.20622831955552
+    },
+    {
+      "sequence_tokens": 2048,
+      "updates": 2,
+      "allocated_gib": 20.183591842651367,
+      "reserved_gib": 24.1328125,
+      "training_loop_seconds": 7.379741579294205,
+      "whole_invocation_wall_seconds": 36.985275238752365
+    }
+  ],
+  "actual_tokenizer_reproduction": false,
+  "human_reviews_completed": 0,
+  "formal_training_started": false,
+  "formal_budget_approved": false,
+  "warning": "Short unrelated-target probes, not formal quality, a universal VRAM bound, 4096-token feasibility, RAM profiling or a six-run time estimate. PyTorch peaks exclude earlier model-loading peaks and external CUDA allocations."
+}

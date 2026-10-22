@@ -1,0 +1,21 @@
+{
+  "scope": "probe_preparation_failures",
+  "raw_logs_archived": false,
+  "source": "Tool transcript; this file records the observed errors and corrections, not a fabricated full traceback.",
+  "failures": [
+    {
+      "stage": "tokenizer import before any model training",
+      "error": "AttributeError: module 'profile' has no attribute 'run'",
+      "cause": "The original script filename profile.py shadowed Python's standard profile module during cProfile import.",
+      "correction": "Renamed to context_probe.py before retrying."
+    },
+    {
+      "stage": "synthetic stress input construction before model training",
+      "error": "ValueError: Stress filler did not produce exact length: 1025 != 1024",
+      "cause": "Chat-template boundary tokenization changed the additive filler estimate by one token.",
+      "correction": "Adjust filler from measured total token count and require exact equality; validated new data-1024-v2 and data-2048-v2 directories. The original empty data-1024 directory was preserved remotely."
+    }
+  ],
+  "training_attempt_failures": 0,
+  "human_labels_created": false
+}

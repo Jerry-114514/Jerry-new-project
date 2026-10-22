@@ -1,0 +1,76 @@
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]Loading weights:   0%|          | 1/427 [00:00<02:52,  2.46it/s]Loading weights:   0%|          | 2/427 [00:00<02:47,  2.53it/s]Loading weights:   3%|▎         | 13/427 [00:00<00:19, 20.88it/s]Loading weights:   7%|▋         | 28/427 [00:01<00:08, 44.66it/s]Loading weights:  10%|█         | 43/427 [00:01<00:05, 66.76it/s]Loading weights:  15%|█▍        | 63/427 [00:01<00:03, 96.86it/s]Loading weights:  19%|█▊        | 80/427 [00:01<00:03, 111.46it/s]Loading weights:  22%|██▏       | 95/427 [00:01<00:02, 119.74it/s]Loading weights:  26%|██▌       | 110/427 [00:01<00:02, 127.46it/s]Loading weights:  30%|███       | 130/427 [00:01<00:02, 144.23it/s]Loading weights:  34%|███▍      | 147/427 [00:01<00:01, 147.26it/s]Loading weights:  38%|███▊      | 163/427 [00:01<00:01, 140.94it/s]Loading weights:  43%|████▎     | 183/427 [00:01<00:01, 156.91it/s]Loading weights:  47%|████▋     | 200/427 [00:02<00:01, 156.50it/s]Loading weights:  51%|█████     | 217/427 [00:02<00:01, 151.68it/s]Loading weights:  55%|█████▌    | 235/427 [00:02<00:01, 159.41it/s]Loading weights:  59%|█████▉    | 253/427 [00:02<00:01, 157.20it/s]Loading weights:  63%|██████▎   | 269/427 [00:02<00:01, 149.74it/s]Loading weights:  67%|██████▋   | 285/427 [00:02<00:00, 151.89it/s]Loading weights:  71%|███████   | 304/427 [00:02<00:00, 162.48it/s]Loading weights:  75%|███████▌  | 321/427 [00:02<00:00, 147.74it/s]Loading weights:  80%|████████  | 342/427 [00:03<00:00, 162.31it/s]Loading weights:  84%|████████▍ | 359/427 [00:03<00:00, 157.19it/s]Loading weights:  88%|████████▊ | 375/427 [00:03<00:00, 149.90it/s]Loading weights:  92%|█████████▏| 394/427 [00:03<00:00, 158.58it/s]Loading weights:  96%|█████████▋| 411/427 [00:03<00:00, 160.83it/s]Loading weights: 100%|██████████| 427/427 [00:03<00:00, 118.31it/s]
+/root/miniconda3/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:929: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+{"step": 1, "validation_loss": 4.257050254128196, "lr": 5e-05, "elapsed_seconds": 2.3648112397640944}
+/root/miniconda3/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:929: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+{"step": 2, "validation_loss": 3.2936078851873223, "lr": 5e-05, "elapsed_seconds": 4.365183079615235}
+{
+  "kind": "causal_lm_sft",
+  "completed": true,
+  "config": {
+    "data": "/root/autodl-tmp/context-probe-20261023/data-1024-v2",
+    "model": "/root/autodl-tmp/models/Qwen3.5-9B",
+    "revision": null,
+    "mode": "qlora",
+    "device": "cuda",
+    "schedule": "cosine",
+    "steps": 2,
+    "eval_every": 1,
+    "batch_size": 1,
+    "accumulation": 2,
+    "max_length": 1024,
+    "lr": 5e-05,
+    "minimum_lr": 5e-06,
+    "rank": 16,
+    "alpha": 32,
+    "seed": 0,
+    "limit": 0,
+    "threads": 2,
+    "defer_test": true
+  },
+  "data_hash": "6be6c11efaf58f094bda6a2d54bff31a550bd44592945032e26e0ec3bf461a5b",
+  "base_identity": "457bf3ae902e56e0a24588f4a691ae1aa611de4c8f7cb7429d8b5d100b7ca1ef",
+  "step": 2,
+  "train_tokens": 4096,
+  "supervised_tokens": 44,
+  "examples_seen": 4,
+  "sample_exposures": [
+    {
+      "index": 0,
+      "task_id": "hardware-probe-train-a",
+      "case_id": null,
+      "pair_hash": "f2e4d48a7fef73943d64ccd629e2c1e08ca54dde8e118dd57ec7e32714b38923",
+      "count": 2
+    },
+    {
+      "index": 1,
+      "task_id": "hardware-probe-train-b",
+      "case_id": null,
+      "pair_hash": "c58be4479a4b341623de22848174e9702799952484852c2bafe325cdfe2838ec",
+      "count": 2
+    }
+  ],
+  "parameters": 5537829376,
+  "trainable_parameters": 43278336,
+  "seconds_this_invocation": 5.296091312542558,
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.20.2"
+  },
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "peak_allocated_bytes": 18065432576,
+  "peak_reserved_bytes": 18798870528,
+  "test_deferred": true,
+  "selection": {
+    "rule": "minimum_validation_loss_first_tie",
+    "step": 2,
+    "validation_loss": 3.2936078851873223,
+    "validation_target_tokens": 11,
+    "trainable_tensor_sha256": "11655e63c722fcea60856e8445fc3a53c7386e718559b649d67f91df3867378e",
+    "trainable_tensor_count": 496,
+    "export_files_sha256": {
+      "adapter_model.safetensors": "5bf344c74f0096055824c83b4e84cc5720b981004447a90eb9b67784adb42c11"
+    }
+  }
+}

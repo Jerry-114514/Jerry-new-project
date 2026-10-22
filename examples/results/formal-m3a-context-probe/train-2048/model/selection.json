@@ -1,0 +1,11 @@
+{
+  "rule": "minimum_validation_loss_first_tie",
+  "step": 2,
+  "validation_loss": 3.38937065818093,
+  "validation_target_tokens": 11,
+  "trainable_tensor_sha256": "d72c2e245aa6f8185fdb680a2eeb2b644d3c5f25deb96cc715c3b7da50c77afb",
+  "trainable_tensor_count": 496,
+  "export_files_sha256": {
+    "adapter_model.safetensors": "6f502d559aff06ac82535b4f290cba1cb5059ad825c07d0f5726eea5540b2ee5"
+  }
+}

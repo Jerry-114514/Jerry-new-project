@@ -1,0 +1,9 @@
+{
+  "scope": "synthetic_hardware_stress_only",
+  "checks": {
+    "allowance_change_rejected": "Prompt population, hash or token allowance changed",
+    "training_exposure_change_rejected": "Stress configuration, actual exposure or test isolation changed",
+    "formal_scope_change_rejected": "Engineering scope changed into a formal completion claim"
+  },
+  "formal_budget_approved": false
+}

@@ -1,0 +1,210 @@
+{
+  "cannot_generate": 0,
+  "cannot_reserve_full_generation": 0,
+  "cases_hash": "01ee87d50482bfbf04661c60bed0853ef05feab5bc8bfd25be084804ec5f07e4",
+  "context_limit": 2048,
+  "fewshot_audited": false,
+  "formal_length_compute_review_complete": false,
+  "max_new_tokens": 512,
+  "max_prompt_tokens": 1420,
+  "min_prompt_tokens": 727,
+  "prompt_only": true,
+  "reviewed_training_target_lengths_audited": false,
+  "rows": [
+    {
+      "case_id": "natural-9263c7e93b85e43f4500aca6",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "57c7dbae30db5a118356699815d8fcadf35120e2c5712d76559f8465f2694654",
+      "prompt_tokens": 1379,
+      "source_task_id": "train-candidate-cluster-decimal_round"
+    },
+    {
+      "case_id": "natural-8ace3593d869e50da1c3e13a",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "04e783be32097136b83bfa3c114e26970b0080f3148562f24cbcf2c4f35964a5",
+      "prompt_tokens": 929,
+      "source_task_id": "train-candidate-cluster-decimal_round"
+    },
+    {
+      "case_id": "natural-ff14b618ff6d0e39b65ed684",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "51bc036056c696466d01cb2e72bbefef671ef132090034d684f503fd7c53c2ab",
+      "prompt_tokens": 1373,
+      "source_task_id": "train-candidate-cluster-decimal_round"
+    },
+    {
+      "case_id": "natural-2d3cc473b012e075491d9fa6",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "ff7b938cde670171ae28240000454b5549b12d723dc5463f3ab95332d1cd5209",
+      "prompt_tokens": 913,
+      "source_task_id": "train-candidate-cluster-decimal_round"
+    },
+    {
+      "case_id": "natural-ad907af5b03cb586ed043e48",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "333fde9f0e110a1a5ced36aeceee497668e468a8ad8d04bae225cff0f11cd072",
+      "prompt_tokens": 1365,
+      "source_task_id": "train-candidate-cluster-decimal_round"
+    },
+    {
+      "case_id": "natural-3db1fa40f94280a6ae288da4",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "c19e0374c4b38e9db0b8e71c3e1d187eea2ab2b9c0d02cae04acc759b1a6b5cf",
+      "prompt_tokens": 923,
+      "source_task_id": "train-candidate-cluster-decimal_round"
+    },
+    {
+      "case_id": "natural-b40377fb0b95792132d77561",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "3a099033eaf17802199e8923ae2bd63795ee4399e6600c133d4ac95b87313053",
+      "prompt_tokens": 777,
+      "source_task_id": "train-candidate-cluster-unicode_nfc"
+    },
+    {
+      "case_id": "natural-c8b215d069baf653f41f266c",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "97bc0de46b4d01bc874658b746c62b1432bf1edb8d5c9e8ff9dbc9242bf9481a",
+      "prompt_tokens": 740,
+      "source_task_id": "train-candidate-cluster-unicode_nfc"
+    },
+    {
+      "case_id": "natural-8a579ff69e00f31ec81f8c7a",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "72b4a713578bbf37aa31ee26990127a9fd979e04ca5ee897aa8b7f43659f1913",
+      "prompt_tokens": 764,
+      "source_task_id": "train-candidate-cluster-unicode_nfc"
+    },
+    {
+      "case_id": "natural-fbd045f81e88d0b76e3d39ad",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "b4c1f41a8b065427ee3d4e5b624574a64ccd438a45e6bb0c6551a5eee5196892",
+      "prompt_tokens": 727,
+      "source_task_id": "train-candidate-cluster-unicode_nfc"
+    },
+    {
+      "case_id": "natural-ac612770e8ca018cf12e0306",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "d19586d9e83342af9cb4291278e79fbef977dbbda9bb317b5a27cdb19067a415",
+      "prompt_tokens": 765,
+      "source_task_id": "train-candidate-cluster-unicode_nfc"
+    },
+    {
+      "case_id": "natural-67d435ee06b446260af61152",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "f91ebe80b6b0a9333cc4e444c2a691c8a876b764cd60beb09dad5b19360bd6c1",
+      "prompt_tokens": 728,
+      "source_task_id": "train-candidate-cluster-unicode_nfc"
+    },
+    {
+      "case_id": "natural-0f9e32128793b1406fce8f4f",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "c6dc40264964f50d9279deece6cb2f50d757dc17ea2bba3b6012cfcaf8b9b5b7",
+      "prompt_tokens": 1411,
+      "source_task_id": "train-candidate-cluster-stable_sort"
+    },
+    {
+      "case_id": "natural-64a0540d181a457471bd9c4e",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "d2d04a42943824f3299a04d25c456732becaa6c49f515e7e84eb03f91d031aef",
+      "prompt_tokens": 946,
+      "source_task_id": "train-candidate-cluster-stable_sort"
+    },
+    {
+      "case_id": "natural-36e4dc84091b5cc4d28bb307",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "c4401d6221e11e386da71558017758f4a0fb3861e0bf4cdaba488335e43e1d79",
+      "prompt_tokens": 1386,
+      "source_task_id": "train-candidate-cluster-stable_sort"
+    },
+    {
+      "case_id": "natural-f1d58cac339d4839495c2893",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "a10114e3dd1ea42ffb18a711463d01d40ef2c70cf77e73723e2bcfe7d9ac304d",
+      "prompt_tokens": 928,
+      "source_task_id": "train-candidate-cluster-stable_sort"
+    },
+    {
+      "case_id": "natural-db099b073a47b749c633e8cd",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "8974df4d80accbe362c89814fa71ae2eeb9b6fe1ca735f0592a360dcaa3589d7",
+      "prompt_tokens": 1420,
+      "source_task_id": "train-candidate-cluster-stable_sort"
+    },
+    {
+      "case_id": "natural-08c7bcf78c84951a941fd026",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "229edd3810d773b8a96aa003966a8f41d5e714d8c5ad5e6f8bad32ffa24055f8",
+      "prompt_tokens": 950,
+      "source_task_id": "train-candidate-cluster-stable_sort"
+    },
+    {
+      "case_id": "natural-67d0c5a257b605448a72093d",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "0111c0d98ca0ba89bb76984ba0fe9578080f94aad5beaead56db2b352b703d63",
+      "prompt_tokens": 1046,
+      "source_task_id": "train-candidate-cluster-key_present"
+    },
+    {
+      "case_id": "natural-f13bd1065283b2f49f1b8007",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "35c11291d3f704bc59e1a863130751af48592b6584f6bf3d4fb4e708c772abfd",
+      "prompt_tokens": 830,
+      "source_task_id": "train-candidate-cluster-key_present"
+    },
+    {
+      "case_id": "natural-83a635d6b8be5203ac39fcdc",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "5092b344eafd33338b0d6d5b3b063603522b4592dbd8d3ccc673c6ce68faac9a",
+      "prompt_tokens": 1031,
+      "source_task_id": "train-candidate-cluster-key_present"
+    },
+    {
+      "case_id": "natural-6f7932aa3601be49cacb2a4e",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "03b7bdefc5b61454d90836a60ae5197123d1ede6070be9e0d08be6c9fb62bba7",
+      "prompt_tokens": 815,
+      "source_task_id": "train-candidate-cluster-key_present"
+    },
+    {
+      "case_id": "natural-c6e1addb90cf379273c497ce",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "f1041a02334655feb7f04209d6736e29462b5b6a703b1511f935b94d719af9b3",
+      "prompt_tokens": 1324,
+      "source_task_id": "train-candidate-cluster-key_present"
+    },
+    {
+      "case_id": "natural-5b200f7e3f60ee2ba1120ac1",
+      "full_generation_reservation_fits": true,
+      "generation_allowance": 512,
+      "prompt_hash": "bb7ab486bc9174283b1b2e228f8b70132092b330ea497ab7e633350a2d5b0378",
+      "prompt_tokens": 884,
+      "source_task_id": "train-candidate-cluster-key_present"
+    }
+  ],
+  "scope": "development",
+  "token_budget": 8192,
+  "warning": "Zero-shot public prompt lengths only. No gold, human labels, few-shot targets, training memory or formal budget approval are inferred."
+}

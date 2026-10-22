@@ -1,0 +1,93 @@
+{
+  "kind": "causal_lm_sft",
+  "completed": true,
+  "config": {
+    "data": "/root/autodl-tmp/context-probe-20261023/data-2048-v2",
+    "model": "/root/autodl-tmp/models/Qwen3.5-9B",
+    "revision": null,
+    "mode": "qlora",
+    "device": "cuda",
+    "schedule": "cosine",
+    "steps": 2,
+    "eval_every": 1,
+    "batch_size": 1,
+    "accumulation": 2,
+    "max_length": 2048,
+    "lr": 5e-05,
+    "minimum_lr": 5e-06,
+    "rank": 16,
+    "alpha": 32,
+    "seed": 0,
+    "limit": 0,
+    "threads": 2,
+    "defer_test": true
+  },
+  "data_hash": "be471ecad4983c524bef56ab5cd410df2137ff037550a4fd0c7d624d7b417be8",
+  "base_identity": "457bf3ae902e56e0a24588f4a691ae1aa611de4c8f7cb7429d8b5d100b7ca1ef",
+  "step": 2,
+  "history": [
+    {
+      "step": 1,
+      "train_loss": 4.8229380520907315,
+      "validation": {
+        "loss": 4.271574540571733,
+        "target_tokens": 11
+      },
+      "lr_used": 5e-05,
+      "gradient_norm": 11.644689559936523,
+      "scheduler": null
+    },
+    {
+      "step": 2,
+      "train_loss": 3.7221941514448686,
+      "validation": {
+        "loss": 3.38937065818093,
+        "target_tokens": 11
+      },
+      "lr_used": 5e-05,
+      "gradient_norm": 10.190312385559082,
+      "scheduler": null
+    }
+  ],
+  "train_tokens": 8192,
+  "supervised_tokens": 44,
+  "examples_seen": 4,
+  "sample_exposures": [
+    {
+      "index": 0,
+      "task_id": "hardware-probe-train-a",
+      "case_id": null,
+      "pair_hash": "1a9eb2030cbfdd9dfd2a077ec42c28de814c6102aed2295ba49db46ac2a53b70",
+      "count": 2
+    },
+    {
+      "index": 1,
+      "task_id": "hardware-probe-train-b",
+      "case_id": null,
+      "pair_hash": "69e7c5125edc6a991170c84577c37c4cd5b2e1c1fecbb99fac910dcaf7b9c0dc",
+      "count": 2
+    }
+  ],
+  "parameters": 5537829376,
+  "trainable_parameters": 43278336,
+  "seconds_this_invocation": 7.379741579294205,
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.20.2"
+  },
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "peak_allocated_bytes": 21671966720,
+  "peak_reserved_bytes": 25912410112,
+  "test_deferred": true,
+  "selection": {
+    "rule": "minimum_validation_loss_first_tie",
+    "step": 2,
+    "validation_loss": 3.38937065818093,
+    "validation_target_tokens": 11,
+    "trainable_tensor_sha256": "d72c2e245aa6f8185fdb680a2eeb2b644d3c5f25deb96cc715c3b7da50c77afb",
+    "trainable_tensor_count": 496,
+    "export_files_sha256": {
+      "adapter_model.safetensors": "6f502d559aff06ac82535b4f290cba1cb5059ad825c07d0f5726eea5540b2ee5"
+    }
+  }
+}
