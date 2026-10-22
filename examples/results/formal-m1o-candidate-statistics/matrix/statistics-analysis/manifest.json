@@ -1,0 +1,22 @@
+{
+  "kind": "frozen_statistics_analysis",
+  "schema_version": 1,
+  "scope": "engineering",
+  "status": "completed",
+  "protocol_hash": "4cf05d5b4826c314f4ee13f9c2ba759b7768cab967b7f5deb5550757f7801674",
+  "model_binding_hash": "ff7662f136930908a6c80bcbc16b89109e1ed7b279d6d139dc6512ecb125e402",
+  "upstream_receipts": {
+    "M5": "5c9b1c9d7385c765a3274ff46ee02d1d274fbe3cd2994822c932e64f787c363f",
+    "M6": "4ada2eec97f4d6cd08844acabe1afae4c389c1a00d6234f13ce8105085a292a3",
+    "M7": "42f47303bdb2769c5988350eb4e60141aa32d1359cb73a76d120f3900d46d082"
+  },
+  "statistics_settings_hash": "7385eb41939f1d07b44a8c6259f61d91de75f29da5e07f0905ac5416a4e03b9b",
+  "created_utc": "2026-10-22T16:52:20.473081+00:00",
+  "gold_or_references_reopened": false,
+  "m8_complete": false,
+  "warning": "Completed statistics-stage integrity is not full M8 acceptance, scientific assumption validation or durable model backup. Identical frozen analyses may be reproduced at fresh output directories.",
+  "files_sha256": {
+    "report.json": "674d59a18a8add1d4b09191e49fb104115981bff5b0610f3608c38a48882c3fa"
+  },
+  "receipt_hash": "c3e5e402adc7982a8930d893ee1e20a51f8a9b04bec6b5fbc2ab631cb9d8f3bc"
+}

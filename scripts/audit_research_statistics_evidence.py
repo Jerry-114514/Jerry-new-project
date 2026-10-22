@@ -18,11 +18,12 @@ def audit(root):
     protocol = json.loads((matrix / "protocol.engineering.lock.json").read_text(encoding="utf-8"))
     if protocol["scope"] != "engineering":
         raise ValueError("Only public engineering arithmetic evidence is supported")
+    saved = json.loads((matrix / "research-statistics.json").read_text(encoding="utf-8"))
     report = analyze_records(protocol, json.loads((matrix / "diagnostic-reveal/scores.json").read_text(encoding="utf-8")),
         {f"{condition}-seed-{seed}": read_jsonl(matrix / f"diagnostic-reveal/{condition}-seed-{seed}-loss.jsonl")
          for condition in ("D", "E") for seed in (0, 1, 2)},
-        read_jsonl(matrix / "execution-reveal/runs.jsonl"), read_jsonl(matrix / "ablation-reveal/runs.jsonl"))
-    if canonical(report) != canonical(json.loads((matrix / "research-statistics.json").read_text(encoding="utf-8"))):
+        read_jsonl(matrix / "execution-reveal/runs.jsonl"), read_jsonl(matrix / "ablation-reveal/runs.jsonl"), include_auxiliary="auxiliary" in saved)
+    if canonical(report) != canonical(saved):
         raise ValueError("Statistical arithmetic, registered family or source/seed aggregation changed")
     return {"scope": "engineering", "comparisons_recomputed": len(report["comparisons"]),
         "secondary_family_size": report["secondary_family_size"],

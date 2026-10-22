@@ -1,0 +1,25 @@
+{
+  "kind": "frozen_execution_reveal",
+  "schema_version": 1,
+  "scope": "engineering",
+  "status": "completed",
+  "upstream": {},
+  "protocol_hash": "4cf05d5b4826c314f4ee13f9c2ba759b7768cab967b7f5deb5550757f7801674",
+  "interaction_seal_hash": "769ce4312a8ab9cd0830f702a45c783ab4a91705fd35e99a2cad8b4be1b2a6ea",
+  "model_binding_hash": "ff7662f136930908a6c80bcbc16b89109e1ed7b279d6d139dc6512ecb125e402",
+  "claim": {
+    "phase": "execution-reveal",
+    "protocol_hash": "4cf05d5b4826c314f4ee13f9c2ba759b7768cab967b7f5deb5550757f7801674",
+    "out": "/tmp/tmplhkfayhl/execution-reveal",
+    "pid": 101454,
+    "host": "autodl-container-bde2419a6c-1fd287c3",
+    "created_utc": "2026-10-22T16:52:17.712333+00:00"
+  },
+  "references_accessed_after_claim": true,
+  "files_sha256": {
+    "runs.jsonl": "809e2fccf857e5cea526cdce6b53f8a00de8dba57cd155953d659e3768a682c9",
+    "summary.json": "2fd0c7e8ce5fe65a625fffd5a7a1e220a51db237748ffd6e2d85580d72547bd3"
+  },
+  "warning": "Offline counts and trace replay only. M7 ablations, M8 source-task/seed statistics and durable model backup remain required.",
+  "receipt_hash": "4ada2eec97f4d6cd08844acabe1afae4c389c1a00d6234f13ce8105085a292a3"
+}

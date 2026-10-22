@@ -95,11 +95,13 @@ def run_task(task, actor, policy="dynamic", max_repairs=3, redact_events=False, 
                           repair_scope(failures[0]["id"], policy, counters["rejected"] > 0))
                 candidate = state.clone()
                 active_repair = {"phase": "repair", "target": target, "actions": [], "tool_steps": [],
-                                 "findings": [], "accepted": False, "reason": "incomplete_proposal", "hard_guard_passed": None}
+                                 "findings": [], "accepted": False, "reason": "incomplete_proposal", "hard_guard_passed": None,
+                                 "proposal_complete": False}
                 history.append(active_repair)
                 if intensity is not None:
                     active_repair["intensity_decision"] = intensity
                 propose_plan(candidate, active_repair, "repair", target, attempt)
+                active_repair["proposal_complete"] = True
                 hard_allowed, hard_reason = (repair_hard_guard(visible, state, candidate)
                                              if hard_guard else (True, "independent_guard_disabled"))
                 active_repair["hard_guard_passed"] = hard_allowed if hard_guard else None

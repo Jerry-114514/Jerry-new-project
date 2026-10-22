@@ -1,0 +1,31 @@
+{
+  "kind": "v2_execution_binding_engineering_recomputation",
+  "scope": "engineering",
+  "workers": 6,
+  "worker_attempts": 7,
+  "paired_audit": [
+    {
+      "seed": 0,
+      "paired_exposure_equal": true,
+      "supervised_tokens": 208,
+      "examples_seen": 4
+    },
+    {
+      "seed": 1,
+      "paired_exposure_equal": true,
+      "supervised_tokens": 208,
+      "examples_seen": 4
+    },
+    {
+      "seed": 2,
+      "paired_exposure_equal": true,
+      "supervised_tokens": 208,
+      "examples_seen": 4
+    }
+  ],
+  "human_reviews_completed": 0,
+  "formal_9b_training": false,
+  "model_weights_reverified": false,
+  "model_binding_records_verified": true,
+  "warning": "Recomputes saved result/config/exposure records. Tiny temporary weights were checked during the live test but are not archived in this report; this is not persistent model backup or formal training."
+}

@@ -1,0 +1,15 @@
+{
+  "scope": "engineering",
+  "conditions": 6,
+  "runs": 12,
+  "source_task_groups": 2,
+  "errors_retained": 12,
+  "compliant_successes": 0,
+  "trace_metrics_budget_intensity_and_summary_replayed": true,
+  "model_forward_recomputed": false,
+  "human_reviews_completed": 0,
+  "formal_9b_training": false,
+  "warning": "Real tiny CPU control runs with two generated tokens; engineering failure paths only. No formal M7, LR risk-feedback result, statistical efficacy or durable model backup.",
+  "m7_execution_controls_run": true,
+  "lr_risk_feedback_run": false
+}

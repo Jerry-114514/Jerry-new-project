@@ -1,0 +1,30 @@
+{
+  "kind": "frozen_ablation_reveal",
+  "schema_version": 1,
+  "scope": "engineering",
+  "status": "completed",
+  "upstream": {
+    "execution_receipt_hash": "4ada2eec97f4d6cd08844acabe1afae4c389c1a00d6234f13ce8105085a292a3",
+    "controller_binding_hash": "5d8d094098ebafb8cafdd1db9e05fe7fb6ef17b6b8b967e027ecad47ea381911",
+    "strong_fixed_condition": "fixed-k-1",
+    "parameter_noop_controls": []
+  },
+  "protocol_hash": "4cf05d5b4826c314f4ee13f9c2ba759b7768cab967b7f5deb5550757f7801674",
+  "interaction_seal_hash": "4e99f7b9537617136c5dbc78d0c5d7fd0e16729bd02ec1b46e4cb90c4a2a4d9f",
+  "model_binding_hash": "ff7662f136930908a6c80bcbc16b89109e1ed7b279d6d139dc6512ecb125e402",
+  "claim": {
+    "phase": "ablation-reveal",
+    "protocol_hash": "4cf05d5b4826c314f4ee13f9c2ba759b7768cab967b7f5deb5550757f7801674",
+    "out": "/tmp/tmplhkfayhl/ablation-reveal",
+    "pid": 101454,
+    "host": "autodl-container-bde2419a6c-1fd287c3",
+    "created_utc": "2026-10-22T16:52:20.069689+00:00"
+  },
+  "references_accessed_after_claim": true,
+  "files_sha256": {
+    "runs.jsonl": "fe1a84b283014faae468d295cd0467c989f3ce77cabe3c6cc7f3483318aa1dde",
+    "summary.json": "7c6715564d2f564b26e4c99136a7d242f138e46745887d2b828ca36a19a6348c"
+  },
+  "warning": "Offline counts and trace replay only. M7 ablations, M8 source-task/seed statistics and durable model backup remain required.",
+  "receipt_hash": "42f47303bdb2769c5988350eb4e60141aa32d1359cb73a76d120f3900d46d082"
+}

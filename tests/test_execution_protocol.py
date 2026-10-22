@@ -303,12 +303,19 @@ class ExecutionMatrixIntegrationTests(unittest.TestCase):
             statistics_report = analyze_records(lock, json.loads((root / "diagnostic-reveal/scores.json").read_text()),
                 {f"{condition}-seed-{seed}": read_jsonl(root / f"diagnostic-reveal/{condition}-seed-{seed}-loss.jsonl")
                  for condition in ("D", "E") for seed in (0, 1, 2)},
-                read_jsonl(root / "execution-reveal/runs.jsonl"), read_jsonl(root / "ablation-reveal/runs.jsonl"))
+                read_jsonl(root / "execution-reveal/runs.jsonl"), read_jsonl(root / "ablation-reveal/runs.jsonl"), include_auxiliary=True)
             self.assertEqual(statistics_report["secondary_family_size"], 17)
             self.assertFalse(statistics_report["m8_complete"])
+            self.assertIsNone(statistics_report["auxiliary"]["candidate_opportunities"]["M6"]["P1"]["test"]["pooled_candidate_false_block_rate"])
             self.assertTrue(all(row["percentile_95_interval"] is None and row["hypothesis_test"]["p_value"] is None
                                 for row in statistics_report["comparisons"].values()))
             save_json(root / "research-statistics.json", statistics_report)
+            from intentlab import frozen_statistics
+            statistics_common = (*ablation_common, root / "ablation-interactions", root / "ablation-reveal")
+            stage = frozen_statistics.run(*statistics_common, root / "statistics-analysis", True)
+            self.assertEqual(stage["status"], "completed")
+            self.assertEqual(set(stage["upstream_receipts"]), {"M5", "M6", "M7"})
+            self.assertFalse(frozen_statistics.verify(*statistics_common, root / "statistics-analysis", True)["m8_complete"])
             target = os.environ.get("INTENTLAB_EXECUTION_MATRIX_AUDIT_DIR")
             if target:
                 target = Path(target)
@@ -320,7 +327,7 @@ class ExecutionMatrixIntegrationTests(unittest.TestCase):
                 (target / "controller-development/selection.json").write_bytes(controller_report_bytes)
                 (target / "controller-plan.json").write_bytes(controller_plan_bytes)
                 shutil.copyfile(spec["dataset"]["cases"], target / "controller-cases.jsonl")
-                for directory in ("diagnostic-predictions", "diagnostic-reveal", "execution-interactions", "execution-reveal", "ablation-interactions", "ablation-reveal"):
+                for directory in ("diagnostic-predictions", "diagnostic-reveal", "execution-interactions", "execution-reveal", "ablation-interactions", "ablation-reveal", "statistics-analysis"):
                     shutil.copytree(root / directory, target / directory)
                 # Publish synthetic engineering inputs for independent offline
                 # replay; never use this path to publish sealed formal gold.

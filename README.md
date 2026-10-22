@@ -27,6 +27,7 @@ python -m intentlab train-baseline --data runs/data/diagnostic_views.jsonl --out
 
 ## 研究文档
 
+- [候选审计与统计阶段验证](docs/candidate-statistics-guide.md)：完整提案与决策错误分开记录，误拦截分母为空时保留 null，共同可行子集配对，并核验统计阶段上游凭据及重算结果。
 - [正式实验目标与验收依据](idea.md)：M1–M8 的范围、数据隔离与正式实验要求；进度见[执行记录](docs/formal-experiment-status.md)。
 - [人工标注流程说明](docs/human-annotation-workflow.md)：人员分工、盲包发放、三状态与证据、双人独立初审、第三人仲裁及交付验收。
 - [实验规划指南：基于误差曲线的学习率调整与证据驱动纠偏](docs/experimental-planning-guide.md)：最新实验指南，明确动态控制规则、四组对照、数据隔离、单卡预算与验收要求。

@@ -83,8 +83,12 @@ def audit(root, ablation=False):
         if any(event["completion_allowance"] > budgets["max_new_tokens"]
                for event in snapshot["shared_token_ledger"]["events"] if event["status"] != "denied"):
             raise ValueError("Recorded completion allowance exceeds the frozen output cap")
-    recomputed = score_records(tasks, refs, raw)
-    if canonical(recomputed) != canonical(read_jsonl(scored / "runs.jsonl")):
+    saved_scored = read_jsonl(scored / "runs.jsonl")
+    candidate_presence = {"candidate_audit" in row for row in saved_scored}
+    if len(candidate_presence) > 1:
+        raise ValueError("Partial counterfactual candidate audit coverage")
+    recomputed = score_records(tasks, refs, raw, candidate_metrics=candidate_presence == {True})
+    if canonical(recomputed) != canonical(saved_scored):
         raise ValueError("Offline score/initial prefix/repair attribution replay differs")
     totals = summary(tasks, refs, recomputed, protocol, binding, conditions)
     if canonical(totals) != canonical(read(scored / "summary.json")):

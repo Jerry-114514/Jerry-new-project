@@ -1,0 +1,16 @@
+{
+  "scope": "engineering",
+  "statistics_stage_verified": true,
+  "upstream_stages": [
+    "M5",
+    "M6",
+    "M7"
+  ],
+  "comparisons_recomputed": 18,
+  "secondary_family_size": 17,
+  "candidate_and_common_feasibility_recomputed": true,
+  "m8_complete": false,
+  "human_reviews_completed": 0,
+  "formal_9b_training": false,
+  "warning": "Public synthetic engineering replay, not formal inference or independent human truth. Model binaries are not archived here; full live verification additionally requires the bound assets."
+}

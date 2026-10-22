@@ -177,7 +177,7 @@ def verify_interactions(protocol, binding, predictions, diagnostic_reveal, direc
     return manifest, tasks, records
 
 
-def score_records(tasks, references, records):
+def score_records(tasks, references, records, candidate_metrics=False):
     by_id, scored = {task["id"]: task for task in tasks}, []
     for record in records:
         row = deepcopy(record)
@@ -188,6 +188,9 @@ def score_records(tasks, references, records):
             feasible_at_repair_start=not initial["irreversible_hard_violations"],
             repair_introduced_hard_violations=sorted({event["requirement_id"] for event in final["hard_violation_events"]
                                                     if event["event_index"] >= row["initial_event_count"]}))
+        if candidate_metrics:
+            from .candidate_audit import audit_candidates
+            row["candidate_audit"] = audit_candidates(task, references[task["id"]], record)
         scored.append(row)
     return scored
 
@@ -235,7 +238,7 @@ def reveal(protocol, binding, predictions, diagnostic_reveal, interactions, out,
         if file_hash(reference["path"]) != reference["sha256"]:
             raise ValueError("Frozen independent execution references changed")
         refs = load_references(reference["path"], tasks)
-        scored = score_records(tasks, refs, records)
+        scored = score_records(tasks, refs, records, candidate_metrics=True)
         with (out / "runs.jsonl").open("x", encoding="utf-8", newline="\n") as stream:
             for row in scored:
                 stream.write(canonical(row) + "\n")

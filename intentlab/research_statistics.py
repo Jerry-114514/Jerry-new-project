@@ -152,7 +152,7 @@ def comparison_registry(settings):
     return result
 
 
-def analyze_records(protocol, diagnostic_scores, loss_records, execution_records, ablation_records):
+def analyze_records(protocol, diagnostic_scores, loss_records, execution_records, ablation_records, include_auxiliary=False):
     """Pure offline analysis; receipt/provenance verification belongs to the caller.
 
     No gold, models or training state are read here. This function alone is not
@@ -277,7 +277,7 @@ def analyze_records(protocol, diagnostic_scores, loss_records, execution_records
     for key, row in comparisons.items():
         row["holm_adjusted_p_value"] = adjusted.get(key)
         row["secondary_family_size"] = len(secondary) if key in secondary else None
-    return {"kind": "source_task_research_statistics", "schema_version": 1, "scope": protocol["scope"],
+    report = {"kind": "source_task_research_statistics", "schema_version": 2 if include_auxiliary else 1, "scope": protocol["scope"],
         "protocol_hash": protocol["lock_hash"], "analysis_plan": plan,
         "legacy_engineering_plan_inferred": "analysis_plan" not in statistics,
         "input_hashes": {"diagnostic_scores": digest(diagnostic_scores), "loss_records": digest(loss_records),
@@ -288,3 +288,8 @@ def analyze_records(protocol, diagnostic_scores, loss_records, execution_records
         "remaining": ["verified statistics entry/receipt", "candidate false-block and common-feasibility analysis",
                       "formal data/experiments and scientific assumption review", "durable model backup and final report"],
         "warning": "Statistical arithmetic and source-cluster aggregation only; validity depends on actual independent sampling and paired exchangeability. Neither matching IDs nor Holm adjustment establishes those assumptions. No population training-seed CI or full M8 completion is claimed."}
+    if include_auxiliary:
+        from .execution_auxiliary import auxiliary_report
+        report["auxiliary"] = auxiliary_report(execution_records, ablation_records, comparison_registry(settings))
+        report["remaining"].remove("candidate false-block and common-feasibility analysis")
+    return report

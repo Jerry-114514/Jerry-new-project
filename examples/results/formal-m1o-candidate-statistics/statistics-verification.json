@@ -1,0 +1,10 @@
+{
+  "scope": "engineering",
+  "comparisons_recomputed": 18,
+  "secondary_family_size": 17,
+  "comparisons_without_inference": 18,
+  "m8_complete": false,
+  "human_reviews_completed": 0,
+  "formal_9b_training": false,
+  "warning": "Arithmetic replay only. Tiny test/OOD each have one source task, so CI and p-values are null; no evidence for efficacy, a calibrated risk bound, training-seed population inference or full M8 acceptance."
+}

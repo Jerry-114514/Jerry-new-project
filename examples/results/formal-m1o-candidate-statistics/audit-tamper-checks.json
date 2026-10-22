@@ -1,0 +1,9 @@
+{
+  "scope": "engineering",
+  "checks": {
+    "rehashed_family_change_rejected": "Statistics stage differs from registered arithmetic",
+    "rehashed_upstream_change_rejected": "Statistics receipt or its upstream bindings changed",
+    "historical_m1n_arithmetic_unchanged": true
+  },
+  "formal_9b_training": false
+}
