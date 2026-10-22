@@ -7,6 +7,7 @@ from .analysis import REQUIREMENTS
 from .core import canonical, digest
 from .neural import dependencies
 from .sft_data import analysis_prompt
+from .prompts import prompt_ids
 
 
 class BudgetExceeded(ValueError):
@@ -20,6 +21,9 @@ class LocalBackend:
         torch, transformers = dependencies()
         self.torch = torch
         self.path = Path(model_path)
+        load_kwargs = {'local_files_only': True, 'trust_remote_code': False}
+        if device == 'cuda':
+            load_kwargs['dtype'] = torch.bfloat16
         self.tokenizer = transformers.AutoTokenizer.from_pretrained(self.path, local_files_only=True, trust_remote_code=False)
         if (self.path / "adapter_config.json").exists():
             from peft import PeftModel
@@ -31,13 +35,17 @@ class LocalBackend:
             else:
                 adapter = json.loads((self.path / "adapter_config.json").read_text(encoding="utf-8"))
                 base_path = adapter["base_model_name_or_path"]
-                base = transformers.AutoModelForCausalLM.from_pretrained(base_path, local_files_only=True, trust_remote_code=False)
+                base = transformers.AutoModelForCausalLM.from_pretrained(base_path, **load_kwargs)
             self.model = PeftModel.from_pretrained(base, self.path, is_trainable=False)
         else:
-            self.model = transformers.AutoModelForCausalLM.from_pretrained(self.path, local_files_only=True, trust_remote_code=False)
+            self.model = transformers.AutoModelForCausalLM.from_pretrained(self.path, **load_kwargs)
         self.model.to(device).eval()
         self.device, self.max_new_tokens, self.limit = device, max_new_tokens, token_budget
         self.context = getattr(self.model.config, "max_position_embeddings", getattr(self.model.config, "n_positions", 2048))
+        configured_eos = self.model.generation_config.eos_token_id
+        self.eos_ids = list(dict.fromkeys(
+            [i for i in [self.tokenizer.eos_token_id] +
+             (list(configured_eos) if isinstance(configured_eos, (list, tuple)) else [configured_eos]) if i is not None]))
         self.reset()
 
     def reset(self):
@@ -45,9 +53,7 @@ class LocalBackend:
         self.generations = []
 
     def complete(self, prompt):
-        ids = self.tokenizer.encode(prompt, add_special_tokens=False)
-        if self.tokenizer.bos_token_id is not None:
-            ids = [self.tokenizer.bos_token_id] + ids
+        ids = prompt_ids(self.tokenizer, prompt)
         used = self.usage["prompt_tokens"] + self.usage["completion_tokens"]
         allowance = min(self.max_new_tokens, self.limit - used - len(ids), self.context - len(ids))
         if allowance < 1:
@@ -58,7 +64,7 @@ class LocalBackend:
         with self.torch.no_grad():
             generated = self.model.generate(input_ids=batch, attention_mask=self.torch.ones_like(batch),
                 max_new_tokens=allowance, do_sample=False, pad_token_id=self.tokenizer.pad_token_id,
-                eos_token_id=self.tokenizer.eos_token_id)
+                eos_token_id=self.eos_ids or None)
         new_ids = generated[0, len(ids):].tolist()
         self.usage["completion_tokens"] += len(new_ids)
         result = {"text": self.tokenizer.decode(new_ids, skip_special_tokens=True),

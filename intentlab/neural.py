@@ -21,6 +21,7 @@ from .core import digest
 from .report import save_json
 from .schedules import Plateau, warmup_cosine
 from .sft_data import read_pairs, validate_splits
+from .prompts import prompt_ids
 
 
 def dependencies():
@@ -47,10 +48,8 @@ def tokenizer_for_tiny(rows):
 
 
 def encode_pair(tokenizer, row, max_length):
-    prompt = tokenizer.encode(row["prompt"], add_special_tokens=False)
+    prompt = prompt_ids(tokenizer, row["prompt"])
     completion = tokenizer.encode(row["completion"], add_special_tokens=False)
-    if tokenizer.bos_token_id is not None:
-        prompt = [tokenizer.bos_token_id] + prompt
     if tokenizer.eos_token_id is not None:
         completion.append(tokenizer.eos_token_id)
     if not prompt or not completion or len(prompt) + len(completion) > max_length:
@@ -192,6 +191,9 @@ def train_neural(config, out, stop_after=None, resume=None):
         model = get_peft_model(model, LoraConfig(r=config["rank"], lora_alpha=config["alpha"],
             lora_dropout=0.0, target_modules="all-linear", task_type="CAUSAL_LM",
             fan_in_fan_out=model.config.model_type == "gpt2"))
+    if device == 'cuda':
+        torch.cuda.reset_peak_memory_stats()
+        torch.cuda.synchronize()
     encoded = {split: [encode_pair(tokenizer, row, config["max_length"]) for row in rows] for split, rows in splits.items()}
     parameters = [p for p in model.parameters() if p.requires_grad]
     optimizer = torch.optim.AdamW(parameters, lr=config["lr"])
@@ -255,6 +257,10 @@ def train_neural(config, out, stop_after=None, resume=None):
                 best_loss, best_weights = validation["loss"], trainable_state(model)
             history.append({"step": step + 1, "train_loss": train_sum / total_targets,
                             "validation": validation, "lr_used": lr, "gradient_norm": float(grad_norm), "scheduler": event})
+            if device == 'cuda':
+                torch.cuda.synchronize()
+            print(json.dumps({'step': step + 1, 'validation_loss': validation['loss'],
+                              'lr': lr, 'elapsed_seconds': time.perf_counter() - started}), flush=True)
         checkpoint = {"config": config, "data_hash": fingerprint, "base_identity": identity, "step": step + 1,
             "weights": trainable_state(model), "optimizer": optimizer.state_dict(), "scheduler": asdict(scheduler),
             "history": history, "best_loss": best_loss, "best_weights": best_weights, "used_tokens": used_tokens,
@@ -269,6 +275,10 @@ def train_neural(config, out, stop_after=None, resume=None):
         "parameters": sum(p.numel() for p in model.parameters()), "trainable_parameters": sum(p.numel() for p in parameters),
         "seconds_this_invocation": time.perf_counter() - started,
         "versions": {name: importlib.metadata.version(name) for name in ("torch", "transformers")}}
+    if device == 'cuda':
+        result['gpu'] = torch.cuda.get_device_name()
+        result['peak_allocated_bytes'] = torch.cuda.max_memory_allocated()
+        result['peak_reserved_bytes'] = torch.cuda.max_memory_reserved()
     if end == config["steps"]:
         if best_weights is None:
             raise ValueError("No evaluated checkpoint")

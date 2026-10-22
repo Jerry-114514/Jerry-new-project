@@ -1,0 +1,11 @@
+{
+  "model": "Qwen/Qwen3.5-9B",
+  "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "initialization": "official original weights; no historical adapters",
+  "reference_repository": "https://github.com/Jerry-114514/Jerry-vibe-coding",
+  "reference_commit": "fa8945ecc4310edd26e1b9d59dd66c34832e0955",
+  "reference_model_lock": "docs/results/protocol-v2-20261016/9b-model.lock.json",
+  "reference_restore_guide": "docs/instance-retirement-20261020/RESTORE.md",
+  "reference_use": "Architecture, exact model identity and environment guidance. No legacy evaluation samples are imported into training.",
+  "weights_bytes": 19306310880
+}

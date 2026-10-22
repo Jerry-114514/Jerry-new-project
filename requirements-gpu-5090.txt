@@ -1,0 +1,9 @@
+# Install the CUDA-enabled torch build from the instance/image first.
+# Validated image runtime: torch==2.8.0+cu128, Python 3.12.3, sm_120.
+transformers==5.20.2
+peft==0.21.2
+accelerate==1.15.0
+bitsandbytes==0.49.2
+fla-core==0.5.2
+causal-conv1d==1.7.0
+tokenizers==0.23.3
