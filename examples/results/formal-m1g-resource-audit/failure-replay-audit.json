@@ -1,0 +1,80 @@
+{
+  "3b-executor": {
+    "kind": "raw_execution_replay_audit",
+    "verified": true,
+    "runs": 32,
+    "intensity_decisions_recomputed": 0,
+    "source_task_groups": 8,
+    "policies": {
+      "none": {
+        "runs": 8,
+        "compliant_successes": 0,
+        "errors": 8,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 8371
+      },
+      "fixed": {
+        "runs": 8,
+        "compliant_successes": 0,
+        "errors": 8,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 8371
+      },
+      "fixed-full": {
+        "runs": 8,
+        "compliant_successes": 0,
+        "errors": 8,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 8371
+      },
+      "dynamic": {
+        "runs": 8,
+        "compliant_successes": 0,
+        "errors": 8,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 8371
+      }
+    },
+    "scope": "development",
+    "warning": "Recomputes program-defined references, not human truth or statistical independence."
+  },
+  "9b-actor-3b-analyzer": {
+    "kind": "raw_execution_replay_audit",
+    "verified": true,
+    "runs": 32,
+    "intensity_decisions_recomputed": 0,
+    "source_task_groups": 8,
+    "policies": {
+      "none": {
+        "runs": 8,
+        "compliant_successes": 0,
+        "errors": 8,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 0
+      },
+      "fixed": {
+        "runs": 8,
+        "compliant_successes": 0,
+        "errors": 8,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 0
+      },
+      "fixed-full": {
+        "runs": 8,
+        "compliant_successes": 0,
+        "errors": 8,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 0
+      },
+      "dynamic": {
+        "runs": 8,
+        "compliant_successes": 0,
+        "errors": 8,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 0
+      }
+    },
+    "scope": "development",
+    "warning": "Recomputes program-defined references, not human truth or statistical independence."
+  }
+}

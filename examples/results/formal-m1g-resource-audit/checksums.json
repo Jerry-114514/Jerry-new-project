@@ -1,0 +1,23 @@
+{
+  "failure-replay-audit.json": "6ca5d0444e1b146e7de24608505a3ca74b512b155d0442af613a0173895de099",
+  "failures/3b-executor/manifest.json": "65c9aa982383ce8662c8320841a2c5a7a76c91ebbf75702407d0938b4fb3e4f5",
+  "failures/3b-executor/REPORT.md": "0e7c207e29ff64476741f3c5f8c9e6a2856127cecab5d4ba8b59c69ea616ed88",
+  "failures/3b-executor/runs.jsonl": "bc67a025d00579ed8fb4eebd752268152a836498cfa1c7d71be11e81e292c0ab",
+  "failures/3b-executor/strata.json": "4bfa5a72e5fc1e3e7d8782411bd8615dd0fcbd23b097716a5c1feb4ec0283006",
+  "failures/3b-executor/summary.json": "d1dea3d8a66fa9d9a70882a4d88c57adc796b9112ad1f511fbe951bed3ac3e58",
+  "failures/9b-actor-3b-analyzer/manifest.json": "f1dcf3d1e7ecf563e6297c23be99188ff283a38b921946b64da6971510233014",
+  "failures/9b-actor-3b-analyzer/REPORT.md": "0e7c207e29ff64476741f3c5f8c9e6a2856127cecab5d4ba8b59c69ea616ed88",
+  "failures/9b-actor-3b-analyzer/runs.jsonl": "87ee8a1659b843122c35d0a940eb8c35a66036331ca3f90dcbdd14c748c36828",
+  "failures/9b-actor-3b-analyzer/strata.json": "4bfa5a72e5fc1e3e7d8782411bd8615dd0fcbd23b097716a5c1feb4ec0283006",
+  "failures/9b-actor-3b-analyzer/summary.json": "1a2815eab86fbe5e5de5d186ad96b59a743d6a135918c80d6415ab99b605b5d2",
+  "gpu-lease-audit.json": "f3e1e08533d6364e0d570b20674bb22dc2f73f67d8017443bd3dc8c06093c437",
+  "gpu-lease-audit.log": "f3e1e08533d6364e0d570b20674bb22dc2f73f67d8017443bd3dc8c06093c437",
+  "inputs/offline-references.jsonl": "f503178e48e27b8977ebb3b1dae01b2b6344b6726fd6208fc6d0a1b0814d1adc",
+  "inputs/README.md": "d65fb444f6b06b091d9fb418de87b140edcc4bb02fc3a54fd1d3d2898f28c111",
+  "inputs/tasks.jsonl": "1666e845c4858a0e853333688ac395109856d71ed83f97a2219838486937ab1a",
+  "README.md": "e2cdfaac705c848a5588d05d203ebfd4da452ba459b6746c9e302b830874b129",
+  "runtime-source.json": "6c34032326d5b42544cecc3c84410903d479045862b9a4f350e7c3ec4ebf41d2",
+  "tests-local.log": "707c27993da0750e3a005b06bf632bb40e447d282d566b9c70af5d37a9129565",
+  "tests.log": "e652cdc37cc0ffc2c296b2e4b6109a4d89353da2ae364799c8bd580f360a7941",
+  "verification.json": "d46fc576db915900f385cc3ffbd67795226cef55c42507320afcde1f66b85016"
+}

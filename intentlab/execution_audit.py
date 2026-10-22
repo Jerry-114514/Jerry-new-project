@@ -9,6 +9,32 @@ from .execution_data import load_execution_tasks, load_references
 from .execution_oracle import evaluate_execution
 from .formal_data import read_jsonl
 from .report import save_json
+from .intensity import choose_intensity, validate_intensity
+
+
+def audit_intensity(task, record, manifest):
+    """Recompute decisions before each proposal from the last online findings."""
+    if record["policy"] not in {"fixed-k", "dynamic-k"}:
+        if record.get("intensity_config") is not None:
+            raise ValueError("Unexpected intensity config in legacy policy")
+        return 0
+    config = validate_intensity(manifest.get("intensity_config"))
+    if canonical(config) != canonical(record.get("intensity_config")):
+        raise ValueError("Intensity configuration changed inside a condition")
+    findings, checked = None, 0
+    for step in record["history"]:
+        if step["phase"] in {"initial", "verify"}:
+            findings = step["findings"]
+        elif step["phase"] == "repair":
+            if findings is None:
+                raise ValueError("Missing online findings before intensity decision")
+            decision = choose_intensity(task, findings, record["policy"], config)
+            if canonical(decision) != canonical(step.get("intensity_decision")) or canonical(decision["target"]) != canonical(step["target"]):
+                raise ValueError("Intensity decision differs from public online findings")
+            checked += 1
+            if step["accepted"]:
+                findings = step["findings"]
+    return checked
 
 
 def audit_ledger(ledger):
@@ -59,8 +85,10 @@ def audit_records(tasks, references, manifest, records):
     if len(actual) != len(set(actual)) or set(actual) != expected:
         raise ValueError("Duplicate or missing planned execution records")
     groups = {}
+    intensity_decisions = 0
     for row in records:
         task = by_id[row["task_id"]]
+        intensity_decisions += audit_intensity(task, row, manifest)
         events = row["final_state"]["events"]
         state = replay_events(task, events)
         if canonical(state.files) != canonical(row["final_state"]["files"]):
@@ -95,6 +123,7 @@ def audit_records(tasks, references, manifest, records):
         group["repair_introduced_violation_runs"] += bool(introduced)
         group["charged_tokens"] += charged
     return {"kind": "raw_execution_replay_audit", "verified": True, "runs": len(records),
+        "intensity_decisions_recomputed": intensity_decisions,
         "source_task_groups": len({task["source_task_id"] for task in selected}), "policies": groups,
         "scope": manifest["scope"], "warning": "Recomputes program-defined references, not human truth or statistical independence."}
 

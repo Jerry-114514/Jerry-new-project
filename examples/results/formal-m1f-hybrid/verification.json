@@ -1,0 +1,87 @@
+{
+  "kind": "hybrid_development_recomputation",
+  "scope": "development",
+  "replay": {
+    "kind": "raw_execution_replay_audit",
+    "verified": true,
+    "runs": 6,
+    "intensity_decisions_recomputed": 0,
+    "source_task_groups": 3,
+    "policies": {
+      "fixed-full": {
+        "runs": 3,
+        "compliant_successes": 2,
+        "errors": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 23044
+      },
+      "dynamic": {
+        "runs": 3,
+        "compliant_successes": 2,
+        "errors": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 23026
+      }
+    },
+    "scope": "development",
+    "warning": "Recomputes program-defined references, not human truth or statistical independence."
+  },
+  "hybrid_decisions_recomputed": 14,
+  "runs": [
+    {
+      "task_id": "exec-dev-decimal-rounding",
+      "policy": "fixed-full",
+      "status": "finished",
+      "compliant_success": true,
+      "repair_proposals": 0,
+      "hard_guard_checks": 0,
+      "overridden_model_statuses": 0
+    },
+    {
+      "task_id": "exec-dev-timezone-boundary",
+      "policy": "fixed-full",
+      "status": "finished",
+      "compliant_success": false,
+      "repair_proposals": 3,
+      "hard_guard_checks": 3,
+      "overridden_model_statuses": 4
+    },
+    {
+      "task_id": "exec-dev-unicode-normalization",
+      "policy": "fixed-full",
+      "status": "finished",
+      "compliant_success": true,
+      "repair_proposals": 1,
+      "hard_guard_checks": 1,
+      "overridden_model_statuses": 2
+    },
+    {
+      "task_id": "exec-dev-decimal-rounding",
+      "policy": "dynamic",
+      "status": "finished",
+      "compliant_success": true,
+      "repair_proposals": 0,
+      "hard_guard_checks": 0,
+      "overridden_model_statuses": 0
+    },
+    {
+      "task_id": "exec-dev-timezone-boundary",
+      "policy": "dynamic",
+      "status": "finished",
+      "compliant_success": false,
+      "repair_proposals": 3,
+      "hard_guard_checks": 3,
+      "overridden_model_statuses": 4
+    },
+    {
+      "task_id": "exec-dev-unicode-normalization",
+      "policy": "dynamic",
+      "status": "finished",
+      "compliant_success": true,
+      "repair_proposals": 1,
+      "hard_guard_checks": 1,
+      "overridden_model_statuses": 2
+    }
+  ],
+  "warning": "Limited public development tasks. Hybrid gate equals the public-rule baseline; no claim of improved LM diagnosis or guard efficacy."
+}

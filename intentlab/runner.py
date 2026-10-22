@@ -10,12 +10,19 @@ from .planner import repair_scope
 from .requirements import extract_requirements
 from .learning import predict
 from .hard_guard import repair_hard_guard
+from .intensity import choose_intensity, validate_intensity
 
 
 def run_task(task, actor, policy="dynamic", max_repairs=3, redact_events=False, analyzer=None, risk_weights=None,
-             hard_guard=True, evaluator=None, scope_selector=None, max_tool_steps=1):
-    if policy not in {"none", "fixed", "fixed-full", "dynamic"}:
+             hard_guard=True, evaluator=None, scope_selector=None, max_tool_steps=1, intensity_config=None):
+    if policy not in {"none", "fixed", "fixed-full", "dynamic", "fixed-k", "dynamic-k"}:
         raise ValueError("Unknown policy")
+    if policy in {"fixed-k", "dynamic-k"}:
+        if intensity_config is None:
+            raise ValueError("Explicit intensity config required for k policies")
+        intensity_config = validate_intensity(intensity_config)
+    elif intensity_config is not None:
+        raise ValueError("Intensity config is only valid for k policies")
     if type(max_tool_steps) is not int or not 1 <= max_tool_steps <= 8:
         raise ValueError("Tool feedback steps must be between one and eight")
     started = time.perf_counter()
@@ -70,7 +77,7 @@ def run_task(task, actor, policy="dynamic", max_repairs=3, redact_events=False, 
         initial_entry.update(findings=findings, score=score(findings))
         if policy != "none":
             for attempt in range(max_repairs):
-                if any(f["status"] == "unknown" for f in findings) and policy == "dynamic" and not events_visible:
+                if any(f["status"] == "unknown" for f in findings) and policy in {"dynamic", "fixed-k", "dynamic-k"} and not events_visible:
                     # Reading the authoritative in-memory log is an explicit, counted observation.
                     counters["verifications"] += 1
                     counters["checks"] += 1
@@ -82,12 +89,16 @@ def run_task(task, actor, policy="dynamic", max_repairs=3, redact_events=False, 
                     break
                 if policy == "dynamic":
                     failures.sort(key=lambda f: (not f["hard"], -f.get("risk_score", 0), f["id"]))
-                target = (scope_selector(visible, failures, policy, counters["rejected"] > 0)
-                          if scope_selector else repair_scope(failures[0]["id"], policy, counters["rejected"] > 0))
+                intensity = choose_intensity(visible, findings, policy, intensity_config) if intensity_config is not None else None
+                target = (intensity["target"] if intensity else
+                          scope_selector(visible, failures, policy, counters["rejected"] > 0) if scope_selector else
+                          repair_scope(failures[0]["id"], policy, counters["rejected"] > 0))
                 candidate = state.clone()
                 active_repair = {"phase": "repair", "target": target, "actions": [], "tool_steps": [],
                                  "findings": [], "accepted": False, "reason": "incomplete_proposal", "hard_guard_passed": None}
                 history.append(active_repair)
+                if intensity is not None:
+                    active_repair["intensity_decision"] = intensity
                 propose_plan(candidate, active_repair, "repair", target, attempt)
                 hard_allowed, hard_reason = (repair_hard_guard(visible, state, candidate)
                                              if hard_guard else (True, "independent_guard_disabled"))
@@ -123,6 +134,7 @@ def run_task(task, actor, policy="dynamic", max_repairs=3, redact_events=False, 
                          if violations is not None else None)
     return {"task_id": task["id"], "family": task["family"], "split": task["split"], "policy": policy,
             "hard_guard_enabled": hard_guard,
+            "intensity_config": intensity_config,
             "parsed_requirements": requirements,
             "actor": type(actor).__name__, "status": status, "metrics": final, "cost": counters,
             "initial_metrics": initial_metrics,

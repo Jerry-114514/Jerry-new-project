@@ -2,6 +2,7 @@
 
 from .contracts import public_solution
 from .core import canonical
+from copy import deepcopy
 
 
 def analyze_execution(task, state, events_visible=True):
@@ -45,6 +46,36 @@ def analyze_execution(task, state, events_visible=True):
     return [{"id": req["id"], "hard": req["hard"], "status": statuses[rules[req["id"]]],
              "evidence": [] if statuses[rules[req["id"]]] == "unknown" else evidence,
              "reason": "public_executable_rule"} for req in task["requirements"]]
+
+
+class HybridExecutionAnalyzer:
+    """Public executable checks govern covered requirements; LM is a sidecar.
+
+    These contracts cover every requirement. Consequently the gate equals the
+    rule baseline, not a claim that the language model's diagnosis improved.
+    Hidden-history unknowns remain unknown, regardless of LM confidence.
+    """
+
+    def __init__(self, model_analyzer):
+        self.model_analyzer = model_analyzer
+        self.decisions = []
+
+    @property
+    def errors(self):
+        return getattr(self.model_analyzer, "errors", [])
+
+    def __call__(self, task, state, events_visible=True):
+        model = self.model_analyzer(task, state, events_visible)
+        rules = analyze_execution(task, state, events_visible)
+        by_id = {row["id"]: row for row in model}
+        if len(model) != len(rules) or set(by_id) != {row["id"] for row in rules}:
+            raise ValueError("Hybrid model findings do not cover the public requirements")
+        merged = [dict(row, reason="hybrid_public_rule_authority") for row in rules]
+        self.decisions.append({"model_findings": deepcopy(model), "rule_findings": deepcopy(rules),
+            "effective_findings": deepcopy(merged), "events_visible": events_visible,
+            "overrides": [{"id": row["id"], "model_status": by_id[row["id"]]["status"], "effective_status": row["status"]}
+                          for row in rules if by_id[row["id"]]["status"] != row["status"]]})
+        return merged
 
 
 class ContractRuleActor:

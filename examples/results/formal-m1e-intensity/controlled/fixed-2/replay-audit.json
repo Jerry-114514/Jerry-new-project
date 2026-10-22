@@ -1,0 +1,25 @@
+{
+  "kind": "raw_execution_replay_audit",
+  "verified": true,
+  "runs": 16,
+  "intensity_decisions_recomputed": 16,
+  "source_task_groups": 8,
+  "policies": {
+    "fixed-k": {
+      "runs": 8,
+      "compliant_successes": 8,
+      "errors": 0,
+      "repair_introduced_violation_runs": 0,
+      "charged_tokens": 0
+    },
+    "dynamic-k": {
+      "runs": 8,
+      "compliant_successes": 8,
+      "errors": 0,
+      "repair_introduced_violation_runs": 0,
+      "charged_tokens": 0
+    }
+  },
+  "scope": "engineering",
+  "warning": "Recomputes program-defined references, not human truth or statistical independence."
+}

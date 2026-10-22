@@ -1,0 +1,18 @@
+{
+  "fixed-full": {
+    "all_runs": 3,
+    "feasible_runs": 3,
+    "initially_irreversible_runs": 0,
+    "feasible_compliant_success_rate": 0.6666666666666666,
+    "repair_introduced_hard_violation_runs": 0,
+    "warning": "Development source groups are declared, not independently certified tasks."
+  },
+  "dynamic": {
+    "all_runs": 3,
+    "feasible_runs": 3,
+    "initially_irreversible_runs": 0,
+    "feasible_compliant_success_rate": 0.6666666666666666,
+    "repair_introduced_hard_violation_runs": 0,
+    "warning": "Development source groups are declared, not independently certified tasks."
+  }
+}

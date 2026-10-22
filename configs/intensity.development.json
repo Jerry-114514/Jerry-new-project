@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "fixed_k": 1,
+  "max_k": 3,
+  "thresholds": [0.25, 0.5],
+  "hard_weight": 2.0,
+  "unknown_weight": 0.5
+}

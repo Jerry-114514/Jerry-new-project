@@ -141,6 +141,9 @@ def local_model_fingerprint(path):
 
 
 def train_neural(config, out, stop_after=None, resume=None):
+    if config.get("device") == "cuda":
+        from .gpu_lease import ensure_gpu_lease
+        ensure_gpu_lease()
     torch, transformers = dependencies()
     if config["mode"] not in {"full", "lora", "qlora"} or config["schedule"] not in {"cosine", "plateau"} or config["device"] not in {"cpu", "cuda"}:
         raise ValueError("Unsupported training mode, schedule or device")
@@ -259,6 +262,8 @@ def train_neural(config, out, stop_after=None, resume=None):
     n = len(encoded["train"])
     examples_per_step = config["batch_size"] * config["accumulation"]
     for step in range(start, end):
+        if device == "cuda":
+            ensure_gpu_lease()
         indices = sample_indices(step, n, examples_per_step, config["seed"], order_cache)
         micros = [indices[i:i + config["batch_size"]] for i in range(0, len(indices), config["batch_size"])]
         total_targets = sum(sum(label != -100 for label in encoded["train"][i]["labels"][1:]) for i in indices)

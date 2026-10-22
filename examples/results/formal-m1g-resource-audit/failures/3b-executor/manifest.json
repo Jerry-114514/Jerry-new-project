@@ -1,0 +1,26 @@
+{
+  "kind": "public_contract_development_execution",
+  "scope": "development",
+  "status": "completed",
+  "actor": "local_model",
+  "executor_is_language_model": true,
+  "analyzer": "public_rule",
+  "task_hash": "fa570d83242cc54ceb0d53b0e43360b560ca604adb44fe7624a293919e69748e",
+  "offline_reference_hash": "cc21592b18e7ae9d9f34ece786b828b38b5622efb63f0a507a1d44ce58baf6ee",
+  "policies": [
+    "none",
+    "fixed",
+    "fixed-full",
+    "dynamic"
+  ],
+  "max_repairs": 3,
+  "hard_guard_enabled": true,
+  "redact_events": false,
+  "max_tool_steps": 3,
+  "actor_envelope": "extract",
+  "source_task_groups": 8,
+  "model_paths": {
+    "actor": "/root/autodl-tmp/runs/qlora-3b-seed0/model"
+  },
+  "warning": "Unreviewed development contracts; not an independent human benchmark or confirmatory result."
+}

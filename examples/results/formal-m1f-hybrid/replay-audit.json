@@ -1,0 +1,27 @@
+{
+  "runs/hybrid": {
+    "kind": "raw_execution_replay_audit",
+    "verified": true,
+    "runs": 6,
+    "intensity_decisions_recomputed": 0,
+    "source_task_groups": 3,
+    "policies": {
+      "fixed-full": {
+        "runs": 3,
+        "compliant_successes": 2,
+        "errors": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 23044
+      },
+      "dynamic": {
+        "runs": 3,
+        "compliant_successes": 2,
+        "errors": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 23026
+      }
+    },
+    "scope": "development",
+    "warning": "Recomputes program-defined references, not human truth or statistical independence."
+  }
+}

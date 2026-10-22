@@ -10,13 +10,14 @@ import json
 from pathlib import Path
 
 from .core import canonical, digest, replay_events
-from .execution_analysis import ContractRuleActor, analyze_execution, execution_scope
+from .execution_analysis import ContractRuleActor, HybridExecutionAnalyzer, analyze_execution, execution_scope
 from .execution_data import load_execution_tasks, load_references, validate_tasks
 from .execution_oracle import evaluate_execution
 from .model_backend import LanguageModelActor, SchemaLanguageModelAnalyzer
 from .model_pool import LocalModelPool
 from .report import save_experiment, save_json
 from .runner import run_task
+from .intensity import validate_intensity
 
 
 def replay_execution(tasks, references, records):
@@ -36,18 +37,32 @@ def replay_execution(tasks, references, records):
 
 
 def run_execution(tasks, references, out, pool=None, policies=("fixed-full", "dynamic"), max_repairs=3,
-                  hard_guard=True, redact_events=False, rule_actor=False, max_tool_steps=3, actor_envelope="extract"):
+                  hard_guard=True, redact_events=False, rule_actor=False, max_tool_steps=3, actor_envelope="extract",
+                  intensity_config=None, analyzer_mode=None):
     validate_tasks(tasks)
     if not tasks or set(references) != {task["id"] for task in tasks}:
         raise ValueError("Exactly one offline reference per selected task required")
-    if not policies or any(policy not in {"none", "fixed", "fixed-full", "dynamic"} for policy in policies):
+    if not policies or any(policy not in {"none", "fixed", "fixed-full", "dynamic", "fixed-k", "dynamic-k"} for policy in policies):
         raise ValueError("Unknown execution policy")
+    has_k = any(policy in {"fixed-k", "dynamic-k"} for policy in policies)
+    if has_k:
+        if intensity_config is None:
+            raise ValueError("Explicit intensity config required for k policies")
+        intensity_config = validate_intensity(intensity_config)
+    elif intensity_config is not None:
+        raise ValueError("Unused intensity config without k policies")
     if type(max_repairs) is not int or not 0 <= max_repairs <= 20:
         raise ValueError("Repair count must be between zero and twenty")
     if type(max_tool_steps) is not int or not 1 <= max_tool_steps <= 8:
         raise ValueError("Tool feedback steps must be between one and eight")
     if actor_envelope not in {"strict", "extract"}:
         raise ValueError("Unknown actor envelope policy")
+    has_model_analyzer = pool is not None and "analyzer" in pool.paths
+    analyzer_mode = analyzer_mode or ("model" if has_model_analyzer else "rule")
+    if analyzer_mode not in {"model", "rule", "hybrid"}:
+        raise ValueError("Unknown analyzer mode")
+    if (analyzer_mode in {"model", "hybrid"}) != has_model_analyzer:
+        raise ValueError("Model/hybrid requires an analyzer model; rule mode must not configure an unused analyzer model")
     if any(task["split"] not in {"train", "validation"} for task in tasks):
         raise ValueError("Development execution cannot expose test/OOD tasks; use the future frozen confirmatory entry")
     if not rule_actor and (pool is None or "actor" not in pool.paths):
@@ -58,11 +73,13 @@ def run_execution(tasks, references, out, pool=None, policies=("fixed-full", "dy
     out.mkdir(parents=True, exist_ok=False)
     manifest = {"kind": "public_contract_development_execution", "scope": "development", "status": "running",
         "actor": "local_model" if pool else "scripted", "executor_is_language_model": not rule_actor,
-        "analyzer": "schema_local_model" if pool and "analyzer" in pool.paths else "public_rule",
+        "analyzer": {"model": "schema_local_model", "rule": "public_rule", "hybrid": "public_rule_with_schema_model_sidecar"}[analyzer_mode],
+        "analyzer_mode": analyzer_mode,
         "task_hash": digest(tasks), "offline_reference_hash": digest(references), "policies": list(policies),
         "max_repairs": max_repairs, "hard_guard_enabled": hard_guard, "redact_events": redact_events,
         "max_tool_steps": max_tool_steps,
         "actor_envelope": actor_envelope,
+        "intensity_config": intensity_config,
         "source_task_groups": len({task["source_task_id"] for task in tasks}),
         "model_paths": dict(pool.paths) if pool else None,
         "warning": "Unreviewed development contracts; not an independent human benchmark or confirmatory result."}
@@ -80,11 +97,17 @@ def run_execution(tasks, references, out, pool=None, policies=("fixed-full", "dy
                         pool.reset()
                     actor = ContractRuleActor() if rule_actor else LanguageModelActor(pool.role("actor"), envelope_mode=actor_envelope)
                     analyzer = SchemaLanguageModelAnalyzer(pool.role("analyzer")) if pool and "analyzer" in pool.paths else analyze_execution
+                    if analyzer_mode == "hybrid":
+                        analyzer = HybridExecutionAnalyzer(analyzer)
                     result = run_task(deepcopy(task), actor, policy, max_repairs, redact_events,
                         analyzer=analyzer, hard_guard=hard_guard, evaluator=judge, scope_selector=execution_scope,
-                        max_tool_steps=max_tool_steps)
+                        max_tool_steps=max_tool_steps,
+                        intensity_config=intensity_config if policy in {"fixed-k", "dynamic-k"} else None)
                     result["source_task_id"] = task["source_task_id"]
                     result["analyzer_errors"] = analyzer.errors if hasattr(analyzer, "errors") else []
+                    result["analyzer_mode"] = analyzer_mode
+                    if analyzer_mode == "hybrid":
+                        result["analyzer_decisions"] = analyzer.decisions
                     if pool:
                         result["model_pool"] = pool.snapshot()
                     results.append(result)
@@ -119,6 +142,7 @@ def main():
     actor.add_argument("--actor-model", type=Path)
     actor.add_argument("--rule-actor", action="store_true")
     parser.add_argument("--analyzer-model", type=Path)
+    parser.add_argument("--analyzer-mode", choices=["model", "rule", "hybrid"], help="Explicit gating source; legacy default is model when configured, otherwise rule")
     parser.add_argument("--device", choices=["cpu", "cuda"], default="cpu")
     parser.add_argument("--max-new-tokens", type=int, default=512)
     parser.add_argument("--token-budget", type=int, default=16384)
@@ -127,6 +151,7 @@ def main():
     parser.add_argument("--max-tool-steps", type=int, default=3)
     parser.add_argument("--actor-envelope", choices=["strict", "extract"], default="extract")
     parser.add_argument("--policies", nargs="+", default=["fixed-full", "dynamic"])
+    parser.add_argument("--intensity-config", type=Path, help="Explicit JSON config for fixed-k/dynamic-k development ablation")
     parser.add_argument("--disable-hard-guard", action="store_true")
     parser.add_argument("--redact-events", action="store_true")
     parser.add_argument("--limit", type=int)
@@ -143,7 +168,9 @@ def main():
     if paths:
         pool = LocalModelPool(paths, args.device, args.max_new_tokens, args.token_budget, context_limit=args.context_limit)
     result = run_execution(tasks, references, args.out, pool, args.policies, args.max_repairs,
-                           not args.disable_hard_guard, args.redact_events, args.rule_actor, args.max_tool_steps, args.actor_envelope)
+                           not args.disable_hard_guard, args.redact_events, args.rule_actor, args.max_tool_steps, args.actor_envelope,
+                           json.loads(args.intensity_config.read_text(encoding="utf-8")) if args.intensity_config else None,
+                           args.analyzer_mode)
     print(json.dumps({"summary": result["summary"], "strata": result["strata"]}, indent=2))
 
 

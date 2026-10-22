@@ -1,0 +1,97 @@
+{
+  "kind": "preserved_resource_failure_recomputation",
+  "scope": "engineering",
+  "runs": 64,
+  "conditions": {
+    "3b-executor": {
+      "audit": {
+        "kind": "raw_execution_replay_audit",
+        "verified": true,
+        "runs": 32,
+        "intensity_decisions_recomputed": 0,
+        "source_task_groups": 8,
+        "policies": {
+          "none": {
+            "runs": 8,
+            "compliant_successes": 0,
+            "errors": 8,
+            "repair_introduced_violation_runs": 0,
+            "charged_tokens": 8371
+          },
+          "fixed": {
+            "runs": 8,
+            "compliant_successes": 0,
+            "errors": 8,
+            "repair_introduced_violation_runs": 0,
+            "charged_tokens": 8371
+          },
+          "fixed-full": {
+            "runs": 8,
+            "compliant_successes": 0,
+            "errors": 8,
+            "repair_introduced_violation_runs": 0,
+            "charged_tokens": 8371
+          },
+          "dynamic": {
+            "runs": 8,
+            "compliant_successes": 0,
+            "errors": 8,
+            "repair_introduced_violation_runs": 0,
+            "charged_tokens": 8371
+          }
+        },
+        "scope": "development",
+        "warning": "Recomputes program-defined references, not human truth or statistical independence."
+      },
+      "error_messages": {
+        "Tool action does not match the declared schema": 16,
+        "Language model did not return a valid JSON action proposal": 16
+      }
+    },
+    "9b-actor-3b-analyzer": {
+      "audit": {
+        "kind": "raw_execution_replay_audit",
+        "verified": true,
+        "runs": 32,
+        "intensity_decisions_recomputed": 0,
+        "source_task_groups": 8,
+        "policies": {
+          "none": {
+            "runs": 8,
+            "compliant_successes": 0,
+            "errors": 8,
+            "repair_introduced_violation_runs": 0,
+            "charged_tokens": 0
+          },
+          "fixed": {
+            "runs": 8,
+            "compliant_successes": 0,
+            "errors": 8,
+            "repair_introduced_violation_runs": 0,
+            "charged_tokens": 0
+          },
+          "fixed-full": {
+            "runs": 8,
+            "compliant_successes": 0,
+            "errors": 8,
+            "repair_introduced_violation_runs": 0,
+            "charged_tokens": 0
+          },
+          "dynamic": {
+            "runs": 8,
+            "compliant_successes": 0,
+            "errors": 8,
+            "repair_introduced_violation_runs": 0,
+            "charged_tokens": 0
+          }
+        },
+        "scope": "development",
+        "warning": "Recomputes program-defined references, not human truth or statistical independence."
+      },
+      "error_messages": {
+        "CUDA out of memory. Tried to allocate 32.00 MiB. GPU 0 has a total capacity of 31.36 GiB of which 14.31 MiB is free. Process 57889 has 17.96 GiB memory in use. Including non-PyTorch memory, this process has 13.38 GiB memory in use. Of the allocated memory 12.86 GiB is allocated by PyTorch, and 29.73 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)": 32
+      }
+    }
+  },
+  "warning": "Development failures retained, not formal milestone completion or efficacy evidence."
+}

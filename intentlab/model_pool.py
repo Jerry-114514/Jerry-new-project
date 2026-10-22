@@ -9,6 +9,7 @@ import time
 
 from .budget import TokenLedger
 from .model_backend import LocalBackend
+from .gpu_lease import ensure_gpu_lease
 
 
 class RoleBackend:
@@ -25,6 +26,8 @@ class LocalModelPool:
             raise ValueError("Expected actor and/or analyzer model paths")
         self.paths = {role: str(Path(path).resolve()) for role, path in paths.items()}
         self.device, self.maximum = device, max_new_tokens
+        if device == "cuda":
+            ensure_gpu_lease()
         if context_limit is not None and (type(context_limit) is not int or context_limit < 1):
             raise ValueError("Context limit must be positive")
         self.context_limit = context_limit
@@ -53,6 +56,8 @@ class LocalModelPool:
     def complete(self, role, prompt):
         if role not in self.paths:
             raise ValueError("Unknown model role")
+        if self.device == "cuda":
+            ensure_gpu_lease()
         path = self.paths[role]
         if self.current_path != path:
             self.close()

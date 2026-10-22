@@ -1,0 +1,2021 @@
+{
+  "kind": "intensity_development_recomputation",
+  "scope": "development",
+  "runtime_modules_verified": 36,
+  "runs": 64,
+  "source_task_groups": 8,
+  "conditions": {
+    "model": {
+      "audit": {
+        "kind": "raw_execution_replay_audit",
+        "verified": true,
+        "runs": 16,
+        "intensity_decisions_recomputed": 0,
+        "source_task_groups": 8,
+        "policies": {
+          "fixed-k": {
+            "runs": 8,
+            "compliant_successes": 2,
+            "errors": 0,
+            "repair_introduced_violation_runs": 0,
+            "charged_tokens": 20645
+          },
+          "dynamic-k": {
+            "runs": 8,
+            "compliant_successes": 2,
+            "errors": 0,
+            "repair_introduced_violation_runs": 0,
+            "charged_tokens": 20645
+          }
+        },
+        "scope": "development",
+        "warning": "Recomputes program-defined references, not human truth or statistical independence."
+      },
+      "summary": {
+        "fixed-k": {
+          "runs": 8,
+          "compliant_success_rate": 0.25,
+          "task_completion_rate": 0.25,
+          "hard_violation_run_rate": 0.0,
+          "errors": 0,
+          "actor_calls": 11,
+          "checks": 8,
+          "rejected_candidates": 0,
+          "verification_calls": 0,
+          "hard_guard_rejections": 0,
+          "tool_step_limit_hits": 0,
+          "strict_actor_response_valid_calls": 0,
+          "actor_envelopes_projected": 11,
+          "actor_response_call_denominator": 11,
+          "timed_runs": 8,
+          "mean_elapsed_seconds": 13.541188951814547,
+          "budgeted_runs": 8,
+          "charged_model_tokens": 20645,
+          "known_prompt_tokens": 17325,
+          "known_completion_tokens": 3320,
+          "failed_generation_reservations": 0,
+          "denied_model_calls": 0,
+          "token_accounting": "Charged totals include conservative reservations on failed generation"
+        },
+        "dynamic-k": {
+          "runs": 8,
+          "compliant_success_rate": 0.25,
+          "task_completion_rate": 0.25,
+          "hard_violation_run_rate": 0.0,
+          "errors": 0,
+          "actor_calls": 11,
+          "checks": 8,
+          "rejected_candidates": 0,
+          "verification_calls": 0,
+          "hard_guard_rejections": 0,
+          "tool_step_limit_hits": 0,
+          "strict_actor_response_valid_calls": 0,
+          "actor_envelopes_projected": 11,
+          "actor_response_call_denominator": 11,
+          "timed_runs": 8,
+          "mean_elapsed_seconds": 12.088093866361305,
+          "budgeted_runs": 8,
+          "charged_model_tokens": 20645,
+          "known_prompt_tokens": 17325,
+          "known_completion_tokens": 3320,
+          "failed_generation_reservations": 0,
+          "denied_model_calls": 0,
+          "token_accounting": "Charged totals include conservative reservations on failed generation"
+        }
+      },
+      "repair_opportunity_runs": 0,
+      "intensity_decisions": []
+    },
+    "controlled/fixed-1": {
+      "audit": {
+        "kind": "raw_execution_replay_audit",
+        "verified": true,
+        "runs": 16,
+        "intensity_decisions_recomputed": 32,
+        "source_task_groups": 8,
+        "policies": {
+          "fixed-k": {
+            "runs": 8,
+            "compliant_successes": 0,
+            "errors": 0,
+            "repair_introduced_violation_runs": 0,
+            "charged_tokens": 0
+          },
+          "dynamic-k": {
+            "runs": 8,
+            "compliant_successes": 8,
+            "errors": 0,
+            "repair_introduced_violation_runs": 0,
+            "charged_tokens": 0
+          }
+        },
+        "scope": "engineering",
+        "warning": "Recomputes program-defined references, not human truth or statistical independence."
+      },
+      "summary": {
+        "fixed-k": {
+          "runs": 8,
+          "compliant_success_rate": 0.0,
+          "task_completion_rate": 0.0,
+          "hard_violation_run_rate": 0.0,
+          "errors": 0,
+          "actor_calls": 32,
+          "checks": 32,
+          "rejected_candidates": 24,
+          "verification_calls": 0,
+          "hard_guard_rejections": 0,
+          "tool_step_limit_hits": 0,
+          "timed_runs": 8,
+          "mean_elapsed_seconds": 0.0005516499986697454
+        },
+        "dynamic-k": {
+          "runs": 8,
+          "compliant_success_rate": 1.0,
+          "task_completion_rate": 1.0,
+          "hard_violation_run_rate": 0.0,
+          "errors": 0,
+          "actor_calls": 16,
+          "checks": 16,
+          "rejected_candidates": 0,
+          "verification_calls": 0,
+          "hard_guard_rejections": 0,
+          "tool_step_limit_hits": 0,
+          "timed_runs": 8,
+          "mean_elapsed_seconds": 0.00032612499944661977
+        }
+      },
+      "repair_opportunity_runs": 16,
+      "intensity_decisions": [
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 1,
+          "selected_root_count": 1,
+          "roots": [
+            "R_REPORT"
+          ],
+          "target": [
+            "R_REPORT"
+          ],
+          "expanded_target_count": 1,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 1,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        }
+      ]
+    },
+    "controlled/fixed-2": {
+      "audit": {
+        "kind": "raw_execution_replay_audit",
+        "verified": true,
+        "runs": 16,
+        "intensity_decisions_recomputed": 16,
+        "source_task_groups": 8,
+        "policies": {
+          "fixed-k": {
+            "runs": 8,
+            "compliant_successes": 8,
+            "errors": 0,
+            "repair_introduced_violation_runs": 0,
+            "charged_tokens": 0
+          },
+          "dynamic-k": {
+            "runs": 8,
+            "compliant_successes": 8,
+            "errors": 0,
+            "repair_introduced_violation_runs": 0,
+            "charged_tokens": 0
+          }
+        },
+        "scope": "engineering",
+        "warning": "Recomputes program-defined references, not human truth or statistical independence."
+      },
+      "summary": {
+        "fixed-k": {
+          "runs": 8,
+          "compliant_success_rate": 1.0,
+          "task_completion_rate": 1.0,
+          "hard_violation_run_rate": 0.0,
+          "errors": 0,
+          "actor_calls": 16,
+          "checks": 16,
+          "rejected_candidates": 0,
+          "verification_calls": 0,
+          "hard_guard_rejections": 0,
+          "tool_step_limit_hits": 0,
+          "timed_runs": 8,
+          "mean_elapsed_seconds": 0.0003698250011439086
+        },
+        "dynamic-k": {
+          "runs": 8,
+          "compliant_success_rate": 1.0,
+          "task_completion_rate": 1.0,
+          "hard_violation_run_rate": 0.0,
+          "errors": 0,
+          "actor_calls": 16,
+          "checks": 16,
+          "rejected_candidates": 0,
+          "verification_calls": 0,
+          "hard_guard_rejections": 0,
+          "tool_step_limit_hits": 0,
+          "timed_runs": 8,
+          "mean_elapsed_seconds": 0.0003187500005878974
+        }
+      },
+      "repair_opportunity_runs": 16,
+      "intensity_decisions": [
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 2,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 2,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 2,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 2,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 2,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 2,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 2,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 2,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 2,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 2,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 2,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 2,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 2,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 2,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 2,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 2,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        }
+      ]
+    },
+    "controlled/fixed-3": {
+      "audit": {
+        "kind": "raw_execution_replay_audit",
+        "verified": true,
+        "runs": 16,
+        "intensity_decisions_recomputed": 16,
+        "source_task_groups": 8,
+        "policies": {
+          "fixed-k": {
+            "runs": 8,
+            "compliant_successes": 8,
+            "errors": 0,
+            "repair_introduced_violation_runs": 0,
+            "charged_tokens": 0
+          },
+          "dynamic-k": {
+            "runs": 8,
+            "compliant_successes": 8,
+            "errors": 0,
+            "repair_introduced_violation_runs": 0,
+            "charged_tokens": 0
+          }
+        },
+        "scope": "engineering",
+        "warning": "Recomputes program-defined references, not human truth or statistical independence."
+      },
+      "summary": {
+        "fixed-k": {
+          "runs": 8,
+          "compliant_success_rate": 1.0,
+          "task_completion_rate": 1.0,
+          "hard_violation_run_rate": 0.0,
+          "errors": 0,
+          "actor_calls": 16,
+          "checks": 16,
+          "rejected_candidates": 0,
+          "verification_calls": 0,
+          "hard_guard_rejections": 0,
+          "tool_step_limit_hits": 0,
+          "timed_runs": 8,
+          "mean_elapsed_seconds": 0.00036171250030747615
+        },
+        "dynamic-k": {
+          "runs": 8,
+          "compliant_success_rate": 1.0,
+          "task_completion_rate": 1.0,
+          "hard_violation_run_rate": 0.0,
+          "errors": 0,
+          "actor_calls": 16,
+          "checks": 16,
+          "rejected_candidates": 0,
+          "verification_calls": 0,
+          "hard_guard_rejections": 0,
+          "tool_step_limit_hits": 0,
+          "timed_runs": 8,
+          "mean_elapsed_seconds": 0.0002946249996966799
+        }
+      },
+      "repair_opportunity_runs": 16,
+      "intensity_decisions": [
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 3,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 3,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 3,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 3,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 3,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 3,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 3,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 3,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 3,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 3,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 3,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 3,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 3,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 3,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "fixed-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 3,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 3,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 3,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 3,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 3,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 3,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 3,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 3,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 3,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        },
+        {
+          "policy": "dynamic-k",
+          "severity_index": 0.3333333333333333,
+          "weighted_failure_mass": 2.0,
+          "total_requirement_weight": 6.0,
+          "requested_k": 2,
+          "selected_root_count": 2,
+          "roots": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "target": [
+            "R_REPORT",
+            "R_RESULT"
+          ],
+          "expanded_target_count": 2,
+          "config": {
+            "schema_version": 1,
+            "fixed_k": 3,
+            "max_k": 3,
+            "thresholds": [
+              0.25,
+              0.5
+            ],
+            "hard_weight": 2.0,
+            "unknown_weight": 0.5
+          }
+        }
+      ]
+    }
+  },
+  "warning": "Repeated public development tasks and controlled injected omissions. Human reviews: 0. No confirmatory or adaptive-efficiency claim."
+}

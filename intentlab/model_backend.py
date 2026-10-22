@@ -10,10 +10,13 @@ from .neural import dependencies
 from .sft_data import analysis_prompt
 from .prompts import prompt_ids
 from .budget import BudgetExceeded, TokenLedger
+from .gpu_lease import ensure_gpu_lease
 
 
 class LocalBackend:
     def __init__(self, model_path, device="cpu", max_new_tokens=256, token_budget=20000, ledger=None, context_limit=None):
+        if device == "cuda":
+            ensure_gpu_lease()
         if max_new_tokens < 1 or token_budget < 1:
             raise ValueError("Positive generation and token budgets required")
         if context_limit is not None and (type(context_limit) is not int or context_limit < 1):
@@ -67,6 +70,8 @@ class LocalBackend:
             self.torch.cuda.empty_cache()
 
     def complete(self, prompt, role="model"):
+        if self.device == "cuda":
+            ensure_gpu_lease()
         ids = prompt_ids(self.tokenizer, prompt)
         # Preserve the legacy mutable per-backend cap, including callers that
         # lower backend.limit between calls, while also enforcing shared limits.

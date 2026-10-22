@@ -1,0 +1,30 @@
+{
+  "kind": "controlled_injected_omission_intensity_audit",
+  "scope": "engineering",
+  "status": "completed",
+  "task_hash": "fa570d83242cc54ceb0d53b0e43360b560ca604adb44fe7624a293919e69748e",
+  "offline_reference_hash": "cc21592b18e7ae9d9f34ece786b828b38b5622efb63f0a507a1d44ce58baf6ee",
+  "policies": [
+    "fixed-k",
+    "dynamic-k"
+  ],
+  "intensity_config": {
+    "schema_version": 1,
+    "fixed_k": 2,
+    "max_k": 3,
+    "thresholds": [
+      0.25,
+      0.5
+    ],
+    "hard_weight": 2.0,
+    "unknown_weight": 0.5
+  },
+  "model_paths": null,
+  "actor": "scripted",
+  "executor_is_language_model": false,
+  "max_repairs": 3,
+  "max_tool_steps": 1,
+  "hard_guard_enabled": true,
+  "redact_events": false,
+  "warning": "Scripted validate-only initial phase deliberately omits both deliverables. Not natural errors, independent tasks, token efficiency evidence, or formal M7 results."
+}

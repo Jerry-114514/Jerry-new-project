@@ -80,7 +80,11 @@ python -m intentlab.execution --tasks runs/execution-development/tasks.jsonl --r
 
 P1/P2 的开发消融改用新输出目录并加 `--disable-hard-guard`；其余参数不变。没有指定分析模型时使用公开规则分析器，必须在报告中注明；`--rule-actor` 是明确的工程执行器，不能称为真实模型。
 
+模型误判 satisfied 导致不触发修复时，可显式使用 `--analyzer-mode hybrid`，将公开规则检查与模型原始诊断分别保存；详见 [故障修复说明](analyzer-false-pass-fix.md)。该模式是独立条件，不能与纯模型结果混算，硬检查开关对照须使用相同模式。
+
 该开发入口拒绝 test/OOD 执行，以免把尚未绑定完整冻结协议的实验当作确认性评估。正式执行仍需将任务/参考、模型选择和全部运行条件接入冻结器及测试揭晓审计。
+
+单轮修复根数量的开发消融另用 `fixed-k` / `dynamic-k` 和显式 `--intensity-config`，见 [k 控制指南](repair-intensity-guide.md)。两者共用依赖扩展与门控；既有 `dynamic` 仍不是动态 k，旧开发记录不改写。
 
 从已完成的真实轨迹重建盲标注包：
 

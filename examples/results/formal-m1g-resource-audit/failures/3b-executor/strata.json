@@ -1,0 +1,34 @@
+{
+  "none": {
+    "all_runs": 8,
+    "feasible_runs": 8,
+    "initially_irreversible_runs": 0,
+    "feasible_compliant_success_rate": 0.0,
+    "repair_introduced_hard_violation_runs": 0,
+    "warning": "Development source groups are declared, not independently certified tasks."
+  },
+  "fixed": {
+    "all_runs": 8,
+    "feasible_runs": 8,
+    "initially_irreversible_runs": 0,
+    "feasible_compliant_success_rate": 0.0,
+    "repair_introduced_hard_violation_runs": 0,
+    "warning": "Development source groups are declared, not independently certified tasks."
+  },
+  "fixed-full": {
+    "all_runs": 8,
+    "feasible_runs": 8,
+    "initially_irreversible_runs": 0,
+    "feasible_compliant_success_rate": 0.0,
+    "repair_introduced_hard_violation_runs": 0,
+    "warning": "Development source groups are declared, not independently certified tasks."
+  },
+  "dynamic": {
+    "all_runs": 8,
+    "feasible_runs": 8,
+    "initially_irreversible_runs": 0,
+    "feasible_compliant_success_rate": 0.0,
+    "repair_introduced_hard_violation_runs": 0,
+    "warning": "Development source groups are declared, not independently certified tasks."
+  }
+}

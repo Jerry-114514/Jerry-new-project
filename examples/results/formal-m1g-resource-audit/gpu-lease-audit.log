@@ -1,0 +1,11 @@
+{
+  "legacy_cuda_child_refused": {
+    "pid": 65908,
+    "message": "Other CUDA compute processes are active (PIDs 65908); stop this launch before loading/generating"
+  },
+  "managed_second_backend_refused": "Another managed CUDA experiment owns the GPU lease; no model was loaded",
+  "owner_cuda_allocation_and_reuse": true,
+  "owner_pid": 65905,
+  "lock_file": "/tmp/intentlab-cuda.lease",
+  "note": "Only audit-owned children were started/stopped. No models or formal training; kernel-crash recovery separately covered by tests."
+}
