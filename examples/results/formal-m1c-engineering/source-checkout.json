@@ -1,0 +1,27 @@
+{
+  "kind": "formal_source_checkout_preparation",
+  "root": "/root/autodl-tmp/Jerry-formal-20261022",
+  "git": {
+    "commit": "1466bf358b5a770f8796081722b1e620d9d5ed0f",
+    "clean": true
+  },
+  "python": "/root/autodl-tmp/intentlab-venv/bin/python",
+  "matrix_state_files": [],
+  "readiness": {
+    "ready": false,
+    "blockers": [
+      "Freeze an explicit nonempty list of reviewed development example IDs",
+      "Missing reviewed evidence file: power_analysis",
+      "Missing reviewed evidence file: length_and_compute_budget",
+      "Missing reviewed evidence file: semantic_dedup_review",
+      "Missing reviewed evidence file: provenance_and_release_review",
+      "Missing reviewed evidence file: test_sealing",
+      "Missing reviewed evidence file: execution_and_oracle_audit",
+      "Missing reviewed evidence file: controller_ablation_audit",
+      "Missing annotation input: cases",
+      "Missing annotation input: reviews",
+      "Missing reviewed data export"
+    ],
+    "scope": "formal"
+  }
+}

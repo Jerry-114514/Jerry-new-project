@@ -2,6 +2,8 @@
 
 本指南落实 [idea.md](../idea.md) 的 M1/M3/M4 工程要求。冻结工具和训练矩阵已实现；正式数据、人工审核、功效分析及新任务闭环审核仍未完成，因此现在不能启动确认性 9B 训练。
 
+AutoDL 已建立独立源码检出 `/root/autodl-tmp/Jerry-formal-20261022`，准备检查时 commit 为 `1466bf358b5a770f8796081722b1e620d9d5ed0f`、工作区干净，使用既有 `/root/autodl-tmp/intentlab-venv/bin/python`。见[检出记录](../examples/results/formal-m1c-engineering/source-checkout.json)。该检出尚未冻结正式协议，也没有启动正式矩阵；以后部署新代码前仍须核查活动进程及版本。
+
 ## 1. 准备可审查协议
 
 在 AutoDL 上使用已验证的 venv 和一个干净、已提交的 Git 源码检出。将 [协议草案](../configs/formal-protocol.draft.json) 复制到忽略的私有工作目录，再填写真实路径和开发阶段确定的参数；不要为了通过检查把缺失审核写成已完成。

@@ -79,8 +79,10 @@
     "matrix/plateau-seed-2.log": "f81563f7a557d0109732e2336930cfb3faabcc208f885f4a050c4cbf15151dca",
     "matrix/protocol.engineering.lock.json": "0eea3ca47d79bfb25b72ab37819d35434d9c340822fa7c97cd82366a7f0ec6f5",
     "model-assets.json": "359c17a4305fd18ac60723e8b57916802d6286bd67e612ce950cc7667ef068bf",
+    "readiness-git-checkout.json": "56a0c6862e2cce0fbf41c4fb2ceaf6c8c38a0f5b0788f33fc6fddefe643db597",
     "readiness.json": "e5a562037f1494cdc2451a943d12fd78a1b5d0e2e2ee17f58ecb134f628f8a53",
-    "README.md": "67403095d83459d155d703719573a6ce2ef644410b274a2ba4e3f78e29782f8d",
+    "README.md": "d83c44fe5a846f503730056464690d3cf6859547287fe62f02c8188d418067b7",
+    "source-checkout.json": "97c1a0a3f89e5567e1d338ce9d70451cdb2b94e8a644614029e6c906b0870a1c",
     "tests.log": "910b16df9e5729ebc442091227b4036a029d871fe39d2abe34e43e748e1be4b1"
   }
 }
