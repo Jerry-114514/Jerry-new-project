@@ -1,0 +1,9 @@
+{
+  "data_hash_matches_all_runs": true,
+  "deployed_source_matches_run_manifest": true,
+  "pilot_script_matches_manifest": true,
+  "adapters_finite_and_element_counts_match": true,
+  "test_count": 42,
+  "tests_log": "tests.log",
+  "protocol": "explicit-requirement-ids-v2"
+}

@@ -1,0 +1,7 @@
+{
+  "deployed_source_matches_manifest": true,
+  "test_count": 46,
+  "oracle_used_in_guard": false,
+  "initial_actor_actions_guarded": false,
+  "note": "Guard code checks public input names and authoritative tool events. Frozen pre-guard outputs remain unchanged."
+}

@@ -1,0 +1,30 @@
+{
+  "samples": 48,
+  "valid_outputs": 48,
+  "correct_statuses": 185,
+  "exact_status_samples": 41,
+  "gold_satisfied": 126,
+  "correct_satisfied": 126,
+  "gold_unknown": 42,
+  "correct_unknown": 42,
+  "gold_violated": 24,
+  "correct_violated": 17,
+  "valid_output_rate": 1.0,
+  "status_accuracy": 0.9635416666666666,
+  "exact_status_accuracy": 0.8541666666666666,
+  "seconds": 189.9433547127992,
+  "inference_losses": {
+    "validation": {
+      "loss": 0.008692943649101269,
+      "target_tokens": 4319
+    },
+    "test": {
+      "loss": 0.007451002309543694,
+      "target_tokens": 3894
+    }
+  },
+  "warning": "Synthetic smoke holdout. Invalid outputs count as wrong. Evidence index validity does not establish semantic support.",
+  "recall_satisfied": 1.0,
+  "recall_violated": 0.7083333333333334,
+  "recall_unknown": 1.0
+}

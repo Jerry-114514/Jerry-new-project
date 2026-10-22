@@ -1,0 +1,10 @@
+{
+  "validation": {
+    "loss": 0.014789834497813467,
+    "target_tokens": 4319
+  },
+  "test": {
+    "loss": 0.012084895669342496,
+    "target_tokens": 3894
+  }
+}

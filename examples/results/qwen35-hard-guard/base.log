@@ -1,0 +1,29 @@
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]Loading weights: 100%|██████████| 427/427 [00:00<00:00, 7516.36it/s]
+{
+  "fixed-full": {
+    "runs": 2,
+    "compliant_success_rate": 0.0,
+    "task_completion_rate": 0.0,
+    "hard_violation_run_rate": 0.0,
+    "errors": 0,
+    "actor_calls": 2,
+    "checks": 2,
+    "rejected_candidates": 0,
+    "verification_calls": 0,
+    "timed_runs": 2,
+    "mean_elapsed_seconds": 4.109234735369682
+  },
+  "dynamic": {
+    "runs": 2,
+    "compliant_success_rate": 0.0,
+    "task_completion_rate": 0.0,
+    "hard_violation_run_rate": 0.0,
+    "errors": 0,
+    "actor_calls": 2,
+    "checks": 4,
+    "rejected_candidates": 0,
+    "verification_calls": 2,
+    "timed_runs": 2,
+    "mean_elapsed_seconds": 7.40857807174325
+  }
+}

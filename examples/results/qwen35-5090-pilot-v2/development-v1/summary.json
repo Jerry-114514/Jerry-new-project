@@ -1,0 +1,207 @@
+{
+  "runs": [
+    {
+      "name": "cosine-seed-0",
+      "training": {
+        "kind": "causal_lm_sft",
+        "completed": true,
+        "config": {
+          "data": "data/sft",
+          "model": "/root/autodl-tmp/models/Qwen3.5-9B",
+          "revision": null,
+          "mode": "qlora",
+          "device": "cuda",
+          "schedule": "cosine",
+          "steps": 24,
+          "eval_every": 8,
+          "batch_size": 1,
+          "accumulation": 2,
+          "max_length": 4096,
+          "lr": 5e-05,
+          "minimum_lr": 5e-06,
+          "rank": 16,
+          "alpha": 32,
+          "seed": 0,
+          "limit": 0,
+          "threads": 4
+        },
+        "data_hash": "7bd855c6c86ddbe9f5e5a32d96c046f52ddf6e4848e8febfc48ee7da5e998af2",
+        "base_identity": "457bf3ae902e56e0a24588f4a691ae1aa611de4c8f7cb7429d8b5d100b7ca1ef",
+        "step": 24,
+        "history": [
+          {
+            "step": 8,
+            "train_loss": 0.16675132137912135,
+            "validation": {
+              "loss": 0.112245494332902,
+              "target_tokens": 4319
+            },
+            "lr_used": 4.223436651376892e-05,
+            "gradient_norm": 1.3363896608352661,
+            "scheduler": null
+          },
+          {
+            "step": 16,
+            "train_loss": 0.03634866175951658,
+            "validation": {
+              "loss": 0.02677398217610392,
+              "target_tokens": 4319
+            },
+            "lr_used": 1.815316220745756e-05,
+            "gradient_norm": 1.2446805238723755,
+            "scheduler": null
+          },
+          {
+            "step": 24,
+            "train_loss": 0.013921236203721732,
+            "validation": {
+              "loss": 0.017966014432476526,
+              "target_tokens": 4319
+            },
+            "lr_used": 5e-06,
+            "gradient_norm": 0.4005796015262604,
+            "scheduler": null
+          }
+        ],
+        "train_tokens": 31985,
+        "parameters": 5537829376,
+        "trainable_parameters": 43278336,
+        "seconds_this_invocation": 33.62727136351168,
+        "versions": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.20.2"
+        },
+        "gpu": "NVIDIA GeForce RTX 5090",
+        "peak_allocated_bytes": 18028655616,
+        "peak_reserved_bytes": 23800578048,
+        "test": {
+          "loss": 0.01789484705353126,
+          "target_tokens": 3894
+        }
+      },
+      "training_loop_seconds_all_invocations": 148.4775162115693,
+      "wall_seconds_including_loads": 216.1069968789816
+    },
+    {
+      "name": "plateau-seed-0",
+      "training": {
+        "kind": "causal_lm_sft",
+        "completed": true,
+        "config": {
+          "data": "data/sft",
+          "model": "/root/autodl-tmp/models/Qwen3.5-9B",
+          "revision": null,
+          "mode": "qlora",
+          "device": "cuda",
+          "schedule": "plateau",
+          "steps": 24,
+          "eval_every": 8,
+          "batch_size": 1,
+          "accumulation": 2,
+          "max_length": 4096,
+          "lr": 5e-05,
+          "minimum_lr": 5e-06,
+          "rank": 16,
+          "alpha": 32,
+          "seed": 0,
+          "limit": 0,
+          "threads": 4
+        },
+        "data_hash": "7bd855c6c86ddbe9f5e5a32d96c046f52ddf6e4848e8febfc48ee7da5e998af2",
+        "base_identity": "457bf3ae902e56e0a24588f4a691ae1aa611de4c8f7cb7429d8b5d100b7ca1ef",
+        "step": 24,
+        "history": [
+          {
+            "step": 8,
+            "train_loss": 0.1598598840353372,
+            "validation": {
+              "loss": 0.0963916070871426,
+              "target_tokens": 4319
+            },
+            "lr_used": 5e-05,
+            "gradient_norm": 1.2342857122421265,
+            "scheduler": {
+              "old_lr": 5e-05,
+              "new_lr": 5e-05,
+              "reduced": false,
+              "lr": 5e-05,
+              "factor": 0.5,
+              "patience": 2,
+              "threshold": 0.001,
+              "cooldown": 1,
+              "min_lr": 5e-06,
+              "best": 0.0963916070871426,
+              "bad": 0,
+              "remaining": 0
+            }
+          },
+          {
+            "step": 16,
+            "train_loss": 0.013716356320814653,
+            "validation": {
+              "loss": 0.010919228813719435,
+              "target_tokens": 4319
+            },
+            "lr_used": 5e-05,
+            "gradient_norm": 0.8219397068023682,
+            "scheduler": {
+              "old_lr": 5e-05,
+              "new_lr": 5e-05,
+              "reduced": false,
+              "lr": 5e-05,
+              "factor": 0.5,
+              "patience": 2,
+              "threshold": 0.001,
+              "cooldown": 1,
+              "min_lr": 5e-06,
+              "best": 0.010919228813719435,
+              "bad": 0,
+              "remaining": 0
+            }
+          },
+          {
+            "step": 24,
+            "train_loss": 0.00029382695374656313,
+            "validation": {
+              "loss": 0.00028228923819853936,
+              "target_tokens": 4319
+            },
+            "lr_used": 5e-05,
+            "gradient_norm": 0.02723170816898346,
+            "scheduler": {
+              "old_lr": 5e-05,
+              "new_lr": 5e-05,
+              "reduced": false,
+              "lr": 5e-05,
+              "factor": 0.5,
+              "patience": 2,
+              "threshold": 0.001,
+              "cooldown": 1,
+              "min_lr": 5e-06,
+              "best": 0.00028228923819853936,
+              "bad": 0,
+              "remaining": 0
+            }
+          }
+        ],
+        "train_tokens": 31985,
+        "parameters": 5537829376,
+        "trainable_parameters": 43278336,
+        "seconds_this_invocation": 58.70483711361885,
+        "versions": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.20.2"
+        },
+        "gpu": "NVIDIA GeForce RTX 5090",
+        "peak_allocated_bytes": 18178444288,
+        "peak_reserved_bytes": 22714253312,
+        "test": {
+          "loss": 0.0011422861314607801,
+          "target_tokens": 3894
+        }
+      },
+      "training_loop_seconds_all_invocations": 58.70483711361885,
+      "wall_seconds_including_loads": 94.85846762172878
+    }
+  ]
+}

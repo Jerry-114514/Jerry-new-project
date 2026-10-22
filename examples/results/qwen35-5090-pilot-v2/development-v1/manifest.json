@@ -1,0 +1,145 @@
+{
+  "kind": "5090_qlora_pilot",
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "gpu_memory_bytes": 33670758400,
+  "cuda": "12.8",
+  "python": "3.12.3",
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.20.2",
+    "peft": "0.21.2",
+    "bitsandbytes": "0.49.2",
+    "accelerate": "1.15.0"
+  },
+  "steps": 24,
+  "seeds": [
+    0
+  ],
+  "diagnostic_limit": 0,
+  "model": "/root/autodl-tmp/models/Qwen3.5-9B",
+  "model_provenance": {
+    "model": "Qwen/Qwen3.5-9B",
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "endpoint": "https://hf-mirror.com",
+    "files": [
+      {
+        "rfilename": "README.md",
+        "blobId": "0f3972cb2c995a86bde9ac92440da530fe2b2c68",
+        "size": 77643
+      },
+      {
+        "rfilename": "chat_template.jinja",
+        "blobId": "a585dec894e63da457d9440ec6aa7caa16d20860",
+        "size": 7756
+      },
+      {
+        "rfilename": "config.json",
+        "blobId": "273ce437e01baf96a07cd9eb3d5f48bac8d7c657",
+        "size": 3126
+      },
+      {
+        "rfilename": "merges.txt",
+        "blobId": "a494e019ca1502219fd0128658b979e5f05ae8e8",
+        "size": 3353259
+      },
+      {
+        "rfilename": "model.safetensors-00001-of-00004.safetensors",
+        "blobId": "dfcd6f97b641f0447db5697eca1f4e227c84449c",
+        "size": 5276436216,
+        "lfs": {
+          "sha256": "db6f444b43d318c92f360a13a25561a6a65b10c0631b8ed305a426dbaa6c380e",
+          "size": 5276436216,
+          "pointerSize": 135
+        }
+      },
+      {
+        "rfilename": "model.safetensors-00002-of-00004.safetensors",
+        "blobId": "645b45d883adaee57a4dbbf75577fa634d20c6b5",
+        "size": 5335161512,
+        "lfs": {
+          "sha256": "31c7d7e2dd5d207840b31cc59083c8f4c4718959149e0358c0364052bb9a0330",
+          "size": 5335161512,
+          "pointerSize": 135
+        }
+      },
+      {
+        "rfilename": "model.safetensors-00003-of-00004.safetensors",
+        "blobId": "20f21fdc49bdca8f021badede1ec436d8241f1e2",
+        "size": 5368717440,
+        "lfs": {
+          "sha256": "7ec36ba3a4176a44c3c0876ad80c56a2f70c84bf008d82e9501df642f17dadec",
+          "size": 5368717440,
+          "pointerSize": 135
+        }
+      },
+      {
+        "rfilename": "model.safetensors-00004-of-00004.safetensors",
+        "blobId": "5a0f71d358bf91155d46e610dc32db45989a1a5f",
+        "size": 3325995712,
+        "lfs": {
+          "sha256": "b62b0c4cd7e44edee103ee8f4fe225f246d5e768e07bfd5f25b63a8aa1fdd0c6",
+          "size": 3325995712,
+          "pointerSize": 135
+        }
+      },
+      {
+        "rfilename": "model.safetensors.index.json",
+        "blobId": "e4c1cb7dba5096b43b9d92bc781aba5e3aa8acd8",
+        "size": 79657
+      },
+      {
+        "rfilename": "preprocessor_config.json",
+        "blobId": "2ea84a437d448ff71b08df68fdd949d5cc4ebb64",
+        "size": 390
+      },
+      {
+        "rfilename": "tokenizer.json",
+        "blobId": "a73a846725794819aa6e1c9e97d8dc9671c2006d",
+        "size": 12807982,
+        "lfs": {
+          "sha256": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+          "size": 12807982,
+          "pointerSize": 133
+        }
+      },
+      {
+        "rfilename": "tokenizer_config.json",
+        "blobId": "eda48d3e75a8e59a8479ee4ec8b37f76e711d9c1",
+        "size": 16710
+      },
+      {
+        "rfilename": "video_preprocessor_config.json",
+        "blobId": "3ba673a5ad7d4d13f54155ecd38b2a94a6dac8fe",
+        "size": 385
+      },
+      {
+        "rfilename": "vocab.json",
+        "blobId": "0aa0ce0658d60ac4a5d609f4eadb0e8e43514176",
+        "size": 6722759
+      }
+    ]
+  },
+  "source_hashes": {
+    "intentlab/__init__.py": "7ae47f380c378467f247bedb4c8f65cd3ff32e2aba8c991e12bafefaf2716196",
+    "intentlab/__main__.py": "c13eb66970ae37b8b044f428b309e67868814b90a8bb408806f3316ce4dfbc5b",
+    "intentlab/actors.py": "e86e9d8779671371cb6a18124634af6697fd8c66ec76517d19bf86d4a65368d8",
+    "intentlab/analysis.py": "5ea8a56bb1917104cf94a1aad843004fc74d9a996426b1bd7e8745e4062497c6",
+    "intentlab/cli.py": "0e968341fe8e9d9c5b437a071e7da37ae8e9e4e7db56246a8e605ebeec353776",
+    "intentlab/core.py": "de45ea88d0d5f55c7fc7a6d487a22f9465f63c03344fc5e25481c6c06b83ee5e",
+    "intentlab/fixtures.py": "6d114e5cddd73e255c80f9beca05c245159554805a0ed30d29f8a34c5e329460",
+    "intentlab/learning.py": "531181d32bdea005a8bc95f8c9c860f7323c3ebebb0abd03ae444dcb1cfe734c",
+    "intentlab/model_backend.py": "21f1ca7dfb9452e74c002c725aa64a0959f7344acd5a045eade8031c77c5aa79",
+    "intentlab/neural.py": "ae1feab14fdcee1732aac7fc2849655d91a493a90af573b7457b33c8c64ba3bf",
+    "intentlab/neural_audit.py": "79a746350490d0439262565177e6cfa7eb6769d75e1773d7677fdc550d528363",
+    "intentlab/oracle.py": "a33a7602dac2ae98801f5d98a6d96434608a025df087812118935d532b776894",
+    "intentlab/planner.py": "46400b8586e7e8c86662e5874dea41f08870732cf90128dd5dc4f5344a4e3e9c",
+    "intentlab/prompts.py": "f6e9acfa527f76301f2ba842e24d53ae2208f779fc7ecfe3f9a9af7768223528",
+    "intentlab/report.py": "9264aadcd548f1c98d13734cbfe2ba9c38323f83509c990efde3519a52ddc1d9",
+    "intentlab/requirements.py": "358af2f89b4ff30cae4d21c048783cee5e75a702afad64ea3346289ad653989a",
+    "intentlab/runner.py": "e48f9f8296af77b9d5be513a077942f3c9fae53aec7b02cb70b8e8b0c79d4b63",
+    "intentlab/schedules.py": "fe0177a0502dc663d5b7656efb1e8660d17cd1fb30cf2e45abc43e31d634a395",
+    "intentlab/sft_data.py": "e5df94e7d699f00e6a2a580440f17fb6b79dbd478d0e805cc95068e2ece9c83f"
+  },
+  "pilot_script_sha256": "bd5b12b01e87d752e8e2f37d40865048f34500ced84392fe1a1e16c5f46fb312",
+  "warning": "Pilot on synthetic data. One seed does not establish significance; no generalization or new LR algorithm claim."
+}

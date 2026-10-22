@@ -1,0 +1,311 @@
+{
+  "runs": [
+    {
+      "name": "cosine-seed-0",
+      "training": {
+        "kind": "causal_lm_sft",
+        "completed": true,
+        "config": {
+          "data": "data/sft",
+          "model": "/root/autodl-tmp/models/Qwen3.5-9B",
+          "revision": null,
+          "mode": "qlora",
+          "device": "cuda",
+          "schedule": "cosine",
+          "steps": 24,
+          "eval_every": 8,
+          "batch_size": 1,
+          "accumulation": 2,
+          "max_length": 4096,
+          "lr": 5e-05,
+          "minimum_lr": 5e-06,
+          "rank": 16,
+          "alpha": 32,
+          "seed": 0,
+          "limit": 0,
+          "threads": 4
+        },
+        "data_hash": "8faa5eb1a60b84445dfe1682d271bc0c83450b452e8a731f4a50d4b111edf750",
+        "base_identity": "457bf3ae902e56e0a24588f4a691ae1aa611de4c8f7cb7429d8b5d100b7ca1ef",
+        "step": 24,
+        "history": [
+          {
+            "step": 8,
+            "train_loss": 0.06722413409839977,
+            "validation": {
+              "loss": 0.028540727564459956,
+              "target_tokens": 4319
+            },
+            "lr_used": 4.223436651376892e-05,
+            "gradient_norm": 0.8670447468757629,
+            "scheduler": null
+          },
+          {
+            "step": 16,
+            "train_loss": 0.02004135613674884,
+            "validation": {
+              "loss": 0.015517456598043386,
+              "target_tokens": 4319
+            },
+            "lr_used": 1.815316220745756e-05,
+            "gradient_norm": 0.422702431678772,
+            "scheduler": null
+          },
+          {
+            "step": 24,
+            "train_loss": 0.016352015832238945,
+            "validation": {
+              "loss": 0.012573086027194848,
+              "target_tokens": 4319
+            },
+            "lr_used": 5e-06,
+            "gradient_norm": 0.7910573482513428,
+            "scheduler": null
+          }
+        ],
+        "train_tokens": 40394,
+        "parameters": 5537829376,
+        "trainable_parameters": 43278336,
+        "seconds_this_invocation": 35.51035118661821,
+        "versions": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.20.2"
+        },
+        "gpu": "NVIDIA GeForce RTX 5090",
+        "peak_allocated_bytes": 18655391744,
+        "peak_reserved_bytes": 28533850112,
+        "test": {
+          "loss": 0.01045166482956641,
+          "target_tokens": 3894
+        }
+      },
+      "training_loop_seconds_all_invocations": 62.47853168658912,
+      "wall_seconds_including_loads": 129.43702941387892
+    },
+    {
+      "name": "plateau-seed-0",
+      "training": {
+        "kind": "causal_lm_sft",
+        "completed": true,
+        "config": {
+          "data": "data/sft",
+          "model": "/root/autodl-tmp/models/Qwen3.5-9B",
+          "revision": null,
+          "mode": "qlora",
+          "device": "cuda",
+          "schedule": "plateau",
+          "steps": 24,
+          "eval_every": 8,
+          "batch_size": 1,
+          "accumulation": 2,
+          "max_length": 4096,
+          "lr": 5e-05,
+          "minimum_lr": 5e-06,
+          "rank": 16,
+          "alpha": 32,
+          "seed": 0,
+          "limit": 0,
+          "threads": 4
+        },
+        "data_hash": "8faa5eb1a60b84445dfe1682d271bc0c83450b452e8a731f4a50d4b111edf750",
+        "base_identity": "457bf3ae902e56e0a24588f4a691ae1aa611de4c8f7cb7429d8b5d100b7ca1ef",
+        "step": 24,
+        "history": [
+          {
+            "step": 8,
+            "train_loss": 0.06736457431233013,
+            "validation": {
+              "loss": 0.02763175850500799,
+              "target_tokens": 4319
+            },
+            "lr_used": 5e-05,
+            "gradient_norm": 1.2028924226760864,
+            "scheduler": {
+              "old_lr": 5e-05,
+              "new_lr": 5e-05,
+              "reduced": false,
+              "lr": 5e-05,
+              "factor": 0.5,
+              "patience": 2,
+              "threshold": 0.001,
+              "cooldown": 1,
+              "min_lr": 5e-06,
+              "best": 0.02763175850500799,
+              "bad": 0,
+              "remaining": 0
+            }
+          },
+          {
+            "step": 16,
+            "train_loss": 0.018337682723165393,
+            "validation": {
+              "loss": 0.01491018633277749,
+              "target_tokens": 4319
+            },
+            "lr_used": 5e-05,
+            "gradient_norm": 0.7284405827522278,
+            "scheduler": {
+              "old_lr": 5e-05,
+              "new_lr": 5e-05,
+              "reduced": false,
+              "lr": 5e-05,
+              "factor": 0.5,
+              "patience": 2,
+              "threshold": 0.001,
+              "cooldown": 1,
+              "min_lr": 5e-06,
+              "best": 0.01491018633277749,
+              "bad": 0,
+              "remaining": 0
+            }
+          },
+          {
+            "step": 24,
+            "train_loss": 0.015473295803651336,
+            "validation": {
+              "loss": 0.007202713361946237,
+              "target_tokens": 4319
+            },
+            "lr_used": 5e-05,
+            "gradient_norm": 0.8618600368499756,
+            "scheduler": {
+              "old_lr": 5e-05,
+              "new_lr": 5e-05,
+              "reduced": false,
+              "lr": 5e-05,
+              "factor": 0.5,
+              "patience": 2,
+              "threshold": 0.001,
+              "cooldown": 1,
+              "min_lr": 5e-06,
+              "best": 0.007202713361946237,
+              "bad": 0,
+              "remaining": 0
+            }
+          }
+        ],
+        "train_tokens": 40394,
+        "parameters": 5537829376,
+        "trainable_parameters": 43278336,
+        "seconds_this_invocation": 61.020884200930595,
+        "versions": {
+          "torch": "2.8.0+cu128",
+          "transformers": "5.20.2"
+        },
+        "gpu": "NVIDIA GeForce RTX 5090",
+        "peak_allocated_bytes": 18782731264,
+        "peak_reserved_bytes": 25862078464,
+        "test": {
+          "loss": 0.003991607966931833,
+          "target_tokens": 3894
+        }
+      },
+      "training_loop_seconds_all_invocations": 61.020884200930595,
+      "wall_seconds_including_loads": 98.37870153412223
+    }
+  ],
+  "diagnostics": {
+    "base": {
+      "samples": 48,
+      "invalid_outputs": 43,
+      "gold_satisfied": 126,
+      "gold_unknown": 42,
+      "gold_violated": 24,
+      "valid_outputs": 5,
+      "correct_statuses": 16,
+      "exact_status_samples": 3,
+      "correct_satisfied": 16,
+      "correct_unknown": 0,
+      "valid_output_rate": 0.10416666666666667,
+      "status_accuracy": 0.08333333333333333,
+      "exact_status_accuracy": 0.0625,
+      "seconds": 226.2288490012288,
+      "inference_losses": {
+        "validation": {
+          "loss": 0.20943145681294226,
+          "target_tokens": 4319
+        },
+        "test": {
+          "loss": 0.20584639489007842,
+          "target_tokens": 3894
+        }
+      },
+      "warning": "Synthetic smoke holdout. Invalid outputs count as wrong. Evidence index validity does not establish semantic support.",
+      "recall_satisfied": 0.12698412698412698,
+      "recall_violated": 0.0,
+      "recall_unknown": 0.0
+    },
+    "cosine-seed-0": {
+      "samples": 48,
+      "valid_outputs": 48,
+      "correct_statuses": 169,
+      "exact_status_samples": 34,
+      "gold_satisfied": 126,
+      "correct_satisfied": 126,
+      "gold_unknown": 42,
+      "correct_unknown": 25,
+      "gold_violated": 24,
+      "correct_violated": 18,
+      "valid_output_rate": 1.0,
+      "status_accuracy": 0.8802083333333334,
+      "exact_status_accuracy": 0.7083333333333334,
+      "seconds": 191.07986680790782,
+      "inference_losses": {
+        "validation": {
+          "loss": 0.014789834497813467,
+          "target_tokens": 4319
+        },
+        "test": {
+          "loss": 0.012084895669342496,
+          "target_tokens": 3894
+        }
+      },
+      "warning": "Synthetic smoke holdout. Invalid outputs count as wrong. Evidence index validity does not establish semantic support.",
+      "recall_satisfied": 1.0,
+      "recall_violated": 0.75,
+      "recall_unknown": 0.5952380952380952
+    },
+    "plateau-seed-0": {
+      "samples": 48,
+      "valid_outputs": 48,
+      "correct_statuses": 185,
+      "exact_status_samples": 41,
+      "gold_satisfied": 126,
+      "correct_satisfied": 126,
+      "gold_unknown": 42,
+      "correct_unknown": 42,
+      "gold_violated": 24,
+      "correct_violated": 17,
+      "valid_output_rate": 1.0,
+      "status_accuracy": 0.9635416666666666,
+      "exact_status_accuracy": 0.8541666666666666,
+      "seconds": 189.9433547127992,
+      "inference_losses": {
+        "validation": {
+          "loss": 0.008692943649101269,
+          "target_tokens": 4319
+        },
+        "test": {
+          "loss": 0.007451002309543694,
+          "target_tokens": 3894
+        }
+      },
+      "warning": "Synthetic smoke holdout. Invalid outputs count as wrong. Evidence index validity does not establish semantic support.",
+      "recall_satisfied": 1.0,
+      "recall_violated": 0.7083333333333334,
+      "recall_unknown": 1.0
+    }
+  },
+  "changes_from_base": {
+    "cosine-seed-0": {
+      "status_accuracy_change": 0.796875,
+      "valid_output_rate_change": 0.8958333333333334,
+      "same_precision_validation_loss_change": -0.1946416223151288
+    },
+    "plateau-seed-0": {
+      "status_accuracy_change": 0.8802083333333333,
+      "valid_output_rate_change": 0.8958333333333334,
+      "same_precision_validation_loss_change": -0.20073851316384098
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "cosine-seed-0": {
+    "adapter_path": "/root/autodl-tmp/intentlab/runs/qwen35-5090-pilot-v2/cosine-seed-0/model/adapter_model.safetensors",
+    "adapter_bytes": 173181072,
+    "adapter_sha256": "b2bba78791e1b4aa1028ce0e04e1cdf390640c54148d471aa402bd19d70292f6",
+    "tensor_count": 496,
+    "trainable_elements": 43278336,
+    "all_tensors_finite": true,
+    "checkpoint_path": "/root/autodl-tmp/intentlab/runs/qwen35-5090-pilot-v2/cosine-seed-0/latest.pt",
+    "checkpoint_bytes": 693227053,
+    "checkpoint_sha256": "18116bafdcca525fae0f1d182729c71b1a054168c58938729079d86f463448be",
+    "base_model": "Qwen/Qwen3.5-9B",
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+  },
+  "plateau-seed-0": {
+    "adapter_path": "/root/autodl-tmp/intentlab/runs/qwen35-5090-pilot-v2/plateau-seed-0/model/adapter_model.safetensors",
+    "adapter_bytes": 173181072,
+    "adapter_sha256": "5117410a63f69269dcdae34a7a72b7e27352a00eea960cc882051e94876c8a87",
+    "tensor_count": 496,
+    "trainable_elements": 43278336,
+    "all_tensors_finite": true,
+    "checkpoint_path": "/root/autodl-tmp/intentlab/runs/qwen35-5090-pilot-v2/plateau-seed-0/latest.pt",
+    "checkpoint_bytes": 693225901,
+    "checkpoint_sha256": "8160b12852a3d60348c96873d9506d2714dcae7810e81d83e8986eb96ec1eb61",
+    "base_model": "Qwen/Qwen3.5-9B",
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+  }
+}

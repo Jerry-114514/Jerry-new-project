@@ -1,0 +1,77 @@
+{
+  "kind": "causal_lm_sft",
+  "completed": true,
+  "config": {
+    "data": "data/sft",
+    "model": "/root/autodl-tmp/models/Qwen3.5-9B",
+    "revision": null,
+    "mode": "qlora",
+    "device": "cuda",
+    "schedule": "cosine",
+    "steps": 24,
+    "eval_every": 8,
+    "batch_size": 1,
+    "accumulation": 2,
+    "max_length": 4096,
+    "lr": 5e-05,
+    "minimum_lr": 5e-06,
+    "rank": 16,
+    "alpha": 32,
+    "seed": 0,
+    "limit": 0,
+    "threads": 4
+  },
+  "data_hash": "8faa5eb1a60b84445dfe1682d271bc0c83450b452e8a731f4a50d4b111edf750",
+  "base_identity": "457bf3ae902e56e0a24588f4a691ae1aa611de4c8f7cb7429d8b5d100b7ca1ef",
+  "step": 24,
+  "history": [
+    {
+      "step": 8,
+      "train_loss": 0.06722413409839977,
+      "validation": {
+        "loss": 0.028540727564459956,
+        "target_tokens": 4319
+      },
+      "lr_used": 4.223436651376892e-05,
+      "gradient_norm": 0.8670447468757629,
+      "scheduler": null
+    },
+    {
+      "step": 16,
+      "train_loss": 0.02004135613674884,
+      "validation": {
+        "loss": 0.015517456598043386,
+        "target_tokens": 4319
+      },
+      "lr_used": 1.815316220745756e-05,
+      "gradient_norm": 0.422702431678772,
+      "scheduler": null
+    },
+    {
+      "step": 24,
+      "train_loss": 0.016352015832238945,
+      "validation": {
+        "loss": 0.012573086027194848,
+        "target_tokens": 4319
+      },
+      "lr_used": 5e-06,
+      "gradient_norm": 0.7910573482513428,
+      "scheduler": null
+    }
+  ],
+  "train_tokens": 40394,
+  "parameters": 5537829376,
+  "trainable_parameters": 43278336,
+  "seconds_this_invocation": 35.51035118661821,
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.20.2"
+  },
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "peak_allocated_bytes": 18655391744,
+  "peak_reserved_bytes": 28533850112,
+  "test": {
+    "loss": 0.01045166482956641,
+    "target_tokens": 3894
+  }
+}

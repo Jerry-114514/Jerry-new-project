@@ -17,7 +17,9 @@ python -m intentlab train-baseline --data runs/data/diagnostic_views.jsonl --out
 - [隐藏历史演示报告](examples/results/redacted-evidence/REPORT.md)：补证动作与成本记录。
 - [轻量训练结果](examples/results/training/summary.json)：6 次 CPU 逻辑回归训练；不是 QLoRA 或学习率算法创新。
 
-本轮已经跑通受控环境、独立评估、固定/动态修复及轻量训练。任意自然语言要求理解、有能力的预训练大模型效果和 5090 上的大模型训练仍需后续验证。
+本项目已跑通受控环境、独立评估、固定/动态修复及真实模型训练。任意自然语言泛化、强基线比较和正式研究收益仍需后续验证。
+
+2026-10-22 已在 AutoDL RTX 5090 上完成官方 Qwen3.5-9B 的 QLoRA 先导实验及 CUDA 断点恢复。当前训练/验证阶段显存保留峰值约 26.6 GiB；归一化状态判断错误由 51/192 降至 Plateau 组的 7/192，该分析为事后分解，只有 6 个合成测试任务。另修复了模型门禁放行输入覆盖的问题，加入独立修复硬约束检查，46 项测试通过。[实测报告](docs/qwen35-5090-pilot-report.md) · [主实验原始记录](examples/results/qwen35-5090-pilot-v2/summary.json) · [硬约束补充验证](examples/results/qwen35-hard-guard/summary.json)
 
 新增：已跑通真实微型因果语言模型和 LoRA 训练、逐位一致的 CPU 断点恢复、本地语言模型分析器接入、token 预算及模板原文抽取。微型模型的 JSON 失败按实际记录，不代表大模型研究收益。[神经模型训练指南](docs/neural-training.md) · [实际神经模型审计结果](examples/results/neural-smoke/audit.json)
 

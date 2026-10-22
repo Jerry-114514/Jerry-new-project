@@ -1,0 +1,28 @@
+{
+  "fixed-full": {
+    "runs": 2,
+    "compliant_success_rate": 1.0,
+    "task_completion_rate": 1.0,
+    "hard_violation_run_rate": 0.0,
+    "errors": 0,
+    "actor_calls": 5,
+    "checks": 5,
+    "rejected_candidates": 1,
+    "verification_calls": 0,
+    "timed_runs": 2,
+    "mean_elapsed_seconds": 13.227678843773901
+  },
+  "dynamic": {
+    "runs": 2,
+    "compliant_success_rate": 1.0,
+    "task_completion_rate": 1.0,
+    "hard_violation_run_rate": 0.0,
+    "errors": 0,
+    "actor_calls": 5,
+    "checks": 5,
+    "rejected_candidates": 1,
+    "verification_calls": 0,
+    "timed_runs": 2,
+    "mean_elapsed_seconds": 11.4864656990394
+  }
+}

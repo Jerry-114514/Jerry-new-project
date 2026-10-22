@@ -1,0 +1,2661 @@
+{
+  "base": {
+    "samples": 48,
+    "normalizable_samples": 48,
+    "gold_satisfied": 126,
+    "correct_satisfied": 126,
+    "correct_statuses": 141,
+    "exact_samples": 20,
+    "gold_unknown": 42,
+    "correct_unknown": 5,
+    "unsafe_hard_requirement_opportunities": 54,
+    "unsafe_hard_requirement_passes": 43,
+    "gold_violated": 24,
+    "correct_violated": 10,
+    "task_groups": 6,
+    "status_error_rate": 0.265625,
+    "strict_error_reasons": {
+      "'findings'": 43,
+      "valid": 5
+    },
+    "cases": [
+      {
+        "task_id": "split-005",
+        "kind": "valid",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "valid",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "violation",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "violated",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "violation",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "unknown",
+          "R_REPORT": "unknown",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "repair_ok",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "repair_ok",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "repair_regression",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "repair_regression",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "valid",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "valid",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "violation",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "violated",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "violation",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "unknown",
+          "R_REPORT": "unknown",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "repair_ok",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "repair_ok",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "repair_regression",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "repair_regression",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "valid",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "valid",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "violation",
+        "events_visible": true,
+        "correct_statuses": 3,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "violation",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "unknown",
+          "R_REPORT": "unknown",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "repair_ok",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "repair_ok",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "repair_regression",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "repair_regression",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "valid",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "valid",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "violation",
+        "events_visible": true,
+        "correct_statuses": 3,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "violation",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "unknown",
+          "R_REPORT": "unknown",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "repair_ok",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "repair_ok",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "repair_regression",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "repair_regression",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "valid",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "valid",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "violation",
+        "events_visible": true,
+        "correct_statuses": 3,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "violation",
+        "events_visible": false,
+        "correct_statuses": 3,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "unknown",
+          "R_REPORT": "violated",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "repair_ok",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "repair_ok",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "repair_regression",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "repair_regression",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "valid",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "valid",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "violation",
+        "events_visible": true,
+        "correct_statuses": 3,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "violation",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "violated",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "repair_ok",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "repair_ok",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "repair_regression",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "repair_regression",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_REPORT": "satisfied",
+          "R_RESULT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      }
+    ],
+    "warning": "Post-hoc descriptive normalization of two JSON layouts. Evidence support is not scored here. Operational strict-gate metrics remain unchanged."
+  },
+  "cosine-seed-0": {
+    "samples": 48,
+    "normalizable_samples": 48,
+    "gold_satisfied": 126,
+    "correct_satisfied": 126,
+    "correct_statuses": 169,
+    "exact_samples": 34,
+    "gold_unknown": 42,
+    "correct_unknown": 25,
+    "unsafe_hard_requirement_opportunities": 54,
+    "unsafe_hard_requirement_passes": 18,
+    "gold_violated": 24,
+    "correct_violated": 18,
+    "task_groups": 6,
+    "status_error_rate": 0.11979166666666663,
+    "strict_error_reasons": {
+      "valid": 48
+    },
+    "cases": [
+      {
+        "task_id": "split-005",
+        "kind": "valid",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "valid",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "violation",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "violation",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "repair_ok",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "repair_ok",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "repair_regression",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "repair_regression",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "valid",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "valid",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "violation",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "violation",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "repair_ok",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "repair_ok",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "repair_regression",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "repair_regression",
+        "events_visible": false,
+        "correct_statuses": 3,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "valid",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "valid",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "violation",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "violation",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "repair_ok",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "repair_ok",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "repair_regression",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "repair_regression",
+        "events_visible": false,
+        "correct_statuses": 3,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "valid",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "valid",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "violation",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "violation",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "repair_ok",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "repair_ok",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "repair_regression",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "repair_regression",
+        "events_visible": false,
+        "correct_statuses": 3,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "valid",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "valid",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "violation",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "violation",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "repair_ok",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "repair_ok",
+        "events_visible": false,
+        "correct_statuses": 2,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "repair_regression",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "repair_regression",
+        "events_visible": false,
+        "correct_statuses": 3,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "valid",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "valid",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "violation",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "violation",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "repair_ok",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "repair_ok",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "repair_regression",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "repair_regression",
+        "events_visible": false,
+        "correct_statuses": 3,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      }
+    ],
+    "warning": "Post-hoc descriptive normalization of two JSON layouts. Evidence support is not scored here. Operational strict-gate metrics remain unchanged."
+  },
+  "plateau-seed-0": {
+    "samples": 48,
+    "normalizable_samples": 48,
+    "gold_satisfied": 126,
+    "correct_satisfied": 126,
+    "correct_statuses": 185,
+    "exact_samples": 41,
+    "gold_unknown": 42,
+    "correct_unknown": 42,
+    "unsafe_hard_requirement_opportunities": 54,
+    "unsafe_hard_requirement_passes": 1,
+    "gold_violated": 24,
+    "correct_violated": 17,
+    "task_groups": 6,
+    "status_error_rate": 0.03645833333333337,
+    "strict_error_reasons": {
+      "valid": 48
+    },
+    "cases": [
+      {
+        "task_id": "split-005",
+        "kind": "valid",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "valid",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "violation",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "violation",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "repair_ok",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "repair_ok",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "repair_regression",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-005",
+        "kind": "repair_regression",
+        "events_visible": false,
+        "correct_statuses": 3,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "valid",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "valid",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "violation",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "violation",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "repair_ok",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "repair_ok",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "repair_regression",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-011",
+        "kind": "repair_regression",
+        "events_visible": false,
+        "correct_statuses": 3,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "valid",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "valid",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "violation",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "violation",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "repair_ok",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "repair_ok",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "repair_regression",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-017",
+        "kind": "repair_regression",
+        "events_visible": false,
+        "correct_statuses": 3,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "valid",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "valid",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "violation",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "violation",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "repair_ok",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "repair_ok",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "repair_regression",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-023",
+        "kind": "repair_regression",
+        "events_visible": false,
+        "correct_statuses": 3,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "valid",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "valid",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "violation",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "violation",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "repair_ok",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "repair_ok",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "repair_regression",
+        "events_visible": true,
+        "correct_statuses": 3,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-029",
+        "kind": "repair_regression",
+        "events_visible": false,
+        "correct_statuses": 3,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "valid",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "valid",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "violation",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "violation",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "violated"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "repair_ok",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "satisfied",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "repair_ok",
+        "events_visible": false,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "repair_regression",
+        "events_visible": true,
+        "correct_statuses": 4,
+        "prediction": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "satisfied",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      },
+      {
+        "task_id": "split-035",
+        "kind": "repair_regression",
+        "events_visible": false,
+        "correct_statuses": 3,
+        "prediction": {
+          "R_INPUT": "unknown",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        },
+        "gold": {
+          "R_INPUT": "violated",
+          "R_ORDER": "unknown",
+          "R_RESULT": "satisfied",
+          "R_REPORT": "satisfied"
+        }
+      }
+    ],
+    "warning": "Post-hoc descriptive normalization of two JSON layouts. Evidence support is not scored here. Operational strict-gate metrics remain unchanged."
+  }
+}

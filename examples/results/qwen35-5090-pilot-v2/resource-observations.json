@@ -1,0 +1,18 @@
+{
+  "container_ram_limit_bytes": 96636764160,
+  "gpu_total_mib": 32607,
+  "training_validation_peak_reserved_gib": 26.57421875,
+  "sequence_lengths_including_targets": {
+    "train_max": 1245,
+    "validation_max": 1176,
+    "test_max": 1392
+  },
+  "host_ram_observation": {
+    "timestamp_utc": "2026-10-22T00:57:25Z",
+    "phase": "plateau_training",
+    "metric": "VmHWM",
+    "peak_rss_kib": 18628256,
+    "note": "A live process high-water mark, not an exhaustive peak across all processes."
+  },
+  "scope": "Microbatch 1, accumulation 2, QLoRA rank 16. Configured cap 4096 was not a full-length stress test."
+}

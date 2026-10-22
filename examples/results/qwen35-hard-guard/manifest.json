@@ -1,0 +1,32 @@
+{
+  "kind": "posthoc_repair_hard_guard_engineering_check",
+  "initial_traces_guarded": false,
+  "models": {
+    "base": "/root/autodl-tmp/models/Qwen3.5-9B",
+    "cosine-seed-0": "runs/qwen35-5090-pilot-v2/cosine-seed-0/model",
+    "plateau-seed-0": "runs/qwen35-5090-pilot-v2/plateau-seed-0/model"
+  },
+  "source_hashes": {
+    "intentlab/__init__.py": "7ae47f380c378467f247bedb4c8f65cd3ff32e2aba8c991e12bafefaf2716196",
+    "intentlab/__main__.py": "c13eb66970ae37b8b044f428b309e67868814b90a8bb408806f3316ce4dfbc5b",
+    "intentlab/actors.py": "e86e9d8779671371cb6a18124634af6697fd8c66ec76517d19bf86d4a65368d8",
+    "intentlab/analysis.py": "5ea8a56bb1917104cf94a1aad843004fc74d9a996426b1bd7e8745e4062497c6",
+    "intentlab/cli.py": "0e968341fe8e9d9c5b437a071e7da37ae8e9e4e7db56246a8e605ebeec353776",
+    "intentlab/core.py": "de45ea88d0d5f55c7fc7a6d487a22f9465f63c03344fc5e25481c6c06b83ee5e",
+    "intentlab/fixtures.py": "6d114e5cddd73e255c80f9beca05c245159554805a0ed30d29f8a34c5e329460",
+    "intentlab/hard_guard.py": "89dd736894fa749052de19c6458afd72a244ff4d1d179798c63ed579c12b1079",
+    "intentlab/learning.py": "531181d32bdea005a8bc95f8c9c860f7323c3ebebb0abd03ae444dcb1cfe734c",
+    "intentlab/model_backend.py": "21f1ca7dfb9452e74c002c725aa64a0959f7344acd5a045eade8031c77c5aa79",
+    "intentlab/neural.py": "ae1feab14fdcee1732aac7fc2849655d91a493a90af573b7457b33c8c64ba3bf",
+    "intentlab/neural_audit.py": "79a746350490d0439262565177e6cfa7eb6769d75e1773d7677fdc550d528363",
+    "intentlab/oracle.py": "a33a7602dac2ae98801f5d98a6d96434608a025df087812118935d532b776894",
+    "intentlab/planner.py": "46400b8586e7e8c86662e5874dea41f08870732cf90128dd5dc4f5344a4e3e9c",
+    "intentlab/prompts.py": "f6e9acfa527f76301f2ba842e24d53ae2208f779fc7ecfe3f9a9af7768223528",
+    "intentlab/report.py": "9264aadcd548f1c98d13734cbfe2ba9c38323f83509c990efde3519a52ddc1d9",
+    "intentlab/requirements.py": "358af2f89b4ff30cae4d21c048783cee5e75a702afad64ea3346289ad653989a",
+    "intentlab/runner.py": "39cefd348be0093e344a5bdf53b5b0b896dd783ea7d48e2d99d07bd33585b109",
+    "intentlab/schedules.py": "fe0177a0502dc663d5b7656efb1e8660d17cd1fb30cf2e45abc43e31d634a395",
+    "intentlab/sft_data.py": "240a8850af33771dff22c39afd32c9228e1720fc1f2a6ff7cd016c16eb51d184"
+  },
+  "warning": "Same two synthetic tasks, one greedy run. This supplements the frozen original pilot; it does not establish statistical or algorithmic superiority."
+}

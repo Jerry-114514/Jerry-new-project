@@ -1,0 +1,42 @@
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]Loading weights:   0%|          | 1/427 [00:00<02:46,  2.56it/s]Loading weights:   0%|          | 2/427 [00:00<02:41,  2.64it/s]Loading weights:   3%|▎         | 13/427 [00:00<00:18, 21.94it/s]Loading weights:   7%|▋         | 28/427 [00:00<00:08, 46.55it/s]Loading weights:  10%|█         | 43/427 [00:01<00:05, 69.16it/s]Loading weights:  15%|█▍        | 63/427 [00:01<00:03, 98.95it/s]Loading weights:  19%|█▊        | 80/427 [00:01<00:03, 113.49it/s]Loading weights:  22%|██▏       | 95/427 [00:01<00:02, 121.51it/s]Loading weights:  26%|██▋       | 113/427 [00:01<00:02, 137.11it/s]Loading weights:  30%|███       | 130/427 [00:01<00:02, 143.58it/s]Loading weights:  34%|███▍      | 147/427 [00:01<00:01, 147.18it/s]Loading weights:  38%|███▊      | 163/427 [00:01<00:01, 141.37it/s]Loading weights:  43%|████▎     | 183/427 [00:01<00:01, 152.21it/s]Loading weights:  47%|████▋     | 200/427 [00:02<00:01, 152.96it/s]Loading weights:  51%|█████     | 216/427 [00:02<00:01, 147.28it/s]Loading weights:  55%|█████▌    | 236/427 [00:02<00:01, 159.62it/s]Loading weights:  59%|█████▉    | 253/427 [00:02<00:01, 157.79it/s]Loading weights:  63%|██████▎   | 269/427 [00:02<00:01, 150.95it/s]Loading weights:  68%|██████▊   | 291/427 [00:02<00:00, 168.97it/s]Loading weights:  72%|███████▏  | 309/427 [00:02<00:00, 154.67it/s]Loading weights:  77%|███████▋  | 330/427 [00:02<00:00, 167.67it/s]Loading weights:  81%|████████▏ | 348/427 [00:03<00:00, 153.02it/s]Loading weights:  85%|████████▌ | 364/427 [00:03<00:00, 153.46it/s]Loading weights:  90%|████████▉ | 384/427 [00:03<00:00, 160.22it/s]Loading weights:  94%|█████████▍| 401/427 [00:03<00:00, 152.72it/s]Loading weights:  98%|█████████▊| 417/427 [00:03<00:00, 153.04it/s]Loading weights: 100%|██████████| 427/427 [00:03<00:00, 121.37it/s]
+/root/miniconda3/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:929: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+{"step": 8, "validation_loss": 0.028540727564459956, "lr": 4.223436651376892e-05, "elapsed_seconds": 19.79004251025617}
+{
+  "kind": "causal_lm_sft",
+  "completed": false,
+  "config": {
+    "data": "data/sft",
+    "model": "/root/autodl-tmp/models/Qwen3.5-9B",
+    "revision": null,
+    "mode": "qlora",
+    "device": "cuda",
+    "schedule": "cosine",
+    "steps": 24,
+    "eval_every": 8,
+    "batch_size": 1,
+    "accumulation": 2,
+    "max_length": 4096,
+    "lr": 5e-05,
+    "minimum_lr": 5e-06,
+    "rank": 16,
+    "alpha": 32,
+    "seed": 0,
+    "limit": 0,
+    "threads": 4
+  },
+  "data_hash": "8faa5eb1a60b84445dfe1682d271bc0c83450b452e8a731f4a50d4b111edf750",
+  "base_identity": "457bf3ae902e56e0a24588f4a691ae1aa611de4c8f7cb7429d8b5d100b7ca1ef",
+  "step": 12,
+  "train_tokens": 20385,
+  "parameters": 5537829376,
+  "trainable_parameters": 43278336,
+  "seconds_this_invocation": 26.968180499970913,
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.20.2"
+  },
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "peak_allocated_bytes": 18782731264,
+  "peak_reserved_bytes": 23395827712
+}

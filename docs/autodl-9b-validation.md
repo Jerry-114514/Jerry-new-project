@@ -32,4 +32,6 @@ python -m scripts.gpu_pilot --model /root/autodl-tmp/models/Qwen3.5-9B \
 
 ## 环境边界
 
+实测结果见[9B 验证报告](qwen35-5090-pilot-report.md)。该报告保留了模型门禁放行输入回归的原始结果；当前代码另加入独立修复硬约束检查，补充验证使用 `python -m scripts.run_guarded_closure`，不改写原始模型输出或分数。
+
 实例已核验为 RTX 5090，32607 MiB，PyTorch 2.8.0+cu128，CUDA 张量运算通过。Transformers 5.20.2 提供 Qwen3.5 文本模型映射；本轮只训练文字诊断任务。没有图像输入，不能声称改善多模态定位性能。旧项目的训练耗时不能直接作为本轮耗时，须以新日志为准。

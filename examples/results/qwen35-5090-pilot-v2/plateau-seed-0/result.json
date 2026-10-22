@@ -1,0 +1,116 @@
+{
+  "kind": "causal_lm_sft",
+  "completed": true,
+  "config": {
+    "data": "data/sft",
+    "model": "/root/autodl-tmp/models/Qwen3.5-9B",
+    "revision": null,
+    "mode": "qlora",
+    "device": "cuda",
+    "schedule": "plateau",
+    "steps": 24,
+    "eval_every": 8,
+    "batch_size": 1,
+    "accumulation": 2,
+    "max_length": 4096,
+    "lr": 5e-05,
+    "minimum_lr": 5e-06,
+    "rank": 16,
+    "alpha": 32,
+    "seed": 0,
+    "limit": 0,
+    "threads": 4
+  },
+  "data_hash": "8faa5eb1a60b84445dfe1682d271bc0c83450b452e8a731f4a50d4b111edf750",
+  "base_identity": "457bf3ae902e56e0a24588f4a691ae1aa611de4c8f7cb7429d8b5d100b7ca1ef",
+  "step": 24,
+  "history": [
+    {
+      "step": 8,
+      "train_loss": 0.06736457431233013,
+      "validation": {
+        "loss": 0.02763175850500799,
+        "target_tokens": 4319
+      },
+      "lr_used": 5e-05,
+      "gradient_norm": 1.2028924226760864,
+      "scheduler": {
+        "old_lr": 5e-05,
+        "new_lr": 5e-05,
+        "reduced": false,
+        "lr": 5e-05,
+        "factor": 0.5,
+        "patience": 2,
+        "threshold": 0.001,
+        "cooldown": 1,
+        "min_lr": 5e-06,
+        "best": 0.02763175850500799,
+        "bad": 0,
+        "remaining": 0
+      }
+    },
+    {
+      "step": 16,
+      "train_loss": 0.018337682723165393,
+      "validation": {
+        "loss": 0.01491018633277749,
+        "target_tokens": 4319
+      },
+      "lr_used": 5e-05,
+      "gradient_norm": 0.7284405827522278,
+      "scheduler": {
+        "old_lr": 5e-05,
+        "new_lr": 5e-05,
+        "reduced": false,
+        "lr": 5e-05,
+        "factor": 0.5,
+        "patience": 2,
+        "threshold": 0.001,
+        "cooldown": 1,
+        "min_lr": 5e-06,
+        "best": 0.01491018633277749,
+        "bad": 0,
+        "remaining": 0
+      }
+    },
+    {
+      "step": 24,
+      "train_loss": 0.015473295803651336,
+      "validation": {
+        "loss": 0.007202713361946237,
+        "target_tokens": 4319
+      },
+      "lr_used": 5e-05,
+      "gradient_norm": 0.8618600368499756,
+      "scheduler": {
+        "old_lr": 5e-05,
+        "new_lr": 5e-05,
+        "reduced": false,
+        "lr": 5e-05,
+        "factor": 0.5,
+        "patience": 2,
+        "threshold": 0.001,
+        "cooldown": 1,
+        "min_lr": 5e-06,
+        "best": 0.007202713361946237,
+        "bad": 0,
+        "remaining": 0
+      }
+    }
+  ],
+  "train_tokens": 40394,
+  "parameters": 5537829376,
+  "trainable_parameters": 43278336,
+  "seconds_this_invocation": 61.020884200930595,
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.20.2"
+  },
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "peak_allocated_bytes": 18782731264,
+  "peak_reserved_bytes": 25862078464,
+  "test": {
+    "loss": 0.003991607966931833,
+    "target_tokens": 3894
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "python": "3.12.3",
+  "actor": "local_model",
+  "task_hash": "2d53006def01849458d0680900d358a6e34a72789b3b5214e5e69bf9c0d0a1d4",
+  "policies": [
+    "fixed-full",
+    "dynamic"
+  ],
+  "repeats": 1,
+  "max_repairs": 3,
+  "redact_events": false,
+  "split": "test",
+  "model_role": "analyzer",
+  "token_budget": 30000,
+  "risk_model_hash": null,
+  "warning": "Greedy model repeats are not independent statistical samples."
+}

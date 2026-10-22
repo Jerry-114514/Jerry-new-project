@@ -1,0 +1,98 @@
+{
+  "base": {
+    "scores": {
+      "fixed-full": {
+        "runs": 2,
+        "compliant_success_rate": 0.0,
+        "task_completion_rate": 0.0,
+        "hard_violation_run_rate": 0.0,
+        "errors": 0,
+        "actor_calls": 2,
+        "checks": 2,
+        "rejected_candidates": 0,
+        "verification_calls": 0,
+        "timed_runs": 2,
+        "mean_elapsed_seconds": 4.109234735369682
+      },
+      "dynamic": {
+        "runs": 2,
+        "compliant_success_rate": 0.0,
+        "task_completion_rate": 0.0,
+        "hard_violation_run_rate": 0.0,
+        "errors": 0,
+        "actor_calls": 2,
+        "checks": 4,
+        "rejected_candidates": 0,
+        "verification_calls": 2,
+        "timed_runs": 2,
+        "mean_elapsed_seconds": 7.40857807174325
+      }
+    },
+    "hard_rejections": 0,
+    "wall_seconds": 33.77974667400122
+  },
+  "cosine-seed-0": {
+    "scores": {
+      "fixed-full": {
+        "runs": 2,
+        "compliant_success_rate": 1.0,
+        "task_completion_rate": 1.0,
+        "hard_violation_run_rate": 0.0,
+        "errors": 0,
+        "actor_calls": 5,
+        "checks": 5,
+        "rejected_candidates": 1,
+        "verification_calls": 0,
+        "timed_runs": 2,
+        "mean_elapsed_seconds": 13.187013184651732
+      },
+      "dynamic": {
+        "runs": 2,
+        "compliant_success_rate": 1.0,
+        "task_completion_rate": 1.0,
+        "hard_violation_run_rate": 0.0,
+        "errors": 0,
+        "actor_calls": 5,
+        "checks": 5,
+        "rejected_candidates": 1,
+        "verification_calls": 0,
+        "timed_runs": 2,
+        "mean_elapsed_seconds": 11.611209514550865
+      }
+    },
+    "hard_rejections": 2,
+    "wall_seconds": 64.17002450674772
+  },
+  "plateau-seed-0": {
+    "scores": {
+      "fixed-full": {
+        "runs": 2,
+        "compliant_success_rate": 1.0,
+        "task_completion_rate": 1.0,
+        "hard_violation_run_rate": 0.0,
+        "errors": 0,
+        "actor_calls": 5,
+        "checks": 5,
+        "rejected_candidates": 1,
+        "verification_calls": 0,
+        "timed_runs": 2,
+        "mean_elapsed_seconds": 13.227678843773901
+      },
+      "dynamic": {
+        "runs": 2,
+        "compliant_success_rate": 1.0,
+        "task_completion_rate": 1.0,
+        "hard_violation_run_rate": 0.0,
+        "errors": 0,
+        "actor_calls": 5,
+        "checks": 5,
+        "rejected_candidates": 1,
+        "verification_calls": 0,
+        "timed_runs": 2,
+        "mean_elapsed_seconds": 11.4864656990394
+      }
+    },
+    "hard_rejections": 2,
+    "wall_seconds": 64.97733967192471
+  }
+}

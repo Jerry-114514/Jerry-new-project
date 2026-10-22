@@ -1,0 +1,157 @@
+START /root/autodl-tmp/intentlab-venv/bin/python -m intentlab.neural --config runs/qwen35-5090-pilot-v2/cosine-seed-0/requested-config.json --out runs/qwen35-5090-pilot-v2/cosine-seed-0 --stop-after 12
+START /root/autodl-tmp/intentlab-venv/bin/python -m intentlab.neural --config runs/qwen35-5090-pilot-v2/cosine-seed-0/requested-config.json --out runs/qwen35-5090-pilot-v2/cosine-seed-0 --resume runs/qwen35-5090-pilot-v2/cosine-seed-0/latest.pt
+START /root/autodl-tmp/intentlab-venv/bin/python -m intentlab.neural --config runs/qwen35-5090-pilot-v2/plateau-seed-0/requested-config.json --out runs/qwen35-5090-pilot-v2/plateau-seed-0
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]Loading weights: 100%|██████████| 427/427 [00:00<00:00, 11397.57it/s]
+diagnostic Qwen3.5-9B 1 / 48
+diagnostic Qwen3.5-9B 2 / 48
+diagnostic Qwen3.5-9B 3 / 48
+diagnostic Qwen3.5-9B 4 / 48
+diagnostic Qwen3.5-9B 5 / 48
+diagnostic Qwen3.5-9B 6 / 48
+diagnostic Qwen3.5-9B 7 / 48
+diagnostic Qwen3.5-9B 8 / 48
+diagnostic Qwen3.5-9B 9 / 48
+diagnostic Qwen3.5-9B 10 / 48
+diagnostic Qwen3.5-9B 11 / 48
+diagnostic Qwen3.5-9B 12 / 48
+diagnostic Qwen3.5-9B 13 / 48
+diagnostic Qwen3.5-9B 14 / 48
+diagnostic Qwen3.5-9B 15 / 48
+diagnostic Qwen3.5-9B 16 / 48
+diagnostic Qwen3.5-9B 17 / 48
+diagnostic Qwen3.5-9B 18 / 48
+diagnostic Qwen3.5-9B 19 / 48
+diagnostic Qwen3.5-9B 20 / 48
+diagnostic Qwen3.5-9B 21 / 48
+diagnostic Qwen3.5-9B 22 / 48
+diagnostic Qwen3.5-9B 23 / 48
+diagnostic Qwen3.5-9B 24 / 48
+diagnostic Qwen3.5-9B 25 / 48
+diagnostic Qwen3.5-9B 26 / 48
+diagnostic Qwen3.5-9B 27 / 48
+diagnostic Qwen3.5-9B 28 / 48
+diagnostic Qwen3.5-9B 29 / 48
+diagnostic Qwen3.5-9B 30 / 48
+diagnostic Qwen3.5-9B 31 / 48
+diagnostic Qwen3.5-9B 32 / 48
+diagnostic Qwen3.5-9B 33 / 48
+diagnostic Qwen3.5-9B 34 / 48
+diagnostic Qwen3.5-9B 35 / 48
+diagnostic Qwen3.5-9B 36 / 48
+diagnostic Qwen3.5-9B 37 / 48
+diagnostic Qwen3.5-9B 38 / 48
+diagnostic Qwen3.5-9B 39 / 48
+diagnostic Qwen3.5-9B 40 / 48
+diagnostic Qwen3.5-9B 41 / 48
+diagnostic Qwen3.5-9B 42 / 48
+diagnostic Qwen3.5-9B 43 / 48
+diagnostic Qwen3.5-9B 44 / 48
+diagnostic Qwen3.5-9B 45 / 48
+diagnostic Qwen3.5-9B 46 / 48
+diagnostic Qwen3.5-9B 47 / 48
+diagnostic Qwen3.5-9B 48 / 48
+DIAGNOSTIC_RESULT base {"samples": 48, "invalid_outputs": 43, "gold_satisfied": 126, "gold_unknown": 42, "gold_violated": 24, "valid_outputs": 5, "correct_statuses": 16, "exact_status_samples": 3, "correct_satisfied": 16, "correct_unknown": 0, "valid_output_rate": 0.10416666666666667, "status_accuracy": 0.08333333333333333, "exact_status_accuracy": 0.0625, "seconds": 226.2288490012288, "inference_losses": {"validation": {"loss": 0.20943145681294226, "target_tokens": 4319}, "test": {"loss": 0.20584639489007842, "target_tokens": 3894}}, "warning": "Synthetic smoke holdout. Invalid outputs count as wrong. Evidence index validity does not establish semantic support.", "recall_satisfied": 0.12698412698412698, "recall_violated": 0.0, "recall_unknown": 0.0}
+START /root/autodl-tmp/intentlab-venv/bin/python -m intentlab run --model-path /root/autodl-tmp/models/Qwen3.5-9B --model-role analyzer --device cuda --split test --limit 2 --repeats 1 --policies fixed-full dynamic --max-new-tokens 768 --token-budget 30000 --out runs/qwen35-5090-pilot-v2/base/closed-loop
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]Loading weights: 100%|██████████| 427/427 [00:00<00:00, 9770.53it/s]
+diagnostic model 1 / 48
+diagnostic model 2 / 48
+diagnostic model 3 / 48
+diagnostic model 4 / 48
+diagnostic model 5 / 48
+diagnostic model 6 / 48
+diagnostic model 7 / 48
+diagnostic model 8 / 48
+diagnostic model 9 / 48
+diagnostic model 10 / 48
+diagnostic model 11 / 48
+diagnostic model 12 / 48
+diagnostic model 13 / 48
+diagnostic model 14 / 48
+diagnostic model 15 / 48
+diagnostic model 16 / 48
+diagnostic model 17 / 48
+diagnostic model 18 / 48
+diagnostic model 19 / 48
+diagnostic model 20 / 48
+diagnostic model 21 / 48
+diagnostic model 22 / 48
+diagnostic model 23 / 48
+diagnostic model 24 / 48
+diagnostic model 25 / 48
+diagnostic model 26 / 48
+diagnostic model 27 / 48
+diagnostic model 28 / 48
+diagnostic model 29 / 48
+diagnostic model 30 / 48
+diagnostic model 31 / 48
+diagnostic model 32 / 48
+diagnostic model 33 / 48
+diagnostic model 34 / 48
+diagnostic model 35 / 48
+diagnostic model 36 / 48
+diagnostic model 37 / 48
+diagnostic model 38 / 48
+diagnostic model 39 / 48
+diagnostic model 40 / 48
+diagnostic model 41 / 48
+diagnostic model 42 / 48
+diagnostic model 43 / 48
+diagnostic model 44 / 48
+diagnostic model 45 / 48
+diagnostic model 46 / 48
+diagnostic model 47 / 48
+diagnostic model 48 / 48
+DIAGNOSTIC_RESULT cosine-seed-0 {"samples": 48, "valid_outputs": 48, "correct_statuses": 169, "exact_status_samples": 34, "gold_satisfied": 126, "correct_satisfied": 126, "gold_unknown": 42, "correct_unknown": 25, "gold_violated": 24, "correct_violated": 18, "valid_output_rate": 1.0, "status_accuracy": 0.8802083333333334, "exact_status_accuracy": 0.7083333333333334, "seconds": 191.07986680790782, "inference_losses": {"validation": {"loss": 0.014789834497813467, "target_tokens": 4319}, "test": {"loss": 0.012084895669342496, "target_tokens": 3894}}, "warning": "Synthetic smoke holdout. Invalid outputs count as wrong. Evidence index validity does not establish semantic support.", "recall_satisfied": 1.0, "recall_violated": 0.75, "recall_unknown": 0.5952380952380952}
+START /root/autodl-tmp/intentlab-venv/bin/python -m intentlab run --model-path runs/qwen35-5090-pilot-v2/cosine-seed-0/model --model-role analyzer --device cuda --split test --limit 2 --repeats 1 --policies fixed-full dynamic --max-new-tokens 768 --token-budget 30000 --out runs/qwen35-5090-pilot-v2/cosine-seed-0/closed-loop
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]Loading weights: 100%|██████████| 427/427 [00:00<00:00, 9477.93it/s]
+diagnostic model 1 / 48
+diagnostic model 2 / 48
+diagnostic model 3 / 48
+diagnostic model 4 / 48
+diagnostic model 5 / 48
+diagnostic model 6 / 48
+diagnostic model 7 / 48
+diagnostic model 8 / 48
+diagnostic model 9 / 48
+diagnostic model 10 / 48
+diagnostic model 11 / 48
+diagnostic model 12 / 48
+diagnostic model 13 / 48
+diagnostic model 14 / 48
+diagnostic model 15 / 48
+diagnostic model 16 / 48
+diagnostic model 17 / 48
+diagnostic model 18 / 48
+diagnostic model 19 / 48
+diagnostic model 20 / 48
+diagnostic model 21 / 48
+diagnostic model 22 / 48
+diagnostic model 23 / 48
+diagnostic model 24 / 48
+diagnostic model 25 / 48
+diagnostic model 26 / 48
+diagnostic model 27 / 48
+diagnostic model 28 / 48
+diagnostic model 29 / 48
+diagnostic model 30 / 48
+diagnostic model 31 / 48
+diagnostic model 32 / 48
+diagnostic model 33 / 48
+diagnostic model 34 / 48
+diagnostic model 35 / 48
+diagnostic model 36 / 48
+diagnostic model 37 / 48
+diagnostic model 38 / 48
+diagnostic model 39 / 48
+diagnostic model 40 / 48
+diagnostic model 41 / 48
+diagnostic model 42 / 48
+diagnostic model 43 / 48
+diagnostic model 44 / 48
+diagnostic model 45 / 48
+diagnostic model 46 / 48
+diagnostic model 47 / 48
+diagnostic model 48 / 48
+DIAGNOSTIC_RESULT plateau-seed-0 {"samples": 48, "valid_outputs": 48, "correct_statuses": 185, "exact_status_samples": 41, "gold_satisfied": 126, "correct_satisfied": 126, "gold_unknown": 42, "correct_unknown": 42, "gold_violated": 24, "correct_violated": 17, "valid_output_rate": 1.0, "status_accuracy": 0.9635416666666666, "exact_status_accuracy": 0.8541666666666666, "seconds": 189.9433547127992, "inference_losses": {"validation": {"loss": 0.008692943649101269, "target_tokens": 4319}, "test": {"loss": 0.007451002309543694, "target_tokens": 3894}}, "warning": "Synthetic smoke holdout. Invalid outputs count as wrong. Evidence index validity does not establish semantic support.", "recall_satisfied": 1.0, "recall_violated": 0.7083333333333334, "recall_unknown": 1.0}
+START /root/autodl-tmp/intentlab-venv/bin/python -m intentlab run --model-path runs/qwen35-5090-pilot-v2/plateau-seed-0/model --model-role analyzer --device cuda --split test --limit 2 --repeats 1 --policies fixed-full dynamic --max-new-tokens 768 --token-budget 30000 --out runs/qwen35-5090-pilot-v2/plateau-seed-0/closed-loop
+GPU_PILOT_COMPLETE

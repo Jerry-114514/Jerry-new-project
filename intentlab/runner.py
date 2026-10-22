@@ -8,6 +8,7 @@ from .oracle import evaluate
 from .planner import repair_scope
 from .requirements import extract_requirements
 from .learning import predict
+from .hard_guard import repair_hard_guard
 
 
 def run_task(task, actor, policy="dynamic", max_repairs=3, redact_events=False, analyzer=None, risk_weights=None):
@@ -25,7 +26,8 @@ def run_task(task, actor, policy="dynamic", max_repairs=3, redact_events=False, 
         return rows
     visible = public_task(task)
     history = []
-    counters = {"actor_calls": 0, "checks": 0, "rejected": 0, "verifications": 0, "proposed_actions": 0}
+    counters = {"actor_calls": 0, "checks": 0, "rejected": 0, "verifications": 0, "proposed_actions": 0,
+                'hard_rejections': 0}
     status = "finished"
     findings = []
     requirements = []
@@ -59,11 +61,14 @@ def run_task(task, actor, policy="dynamic", max_repairs=3, redact_events=False, 
                 counters["proposed_actions"] += len(proposal["actions"])
                 candidate = state.clone()
                 candidate.apply(proposal["actions"])
+                hard_allowed, hard_reason = repair_hard_guard(visible, state, candidate)
                 new = inspect(visible, candidate, events_visible)
                 counters["checks"] += 1
-                accepted, reason = gate(findings, new)
+                accepted, reason = gate(findings, new) if hard_allowed else (False, hard_reason)
+                counters['hard_rejections'] += not hard_allowed
                 history.append({"phase": "repair", "target": target, "actions": proposal["actions"],
-                                "findings": new, "accepted": accepted, "reason": reason})
+                                "findings": new, "accepted": accepted, "reason": reason,
+                                'hard_guard_passed': hard_allowed})
                 if accepted:
                     state, findings = candidate, new
                 else:
