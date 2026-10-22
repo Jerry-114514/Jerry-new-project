@@ -1,0 +1,10 @@
+{
+  "candidate-references.jsonl": "8e97be83825aaff4a08aff6772d17d2e9b8f2aaee8f550bed50c714ab18f092e",
+  "cases.jsonl": "c6b0efc5e3dcab544a7677b312af21260787efdd95f79d785c8571cf4d561196",
+  "coordinator-lineage.jsonl": "ffdf69c6896a21e574fbb26d73d24bd2b790e716eaba959a4c012a30abf4e37e",
+  "manifest.json": "f5c4c7adcd2db2b74fd043aa484b6b63e729d7cb73d957db48b810362cdfbf69",
+  "reviewer-packet/README.md": "f097af0234bf23e9036fca85be78cce27510d84d2e7c5f2489d6e4abd673b0e7",
+  "reviewer-packet/cases.jsonl": "1792cffebbfa44000377b5bffaa8b511a05a1fc65c2c14bee67fb4e3462c74d4",
+  "reviewer-packet/review-template.jsonl": "fa21ec87d4b9787307882197e164fddceda40561b31544d7a3409872e1d0b247",
+  "tasks.jsonl": "1f5065285e7a519b039ee547be2a35e97cb23d6b2bc4bf2250643c8662ee769e"
+}

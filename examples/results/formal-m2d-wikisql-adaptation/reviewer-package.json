@@ -1,0 +1,21 @@
+{
+  "kind": "private_blank_reviewer_package",
+  "batch": "wikisql-equality-20261023",
+  "local_path": "runs/annotation-reviewers-wikisql-equality-20261023.zip",
+  "sha256": "b083f296dea37fee96d1712d308caf69f3702616f1ff7cd8a19debf67a02a0d6",
+  "files_sha256": {
+    "cases.jsonl": "1792cffebbfa44000377b5bffaa8b511a05a1fc65c2c14bee67fb4e3462c74d4",
+    "README.md": "f097af0234bf23e9036fca85be78cce27510d84d2e7c5f2489d6e4abd673b0e7",
+    "review-template.jsonl": "fa21ec87d4b9787307882197e164fddceda40561b31544d7a3409872e1d0b247",
+    "本批标注说明.md": "314abd12d5a1825c2a3ea27bcc6c50d28d1c457eededa8519cee9168ae993b23"
+  },
+  "views": 48,
+  "requirements_per_view": 4,
+  "records_per_reviewer": 48,
+  "judgments_per_reviewer": 192,
+  "initial_reviewers_required": 2,
+  "human_reviews_completed": 0,
+  "distributed": false,
+  "source_fidelity_and_release_review_complete": false,
+  "contains_candidate_answers_or_model_results": false
+}

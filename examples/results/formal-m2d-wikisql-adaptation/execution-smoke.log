@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/root/autodl-tmp/wikisql-adapter-validation-20261023/source/intentlab/execution.py", line 178, in <module>
+    main()
+  File "/root/autodl-tmp/wikisql-adapter-validation-20261023/source/intentlab/execution.py", line 169, in main
+    pool = LocalModelPool(paths, args.device, args.max_new_tokens, args.token_budget, context_limit=args.context_limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/wikisql-adapter-validation-20261023/source/intentlab/model_pool.py", line 30, in __init__
+    ensure_gpu_lease()
+  File "/root/autodl-tmp/wikisql-adapter-validation-20261023/source/intentlab/gpu_lease.py", line 114, in ensure_gpu_lease
+    lease = GpuLease().acquire()
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/wikisql-adapter-validation-20261023/source/intentlab/gpu_lease.py", line 64, in acquire
+    self.assert_available()
+  File "/root/autodl-tmp/wikisql-adapter-validation-20261023/source/intentlab/gpu_lease.py", line 78, in assert_available
+    raise GpuBusy("Other CUDA compute processes are active (PIDs " + ",".join(map(str, sorted(foreign))) + "); stop this launch before loading/generating")
+intentlab.gpu_lease.GpuBusy: Other CUDA compute processes are active (PIDs 118441); stop this launch before loading/generating

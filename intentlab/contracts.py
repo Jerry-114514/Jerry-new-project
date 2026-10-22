@@ -8,11 +8,11 @@ import unicodedata
 
 
 OPERATIONS = {"decimal_round", "local_date_filter", "unicode_nfc", "stable_sort",
-              "key_present", "half_open_interval", "literal_copy", "copy"}
+              "key_present", "half_open_interval", "literal_copy", "copy", "ascii_filter_project"}
 PARAMETERS = {"decimal_round": {"name", "field", "places", "rounding"},
               "local_date_filter": {"name", "field", "day", "offset_minutes"},
               "half_open_interval": {"name", "field", "lower", "upper"},
-              "copy": {"name"}, **{name: {"name", "field"} for name in
+              "copy": {"name"}, "ascii_filter_project": {"name", "where_field", "equals", "fields"}, **{name: {"name", "field"} for name in
                   ("unicode_nfc", "stable_sort", "key_present", "literal_copy")}}
 RULES = {"preserve_inputs", "validate_before_write", "exact_outputs", "report_counts"}
 
@@ -44,6 +44,12 @@ def validate_operation(operation):
         raise ValueError("Unexpected or missing public operation parameters")
     if "field" in operation and (not isinstance(operation["field"], str) or not operation["field"]):
         raise ValueError("Nonempty operation field required")
+    if operation["name"] == "ascii_filter_project":
+        fields, value, where = operation["fields"], operation["equals"], operation["where_field"]
+        if not isinstance(where, str) or not where or not isinstance(value, str) or any(not 32 <= ord(c) <= 126 for c in value) \
+                or not isinstance(fields, list) or not fields or any(not isinstance(field, str) or not field for field in fields) \
+                or len(set(fields)) != len(fields):
+            raise ValueError("Printable ASCII equality and unique nonempty projection fields required")
 
 
 def numeric(value):
@@ -65,6 +71,12 @@ def transform(rows, operation):
         raise ValueError("Unsupported public operation")
     if name == "copy":
         return rows
+    if name == "ascii_filter_project":
+        where, fields = operation["where_field"], operation["fields"]
+        if any(where not in row or any(field not in row for field in fields) or not isinstance(row[where], str)
+               or any(not 32 <= ord(c) <= 126 for c in row[where]) for row in rows):
+            raise ValueError("Projection fields and printable ASCII predicate values required")
+        return [{field: row[field] for field in fields} for row in rows if row[where].lower() == operation["equals"].lower()]
     field = operation["field"]
     if name == "key_present":
         return [row for row in rows if field in row]

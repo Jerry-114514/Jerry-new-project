@@ -1,0 +1,13 @@
+{
+  "scope": "unreviewed_train_development_adaptation",
+  "candidate_contracts": 12,
+  "injected_views": 48,
+  "shared_project_templates": 1,
+  "human_verified_tasks": 0,
+  "full_source_and_adapter_rebuilt": false,
+  "recorded_actor_calls_replayed": null,
+  "fresh_inference_performed": false,
+  "formal_training_started": false,
+  "formal_M6_complete": false,
+  "warning": "Default checks metadata only. Rebuilding and replaying prove reproducibility, not human truth, original WikiSQL accuracy, task independence or method benefit."
+}

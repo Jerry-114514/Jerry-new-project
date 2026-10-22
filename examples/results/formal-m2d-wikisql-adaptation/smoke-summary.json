@@ -1,0 +1,19 @@
+{
+  "scope": "two_task_initial_actor_smoke_only",
+  "tasks": 2,
+  "runs": 2,
+  "actor_calls": 4,
+  "program_exceptions": 0,
+  "candidate_reference_compliant_runs": 1,
+  "source_fidelity_reviewed": false,
+  "human_accuracy": null,
+  "formal_M6_complete": false,
+  "private_files_sha256": {
+    "manifest.json": "ef1f63d03d292cfaac0b38497f7d43c78caefa28e70068febb96fc8346224b70",
+    "runs.jsonl": "68ef2494f99e888b2c6d097f8ca02827bf5b2c63b4fcf9b94863fdcc9d570642",
+    "summary.json": "6a7c44681faf38382d3a889367911f11bd97966b9c375bbbcdfae782a61e8086",
+    "REPORT.md": "7016d8200efe3b0405f7339192631b32a3e7f6848697d170827b0d7b56245ebc",
+    "strata.json": "6606bcb894ab279c26d696f5c31b5c8560dab61de266f2279ec14f9b5abcf406"
+  },
+  "warning": "Against unreviewed candidate references; no repair, learned analyzer, formal comparison or original WikiSQL accuracy. First GpuBusy launch failed before model loading; retry occurred only after PID absence/empty compute list were observed."
+}

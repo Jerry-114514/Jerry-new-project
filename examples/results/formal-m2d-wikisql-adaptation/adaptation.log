@@ -1,0 +1,20 @@
+{
+  "kind": "unreviewed_private_explicit_contract_adaptation",
+  "scope": "train_development_only",
+  "adapter_version": 1,
+  "source_pool_hash": "3c751b5e0c82039122762ab819118cfaae289f70d1e93c4f5fc33fa669cef138",
+  "candidate_tasks": 12,
+  "injected_views": 48,
+  "provisional_page_groups": 12,
+  "shared_project_templates": 1,
+  "tasks_hash": "e2b6f3e6cf08c1e45632fbe0aaa9bf3c58d8808bb4431f0471ee33d9b95995ae",
+  "references_hash": "e97d677f2ee134b4fd12e5ac1f6f5c0ecfaee6d8552f2eb5f734630c745ab6a3",
+  "cases_hash": "9104572c0249e344564d639b8278ebacf057014f362295795981942ec344b826",
+  "lineage_hash": "d6e7410464076dcff17ced5647ce7673eddf4d1551be64a2ed778051d54f1fe2",
+  "human_verified_project_tasks": 0,
+  "human_labels_created": 0,
+  "source_fidelity_review_complete": false,
+  "release_review_complete": false,
+  "formal_protocol_frozen": false,
+  "warning": "Researcher-added explicit requirements informed by coordinator SQL annotations, not faithful WikiSQL text-to-SQL reproduction. References are independently coded candidates, not human truth. All views are injected, not natural model failures. Keep content/answers private until review; public release may contain metadata only."
+}
