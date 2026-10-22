@@ -1,0 +1,10 @@
+{
+  "scope": "development",
+  "raw_model_prompt_response_calls_replayed": 21,
+  "tool_runs_replayed": 12,
+  "unlabeled_views_reproduced": 24,
+  "declared_conservative_clusters": 4,
+  "human_reviews_completed": 0,
+  "formal_training_started": false,
+  "warning": "Recorded raw-response replay, not fresh model inference or proof of independent tasks/human reference correctness. Only public synthetic train data."
+}

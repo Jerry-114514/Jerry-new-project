@@ -1,0 +1,10 @@
+{
+  "none": {
+    "all_runs": 12,
+    "feasible_runs": 12,
+    "initially_irreversible_runs": 0,
+    "feasible_compliant_success_rate": 0.4166666666666667,
+    "repair_introduced_hard_violation_runs": 0,
+    "warning": "Development source groups are declared, not independently certified tasks."
+  }
+}

@@ -1,0 +1,12 @@
+{"files":{"output/records.json":[{"refund":"-1.23","ticket":"T1"},{"refund":"0.01","ticket":"T2"}],"output/report.json":{"input_rows":2,"output_rows":2,"status":"ok"}},"task_id":"train-candidate-ticket-refunds"}
+{"files":{"output/records.json":[{"credit":"9.99","meter":"M1"},{"credit":"12.00","meter":"M2"}],"output/report.json":{"input_rows":2,"output_rows":2,"status":"ok"}},"task_id":"train-candidate-utility-adjustments"}
+{"files":{"output/records.json":[{"fee":"123.46","route":"A"},{"fee":"0.00","route":"B"}],"output/report.json":{"input_rows":2,"output_rows":2,"status":"ok"}},"task_id":"train-candidate-freight-surcharges"}
+{"files":{"output/records.json":[{"heading":"Ångström"},{"heading":"Plain"}],"output/report.json":{"input_rows":2,"output_rows":2,"status":"ok"}},"task_id":"train-candidate-library-headings"}
+{"files":{"output/records.json":[{"alias":"Ñandu"},{"alias":""}],"output/report.json":{"input_rows":2,"output_rows":2,"status":"ok"}},"task_id":"train-candidate-station-aliases"}
+{"files":{"output/records.json":[{"caption":"ö"},{"caption":"가"}],"output/report.json":{"input_rows":2,"output_rows":2,"status":"ok"}},"task_id":"train-candidate-museum-captions"}
+{"files":{"output/records.json":[{"id":"q2","urgency":1},{"id":"q1","urgency":1},{"id":"q9","urgency":2}],"output/report.json":{"input_rows":3,"output_rows":3,"status":"ok"}},"task_id":"train-candidate-clinic-queue"}
+{"files":{"output/records.json":[{"aisle":-1,"sku":"B"},{"aisle":-1,"sku":"A"},{"aisle":0,"sku":"C"}],"output/report.json":{"input_rows":3,"output_rows":3,"status":"ok"}},"task_id":"train-candidate-warehouse-picks"}
+{"files":{"output/records.json":[{"priority":0,"sensor":"s2"},{"priority":1.5,"sensor":"s3"},{"priority":1.5,"sensor":"s1"}],"output/report.json":{"input_rows":3,"output_rows":3,"status":"ok"}},"task_id":"train-candidate-sensor-priorities"}
+{"files":{"output/records.json":[{"consent":false,"id":"a"},{"consent":null,"id":"c"}],"output/report.json":{"input_rows":3,"output_rows":2,"status":"ok"}},"task_id":"train-candidate-consent-records"}
+{"files":{"output/records.json":[{"count":0,"sku":"A"},{"count":3,"sku":"C"}],"output/report.json":{"input_rows":3,"output_rows":2,"status":"ok"}},"task_id":"train-candidate-stock-counts"}
+{"files":{"output/records.json":[{"id":1,"note":""},{"id":3,"note":"ok"}],"output/report.json":{"input_rows":3,"output_rows":2,"status":"ok"}},"task_id":"train-candidate-survey-notes"}

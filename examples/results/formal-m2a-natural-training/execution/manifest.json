@@ -1,0 +1,25 @@
+{
+  "kind": "public_contract_development_execution",
+  "scope": "development",
+  "status": "completed",
+  "actor": "local_model",
+  "executor_is_language_model": true,
+  "analyzer": "public_rule",
+  "analyzer_mode": "rule",
+  "task_hash": "310797ec60bde62118af21d7cd205596de11c34396cb959147154250c7903311",
+  "offline_reference_hash": "07da65d7a7e4663750445728dc1a63adf79456a91cffaa56b2eb83bd426b055a",
+  "policies": [
+    "none"
+  ],
+  "max_repairs": 0,
+  "hard_guard_enabled": true,
+  "redact_events": false,
+  "max_tool_steps": 3,
+  "actor_envelope": "extract",
+  "intensity_config": null,
+  "source_task_groups": 4,
+  "model_paths": {
+    "actor": "/root/autodl-tmp/models/Qwen3.5-9B"
+  },
+  "warning": "Unreviewed development contracts; not an independent human benchmark or confirmatory result."
+}

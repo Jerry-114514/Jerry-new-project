@@ -1,0 +1,9 @@
+{
+  "scope": "unreviewed_training_candidates",
+  "package_sha256": "372f4040d6f8ca0de646b54482a8e78696a359729046255d2d877e6f7a27bd20",
+  "entries": 4,
+  "views": 24,
+  "judgments_per_reviewer": 96,
+  "human_reviews_completed": 0,
+  "coordinator_metadata_or_raw_outputs_included": false
+}

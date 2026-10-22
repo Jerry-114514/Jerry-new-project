@@ -1,0 +1,8 @@
+{
+  "scope": "development",
+  "checks": {
+    "changed_prompt_hash_rejected": "Raw model response does not match the reconstructed public prompt",
+    "invented_human_label_rejected": "Blind packet/provenance differs from raw-run reproduction: reviewer-packet\\review-template.jsonl"
+  },
+  "human_reviews_completed": 0
+}

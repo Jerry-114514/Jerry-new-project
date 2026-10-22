@@ -27,6 +27,7 @@ python -m intentlab train-baseline --data runs/data/diagnostic_views.jsonl --out
 
 ## 研究文档
 
+- [自然轨迹训练候选与标注接入](docs/training-trajectory-intake-guide.md)：12 个训练变体、四个保守模板簇，实际原始 9B 执行及不含自动标签的双视图标注包；尚无人审核，不用于正式测试。
 - [候选审计与统计阶段验证](docs/candidate-statistics-guide.md)：完整提案与决策错误分开记录，误拦截分母为空时保留 null，共同可行子集配对，并核验统计阶段上游凭据及重算结果。
 - [正式实验目标与验收依据](idea.md)：M1–M8 的范围、数据隔离与正式实验要求；进度见[执行记录](docs/formal-experiment-status.md)。
 - [人工标注流程说明](docs/human-annotation-workflow.md)：人员分工、盲包发放、三状态与证据、双人独立初审、第三人仲裁及交付验收。

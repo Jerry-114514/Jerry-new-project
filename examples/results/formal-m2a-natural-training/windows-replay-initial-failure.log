@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "D:\Profile\ChatGPT\new project 2\examples\results\formal-m2a-natural-training\audit.py", line 80, in <module>
+    report = audit(root)
+  File "D:\Profile\ChatGPT\new project 2\examples\results\formal-m2a-natural-training\audit.py", line 70, in audit
+    raise ValueError("Blind packet/provenance differs from raw-run reproduction: " + str(p.relative_to(out)))
+ValueError: Blind packet/provenance differs from raw-run reproduction: manifest.json
