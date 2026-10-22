@@ -27,6 +27,7 @@ python -m intentlab train-baseline --data runs/data/diagnostic_views.jsonl --out
 
 ## 研究文档
 
+- [WikiSQL 外部来源候选池](docs/wikisql-source-intake.md)：固定上游 train、600 条待适配来源及可重算索引；不计入正式任务或人工标签，不用作新隔离测试。
 - [新自然轨迹上的 A/C 基线开发检查](docs/schema-baseline-development.md)：原始 9B 的实际 Schema 输出、公开规则对照和可重算 token 账本；不含人工准确率或微调结论。
 - [来源、模板与近重复审查](docs/source-template-review-guide.md)：跨新旧候选的风险清单、保守分组、人工审查模板及正式冻结内容校验；自动初筛不等于独立来源证明。
 - [新训练候选的上下文与 5090 压力检查](docs/context-budget-development.md)：24 个实际提示长度，以及精确 1024/2048 序列的短 QLoRA 硬件探测；不等于正式预算或质量结论。

@@ -1,0 +1,18 @@
+{
+  "NOTICE.md": "614127bde2223d647d59acc1e1571170adea76711b776df7409b5368e35c4472",
+  "README.md": "f408d4444073fc823f00ad02684b6798d971c687c66fcde65cfee7147a4a7c89",
+  "acquire_source.py": "e114046acfeb5b4eca4180d263758a739aba79cddf0b13ea278cabd9b6a24fcf",
+  "acquisition-local.json": "4d38eaf6e84516efdfbb3ad1681ab6aab915150e253ca96794fdac4088da57f4",
+  "acquisition-remote-failed.json": "aa9f2f703204c7562f1c0a742693f5ef1361381148a14204278697b98040c134",
+  "audit.py": "3de767369a6b6d8875edbbea2a68bc84b0debb6c14161503278a5fb1eae5d3de",
+  "intake.log": "93e830b83098a308ed56d1bb18cae9d0949339d815517e56b9d962fd19bda069",
+  "pool/manifest.json": "210cb575cf4b39fbd960408f8449418cf1b03cf935833f7dd6d5dd4e59669aa3",
+  "pool/public-index.jsonl": "046d4b2ddfc72e850baf147688cd04420b286b61ed0546740d2181daa2529bff",
+  "quality.json": "8a02605daf1747d13b67e98414366773529bf00388152ab460be98ab96f1a2f8",
+  "runtime-identity.json": "488e160128069cb9a95dd07d6e1ea2a76dbdabcceff89c6ec7bc2499ba8cb56c",
+  "source-comparison.json": "c77d588900a12a8a1a3a81527bee0956d07c2f8f1bad0c8b67238ba7b1927121",
+  "source-replay-verification.json": "b8bd5869e6a06791b27977b2720578ff1521ee45c447313285a9a04f63c8d94a",
+  "tests-autodl.log": "e13a8eedd3f74b5b402959a88d7b696674f4add782008bf99e0607e1a25825df",
+  "tests-local.log": "2b7be27607fb38f13a59baf33e713162b9931499f06385a47a481c71116e5f90",
+  "verification.json": "dc7f5893157fb01732e7cc36f5d9958320f1736c2f04e24d3af753ccca381b06"
+}

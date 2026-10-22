@@ -1,0 +1,9 @@
+{
+  "kind": "pinned_external_source_acquisition",
+  "repository": "salesforce/WikiSQL",
+  "revision": "cffb423077756d04c1bac5bcd45167c86903fbcb",
+  "status": "failed",
+  "assets": [],
+  "error_type": "TimeoutError",
+  "error": "The read operation timed out"
+}

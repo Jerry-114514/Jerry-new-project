@@ -1,0 +1,18 @@
+{
+  "repository": "salesforce/WikiSQL",
+  "revision": "cffb423077756d04c1bac5bcd45167c86903fbcb",
+  "usage": "train_development_sources_only",
+  "archive_url": "https://raw.githubusercontent.com/salesforce/WikiSQL/cffb423077756d04c1bac5bcd45167c86903fbcb/data.tar.bz2",
+  "archive": {
+    "bytes": 26164664,
+    "git_blob_sha1": "941de4cb2ad5fa7aeb2e37d314468636ce070af7",
+    "sha256": "755c728ab188e364575705c8641f3fafd86fb089cb8b08e8c03f01832aae0881"
+  },
+  "license_reference": "https://github.com/salesforce/WikiSQL/blob/cffb423077756d04c1bac5bcd45167c86903fbcb/LICENSE",
+  "upstream_repository_license_label": "BSD-3-Clause",
+  "license_file_sha256": "df05959641bee26e26eba5b583598f1784e55dbe4accdba4ac7ad1bb5177f2e3",
+  "readme_reference": "https://github.com/salesforce/WikiSQL/blob/cffb423077756d04c1bac5bcd45167c86903fbcb/README.md",
+  "readme_sha256": "bbf0db8c971108abcc74e200b2351a418b8ab9618a704d42ed0cbc69ac6285f2",
+  "license_and_release_review_complete": false,
+  "warning": "Repository license metadata is not a completed provenance/release review of adapted table content. No public upstream record is promoted to a sealed project test or a human-reviewed task."
+}

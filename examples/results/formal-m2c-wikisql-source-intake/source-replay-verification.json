@@ -1,0 +1,15 @@
+{
+  "scope": "upstream_train_source_intake_only",
+  "selected_source_candidates": 600,
+  "distinct_table_ids": 600,
+  "structural_query_template_groups": 82,
+  "distinct_exact_table_payloads": 599,
+  "distinct_supplied_page_id_values": 422,
+  "missing_page_ids": 150,
+  "duplicate_page_id_groups": 20,
+  "full_upstream_train_replayed": true,
+  "project_cases_created": 0,
+  "human_verified_sources": 0,
+  "formal_minimum_tasks_satisfied": false,
+  "warning": "Source metadata only unless --archive is supplied. Six hundred source candidates are not six hundred independently verified project tasks; no annotation, execution adaptation, release review or sealed project test/OOD completion."
+}

@@ -1,0 +1,48 @@
+{
+  "annotation_ready": false,
+  "archive": {
+    "bytes": 26164664,
+    "git_blob_sha1": "941de4cb2ad5fa7aeb2e37d314468636ce070af7",
+    "sha256": "755c728ab188e364575705c8641f3fafd86fb089cb8b08e8c03f01832aae0881"
+  },
+  "coordinator_pool_hash": "3c751b5e0c82039122762ab819118cfaae289f70d1e93c4f5fc33fa669cef138",
+  "distinct_table_ids": 600,
+  "execution_adapter_ready": false,
+  "formal_minimum_tasks_satisfied": false,
+  "human_verified_sources": 0,
+  "kind": "external_source_candidates_not_project_cases",
+  "license_and_release_review_complete": false,
+  "member_sha256": {
+    "data/train.jsonl": "b52247eab1ea56bd5d181b54814449495740df52492193f36926bdc2ee822488",
+    "data/train.tables.jsonl": "5e65a734e355771d398b1e49049b40c98f78632616a2ee4171a4f5995f24eb50"
+  },
+  "parsed_members": [
+    "data/train.tables.jsonl",
+    "data/train.jsonl"
+  ],
+  "project_cases_created": 0,
+  "public_index_sha256": "ad7c7e80575ecb0600c8ed79af8b2fbb87533eddfa0a3db64504b586e84c2b4e",
+  "repository": "salesforce/WikiSQL",
+  "requested_candidates": 600,
+  "revision": "cffb423077756d04c1bac5bcd45167c86903fbcb",
+  "schema_version": 1,
+  "selected_source_candidates": 600,
+  "selection_limits": {
+    "columns": 6,
+    "conditions": 3,
+    "question_characters": 300,
+    "rows": 8,
+    "table_payload_characters": 1800
+  },
+  "selection_seed": 20261023,
+  "structural_exclusion_counts": {
+    "query_shape_or_operator": 37,
+    "table_shape_or_type": 43660
+  },
+  "structural_query_template_groups": 82,
+  "structurally_eligible_records": 12658,
+  "upstream_heldout_json_parsed": false,
+  "upstream_train_records": 56355,
+  "upstream_train_tables": 18585,
+  "warning": "Source intake only. Table IDs are not proof of distinct pages/workers or independent tasks. Structural templates repeat. No model score selects candidates. Upstream SQL is coordinator reference material, not public model input or project human labels. Never treat this public upstream pool as a new sealed test/OOD benchmark."
+}

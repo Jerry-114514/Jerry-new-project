@@ -1,0 +1,29 @@
+{
+  "kind": "pinned_external_source_acquisition",
+  "repository": "salesforce/WikiSQL",
+  "revision": "cffb423077756d04c1bac5bcd45167c86903fbcb",
+  "status": "completed",
+  "assets": [
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/salesforce/WikiSQL/cffb423077756d04c1bac5bcd45167c86903fbcb/LICENSE",
+      "bytes": 1519,
+      "git_blob_sha1": "504143ed33b21e59b4cb8a392c03268b10cdd233",
+      "sha256": "df05959641bee26e26eba5b583598f1784e55dbe4accdba4ac7ad1bb5177f2e3"
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/salesforce/WikiSQL/cffb423077756d04c1bac5bcd45167c86903fbcb/README.md",
+      "bytes": 19686,
+      "git_blob_sha1": "0106898203a175db2d9b40ee257c02c2373a996c",
+      "sha256": "bbf0db8c971108abcc74e200b2351a418b8ab9618a704d42ed0cbc69ac6285f2"
+    },
+    {
+      "path": "data.tar.bz2",
+      "url": "https://raw.githubusercontent.com/salesforce/WikiSQL/cffb423077756d04c1bac5bcd45167c86903fbcb/data.tar.bz2",
+      "bytes": 26164664,
+      "git_blob_sha1": "941de4cb2ad5fa7aeb2e37d314468636ce070af7",
+      "sha256": "755c728ab188e364575705c8641f3fafd86fb089cb8b08e8c03f01832aae0881"
+    }
+  ]
+}
