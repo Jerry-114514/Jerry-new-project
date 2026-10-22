@@ -27,6 +27,8 @@ cp configs/formal-protocol.draft.json runs/formal-private/protocol.final.json
 
 审核证据文件分别覆盖功效分析、长度与计算预算、语义近重复检查、来源与发布、测试封存、模型身份、新任务执行与独立 oracle、控制器消融。工具绑定这些文件的内容，不替代对其科学合理性和真实性的审核；人的身份声明也不等于程序证明了其为真人。
 
+语义去重证据现须使用[结构化来源/模板审查](source-template-review-guide.md)，绑定实际案例、逐来源理由与全部候选对；正式协议拒绝空白模板、自动初筛结果及旧文本占位。冻结摘要可在训练阶段验证而不重新读取协调人的私有案例或审核文件。
+
 其中 `controller_ablation_audit` 须为[结构化控制计划](controller-plan-guide.md)，引用完整 validation 固定 k 开发选择报告，并经两名独立人员审核。空白模板和 engineering 结果不能用于正式冻结；训练阶段不会重新打开这类私有审核材料。
 
 M6 完成后使用 [M7 冻结运行入口](frozen-ablation-guide.md)，执行全部固定 k、动态 k 及权重控制；不能从 CLI 修改已冻结的条件。当前只完成微型模型工程验证，正式阶段依赖仍未满足。

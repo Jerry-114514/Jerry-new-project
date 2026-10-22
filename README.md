@@ -27,6 +27,7 @@ python -m intentlab train-baseline --data runs/data/diagnostic_views.jsonl --out
 
 ## 研究文档
 
+- [来源、模板与近重复审查](docs/source-template-review-guide.md)：跨新旧候选的风险清单、保守分组、人工审查模板及正式冻结内容校验；自动初筛不等于独立来源证明。
 - [新训练候选的上下文与 5090 压力检查](docs/context-budget-development.md)：24 个实际提示长度，以及精确 1024/2048 序列的短 QLoRA 硬件探测；不等于正式预算或质量结论。
 - [自然轨迹训练候选与标注接入](docs/training-trajectory-intake-guide.md)：12 个训练变体、四个保守模板簇，实际原始 9B 执行及不含自动标签的双视图标注包；尚无人审核，不用于正式测试。
 - [候选审计与统计阶段验证](docs/candidate-statistics-guide.md)：完整提案与决策错误分开记录，误拦截分母为空时保留 null，共同可行子集配对，并核验统计阶段上游凭据及重算结果。

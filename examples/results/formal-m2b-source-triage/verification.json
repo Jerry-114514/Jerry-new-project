@@ -1,0 +1,12 @@
+{
+  "scope": "development",
+  "views": 32,
+  "contracts": 20,
+  "flagged_cross_split_pairs": 12,
+  "blank_source_group_reviews": 12,
+  "blank_pair_reviews": 12,
+  "human_reviews_completed": 0,
+  "semantic_dedup_review_complete": false,
+  "formal_readiness_evidence": false,
+  "warning": "Two public batches only. Shared operation is risk triage, not duplicate proof or independently verified sample size. Does not cover all legacy fixtures or external/pretraining sources."
+}

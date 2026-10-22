@@ -1,0 +1,22 @@
+test_binding_training_check_does_not_open_deleted_coordinator_material (test_source_triage.SourceTriageTests.test_binding_training_check_does_not_open_deleted_coordinator_material) ... ok
+test_blank_or_stale_review_and_missing_group_rationale_rejected (test_source_triage.SourceTriageTests.test_blank_or_stale_review_and_missing_group_rationale_rejected) ... ok
+test_different_field_and_domain_same_operation_is_risk_not_duplicate_proof (test_source_triage.SourceTriageTests.test_different_field_and_domain_same_operation_is_risk_not_duplicate_proof) ... ok
+test_exclusive_output_has_blank_review_metadata_and_no_autoapproval (test_source_triage.SourceTriageTests.test_exclusive_output_has_blank_review_metadata_and_no_autoapproval) ... ok
+test_formal_readiness_rejects_unreviewed_semantic_file_content (test_source_triage.SourceTriageTests.test_formal_readiness_rejects_unreviewed_semantic_file_content) ... FAIL
+test_observation_views_and_copied_batches_do_not_inflate_contracts (test_source_triage.SourceTriageTests.test_observation_views_and_copied_batches_do_not_inflate_contracts) ... ok
+test_ordering_is_deterministic_and_conflicting_ids_are_rejected (test_source_triage.SourceTriageTests.test_ordering_is_deterministic_and_conflicting_ids_are_rejected) ... ok
+test_public_holdout_rejected_and_private_cross_split_duplicate_flagged (test_source_triage.SourceTriageTests.test_public_holdout_rejected_and_private_cross_split_duplicate_flagged) ... ok
+
+======================================================================
+FAIL: test_formal_readiness_rejects_unreviewed_semantic_file_content (test_source_triage.SourceTriageTests.test_formal_readiness_rejects_unreviewed_semantic_file_content)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Profile\ChatGPT\new project 2\tests\test_source_triage.py", line 115, in test_formal_readiness_rejects_unreviewed_semantic_file_content
+    self.assertTrue(any("Actual human source" in blocker for blocker in report["blockers"]), report)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : {'ready': False, 'blockers': ['Semantic source review must bind the exact cases and recomputed triage'], 'scope': 'formal', 'warning': 'Readiness binds supplied reviews/evidence; it does not authenticate people or assess scientific adequacy.'}
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.078s
+
+FAILED (failures=1)

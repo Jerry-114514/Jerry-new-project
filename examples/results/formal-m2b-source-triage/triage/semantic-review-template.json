@@ -1,0 +1,246 @@
+{
+  "cases_hash": "86534a5e72341869a9dd0535b232febcfa1015e65807e4c4f5b4b9af5fb8b4f5",
+  "human_verified": false,
+  "kind": "semantic_source_review",
+  "limitations": "",
+  "pair_reviews": [
+    {
+      "decision": "",
+      "pair_id": "1aa6d583792ed01febe8f7cb1ac4c6247691eae6bec8885b9ffef99ba126a4ba",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "f4452e2fdaeb2a53ca33258ef50751a9a450f80925be1345ca08c0ca5648160f",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "2f73e9eed68e70ac29e81b0d2f7c7fbd37bf056adcf64c76810d48d7e94bfb71",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "282dae69ca5508daea110c7cbd20715b7571fc7dea980e49e9f480d715385cb6",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "832f0e41d56c781c10d1e8173547ea4a027de3e2c7cf3ffd7b1ad956c298cdc1",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "f10b308f5cfef601d2082d6174dab628feb34530e4606f7abb4a4874c901ba61",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "b7daf1b7e99ca479474e08f2fba77e7ea9bd42ed5abd3c79f1ac6d6a7159e18c",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "e8d47ad421883f9d1db106994ef945de91edf032c2fea85eac189561f1a5b6b4",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "a6f05f0be82e7c1feaa3cd0ac031969c95aeb167dc6143bebde2c2026e372673",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "ef42488b2587962ff47fff5d83a0583ecf79402a005269bc6b91de7a5b9f6dc4",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "19a3a62b35c162b45263dbda1df30fb18b7de7850341377a6ebff38116992abb",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "d7f9fb49cb31fcd1b776daf663e7f8bd212334ba05da650f59f1d2da6e616771",
+      "rationale": ""
+    }
+  ],
+  "prior_public_inventory_reference": "",
+  "prior_public_inventory_reviewed": false,
+  "provenance_reviewed": false,
+  "reviewer": "",
+  "schema_version": 1,
+  "semantic_reviewed": false,
+  "source_groups": [
+    {
+      "families": [
+        "decimal-rounding"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "dev-decimal-rounding",
+      "splits": [
+        "validation"
+      ],
+      "template_ids": [
+        "dev-execution-template-decimal-rounding"
+      ]
+    },
+    {
+      "families": [
+        "history-restoration"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "dev-history-restoration",
+      "splits": [
+        "validation"
+      ],
+      "template_ids": [
+        "dev-execution-template-history-restoration"
+      ]
+    },
+    {
+      "families": [
+        "interval-endpoint"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "dev-interval-endpoint",
+      "splits": [
+        "validation"
+      ],
+      "template_ids": [
+        "dev-execution-template-interval-endpoint"
+      ]
+    },
+    {
+      "families": [
+        "literal-identifiers"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "dev-literal-identifiers",
+      "splits": [
+        "validation"
+      ],
+      "template_ids": [
+        "dev-execution-template-literal-identifiers"
+      ]
+    },
+    {
+      "families": [
+        "missing-vs-null"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "dev-missing-vs-null",
+      "splits": [
+        "validation"
+      ],
+      "template_ids": [
+        "dev-execution-template-missing-vs-null"
+      ]
+    },
+    {
+      "families": [
+        "stable-ordering"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "dev-stable-ordering",
+      "splits": [
+        "validation"
+      ],
+      "template_ids": [
+        "dev-execution-template-stable-ordering"
+      ]
+    },
+    {
+      "families": [
+        "timezone-boundary"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "dev-timezone-boundary",
+      "splits": [
+        "validation"
+      ],
+      "template_ids": [
+        "dev-execution-template-timezone-boundary"
+      ]
+    },
+    {
+      "families": [
+        "unicode-normalization"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "dev-unicode-normalization",
+      "splits": [
+        "validation"
+      ],
+      "template_ids": [
+        "dev-execution-template-unicode-normalization"
+      ]
+    },
+    {
+      "families": [
+        "training-decimal_round"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "train-candidate-cluster-decimal_round",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "training-operation-template-decimal_round"
+      ]
+    },
+    {
+      "families": [
+        "training-key_present"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "train-candidate-cluster-key_present",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "training-operation-template-key_present"
+      ]
+    },
+    {
+      "families": [
+        "training-stable_sort"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "train-candidate-cluster-stable_sort",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "training-operation-template-stable_sort"
+      ]
+    },
+    {
+      "families": [
+        "training-unicode_nfc"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "train-candidate-cluster-unicode_nfc",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "training-operation-template-unicode_nfc"
+      ]
+    }
+  ],
+  "split_isolation_reviewed": false,
+  "triage_summary_hash": "b8f145369481a1a281ce0d39da359647265ae77c8001c90cd10212d50199712b"
+}

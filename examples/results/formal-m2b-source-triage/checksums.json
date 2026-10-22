@@ -1,0 +1,20 @@
+{
+  "README.md": "df2eaf4cbb860fda51cb37400ec2acdf3c42b7e527e2188af401edcd1414eb1d",
+  "audit.py": "edb3602a076402a3a649fc5898d09e854ba0b68957d0cb998a46b5ab8d3ba6d3",
+  "inputs/new-cases.jsonl": "9b7f4d74f41c697e3372fda0881c2e4c95ef8e269a3786631ca2269333665ec1",
+  "inputs/old-cases.jsonl": "bbf85f6ff3af8c0cff641e6c9d864089da44560efa31c37c74e0a114cb84c42f",
+  "runtime-identity.json": "b4456d9b4279af3d5d6d133bb40f2dc3c87501b7e6bd630019888fc9e9994584",
+  "source-comparison.json": "a66be23cb215e8fa2c437e139f78513b339a2b51b9879980bd8b0231e64ced81",
+  "tests-autodl-initial.log": "c0880c6c52e41e37bdcec404b8e574677b12f4a5999703dd4bc8572946219152",
+  "tests-autodl.log": "422735c705e7eb034893637c770046ee0a75f07c0c7be119ab56a38b22c22340",
+  "tests-core-initial-failure.log": "0af3c02094e932bf0d362521bcc9a9e6ac3de552502af925ebec8aa3d11f4afc",
+  "tests-local.log": "877926a46507ff757e49d6798b2b4f99a08ad2a128228cf37065d69823ebe13d",
+  "triage-final.log": "59dbe1a3ff295b0d4c436b9bf84e106337730ef779c3da6a3a74fe20166ee1db",
+  "triage/candidate-pairs.jsonl": "9e2f49654edd92018b17d50460ec5e27d8c2eb898484f6f407f807ce9cc6593d",
+  "triage/contracts.jsonl": "4eb9b12c434debb6f348363fbdfaf7fe0b3765760ad9d3f1935234fe5b680c89",
+  "triage/coordinator-cases.jsonl": "849c3008ddd75dd484af48bc8de702ebea175137b1f614498d0e21451d141f45",
+  "triage/pair-review-template.jsonl": "5e67f44ea866455f1657a357c47a796c59e3e325ffff8716ebef0ac455ca988f",
+  "triage/semantic-review-template.json": "e5bd4bb9f2d473067a83cd647fce55c50d59d380d00647b6bc9797d714066b4c",
+  "triage/summary.json": "3b1bc8f6084eaee4a16faa7a1ca43a78cdbec3b7e7a22296b838cbbec098d75e",
+  "verification.json": "15de466a725a27b0ac38574a71b0e86867f1f8d877ce010e546842493b269449"
+}

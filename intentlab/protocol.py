@@ -18,6 +18,7 @@ from .core import canonical, digest
 from .formal_data import formal_prompt, read_jsonl, resolve_reviews, validate_cases
 from .report import save_json
 from .execution_protocol import validate_execution_binding, validate_execution_settings, execution_condition_map
+from .source_triage import validate_semantic_review
 
 
 EVIDENCE = ("power_analysis", "length_and_compute_budget", "semantic_dedup_review",
@@ -223,6 +224,8 @@ def check_spec(spec):
     try:
         cases = read_jsonl(data["cases"])
         audit = validate_cases(cases)
+        if spec["scope"] == "formal":
+            validate_semantic_review(cases, read_json(spec["evidence"]["semantic_dedup_review"]))
         selected, _ = resolve_reviews(cases, read_jsonl(data["reviews"]),
             read_jsonl(data["adjudications"]) if data["adjudications"] else [])
         if version == 2:
@@ -287,6 +290,39 @@ def controller_binding(spec, cases):
     return bind_plan(path, spec["execution"]["settings"], cases, formal=spec["scope"] == "formal", budgets=spec["budgets"])
 
 
+def semantic_review_binding(spec, lock):
+    """Coordinator-only read; training checks the frozen summary instead."""
+    cases_path, review_path = spec["dataset"]["cases"], spec["evidence"]["semantic_dedup_review"]
+    before = {"cases_sha256": file_hash(cases_path), "evidence_sha256": file_hash(review_path)}
+    if before["cases_sha256"] != lock["annotation_inputs"]["cases"]["sha256"] \
+            or before["evidence_sha256"] != lock["evidence"]["semantic_dedup_review"]["sha256"]:
+        raise ValueError("Semantic review/cases changed during freeze")
+    summary = validate_semantic_review(read_jsonl(cases_path), read_json(review_path))
+    if before != {"cases_sha256": file_hash(cases_path), "evidence_sha256": file_hash(review_path)}:
+        raise ValueError("Semantic review/cases changed during coordinator verification")
+    return {**before, "summary": summary}
+
+
+def validate_semantic_lock_binding(lock):
+    binding = lock.get("semantic_review_binding")
+    if not isinstance(binding, dict) or set(binding) != {"cases_sha256", "evidence_sha256", "summary"} \
+            or binding["cases_sha256"] != lock["annotation_inputs"]["cases"]["sha256"] \
+            or binding["evidence_sha256"] != lock["evidence"]["semantic_dedup_review"]["sha256"]:
+        raise ValueError("Formal semantic source review binding missing or changed")
+    summary = binding["summary"]
+    expected_keys = {"kind", "schema_version", "cases_hash", "triage_summary_hash", "source_groups_reviewed", "flagged_pairs_reviewed", "case_count", "reviewer", "human_verified", "warning"}
+    if not isinstance(summary, dict) or set(summary) != expected_keys \
+            or summary["kind"] != "validated_semantic_source_review" or type(summary["schema_version"]) is not int or summary["schema_version"] != 1 \
+            or summary["human_verified"] is not True or not isinstance(summary["reviewer"], str) or not summary["reviewer"].strip() \
+            or type(summary["source_groups_reviewed"]) is not int or summary["source_groups_reviewed"] < 1 \
+            or type(summary["flagged_pairs_reviewed"]) is not int or summary["flagged_pairs_reviewed"] < 0 \
+            or type(summary["case_count"]) is not int or summary["case_count"] < summary["source_groups_reviewed"] \
+            or any(not isinstance(summary[key], str) or len(summary[key]) != 64
+                   or any(c not in "0123456789abcdef" for c in summary[key]) for key in ("cases_hash", "triage_summary_hash")):
+        raise ValueError("Formal semantic source review summary incomplete")
+    return True
+
+
 def freeze(spec, out):
     audit = check_spec(spec)
     if not audit["ready"]:
@@ -345,6 +381,8 @@ def freeze(spec, out):
         controller = controller_binding(spec, read_jsonl(data["cases"]))
         if controller is not None:
             bundle["controller_binding"] = controller
+    if spec["scope"] == "formal":
+        bundle["semantic_review_binding"] = semantic_review_binding(spec, bundle)
     bundle["lock_hash"] = digest(bundle)
     out.parent.mkdir(parents=True, exist_ok=True)
     # Exclusive creation prevents a concurrent invocation replacing a freeze.
@@ -365,6 +403,8 @@ def verify(lock, phase="training"):
         raise ValueError("Formal execution binding missing; legacy protocols are engineering only")
     if lock["scope"] == "formal" and "controller_binding" not in lock:
         raise ValueError("Formal controller selection/ablation binding missing")
+    if lock["scope"] == "formal":
+        validate_semantic_lock_binding(lock)
     if spec.get("schema_version") == 2:
         binding = lock.get("execution_binding")
         if not isinstance(binding, dict) or set(binding) != {"files", "summary"} \
@@ -403,6 +443,8 @@ def verify(lock, phase="training"):
         for record in list(lock["evidence"].values()) + list(lock["annotation_inputs"].values()):
             if file_hash(record["path"]) != record["sha256"]:
                 raise ValueError("Evidence or annotation input changed after freeze")
+        if lock["scope"] == "formal" and semantic_review_binding(spec, lock) != lock["semantic_review_binding"]:
+            raise ValueError("Frozen semantic source review differs from coordinator inputs")
         if spec.get("schema_version") == 2:
             for record in lock["execution_binding"]["files"].values():
                 if file_hash(record["path"]) != record["sha256"]:

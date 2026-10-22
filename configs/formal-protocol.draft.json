@@ -122,7 +122,7 @@
   "evidence": {
     "power_analysis": "runs/formal-private/evidence/power-analysis.md",
     "length_and_compute_budget": "runs/formal-private/evidence/length-compute-budget.md",
-    "semantic_dedup_review": "runs/formal-private/evidence/semantic-dedup.md",
+    "semantic_dedup_review": "runs/formal-private/evidence/semantic-source-review.json",
     "provenance_and_release_review": "runs/formal-private/evidence/provenance-release.md",
     "test_sealing": "runs/formal-private/evidence/test-sealing.md",
     "model_weight_verification": "configs/qwen35-official-assets.json",

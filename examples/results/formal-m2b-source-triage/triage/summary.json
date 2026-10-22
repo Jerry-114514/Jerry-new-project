@@ -1,0 +1,29 @@
+{
+  "batch_case_hashes": {
+    "inputs/new-cases.jsonl": "c80c5b36960af3f14d42e4fd1f6f2e45785d1afaffa9af8afdd0fe5ff95924cb",
+    "inputs/old-cases.jsonl": "a04b0d160e822b0a197c1dfaf3ea5f32060f389c5731a2703dda742feebdd702"
+  },
+  "declared_source_ids": 12,
+  "flagged_contract_pairs": 12,
+  "flagged_cross_split_pairs": 12,
+  "formal_readiness_evidence": false,
+  "human_reviews_completed": 0,
+  "input_memberships": 32,
+  "inventory_hash": "e2f486bc22fc76afd9f4b92964756ad036fb72c84de23700dc56cedf51fbeb03",
+  "kind": "unreviewed_public_source_triage",
+  "policy": {
+    "name": "public_contract_and_lexical_risk_triage_v1",
+    "word_jaccard_threshold": 0.8
+  },
+  "queue_hash": "f36591d9a2784b25e87c1444080dd58f955c0f551f424623877744f70551b9d2",
+  "reason_counts": {
+    "shared_coded_operation_risk_only": 12
+  },
+  "schema_version": 1,
+  "scope": "development",
+  "semantic_dedup_review_complete": false,
+  "unique_case_ids": 32,
+  "unique_public_contracts": 20,
+  "warning": "Candidate triage only. Shared operation or lexical overlap is not proof of duplication; different operations or low overlap is not proof of independence. Declared source IDs and view counts are not certified sample size. Human source/template and semantic review, including unflagged cases, is required. No labels or model scores are read.",
+  "within_declared_source_variant_pairs_skipped": 12
+}
