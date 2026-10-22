@@ -283,6 +283,21 @@ class ExecutionMatrixIntegrationTests(unittest.TestCase):
             Path(spec["execution"]["references"]).unlink()
             self.assertFalse(verify_scoring(lock, binding, root / "diagnostic-predictions", root / "diagnostic-reveal",
                 root / "execution-interactions", root / "execution-reveal", True)["references_reopened"])
+            from intentlab import frozen_ablation
+            ablation_common = (lock, binding, root / "diagnostic-predictions", root / "diagnostic-reveal",
+                               root / "execution-interactions", root / "execution-reveal")
+            ablations = frozen_ablation.interact(*ablation_common, root / "ablation-interactions", True)
+            self.assertEqual(ablations["status"], "sealed")
+            self.assertFalse(ablations["injected_pool"])
+            self.assertEqual(len(ablations["conditions"]), 6)
+            self.assertFalse(Path(spec["execution"]["references"]).exists())
+            Path(spec["execution"]["references"]).write_bytes(execution_references_backup)
+            ablation_scores = frozen_ablation.reveal(*ablation_common, root / "ablation-interactions", root / "ablation-reveal", True)
+            self.assertEqual(ablation_scores["status"], "completed")
+            self.assertEqual(len(read_jsonl(root / "ablation-reveal/runs.jsonl")), 12)
+            Path(spec["execution"]["references"]).unlink()
+            self.assertFalse(frozen_ablation.verify_scoring(*ablation_common, root / "ablation-interactions",
+                root / "ablation-reveal", True)["references_reopened"])
             target = os.environ.get("INTENTLAB_EXECUTION_MATRIX_AUDIT_DIR")
             if target:
                 target = Path(target)
@@ -293,7 +308,7 @@ class ExecutionMatrixIntegrationTests(unittest.TestCase):
                 (target / "controller-development/selection.json").write_bytes(controller_report_bytes)
                 (target / "controller-plan.json").write_bytes(controller_plan_bytes)
                 shutil.copyfile(spec["dataset"]["cases"], target / "controller-cases.jsonl")
-                for directory in ("diagnostic-predictions", "diagnostic-reveal", "execution-interactions", "execution-reveal"):
+                for directory in ("diagnostic-predictions", "diagnostic-reveal", "execution-interactions", "execution-reveal", "ablation-interactions", "ablation-reveal"):
                     shutil.copytree(root / directory, target / directory)
                 # Publish synthetic engineering inputs for independent offline
                 # replay; never use this path to publish sealed formal gold.

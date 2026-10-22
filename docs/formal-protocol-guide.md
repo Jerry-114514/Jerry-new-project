@@ -27,6 +27,8 @@ cp configs/formal-protocol.draft.json runs/formal-private/protocol.final.json
 
 其中 `controller_ablation_audit` 须为[结构化控制计划](controller-plan-guide.md)，引用完整 validation 固定 k 开发选择报告，并经两名独立人员审核。空白模板和 engineering 结果不能用于正式冻结；训练阶段不会重新打开这类私有审核材料。
 
+M6 完成后使用 [M7 冻结运行入口](frozen-ablation-guide.md)，执行全部固定 k、动态 k 及权重控制；不能从 CLI 修改已冻结的条件。当前只完成微型模型工程验证，正式阶段依赖仍未满足。
+
 ## 2. 检查准备状态
 
 ```bash

@@ -1,0 +1,13 @@
+{
+  "scope": "engineering",
+  "conditions": 4,
+  "runs": 8,
+  "source_task_groups": 2,
+  "errors_retained": 8,
+  "compliant_successes": 0,
+  "trace_metrics_budget_intensity_and_summary_replayed": true,
+  "model_forward_recomputed": false,
+  "human_reviews_completed": 0,
+  "formal_9b_training": false,
+  "warning": "Real tiny CPU generations with two output tokens; engineering failure-path coverage, not model capability, guard efficacy, formal execution or persistent model backup."
+}

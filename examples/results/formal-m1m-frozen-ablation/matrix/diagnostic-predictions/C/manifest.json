@@ -1,0 +1,6 @@
+{
+  "status": "completed",
+  "condition": "public_rule",
+  "gold_loaded": false,
+  "warning": "Uses only coded public rules, not independent static references."
+}

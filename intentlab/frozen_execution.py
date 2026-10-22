@@ -32,18 +32,43 @@ def paths_for(binding):
     return {role: binding["models"][role]["path"] for role in ("actor", "analyzer")}
 
 
-def interact(protocol, binding, predictions, diagnostic_reveal, out, engineering=False, pool_factory=None):
+def runtime_plan(protocol, binding, predictions, diagnostic_reveal, engineering, ablation_context=None):
+    settings = protocol["spec"]["execution"]["settings"]
+    if ablation_context is None:
+        return execution_condition_map(settings), {}
+    if not isinstance(ablation_context, tuple) or len(ablation_context) != 2:
+        raise ValueError("Ablations require the frozen M6 interaction and scoring directories")
+    receipt = verify_scoring(protocol, binding, predictions, diagnostic_reveal,
+        ablation_context[0], ablation_context[1], engineering)
+    if "controller_binding" not in protocol:
+        raise ValueError("Ablations require a pre-frozen development selection/controller binding")
+    from .controller_plan import condition_map
+    controller = protocol["controller_binding"]
+    conditions = condition_map(controller, settings)
+    baseline = conditions["dynamic-k"]["intensity"]
+    return conditions, {"execution_receipt_hash": receipt["receipt_hash"], "controller_binding_hash": digest(controller),
+        "strong_fixed_condition": "fixed-k-" + str(controller["selection"]["selected_k"]),
+        "parameter_noop_controls": [name for name, config in conditions.items()
+            if name.startswith("dynamic-k-") and config["intensity"] == baseline]}
+
+
+def condition_intensity(config, settings):
+    return config.get("intensity", settings["intensity"]) if config["policy"] in {"fixed-k", "dynamic-k"} else None
+
+
+def interact(protocol, binding, predictions, diagnostic_reveal, out, engineering=False, pool_factory=None, _ablation_context=None):
     if pool_factory is not None and protocol["scope"] != "engineering":
         raise ValueError("Injected execution pools are forbidden in formal runs")
     receipt, tasks = preflight(protocol, binding, predictions, diagnostic_reveal, engineering)
+    conditions, upstream = runtime_plan(protocol, binding, predictions, diagnostic_reveal, engineering, _ablation_context)
+    prefix = "ablation" if _ablation_context is not None else "execution"
     out = Path(out)
     if out.exists():
         raise ValueError("Choose a fresh frozen execution directory")
-    attempt = claim(protocol, "execution-interactions", out)
+    attempt = claim(protocol, prefix + "-interactions", out)
     out.mkdir(parents=True, exist_ok=False)
     settings, budgets = protocol["spec"]["execution"]["settings"], protocol["spec"]["budgets"]
-    conditions = execution_condition_map(settings)
-    manifest = {"kind": "frozen_execution_interactions", "schema_version": 1, "scope": protocol["scope"],
+    manifest = {"kind": "frozen_" + prefix + "_interactions", "schema_version": 1, "scope": protocol["scope"], "upstream": upstream,
         "status": "running", "protocol_hash": protocol["lock_hash"], "model_binding_hash": binding["binding_hash"],
         "diagnostic_receipt_hash": receipt["receipt_hash"], "settings_hash": digest(settings), "conditions": conditions,
         "model_paths": paths_for(binding), "task_hash": digest(tasks), "ordered_task_ids": [task["id"] for task in tasks],
@@ -72,7 +97,7 @@ def interact(protocol, binding, predictions, diagnostic_reveal, out, engineering
                         row = run_task(deepcopy(task), actor, config["policy"], budgets["max_repairs"], settings["redact_events"],
                             analyzer=analyzer, hard_guard=config["hard_guard"], evaluator=lambda task, state: {},
                             scope_selector=execution_scope, max_tool_steps=settings["max_tool_steps"],
-                            intensity_config=settings["intensity"] if config["policy"] == "dynamic-k" else None)
+                            intensity_config=condition_intensity(config, settings))
                         for key in ("metrics", "initial_metrics", "feasible_at_repair_start", "repair_introduced_hard_violations"):
                             row.pop(key)
                         row.update(condition=condition, source_task_id=task["source_task_id"], offline_metrics_pending=True,
@@ -86,8 +111,11 @@ def interact(protocol, binding, predictions, diagnostic_reveal, out, engineering
                         # hiding model reload cost. No simultaneous role models.
                         pool.close()
         again, current = preflight(protocol, binding, predictions, diagnostic_reveal, engineering)
+        final_conditions, final_upstream = runtime_plan(protocol, binding, predictions, diagnostic_reveal, engineering, _ablation_context)
         if digest(current) != manifest["task_hash"] or again["receipt_hash"] != manifest["diagnostic_receipt_hash"]:
             raise ValueError("Frozen execution inputs changed during interactions")
+        if final_conditions != conditions or final_upstream != upstream:
+            raise ValueError("Upstream controller plan or M6 receipt changed during ablations")
         manifest.update(status="sealed", seconds_including_loading=time.perf_counter() - started, files_sha256=seal_files(out))
         manifest["seal_hash"] = digest(manifest)
     except Exception as exc:
@@ -101,13 +129,15 @@ def interact(protocol, binding, predictions, diagnostic_reveal, out, engineering
     return manifest
 
 
-def verify_interactions(protocol, binding, predictions, diagnostic_reveal, directory, engineering=False):
+def verify_interactions(protocol, binding, predictions, diagnostic_reveal, directory, engineering=False, _ablation_context=None):
     receipt, tasks = preflight(protocol, binding, predictions, diagnostic_reveal, engineering)
     settings, budgets = protocol["spec"]["execution"]["settings"], protocol["spec"]["budgets"]
-    conditions = execution_condition_map(settings)
+    conditions, upstream = runtime_plan(protocol, binding, predictions, diagnostic_reveal, engineering, _ablation_context)
+    prefix = "ablation" if _ablation_context is not None else "execution"
     directory = Path(directory)
     manifest = read_json(directory / "manifest.json")
-    if manifest.get("kind") != "frozen_execution_interactions" or manifest.get("schema_version") != 1 \
+    if manifest.get("kind") != "frozen_" + prefix + "_interactions" or manifest.get("schema_version") != 1 \
+            or manifest.get("upstream", {}) != upstream \
             or manifest.get("status") != "sealed" or manifest.get("scope") != protocol["scope"] \
             or manifest.get("protocol_hash") != protocol["lock_hash"] or manifest.get("model_binding_hash") != binding["binding_hash"] \
             or manifest.get("diagnostic_receipt_hash") != receipt["receipt_hash"] or manifest.get("settings_hash") != digest(settings) \
@@ -122,7 +152,7 @@ def verify_interactions(protocol, binding, predictions, diagnostic_reveal, direc
     records = read_jsonl(directory / "interactions.jsonl")
     expected = [(condition, task["id"]) for condition in conditions for task in tasks]
     if [(row["condition"], row["task_id"]) for row in records] != expected:
-        raise ValueError("All four conditions must contain exactly all tasks in frozen order")
+        raise ValueError("All registered conditions must contain exactly all tasks in frozen order")
     by_id = {task["id"]: task for task in tasks}
     for row in records:
         task, config = by_id[row["task_id"]], conditions[row["condition"]]
@@ -137,7 +167,7 @@ def verify_interactions(protocol, binding, predictions, diagnostic_reveal, direc
                 or snapshot["shared_token_ledger"]["limit"] != budgets["token_budget"]:
             raise ValueError("Execution model or shared budget differs from frozen plan")
         audit_ledger(snapshot["shared_token_ledger"])
-        audit_intensity(task, row, {"intensity_config": settings["intensity"]})
+        audit_intensity(task, row, {"intensity_config": condition_intensity(config, settings)})
         events = row["final_state"]["events"]
         boundary = row["initial_event_count"]
         if type(boundary) is not int or not 0 <= boundary <= len(events):
@@ -162,13 +192,13 @@ def score_records(tasks, references, records):
     return scored
 
 
-def summary(tasks, references, records, protocol, binding):
+def summary(tasks, references, records, protocol, binding, conditions=None):
     settings, result = protocol["spec"]["execution"]["settings"], {}
-    for condition, config in execution_condition_map(settings).items():
+    for condition, config in (conditions if conditions is not None else execution_condition_map(settings)).items():
         rows = [row for row in records if row["condition"] == condition]
         audit = audit_records(tasks, references, {"status": "completed", "scope": protocol["scope"],
             "task_hash": digest(tasks), "offline_reference_hash": digest(references), "policies": [config["policy"]],
-            "intensity_config": settings["intensity"] if config["policy"] == "dynamic-k" else None,
+            "intensity_config": condition_intensity(config, settings),
             "model_paths": paths_for(binding)}, rows)
         splits = {}
         for split in ("test", "ood"):
@@ -187,14 +217,16 @@ def summary(tasks, references, records, protocol, binding):
     return result
 
 
-def reveal(protocol, binding, predictions, diagnostic_reveal, interactions, out, engineering=False):
-    sealed, tasks, records = verify_interactions(protocol, binding, predictions, diagnostic_reveal, interactions, engineering)
+def reveal(protocol, binding, predictions, diagnostic_reveal, interactions, out, engineering=False, _ablation_context=None):
+    sealed, tasks, records = verify_interactions(protocol, binding, predictions, diagnostic_reveal, interactions, engineering, _ablation_context)
+    conditions, upstream = runtime_plan(protocol, binding, predictions, diagnostic_reveal, engineering, _ablation_context)
+    prefix = "ablation" if _ablation_context is not None else "execution"
     out = Path(out)
     if out.exists():
         raise ValueError("Choose a fresh execution scoring directory")
-    attempt = claim(protocol, "execution-reveal", out)  # Before the first reference hash/read.
+    attempt = claim(protocol, prefix + "-reveal", out)  # Before the first reference hash/read.
     out.mkdir(parents=True, exist_ok=False)
-    manifest = {"kind": "frozen_execution_reveal", "schema_version": 1, "scope": protocol["scope"], "status": "running",
+    manifest = {"kind": "frozen_" + prefix + "_reveal", "schema_version": 1, "scope": protocol["scope"], "status": "running", "upstream": upstream,
         "protocol_hash": protocol["lock_hash"], "interaction_seal_hash": sealed["seal_hash"],
         "model_binding_hash": binding["binding_hash"], "claim": attempt, "references_accessed_after_claim": True}
     save_json(out / "manifest.json", manifest)
@@ -208,10 +240,10 @@ def reveal(protocol, binding, predictions, diagnostic_reveal, interactions, out,
             for row in scored:
                 stream.write(canonical(row) + "\n")
                 stream.flush()
-        save_json(out / "summary.json", summary(tasks, refs, scored, protocol, binding))
+        save_json(out / "summary.json", summary(tasks, refs, scored, protocol, binding, conditions))
         if file_hash(reference["path"]) != reference["sha256"]:
             raise ValueError("Execution references changed during scoring")
-        verify_interactions(protocol, binding, predictions, diagnostic_reveal, interactions, engineering)
+        verify_interactions(protocol, binding, predictions, diagnostic_reveal, interactions, engineering, _ablation_context)
         manifest.update(status="completed", files_sha256=seal_files(out),
             warning="Offline counts and trace replay only. M7 ablations, M8 source-task/seed statistics and durable model backup remain required.")
         manifest["receipt_hash"] = digest(manifest)
@@ -223,11 +255,14 @@ def reveal(protocol, binding, predictions, diagnostic_reveal, interactions, out,
     return manifest
 
 
-def verify_scoring(protocol, binding, predictions, diagnostic_reveal, interactions, directory, engineering=False):
-    sealed, _, _ = verify_interactions(protocol, binding, predictions, diagnostic_reveal, interactions, engineering)
+def verify_scoring(protocol, binding, predictions, diagnostic_reveal, interactions, directory, engineering=False, _ablation_context=None):
+    sealed, _, _ = verify_interactions(protocol, binding, predictions, diagnostic_reveal, interactions, engineering, _ablation_context)
+    _, upstream = runtime_plan(protocol, binding, predictions, diagnostic_reveal, engineering, _ablation_context)
+    prefix = "ablation" if _ablation_context is not None else "execution"
     directory = Path(directory)
     receipt = read_json(directory / "manifest.json")
-    if receipt.get("kind") != "frozen_execution_reveal" or receipt.get("schema_version") != 1 \
+    if receipt.get("kind") != "frozen_" + prefix + "_reveal" or receipt.get("schema_version") != 1 \
+            or receipt.get("upstream", {}) != upstream \
             or receipt.get("status") != "completed" or receipt.get("scope") != protocol["scope"] \
             or receipt.get("protocol_hash") != protocol["lock_hash"] or receipt.get("model_binding_hash") != binding["binding_hash"] \
             or receipt.get("interaction_seal_hash") != sealed["seal_hash"] \

@@ -6,3 +6,4 @@ examples/results/formal-m1i-execution-models/** text eol=lf
 examples/results/formal-m1j-diagnostic-protocol/** text eol=lf
 examples/results/formal-m1k-frozen-execution/** text eol=lf
 examples/results/formal-m1l-controller-plan/** text eol=lf
+examples/results/formal-m1m-frozen-ablation/** text eol=lf

@@ -33,7 +33,7 @@ def audit(root):
         "validation_errors_retained": sum(row["status"] == "error" for arm in report["arms"] for row in arm["records"]),
         "selected_k": selection["selected_k"], "selection_and_raw_trace_audit_replayed": True,
         "planned_execution_controls": list(condition_map(binding, lock["spec"]["execution"]["settings"])),
-        "m7_execution_controls_run": False, "lr_risk_feedback_run": False,
+        "m7_execution_controls_run": None if (matrix / "ablation-reveal/manifest.json").exists() else False, "lr_risk_feedback_run": False,
         "human_reviews_completed": 0, "formal_9b_training": False, "model_forward_recomputed": False,
         "warning": "Real tiny CPU validation selection with two output tokens; no formal data, human review, M7 ablation outcome or durable model backup."}
 

@@ -1,0 +1,12 @@
+{
+  "scope": "engineering",
+  "diagnostic_conditions": 9,
+  "public_cases": 2,
+  "prediction_records": 18,
+  "loss_records": 12,
+  "scores_rule_predictions_loss_totals_and_bootstrap_replayed": true,
+  "model_forward_recomputed": false,
+  "human_reviews_completed": 0,
+  "formal_9b_training": false,
+  "warning": "Original tiny CPU forward losses were recorded live; weights are not archived. Summed loss replay is not recomputation of model logits, durable backup, formal data or efficacy evidence."
+}

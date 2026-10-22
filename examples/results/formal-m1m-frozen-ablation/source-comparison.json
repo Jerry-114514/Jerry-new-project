@@ -1,0 +1,8 @@
+{
+  "implementation_and_tests_match": true,
+  "compared_implementation_and_test_files": 64,
+  "differing_files": [
+    "scripts/audit_frozen_execution_evidence.py"
+  ],
+  "warning": "The shared offline trace auditor was strengthened after the ML suite and validated against current and historical evidence; its additional checks are not claimed covered by that suite."
+}

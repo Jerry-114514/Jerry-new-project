@@ -1,0 +1,74 @@
+{
+  "D-seed-0": {
+    "test": {
+      "right_minus_left": 0.0,
+      "percentile_95_interval": [
+        0.0,
+        0.0
+      ],
+      "task_groups": 1,
+      "resamples": 2000,
+      "seed": 20261022,
+      "warning": "Conditional on these trained models; analyze training seeds separately. Tiny task sets yield weak intervals."
+    },
+    "ood": {
+      "right_minus_left": 0.0,
+      "percentile_95_interval": [
+        0.0,
+        0.0
+      ],
+      "task_groups": 1,
+      "resamples": 2000,
+      "seed": 20261022,
+      "warning": "Conditional on these trained models; analyze training seeds separately. Tiny task sets yield weak intervals."
+    }
+  },
+  "D-seed-1": {
+    "test": {
+      "right_minus_left": 0.0,
+      "percentile_95_interval": [
+        0.0,
+        0.0
+      ],
+      "task_groups": 1,
+      "resamples": 2000,
+      "seed": 20261022,
+      "warning": "Conditional on these trained models; analyze training seeds separately. Tiny task sets yield weak intervals."
+    },
+    "ood": {
+      "right_minus_left": 0.0,
+      "percentile_95_interval": [
+        0.0,
+        0.0
+      ],
+      "task_groups": 1,
+      "resamples": 2000,
+      "seed": 20261022,
+      "warning": "Conditional on these trained models; analyze training seeds separately. Tiny task sets yield weak intervals."
+    }
+  },
+  "D-seed-2": {
+    "test": {
+      "right_minus_left": 0.0,
+      "percentile_95_interval": [
+        0.0,
+        0.0
+      ],
+      "task_groups": 1,
+      "resamples": 2000,
+      "seed": 20261022,
+      "warning": "Conditional on these trained models; analyze training seeds separately. Tiny task sets yield weak intervals."
+    },
+    "ood": {
+      "right_minus_left": 0.0,
+      "percentile_95_interval": [
+        0.0,
+        0.0
+      ],
+      "task_groups": 1,
+      "resamples": 2000,
+      "seed": 20261022,
+      "warning": "Conditional on these trained models; analyze training seeds separately. Tiny task sets yield weak intervals."
+    }
+  }
+}

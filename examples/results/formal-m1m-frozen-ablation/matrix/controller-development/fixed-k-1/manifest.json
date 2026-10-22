@@ -1,0 +1,36 @@
+{
+  "kind": "public_contract_development_execution",
+  "scope": "development",
+  "status": "completed",
+  "actor": "local_model",
+  "executor_is_language_model": true,
+  "analyzer": "schema_local_model",
+  "analyzer_mode": "model",
+  "task_hash": "19a576ad580512836a672fa8506b5feda4b871704e30ab48ac2da9bfb96925cd",
+  "offline_reference_hash": "5d77af79e1a7ba66c50af74a0a806796cc0dbca8729f3ea1e4167469dee2bc41",
+  "policies": [
+    "fixed-k"
+  ],
+  "max_repairs": 3,
+  "hard_guard_enabled": true,
+  "redact_events": false,
+  "max_tool_steps": 3,
+  "actor_envelope": "extract",
+  "intensity_config": {
+    "schema_version": 1,
+    "fixed_k": 1,
+    "max_k": 3,
+    "thresholds": [
+      0.25,
+      0.5
+    ],
+    "hard_weight": 2.0,
+    "unknown_weight": 0.5
+  },
+  "source_task_groups": 1,
+  "model_paths": {
+    "actor": "/tmp/tmpbjllbkgn/base/model",
+    "analyzer": "/tmp/tmpbjllbkgn/base/model"
+  },
+  "warning": "Unreviewed development contracts; not an independent human benchmark or confirmatory result."
+}

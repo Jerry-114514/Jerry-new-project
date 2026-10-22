@@ -1,0 +1,63 @@
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 18914.56it/s]
+{"step": 1, "validation_loss": 6.220762399526743, "lr": 0.001, "elapsed_seconds": 0.7122094295918941}
+{"step": 2, "validation_loss": 6.112021813025842, "lr": 0.001, "elapsed_seconds": 1.2997389324009418}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 499.56it/s]
+{
+  "kind": "causal_lm_sft",
+  "completed": true,
+  "config": {
+    "data": "/tmp/tmpbjllbkgn/fixture/reviewed-v2",
+    "model": "/tmp/tmpbjllbkgn/base/model",
+    "revision": null,
+    "mode": "full",
+    "device": "cpu",
+    "schedule": "cosine",
+    "steps": 2,
+    "eval_every": 1,
+    "batch_size": 1,
+    "accumulation": 2,
+    "max_length": 2048,
+    "lr": 0.001,
+    "minimum_lr": 5e-06,
+    "rank": 4,
+    "alpha": 8,
+    "seed": 2,
+    "limit": 0,
+    "threads": 1,
+    "defer_test": true
+  },
+  "data_hash": "0e71fcac3663ebb4423b97f51c4758bc6d9236dc66687562992f7fcdbc505fba",
+  "base_identity": "4f27c5b2437f9cc1c4e4508f8e69a1f7912b7135dae0878e2175dfbf8e864781",
+  "step": 2,
+  "train_tokens": 7188,
+  "supervised_tokens": 208,
+  "examples_seen": 4,
+  "sample_exposures": [
+    {
+      "index": 0,
+      "task_id": "dev-decimal-rounding",
+      "case_id": "unit-view-train",
+      "pair_hash": "3fb576ad0900fa2c1fc6cb48953ca7dfd6f8e5dfb706cdbddb9adf0bbb8360db",
+      "count": 4
+    }
+  ],
+  "parameters": 191808,
+  "trainable_parameters": 191808,
+  "seconds_this_invocation": 1.3064536303281784,
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.20.2"
+  },
+  "test_deferred": true,
+  "selection": {
+    "rule": "minimum_validation_loss_first_tie",
+    "step": 2,
+    "validation_loss": 6.112021813025842,
+    "validation_target_tokens": 52,
+    "trainable_tensor_sha256": "9f7c086f62046fc0c6cda690a8941234fbcad43f4d36501925e2476a377580e8",
+    "trainable_tensor_count": 28,
+    "export_files_sha256": {
+      "model.safetensors": "cd60a748a66bd12f13aefc49484315d35838914d8f6930ea7d3987f0c1389484"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "kind": "frozen_execution_interactions",
+  "schema_version": 1,
+  "scope": "engineering",
+  "upstream": {},
+  "status": "sealed",
+  "protocol_hash": "8b7904a0b7b10436f93ad89f78ee531313fdbc5b2bbff86ade8f1ae392031b4d",
+  "model_binding_hash": "f50740cad1b5071d8f3740ada11598f1f46382dfe6e11cdf287b89409f8b81dc",
+  "diagnostic_receipt_hash": "14edeec3b3b42add3fadcf7677b694ee22804d46660748c671ece807fa50c141",
+  "settings_hash": "27d525e1e3b9bb94317d3bdfcd23ca169f08d7ca717d31cde69b54ce3407f37f",
+  "conditions": {
+    "P1": {
+      "policy": "fixed-full",
+      "hard_guard": false
+    },
+    "P2": {
+      "policy": "dynamic-k",
+      "hard_guard": false
+    },
+    "P3": {
+      "policy": "fixed-full",
+      "hard_guard": true
+    },
+    "P4": {
+      "policy": "dynamic-k",
+      "hard_guard": true
+    }
+  },
+  "model_paths": {
+    "actor": "/tmp/tmpbjllbkgn/base/model",
+    "analyzer": "/tmp/tmpbjllbkgn/matrix/cosine-seed-0/model"
+  },
+  "task_hash": "76803720fdd3f2144b07ae25f82a04a366c947efdaabff1b794af4a7dc530821",
+  "ordered_task_ids": [
+    "exec-dev-stable-ordering",
+    "exec-dev-unicode-normalization"
+  ],
+  "offline_references_opened": false,
+  "injected_pool": false,
+  "claim": {
+    "phase": "execution-interactions",
+    "protocol_hash": "8b7904a0b7b10436f93ad89f78ee531313fdbc5b2bbff86ade8f1ae392031b4d",
+    "out": "/tmp/tmpbjllbkgn/execution-interactions",
+    "pid": 96436,
+    "host": "autodl-container-bde2419a6c-1fd287c3",
+    "created_utc": "2026-10-22T16:06:52.306973+00:00"
+  },
+  "budget_unit": "shared actor/analyzer token ledger per condition/task; all starts cold",
+  "warning": "Sealed interactions are not offline task success or formal-data certification.",
+  "active_condition": "P4",
+  "active_task": "exec-dev-unicode-normalization",
+  "seconds_including_loading": 1.1193525716662407,
+  "files_sha256": {
+    "interactions.jsonl": "7f90f8f492f5fb82782588a96e6f5080b68e49840b9555dadefebbe6bb1422b9"
+  },
+  "seal_hash": "862b86b7eb865c3933904487e628034ba61658960a69f252eac9924f6cf6fb1d"
+}

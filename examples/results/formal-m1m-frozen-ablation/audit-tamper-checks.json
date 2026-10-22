@@ -1,0 +1,14 @@
+{
+  "matrix/ablation-interactions/interactions.jsonl": {
+    "rejected": true,
+    "reason": "Execution seal, receipt or raw outputs differ"
+  },
+  "matrix/diagnostic-inputs/references.jsonl": {
+    "rejected": true,
+    "reason": "Archived public tasks or engineering static references differ"
+  },
+  "rehashed_condition_override": {
+    "rejected": true,
+    "reason": "Not the claimed real tiny-model M5-to-M6 sequence"
+  }
+}
