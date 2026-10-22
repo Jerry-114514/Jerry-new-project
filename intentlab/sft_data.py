@@ -16,8 +16,10 @@ def analysis_prompt(task, state, events_visible=True):
     observation = {"files": state.files, "events": state.events if events_visible else None}
     return ("Inspect the user requirements and observed execution. Return only JSON with findings. "
             "Each finding needs id, status (satisfied/violated/unknown), and evidence event indices. "
-            "Unknown history is not proof of compliance.\n"
-            + canonical({"task": public_task(task), "observation": observation}) + "\nJSON:\n")
+            "Return exactly one finding for each listed requirement ID. Do not invent IDs or event indices. "
+            "Unknown history is not proof of compliance; hidden events cannot be cited.\n"
+            + canonical({"task": public_task(task), "requirements": extract_requirements(task['request']),
+                         "observation": observation}) + "\nJSON:\n")
 
 
 def export_sft(tasks, out):

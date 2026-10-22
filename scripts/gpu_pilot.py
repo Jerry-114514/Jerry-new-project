@@ -37,6 +37,9 @@ def diagnostic(model_path, output, limit):
     save_json(output / 'inference-loss.json', losses)
     counts = Counter(samples=len(rows))
     records = []
+    output.mkdir(parents=True, exist_ok=True)
+    records_path = output / 'diagnostic-records.jsonl'
+    records_path.write_text('', encoding='utf-8')
     started = time.perf_counter()
     for row in rows:
         backend.reset()
@@ -74,6 +77,8 @@ def diagnostic(model_path, output, limit):
             for expected in gold.values():
                 counts['gold_' + expected['status']] += 1
         records.append(record)
+        with records_path.open('a', encoding='utf-8') as handle:
+            handle.write(json.dumps(record, ensure_ascii=False) + '\n')
         print('diagnostic', Path(model_path).name, len(records), '/', len(rows), flush=True)
     summary = dict(counts)
     summary.update(valid_output_rate=counts['valid_outputs'] / len(rows),
@@ -86,7 +91,6 @@ def diagnostic(model_path, output, limit):
         summary['recall_' + status] = counts['correct_' + status] / counts['gold_' + status] if counts['gold_' + status] else None
     save_json(output / 'diagnostic-summary.json', summary)
     output.mkdir(parents=True, exist_ok=True)
-    (output / 'diagnostic-records.jsonl').write_text(''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in records), encoding='utf-8')
     del backend
     gc.collect()
     torch.cuda.empty_cache()
@@ -107,13 +111,14 @@ def main():
         raise RuntimeError('A real CUDA GPU is required')
     args.out.mkdir(parents=True, exist_ok=True)
     provenance = args.model / 'download-provenance.json'
-    manifest = {'kind': '5090_qlora_pilot', 'gpu': torch.cuda.get_device_name(),
+    manifest = {'kind': '5090_qlora_pilot', 'protocol': 'explicit-requirement-ids-v2', 'gpu': torch.cuda.get_device_name(),
                 'gpu_memory_bytes': torch.cuda.get_device_properties(0).total_memory,
                 'cuda': torch.version.cuda, 'python': platform.python_version(),
                 'versions': {name: importlib.metadata.version(name) for name in ('torch', 'transformers', 'peft', 'bitsandbytes', 'accelerate')},
                 'steps': args.steps, 'seeds': args.seeds, 'diagnostic_limit': args.diagnostic_limit,
                 'model': str(args.model), 'model_provenance': json.loads(provenance.read_text()) if provenance.exists() else None,
                 'source_hashes': {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(Path('intentlab').glob('*.py'))},
+                'pilot_script_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                 'warning': 'Pilot on synthetic data. One seed does not establish significance; no generalization or new LR algorithm claim.'}
     save_json(args.out / 'manifest.json', manifest)
     results = []
@@ -134,14 +139,20 @@ def main():
             config_path = run / 'requested-config.json'
             save_json(config_path, config)
             command = [sys.executable, '-m', 'intentlab.neural', '--config', config_path, '--out', run]
+            invocation_seconds = []
+            started = time.perf_counter()
             # Exercise real CUDA checkpoint recovery within the original training horizon.
             if schedule == 'cosine':
                 invoke(command + ['--stop-after', args.steps // 2], run / 'interrupted.log')
+                invocation_seconds.append(json.loads((run / 'result.json').read_text())['seconds_this_invocation'])
                 invoke(command + ['--resume', run / 'latest.pt'], run / 'resumed.log')
             else:
                 invoke(command, run / 'training.log')
             result = json.loads((run / 'result.json').read_text())
-            results.append({'name': run.name, 'training': result})
+            invocation_seconds.append(result['seconds_this_invocation'])
+            results.append({'name': run.name, 'training': result,
+                            'training_loop_seconds_all_invocations': sum(invocation_seconds),
+                            'wall_seconds_including_loads': time.perf_counter() - started})
             save_json(args.out / 'summary.json', {'runs': results})
     for model_path, output in [(args.model, args.out / 'base')] + [(args.out / r['name'] / 'model', args.out / r['name']) for r in results]:
         output.mkdir(parents=True, exist_ok=True)

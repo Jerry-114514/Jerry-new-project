@@ -78,6 +78,9 @@ class ModelInterfaceTests(unittest.TestCase):
             validate_splits(groups)
             self.assertEqual(sum(map(len, groups.values())), 320)
             self.assertNotIn('"oracle"', groups["train"][0]["prompt"])
+            payload = json.loads(groups['train'][0]['prompt'].split('\n', 1)[1].rsplit('\nJSON:', 1)[0])
+            self.assertEqual({r['id'] for r in payload['requirements']}, set(REQUIREMENTS))
+            self.assertTrue(all('status' not in r for r in payload['requirements']))
             duplicate = dict(groups)
             duplicate["test"] = duplicate["test"] + [groups["train"][0]]
             with self.assertRaises(ValueError):

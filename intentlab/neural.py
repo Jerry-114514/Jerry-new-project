@@ -7,6 +7,7 @@ it exercises the same training loop without downloading pretrained weights.
 from __future__ import annotations
 
 import argparse
+from contextlib import nullcontext
 from dataclasses import asdict
 import hashlib
 import importlib.metadata
@@ -72,7 +73,10 @@ def batch_tensors(examples, pad_id, device):
 
 def token_loss(model, batch):
     torch, _ = dependencies()
-    output = model(input_ids=batch["input_ids"], attention_mask=batch["attention_mask"], use_cache=False)
+    precision = (torch.autocast('cuda', dtype=torch.bfloat16)
+                 if batch['input_ids'].device.type == 'cuda' else nullcontext())
+    with precision:
+        output = model(input_ids=batch["input_ids"], attention_mask=batch["attention_mask"], use_cache=False)
     labels = batch["labels"][:, 1:].contiguous()
     count = int((labels != -100).sum().item())
     if not count:
