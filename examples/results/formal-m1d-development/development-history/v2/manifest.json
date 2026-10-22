@@ -1,0 +1,23 @@
+{
+  "kind": "public_contract_development_execution",
+  "scope": "development",
+  "status": "completed",
+  "actor": "local_model",
+  "executor_is_language_model": true,
+  "analyzer": "schema_local_model",
+  "task_hash": "fa570d83242cc54ceb0d53b0e43360b560ca604adb44fe7624a293919e69748e",
+  "offline_reference_hash": "cc21592b18e7ae9d9f34ece786b828b38b5622efb63f0a507a1d44ce58baf6ee",
+  "policies": [
+    "fixed-full",
+    "dynamic"
+  ],
+  "max_repairs": 3,
+  "hard_guard_enabled": true,
+  "redact_events": false,
+  "source_task_groups": 8,
+  "model_paths": {
+    "actor": "/root/autodl-tmp/models/Qwen3.5-9B",
+    "analyzer": "/root/autodl-tmp/models/Qwen3.5-9B"
+  },
+  "warning": "Unreviewed development contracts; not an independent human benchmark or confirmatory result."
+}

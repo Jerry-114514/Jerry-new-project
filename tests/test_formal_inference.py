@@ -48,6 +48,9 @@ class FormalInferenceTests(unittest.TestCase):
     def test_fewshot_requires_reviewed_development_and_blocks_overlap(self):
         exemplar = case("example", "validation", "example-source", "example-template")
         examples = reviewed_examples([exemplar], [review("example"), review("example", "bob")])
+        self.assertEqual(reviewed_examples([exemplar], [review("example"), review("example", "bob")], case_ids=["example"]), examples)
+        with self.assertRaises(ValueError):
+            reviewed_examples([exemplar], [review("example"), review("example", "bob")], case_ids=["missing"])
         with self.assertRaises(ValueError):
             diagnostic_prompt(case(), examples)  # Same normalized request.
         query = case()

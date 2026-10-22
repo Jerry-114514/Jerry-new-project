@@ -94,7 +94,7 @@ def replay_events(task, events):
         else:
             action = {k: event[k] for k in ("op", "path", "value") if k in event}
         state.apply([action])
-        if state.events[-1] != event:
+        if canonical(state.events[-1]) != canonical(event):
             raise ValueError("Recorded event differs from re-executed tool evidence")
     return state
 

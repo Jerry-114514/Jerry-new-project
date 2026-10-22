@@ -1,0 +1,146 @@
+{
+  "runs/execution-final-guard-on": {
+    "kind": "raw_execution_replay_audit",
+    "verified": true,
+    "runs": 16,
+    "source_task_groups": 8,
+    "policies": {
+      "fixed-full": {
+        "runs": 8,
+        "compliant_successes": 2,
+        "errors": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 20645
+      },
+      "dynamic": {
+        "runs": 8,
+        "compliant_successes": 2,
+        "errors": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 20645
+      }
+    },
+    "scope": "development",
+    "warning": "Recomputes program-defined references, not human truth or statistical independence."
+  },
+  "runs/execution-final-guard-off": {
+    "kind": "raw_execution_replay_audit",
+    "verified": true,
+    "runs": 16,
+    "source_task_groups": 8,
+    "policies": {
+      "fixed-full": {
+        "runs": 8,
+        "compliant_successes": 2,
+        "errors": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 20645
+      },
+      "dynamic": {
+        "runs": 8,
+        "compliant_successes": 2,
+        "errors": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 20645
+      }
+    },
+    "scope": "development",
+    "warning": "Recomputes program-defined references, not human truth or statistical independence."
+  },
+  "runs/execution-guard-on": {
+    "kind": "raw_execution_replay_audit",
+    "verified": true,
+    "runs": 16,
+    "source_task_groups": 8,
+    "policies": {
+      "fixed-full": {
+        "runs": 8,
+        "compliant_successes": 0,
+        "errors": 8,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 5005
+      },
+      "dynamic": {
+        "runs": 8,
+        "compliant_successes": 0,
+        "errors": 8,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 5005
+      }
+    },
+    "scope": "development",
+    "warning": "Recomputes program-defined references, not human truth or statistical independence."
+  },
+  "runs/execution-v2-guard-on": {
+    "kind": "raw_execution_replay_audit",
+    "verified": true,
+    "runs": 16,
+    "source_task_groups": 8,
+    "policies": {
+      "fixed-full": {
+        "runs": 8,
+        "compliant_successes": 0,
+        "errors": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 14725
+      },
+      "dynamic": {
+        "runs": 8,
+        "compliant_successes": 0,
+        "errors": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 22993
+      }
+    },
+    "scope": "development",
+    "warning": "Recomputes program-defined references, not human truth or statistical independence."
+  },
+  "runs/execution-v3-guard-on": {
+    "kind": "raw_execution_replay_audit",
+    "verified": true,
+    "runs": 16,
+    "source_task_groups": 8,
+    "policies": {
+      "fixed-full": {
+        "runs": 8,
+        "compliant_successes": 0,
+        "errors": 8,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 7461
+      },
+      "dynamic": {
+        "runs": 8,
+        "compliant_successes": 0,
+        "errors": 8,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 7461
+      }
+    },
+    "scope": "development",
+    "warning": "Recomputes program-defined references, not human truth or statistical independence."
+  },
+  "runs/execution-v4-guard-on": {
+    "kind": "raw_execution_replay_audit",
+    "verified": true,
+    "runs": 16,
+    "source_task_groups": 8,
+    "policies": {
+      "fixed-full": {
+        "runs": 8,
+        "compliant_successes": 2,
+        "errors": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 20645
+      },
+      "dynamic": {
+        "runs": 8,
+        "compliant_successes": 2,
+        "errors": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 25632
+      }
+    },
+    "scope": "development",
+    "warning": "Recomputes program-defined references, not human truth or statistical independence."
+  }
+}

@@ -13,9 +13,11 @@ from .budget import BudgetExceeded, TokenLedger
 
 
 class LocalBackend:
-    def __init__(self, model_path, device="cpu", max_new_tokens=256, token_budget=20000, ledger=None):
+    def __init__(self, model_path, device="cpu", max_new_tokens=256, token_budget=20000, ledger=None, context_limit=None):
         if max_new_tokens < 1 or token_budget < 1:
             raise ValueError("Positive generation and token budgets required")
+        if context_limit is not None and (type(context_limit) is not int or context_limit < 1):
+            raise ValueError("Context limit must be a positive integer")
         torch, transformers = dependencies()
         self.torch = torch
         self.path = Path(model_path)
@@ -43,6 +45,8 @@ class LocalBackend:
         self.ledger = TokenLedger(token_budget) if ledger is None else ledger
         text_config = getattr(self.model.config, "text_config", self.model.config)
         self.context = getattr(text_config, "max_position_embeddings", getattr(text_config, "n_positions", 2048))
+        if context_limit is not None:
+            self.context = min(self.context, context_limit)
         configured_eos = self.model.generation_config.eos_token_id
         self.eos_ids = list(dict.fromkeys(
             [i for i in [self.tokenizer.eos_token_id] +
@@ -94,22 +98,46 @@ def json_response(text):
     text = text.strip()
     if text.startswith("```json\n") and text.endswith("```"):
         text = text[8:-3].strip()
-    value = json.loads(text)
+    def unique(pairs):
+        value = {}
+        for key, item in pairs:
+            if key in value:
+                raise ValueError("Duplicate JSON response key")
+            value[key] = item
+        return value
+    value = json.loads(text, object_pairs_hook=unique)
     if not isinstance(value, dict):
         raise ValueError("Model must return a JSON object")
     return value
 
 
 class LanguageModelActor:
-    def __init__(self, backend):
+    def __init__(self, backend, envelope_mode="strict"):
+        if envelope_mode not in {"strict", "extract"}:
+            raise ValueError("Unknown actor envelope policy")
         self.backend = backend
+        self.envelope_mode = envelope_mode
 
     def propose(self, task, state, phase, target=None, attempt=0):
-        prompt = ("Return only a JSON object containing actions. Allowed actions: "
-                  "{op:validate,ok:true}, {op:write,path:relative_path,value:JSON}, {op:delete,path:relative_path}. "
-                  "First validate fields using the tool. Preserve input files and existing satisfied requirements.\n"
+        response_schema = {"type": "object", "required": ["actions", "done"], "additionalProperties": False,
+            "properties": {"done": {"type": "boolean"}, "actions": {"type": "array", "maxItems": 16, "items": {"oneOf": [
+                {"type": "object", "required": ["op", "ok"], "additionalProperties": False,
+                 "properties": {"op": {"const": "validate"}, "ok": {"type": "boolean"}}},
+                {"type": "object", "required": ["op", "path", "value"], "additionalProperties": False,
+                 "properties": {"op": {"const": "write"}, "path": {"type": "string"}, "value": {}}},
+                {"type": "object", "required": ["op", "path"], "additionalProperties": False,
+                 "properties": {"op": {"const": "delete"}, "path": {"type": "string"}}}]}}}}
+        prompt = ("Return one JSON object matching response_schema, with a top-level actions array even for one action. "
+                  "Propose initial execution or a targeted repair using ordered tool actions. "
+                  "Set done=false when waiting for a tool result; the next call includes the actual results in events. "
+                  "Set done=true after proposing all required effects for this phase. A completion claim is checked independently. "
+                  "The visible files contain the inputs. First validate the required fields using the tool; "
+                  "then include required data and report writes when fields are present, or only the blocked report when missing. "
+                  "When validation is already in events, use its actual result to continue. "
+                  "Preserve input files and existing satisfied requirements.\n"
                   + canonical({"task": task, "files": state.files, "events": state.events,
-                               "phase": phase, "repair_target": target, "attempt": attempt}) + "\nJSON:\n")
+                               "phase": phase, "repair_target": target, "attempt": attempt,
+                               "response_schema": response_schema}) + "\nJSON:\n")
         output = self.backend.complete(prompt)
         try:
             value = json_response(output["text"])
@@ -117,7 +145,23 @@ class LanguageModelActor:
             raise ValueError("Language model did not return a valid JSON action proposal") from exc
         if not isinstance(value.get("actions"), list):
             raise ValueError("Language model JSON is missing actions")
-        return {"actions": value["actions"], "usage": output["usage"]}
+        strict_valid = set(value) == {"actions", "done"}
+        if "done" not in value or type(value["done"]) is not bool or len(value["actions"]) > 16 \
+                or (self.envelope_mode == "strict" and not strict_valid):
+            raise ValueError("Action response must match the top-level schema")
+        shapes = {"validate": {"op", "ok"}, "write": {"op", "path", "value"}, "delete": {"op", "path"}}
+        for action in value["actions"]:
+            if not isinstance(action, dict) or not isinstance(action.get("op"), str) or action["op"] not in shapes \
+                    or set(action) != shapes[action["op"]]:
+                raise ValueError("Tool action does not match the declared schema")
+            if action["op"] == "validate" and type(action["ok"]) is not bool:
+                raise ValueError("validate.ok must be boolean")
+            if action["op"] != "validate" and not isinstance(action["path"], str):
+                raise ValueError("Tool action path must be a string")
+        json.dumps(value, allow_nan=False)
+        return {"actions": value["actions"], "done": value["done"], "usage": output["usage"],
+                "strict_interface_valid": strict_valid,
+                "ignored_envelope_fields": sorted(set(value) - {"actions", "done"})}
 
 
 class LanguageModelAnalyzer:
@@ -170,6 +214,8 @@ class SchemaLanguageModelAnalyzer:
                             for row in extract_requirements(task["request"])]
         public = {"request": task["request"], "inputs": task["inputs"], "requirements": requirements,
                   "observation": {"files": state.files, "events": state.events if events_visible else None}}
+        if isinstance(task.get("spec", {}).get("operation"), dict):
+            public["execution_spec"] = task["spec"]
         response = self.backend.complete(formal_prompt(public))
         try:
             parsed = parse_prediction(response["text"], requirements)

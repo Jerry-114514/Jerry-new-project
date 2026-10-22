@@ -24,6 +24,14 @@ def summarize(records):
                           "checks": sum(r["cost"]["checks"] for r in rows),
                           "rejected_candidates": sum(r["cost"]["rejected"] for r in rows),
                           "verification_calls": sum(r["cost"]["verifications"] for r in rows)}
+        result[policy]["hard_guard_rejections"] = sum(r["cost"].get("hard_rejections", 0) for r in rows)
+        result[policy]["tool_step_limit_hits"] = sum(r["cost"].get("tool_step_limit_hits", 0) for r in rows)
+        tool_steps = [step for row in rows for item in row["history"] for step in item.get("tool_steps", [])]
+        measured_steps = [step for step in tool_steps if step.get("strict_interface_valid") is not None]
+        if measured_steps:
+            result[policy]["strict_actor_response_valid_calls"] = sum(step["strict_interface_valid"] for step in measured_steps)
+            result[policy]["actor_envelopes_projected"] = sum(bool(step["ignored_envelope_fields"]) for step in measured_steps)
+            result[policy]["actor_response_call_denominator"] = result[policy]["actor_calls"]
         measured = [r["elapsed_seconds"] for r in rows if "elapsed_seconds" in r]
         result[policy]["timed_runs"] = len(measured)
         result[policy]["mean_elapsed_seconds"] = sum(measured) / len(measured) if measured else None

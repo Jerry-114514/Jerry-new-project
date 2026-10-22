@@ -106,7 +106,7 @@ class BudgetTests(unittest.TestCase):
         class JsonBackend(CountedBackend):
             def complete(self, prompt, role):
                 reply = super().complete(prompt, role)
-                value = {"actions": [{"op": "validate", "ok": True}]} if role == "actor" else {
+                value = {"actions": [{"op": "validate", "ok": True}], "done": True} if role == "actor" else {
                     "findings": [{"id": rid, "status": "unknown", "evidence": []}
                                  for rid in ("R_INPUT", "R_ORDER", "R_RESULT", "R_REPORT")]}
                 reply["text"] = json.dumps(value)

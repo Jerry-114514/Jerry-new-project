@@ -27,6 +27,7 @@ def main(argv=None):
     run.add_argument("--policies", nargs="+", choices=["none", "fixed", "fixed-full", "dynamic"], default=["none", "fixed", "fixed-full", "dynamic"])
     run.add_argument("--repeats", type=int, default=2)
     run.add_argument("--max-repairs", type=int, default=3)
+    run.add_argument("--max-tool-steps", type=int, default=3)
     run.add_argument("--redact-events", action="store_true")
     run.add_argument("--disable-hard-guard", action="store_true",
                      help="Independent guard ablation in the virtual environment; model gate remains active")
@@ -38,6 +39,7 @@ def main(argv=None):
     run.add_argument("--model-role", choices=["actor", "analyzer", "both"], default="analyzer")
     run.add_argument("--device", choices=["cpu", "cuda"], default="cpu")
     run.add_argument("--max-new-tokens", type=int, default=256)
+    run.add_argument("--context-limit", type=int)
     run.add_argument("--token-budget", type=int, default=20000)
     run.add_argument("--limit", type=int, help="Limit selected tasks for a local model smoke run")
     run.add_argument("--risk-model", type=Path, help="Optional train-baseline model for target ranking only")
@@ -92,12 +94,12 @@ def main(argv=None):
             from .model_pool import LocalModelPool
             paths = {role: path for role, path in (("actor", args.actor_model_path),
                                                   ("analyzer", args.analyzer_model_path)) if path is not None}
-            pool = LocalModelPool(paths, args.device, args.max_new_tokens, args.token_budget)
+            pool = LocalModelPool(paths, args.device, args.max_new_tokens, args.token_budget, context_limit=args.context_limit)
         if args.model_path:
             if args.actor_url:
                 parser.error("Choose either a local model or HTTP actor")
             from .model_backend import LocalBackend, LanguageModelActor, LanguageModelAnalyzer, SchemaLanguageModelAnalyzer
-            backend = LocalBackend(args.model_path, args.device, args.max_new_tokens, args.token_budget)
+            backend = LocalBackend(args.model_path, args.device, args.max_new_tokens, args.token_budget, context_limit=args.context_limit)
         for policy in dict.fromkeys(args.policies):
             for repetition in range(args.repeats):
                 for task in tasks:
@@ -119,7 +121,7 @@ def main(argv=None):
                         if args.model_role in {"analyzer", "both"}:
                             analyzer = analyzer_type(backend)
                     result = run_task(task, actor, policy, args.max_repairs, args.redact_events, analyzer, risk_weights,
-                                      hard_guard=not args.disable_hard_guard)
+                                      hard_guard=not args.disable_hard_guard, max_tool_steps=args.max_tool_steps)
                     if backend:
                         result["model_usage"] = dict(backend.usage)
                         result["model_generations"] = list(backend.generations)
@@ -133,6 +135,7 @@ def main(argv=None):
         manifest = {"version": __version__, "python": platform.python_version(), "actor": "local_model" if backend or pool else "http" if args.actor_url else "scripted",
                     "task_hash": digest(all_tasks), "policies": args.policies, "repeats": args.repeats,
                     "max_repairs": args.max_repairs, "redact_events": args.redact_events, "split": args.split,
+                    "max_tool_steps": args.max_tool_steps,
                     "hard_guard_enabled": not args.disable_hard_guard,
                     "model_role": list(pool.paths) if pool else args.model_role if backend else None,
                     "model_paths": pool.paths if pool else {"shared": str(args.model_path)} if backend else None,
@@ -140,6 +143,7 @@ def main(argv=None):
                                                     bool(backend and args.model_role in {"actor", "both"})),
                     "analyzer_interface": args.analyzer_interface if backend or pool else None,
                     "token_budget": args.token_budget if backend or pool else None,
+                    "context_limit": args.context_limit if backend or pool else None,
                     "risk_model_hash": digest(risk_weights) if risk_weights else None,
                     "warning": ("Greedy model repeats are not independent statistical samples." if backend or pool else
                                 "HTTP repeats require provider configuration to assess independence." if args.actor_url else

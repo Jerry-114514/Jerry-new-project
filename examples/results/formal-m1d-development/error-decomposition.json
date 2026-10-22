@@ -1,0 +1,141 @@
+{
+  "kind": "descriptive_development_error_decomposition",
+  "reference_condition": "guard-on/fixed-full",
+  "source_task_groups": 8,
+  "strict_findings_schema_outputs": 8,
+  "online_reference_check_passed_outputs": 7,
+  "status_denominator": 32,
+  "raw_predicted_status_errors": 11,
+  "online_gate_status_errors": 13,
+  "task_details": [
+    {
+      "task_id": "exec-dev-decimal-rounding",
+      "oracle_requirements": {
+        "R_INPUT": true,
+        "R_ORDER": true,
+        "R_REPORT": true,
+        "R_RESULT": true
+      },
+      "raw_status_errors": 0,
+      "online_gate_status_errors": 0,
+      "analyzer_errors": [],
+      "committed_paths": [
+        "input/data.json",
+        "output/data.json",
+        "output/report.json"
+      ]
+    },
+    {
+      "task_id": "exec-dev-timezone-boundary",
+      "oracle_requirements": {
+        "R_INPUT": true,
+        "R_ORDER": true,
+        "R_REPORT": true,
+        "R_RESULT": false
+      },
+      "raw_status_errors": 1,
+      "online_gate_status_errors": 1,
+      "analyzer_errors": [],
+      "committed_paths": [
+        "input/data.json",
+        "output/data.json",
+        "output/report.json"
+      ]
+    },
+    {
+      "task_id": "exec-dev-unicode-normalization",
+      "oracle_requirements": {
+        "R_INPUT": true,
+        "R_ORDER": true,
+        "R_REPORT": false,
+        "R_RESULT": false
+      },
+      "raw_status_errors": 2,
+      "online_gate_status_errors": 2,
+      "analyzer_errors": [],
+      "committed_paths": [
+        "input/data.json"
+      ]
+    },
+    {
+      "task_id": "exec-dev-stable-ordering",
+      "oracle_requirements": {
+        "R_INPUT": true,
+        "R_ORDER": true,
+        "R_REPORT": false,
+        "R_RESULT": false
+      },
+      "raw_status_errors": 2,
+      "online_gate_status_errors": 2,
+      "analyzer_errors": [],
+      "committed_paths": [
+        "input/data.json"
+      ]
+    },
+    {
+      "task_id": "exec-dev-missing-vs-null",
+      "oracle_requirements": {
+        "R_INPUT": true,
+        "R_ORDER": true,
+        "R_REPORT": false,
+        "R_RESULT": false
+      },
+      "raw_status_errors": 2,
+      "online_gate_status_errors": 2,
+      "analyzer_errors": [],
+      "committed_paths": [
+        "input/data.json"
+      ]
+    },
+    {
+      "task_id": "exec-dev-interval-endpoint",
+      "oracle_requirements": {
+        "R_INPUT": true,
+        "R_ORDER": true,
+        "R_REPORT": true,
+        "R_RESULT": true
+      },
+      "raw_status_errors": 0,
+      "online_gate_status_errors": 0,
+      "analyzer_errors": [],
+      "committed_paths": [
+        "input/data.json",
+        "output/data.json",
+        "output/report.json"
+      ]
+    },
+    {
+      "task_id": "exec-dev-literal-identifiers",
+      "oracle_requirements": {
+        "R_INPUT": true,
+        "R_ORDER": true,
+        "R_REPORT": false,
+        "R_RESULT": false
+      },
+      "raw_status_errors": 2,
+      "online_gate_status_errors": 2,
+      "analyzer_errors": [],
+      "committed_paths": [
+        "input/data.json"
+      ]
+    },
+    {
+      "task_id": "exec-dev-history-restoration",
+      "oracle_requirements": {
+        "R_INPUT": true,
+        "R_ORDER": true,
+        "R_REPORT": false,
+        "R_RESULT": false
+      },
+      "raw_status_errors": 2,
+      "online_gate_status_errors": 4,
+      "analyzer_errors": [
+        "Evidence must reference visible catalog entries"
+      ],
+      "committed_paths": [
+        "input/data.json"
+      ]
+    }
+  ],
+  "warning": "Static unreviewed development references; no human-confirmed generalization or independent duplicated samples."
+}

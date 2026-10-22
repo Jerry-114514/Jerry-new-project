@@ -46,10 +46,22 @@ class ModelInterfaceTests(unittest.TestCase):
         self.assertTrue(result["metrics"]["compliant_success"])
     def test_actor_gets_no_reference_answer(self):
         task = public_task(build_tasks()[0])
-        backend = FakeBackend({"actions": [{"op": "validate", "ok": True}]})
+        backend = FakeBackend({"actions": [{"op": "validate", "ok": True}], "done": True})
         reply = LanguageModelActor(backend).propose(task, initial_state(task), "initial")
         self.assertEqual(len(reply["actions"]), 1)
         self.assertNotIn('"oracle"', backend.prompts[0])
+
+    def test_actor_envelope_projection_preserves_actions_and_reports_format_error(self):
+        task = public_task(build_tasks()[0])
+        value = {"actions": [{"op": "validate", "ok": True}], "done": False, "phase": "initial", "files": {"fake": []}}
+        backend = FakeBackend(value)
+        with self.assertRaises(ValueError):
+            LanguageModelActor(backend).propose(task, initial_state(task), "initial")
+        projected = LanguageModelActor(backend, envelope_mode="extract").propose(task, initial_state(task), "initial")
+        self.assertEqual(projected["actions"], value["actions"])
+        self.assertFalse(projected["done"])
+        self.assertFalse(projected["strict_interface_valid"])
+        self.assertEqual(projected["ignored_envelope_fields"], ["files", "phase"])
 
     def test_analyzer_abstains_on_invented_evidence(self):
         task = public_task(build_tasks()[0])

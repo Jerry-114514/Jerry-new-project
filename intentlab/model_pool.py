@@ -20,11 +20,14 @@ class RoleBackend:
 
 
 class LocalModelPool:
-    def __init__(self, paths, device="cpu", max_new_tokens=256, token_budget=20000, factory=None):
+    def __init__(self, paths, device="cpu", max_new_tokens=256, token_budget=20000, factory=None, context_limit=None):
         if not paths or set(paths) - {"actor", "analyzer"}:
             raise ValueError("Expected actor and/or analyzer model paths")
         self.paths = {role: str(Path(path).resolve()) for role, path in paths.items()}
         self.device, self.maximum = device, max_new_tokens
+        if context_limit is not None and (type(context_limit) is not int or context_limit < 1):
+            raise ValueError("Context limit must be positive")
+        self.context_limit = context_limit
         self.ledger = TokenLedger(token_budget)
         self.factory = factory or LocalBackend
         self.current, self.current_path = None, None
@@ -55,7 +58,10 @@ class LocalModelPool:
             self.close()
             started = time.perf_counter()
             try:
-                self.current = self.factory(path, self.device, self.maximum, self.ledger.limit, ledger=self.ledger)
+                kwargs = {"ledger": self.ledger}
+                if self.context_limit is not None:
+                    kwargs["context_limit"] = self.context_limit
+                self.current = self.factory(path, self.device, self.maximum, self.ledger.limit, **kwargs)
                 self.current_path = path
             except Exception as exc:
                 self.loads.append({"role": role, "path": path, "status": "error", "error": type(exc).__name__,
@@ -76,5 +82,6 @@ class LocalModelPool:
 
     def snapshot(self):
         return {"shared_token_ledger": self.ledger.snapshot(), "models": dict(self.paths),
+                "context_limit": self.context_limit,
                 "model_loads": list(self.loads), "generations": list(self.generations),
                 "resident_model_limit": 1}

@@ -1,0 +1,402 @@
+{
+  "exec-dev-decimal-rounding-trace-834f9552395cd8fd": [
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-decimal-rounding",
+      "policy": "fixed-full",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-decimal-rounding",
+      "policy": "fixed-full",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-decimal-rounding",
+      "policy": "dynamic",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-decimal-rounding",
+      "policy": "dynamic",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-decimal-rounding",
+      "policy": "fixed-full",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-decimal-rounding",
+      "policy": "fixed-full",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-decimal-rounding",
+      "policy": "dynamic",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-decimal-rounding",
+      "policy": "dynamic",
+      "history_index": 1
+    }
+  ],
+  "exec-dev-timezone-boundary-trace-5a376c7827bfa1e2": [
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-timezone-boundary",
+      "policy": "fixed-full",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-timezone-boundary",
+      "policy": "fixed-full",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-timezone-boundary",
+      "policy": "dynamic",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-timezone-boundary",
+      "policy": "dynamic",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-timezone-boundary",
+      "policy": "fixed-full",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-timezone-boundary",
+      "policy": "fixed-full",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-timezone-boundary",
+      "policy": "dynamic",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-timezone-boundary",
+      "policy": "dynamic",
+      "history_index": 1
+    }
+  ],
+  "exec-dev-unicode-normalization-trace-70898244faee2922": [
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-unicode-normalization",
+      "policy": "fixed-full",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-unicode-normalization",
+      "policy": "fixed-full",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-unicode-normalization",
+      "policy": "dynamic",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-unicode-normalization",
+      "policy": "dynamic",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-unicode-normalization",
+      "policy": "fixed-full",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-unicode-normalization",
+      "policy": "fixed-full",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-unicode-normalization",
+      "policy": "dynamic",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-unicode-normalization",
+      "policy": "dynamic",
+      "history_index": 1
+    }
+  ],
+  "exec-dev-stable-ordering-trace-e7c11854d233f5ce": [
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-stable-ordering",
+      "policy": "fixed-full",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-stable-ordering",
+      "policy": "fixed-full",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-stable-ordering",
+      "policy": "dynamic",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-stable-ordering",
+      "policy": "dynamic",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-stable-ordering",
+      "policy": "fixed-full",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-stable-ordering",
+      "policy": "fixed-full",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-stable-ordering",
+      "policy": "dynamic",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-stable-ordering",
+      "policy": "dynamic",
+      "history_index": 1
+    }
+  ],
+  "exec-dev-missing-vs-null-trace-d771b529e0b959d4": [
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-missing-vs-null",
+      "policy": "fixed-full",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-missing-vs-null",
+      "policy": "fixed-full",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-missing-vs-null",
+      "policy": "dynamic",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-missing-vs-null",
+      "policy": "dynamic",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-missing-vs-null",
+      "policy": "fixed-full",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-missing-vs-null",
+      "policy": "fixed-full",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-missing-vs-null",
+      "policy": "dynamic",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-missing-vs-null",
+      "policy": "dynamic",
+      "history_index": 1
+    }
+  ],
+  "exec-dev-interval-endpoint-trace-4d7247690fcaa72d": [
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-interval-endpoint",
+      "policy": "fixed-full",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-interval-endpoint",
+      "policy": "fixed-full",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-interval-endpoint",
+      "policy": "dynamic",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-interval-endpoint",
+      "policy": "dynamic",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-interval-endpoint",
+      "policy": "fixed-full",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-interval-endpoint",
+      "policy": "fixed-full",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-interval-endpoint",
+      "policy": "dynamic",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-interval-endpoint",
+      "policy": "dynamic",
+      "history_index": 1
+    }
+  ],
+  "exec-dev-literal-identifiers-trace-97e9ace4b12c74ff": [
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-literal-identifiers",
+      "policy": "fixed-full",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-literal-identifiers",
+      "policy": "fixed-full",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-literal-identifiers",
+      "policy": "dynamic",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-literal-identifiers",
+      "policy": "dynamic",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-literal-identifiers",
+      "policy": "fixed-full",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-literal-identifiers",
+      "policy": "fixed-full",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-literal-identifiers",
+      "policy": "dynamic",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-literal-identifiers",
+      "policy": "dynamic",
+      "history_index": 1
+    }
+  ],
+  "exec-dev-history-restoration-trace-74c1e2cfba910f22": [
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-history-restoration",
+      "policy": "fixed-full",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-history-restoration",
+      "policy": "fixed-full",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-history-restoration",
+      "policy": "dynamic",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-on/runs.jsonl",
+      "task_id": "exec-dev-history-restoration",
+      "policy": "dynamic",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-history-restoration",
+      "policy": "fixed-full",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-history-restoration",
+      "policy": "fixed-full",
+      "history_index": 1
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-history-restoration",
+      "policy": "dynamic",
+      "history_index": 0
+    },
+    {
+      "source": "runs/execution-final-guard-off/runs.jsonl",
+      "task_id": "exec-dev-history-restoration",
+      "policy": "dynamic",
+      "history_index": 1
+    }
+  ]
+}

@@ -74,7 +74,10 @@ def validate_cases(cases):
         for key in ("reference", "license"):
             require_text(source[key], key)
         public = row["public"]
-        if not isinstance(public, dict) or set(public) != {"request", "inputs", "requirements", "observation"}:
+        allowed = {"request", "inputs", "requirements", "observation"}
+        if isinstance(public, dict) and "execution_spec" in public:
+            allowed.add("execution_spec")
+        if not isinstance(public, dict) or set(public) != allowed:
             raise ValueError("Public payload needs request, inputs, requirements and observation only")
         if not isinstance(public["inputs"], dict):
             raise ValueError("Original public inputs must be an object")
@@ -91,6 +94,9 @@ def validate_cases(cases):
             if req["id"] in ids or type(req["hard"]) is not bool or req["quote"] not in public["request"]:
                 raise ValueError("Duplicate ID, invalid hard flag or unsupported source quote")
             ids.add(req["id"])
+        if "execution_spec" in public:
+            from .contracts import validate_spec
+            validate_spec(public["execution_spec"], requirements)
         observation = public["observation"]
         if not isinstance(observation, dict) or set(observation) != {"files", "events"}:
             raise ValueError("Observation needs files and events")
@@ -134,6 +140,7 @@ def output_schema(requirements):
 def evidence_catalog(public):
     """References support file snapshots, the request and visible events."""
     catalog = {"request": public["request"]}
+    catalog["snapshot_paths"] = sorted(public["observation"]["files"])
     catalog.update({"input:" + path: value for path, value in public["inputs"].items()})
     catalog.update({"file:" + path: value for path, value in public["observation"]["files"].items()})
     catalog.update({"event:" + str(event["index"]): event
