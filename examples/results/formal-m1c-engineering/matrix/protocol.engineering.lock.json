@@ -1,0 +1,243 @@
+{
+  "kind": "experiment_protocol_lock",
+  "schema_version": 1,
+  "spec": {
+    "schema_version": 1,
+    "scope": "engineering",
+    "source_root": "/root/autodl-tmp/formal-m1c-audit",
+    "dataset": {
+      "cases": "/tmp/tmprg38l8pz/fixture/cases.jsonl",
+      "reviews": "/tmp/tmprg38l8pz/fixture/reviews.jsonl",
+      "adjudications": null,
+      "export": "/tmp/tmprg38l8pz/fixture/reviewed"
+    },
+    "models": {
+      "actor": "/tmp/tmprg38l8pz/base/model",
+      "analyzer_base": "/tmp/tmprg38l8pz/base/model"
+    },
+    "training": {
+      "revision": null,
+      "mode": "full",
+      "device": "cpu",
+      "steps": 2,
+      "eval_every": 1,
+      "batch_size": 1,
+      "accumulation": 2,
+      "max_length": 2048,
+      "lr": 0.001,
+      "minimum_lr": 5e-06,
+      "rank": 4,
+      "alpha": 8,
+      "limit": 0,
+      "threads": 1,
+      "defer_test": true
+    },
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "schedules": [
+      "cosine",
+      "plateau"
+    ],
+    "minimum_tasks": {
+      "train": 1,
+      "validation": 1,
+      "test": 1,
+      "ood": 1
+    },
+    "conditions": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "P1",
+      "P2",
+      "P3",
+      "P4"
+    ],
+    "few_shot_case_ids": [
+      "fixture-validation"
+    ],
+    "statistics": {
+      "unit": "source_task_id",
+      "primary": "RQ1",
+      "primary_scoring": "normalized",
+      "secondary_correction": "holm",
+      "seed_reporting": "separate",
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 20261022,
+      "confidence_level": 0.95
+    },
+    "budgets": {
+      "token_budget": 8192,
+      "max_new_tokens": 512,
+      "max_repairs": 3,
+      "context_limit": 2048
+    },
+    "evidence": {
+      "power_analysis": "/tmp/tmprg38l8pz/fixture/power_analysis.txt",
+      "length_and_compute_budget": "/tmp/tmprg38l8pz/fixture/length_and_compute_budget.txt",
+      "semantic_dedup_review": "/tmp/tmprg38l8pz/fixture/semantic_dedup_review.txt",
+      "provenance_and_release_review": "/tmp/tmprg38l8pz/fixture/provenance_and_release_review.txt",
+      "test_sealing": "/tmp/tmprg38l8pz/fixture/test_sealing.txt",
+      "model_weight_verification": "/tmp/tmprg38l8pz/fixture/model_weight_verification.txt",
+      "execution_and_oracle_audit": "/tmp/tmprg38l8pz/fixture/execution_and_oracle_audit.txt",
+      "controller_ablation_audit": "/tmp/tmprg38l8pz/fixture/controller_ablation_audit.txt"
+    },
+    "dependencies": []
+  },
+  "created_utc": "2026-10-22T06:07:20.897890+00:00",
+  "scope": "engineering",
+  "source": {
+    "configs/formal-protocol.draft.json": "db06251235e2142f35de1100ba8929a9a2cc6e0f1beba170a9435eda7055a231",
+    "configs/qlora-5090.json": "fd54175357eadc89f42836babb8b2b82bbe12f8e4314ea852c4fd2cb4d7091a2",
+    "configs/qwen35-9b-5090-pilot.json": "bb457c8bb80812163ca72f991284d2edb59edf36dbb4f146d12504909bb63034",
+    "configs/qwen35-official-assets.json": "b90ceca9418f14ae216c07874fb3acae6a41d004544d33b49c4d61074729a658",
+    "configs/qwen35-source.json": "ea9731f2e0eb7c47a62d9ed8c7d6ae2624db40d81f86d31df54534056948cfda",
+    "idea.md": "75a0507b304c31125ee657ecd3ff353943449d3248bd1701a600702cf6f29d99",
+    "intentlab/__init__.py": "b426fd08c4fa2c4e6f8b9d7253752322cfa0f082f2981113219f3898bc5b3e86",
+    "intentlab/__main__.py": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279",
+    "intentlab/actors.py": "9e7d0926fa490917a1e381d7e2c2702e854626cb9026e50890a241854e40c810",
+    "intentlab/analysis.py": "df19d7f684f3a65da78a49bcfa6c89d18bef67df139e65a41fb24c24c05290ce",
+    "intentlab/budget.py": "a4639bca3d298068a22476db2f2aca7b1457e40f41f55670f83f37beb7bbb286",
+    "intentlab/cli.py": "0316263e96a340bd2309f10baf627f4cbcf0ac602cb38f64b7597093aa50b6b2",
+    "intentlab/core.py": "1f4485a7e2e082f084d3499ef7ea2ed7b6191095cfdee57808397fe889a64c5a",
+    "intentlab/fixtures.py": "dcea141943a2e07fd56b11458c3967b6a7de5e4090b26b605d9522ad1afbdc1f",
+    "intentlab/formal_data.py": "754007ed56784c07a0232108b9e0c1f2e00a21d8780cc09a8ae7fb8424fa9e74",
+    "intentlab/formal_eval.py": "91ea0fb5475f2f2b8f9095219f391620d179cb32590acd7062139867ebb13b2a",
+    "intentlab/formal_inference.py": "14097fcf24ad962ff34cadd2d6799fd869bfe8622b394bea9c0aed6238081c25",
+    "intentlab/hard_guard.py": "89dd736894fa749052de19c6458afd72a244ff4d1d179798c63ed579c12b1079",
+    "intentlab/learning.py": "259dea7e78c71835d0046ecb9f04a95115e03ec671333d1e2e92a4e63a1f8180",
+    "intentlab/matrix.py": "313f5091a88bf1ce96be400b214eb695d749d1f6a3e27d0f519d786bb18a3a1e",
+    "intentlab/matrix_worker.py": "b6edf16c6fa4eef4e9372be6749c9b6e4c70e34e82a2cd478f1676ecdae88eb9",
+    "intentlab/model_backend.py": "8826b91354c88c966ea958a6c9b59056cb9405960694ac92e13ecce7c6eb93e8",
+    "intentlab/model_pool.py": "1d82d8db6dc0c30afb645585443d076857416085a6b3bbf646c5a64e292856b3",
+    "intentlab/neural.py": "ffc63ab096ff776b04629ac1019833e8add95412d9c3b0299772715375500151",
+    "intentlab/neural_audit.py": "cc1e3ae6b07b8e2b4e647c4f3554ee3a94cd8e89c947d8a59a6de3c71fff3e4d",
+    "intentlab/oracle.py": "0cba24a23b326e6dd42e4b18759baf1235885c5b06e2f68f3676d11e946e8df1",
+    "intentlab/planner.py": "603ccaa632a2c58cd523f9bb7cead50b4066d3b7c10ff236631d1c568aad4a9e",
+    "intentlab/prompts.py": "f6e9acfa527f76301f2ba842e24d53ae2208f779fc7ecfe3f9a9af7768223528",
+    "intentlab/protocol.py": "5a59a03705d77962a4fa53954a60e6b6b18979f04da6b4bd38f7b64cbad3e4b2",
+    "intentlab/report.py": "21c402727e4dfdc18aacee07043e79c6dc3301a168c12ebd042a6bc6b74780f7",
+    "intentlab/requirements.py": "035bfd762333835f01ddd6a474c4f0d401a4bcc9e6cc7173f54b5b1b4a9ca0af",
+    "intentlab/runner.py": "211723e72041e68cdb3ad4409d7a615118761069981869d79c9052d431d97f45",
+    "intentlab/schedules.py": "ebb5413c04d95716c5e44905a4b11736637c76dbfe360b44b489260f7f7cb717",
+    "intentlab/sft_data.py": "240a8850af33771dff22c39afd32c9228e1720fc1f2a6ff7cd016c16eb51d184",
+    "pyproject.toml": "e9886cf2acec0c8894b7edffc33f4a060f81f2ac62cfc78a0d33699f8ce7937c",
+    "requirements-gpu-5090.txt": "a3f6ee9a01f10c87e454eddc4e3b71e148122bc4825f256a4fef227d159a72f0",
+    "requirements-ml.txt": "491b129b5fbb00b6622a59ba85921e863f6595167e05d8b04f5ef24f02cf1f48",
+    "scripts/analyze_gpu_diagnostics.py": "dea43042b93d13745b890f6ba208ba903f35ef245e1e0ec6720145a77398d301",
+    "scripts/audit_role_models.py": "db4b63e3557a3a3be88b7f1e00a0c528a4a5a0e6e195ae0d62a8ebd79b533963",
+    "scripts/build_formal_candidates.py": "62103af4c5830922d8c0e19fc20db459f100753967626c2594b4ab5485a0da9a",
+    "scripts/gpu_pilot.py": "6b37d4cd880863fd3582d816a601156a6e77444f8d9da81a048cca71bbe54166",
+    "scripts/run_guarded_closure.py": "1dadef699638e62fcf92d0ad2415a12d4cac37f550181f5f2a34a0844dab5511",
+    "tests/test_formal_data.py": "133bf79dc70d58d7bf3362c57b4ecdfc124a92ffcc8ab0eb8fcd66e2aa6bafba",
+    "tests/test_formal_eval.py": "dcfb9c13b297b9925799a747ff8588893778fd29cfa9e43738de458033df717c",
+    "tests/test_formal_inference.py": "706201b6cc5a35db92e0a203157940c8d21a1c083dc0de7f79bc453897440bb2",
+    "tests/test_hard_guard.py": "0d6cadff47f4c8831881be530c3b21cdeffb76d4121652bd877546f1d558dbe8",
+    "tests/test_intentlab.py": "a31881f245eba2f591677df8c301715b4a0876099647228c1879a897695a0d40",
+    "tests/test_model_budget.py": "d7d7e7ba3d75e145a60bc4c7e495fe5f770421b5513fe133e6c9287d7bff728e",
+    "tests/test_model_interfaces.py": "bc7355dd78bbd1d782bf1dd1105ab3c09ad5d385091001e619d425856871bb58",
+    "tests/test_neural.py": "5ca0d48857d04532738c531df9d10153205a01e5fee385392179911fb0f40058",
+    "tests/test_prompts.py": "f56175ca3f995535c3388229feb031633730bfef01fa2aebe30792fe67be5fa4",
+    "tests/test_protocol.py": "6ad989ac19bbaad10a15aa54acaaa1edef9b57873e2bef5f61babca81e2fbfb2"
+  },
+  "models": {
+    "actor": {
+      "path": "/tmp/tmprg38l8pz/base/model",
+      "files_sha256": {
+        "config.json": "43cfe49a5952c1a55ced051284a1238c2dbf8608b14b2df5e87a9f9c90f5566f",
+        "generation_config.json": "03c33f6bf812d2c5d5571360c587cc2f6544869513b44bf9d104605889935cdb",
+        "model.safetensors": "ebc2503c8d23242cfe23d05ec8159b9012b71da4fd2e10ec6335a3727e471fdc",
+        "tokenizer.json": "130bd9152ed3e5a84dcea7bd9e439a39bc2ddf80fa1d09a8ab334bca2f41b271",
+        "tokenizer_config.json": "0faecb102b2782924ac9312986d64ef59bb57d3ee9b4a8c3bbf03f2e56b438b4"
+      }
+    },
+    "analyzer_base": {
+      "path": "/tmp/tmprg38l8pz/base/model",
+      "files_sha256": {
+        "config.json": "43cfe49a5952c1a55ced051284a1238c2dbf8608b14b2df5e87a9f9c90f5566f",
+        "generation_config.json": "03c33f6bf812d2c5d5571360c587cc2f6544869513b44bf9d104605889935cdb",
+        "model.safetensors": "ebc2503c8d23242cfe23d05ec8159b9012b71da4fd2e10ec6335a3727e471fdc",
+        "tokenizer.json": "130bd9152ed3e5a84dcea7bd9e439a39bc2ddf80fa1d09a8ab334bca2f41b271",
+        "tokenizer_config.json": "0faecb102b2782924ac9312986d64ef59bb57d3ee9b4a8c3bbf03f2e56b438b4"
+      }
+    }
+  },
+  "source_git": {
+    "commit": null,
+    "clean": false
+  },
+  "official_asset_checks": {},
+  "dataset_export": {
+    "root": "/tmp/tmprg38l8pz/fixture/reviewed",
+    "files_sha256": {
+      "heldout/ood/cases.jsonl": "55539a170904ad4f5d44592e059b90aaebaf2167f482993fb41eca2183b52f44",
+      "heldout/ood/gold.jsonl": "633709a683f187ef13fd6c158a1dac69e357160307f432e5b8d15bc01e68a9c1",
+      "heldout/test/cases.jsonl": "ef9806426cac2f39ec6c0ab1b146168664d6cdf526d783a74f7516722336e53c",
+      "heldout/test/gold.jsonl": "2318afa0a6aa6dd7de98f9528a0c58e2ddc31a52fd5adcf5289c400c75da06b7",
+      "manifest.json": "2787e164a6a357bd30991f62c274284e5d13a5a7a1758922441465435a460a97",
+      "train.jsonl": "e7c8f3939d1662c7c1be26ce5a3d85f7ee52c3daabb8b07239c987b5530fdc14",
+      "validation.jsonl": "be64170784c628e840efdebb2fd135663634451d00838a4e94ddee3d6af183ba"
+    }
+  },
+  "evidence": {
+    "power_analysis": {
+      "path": "/tmp/tmprg38l8pz/fixture/power_analysis.txt",
+      "sha256": "410dfc2bc4a4301081fdc232313ee319ca69cd476fc9e8481e086841694ef9ef"
+    },
+    "length_and_compute_budget": {
+      "path": "/tmp/tmprg38l8pz/fixture/length_and_compute_budget.txt",
+      "sha256": "410dfc2bc4a4301081fdc232313ee319ca69cd476fc9e8481e086841694ef9ef"
+    },
+    "semantic_dedup_review": {
+      "path": "/tmp/tmprg38l8pz/fixture/semantic_dedup_review.txt",
+      "sha256": "410dfc2bc4a4301081fdc232313ee319ca69cd476fc9e8481e086841694ef9ef"
+    },
+    "provenance_and_release_review": {
+      "path": "/tmp/tmprg38l8pz/fixture/provenance_and_release_review.txt",
+      "sha256": "410dfc2bc4a4301081fdc232313ee319ca69cd476fc9e8481e086841694ef9ef"
+    },
+    "test_sealing": {
+      "path": "/tmp/tmprg38l8pz/fixture/test_sealing.txt",
+      "sha256": "410dfc2bc4a4301081fdc232313ee319ca69cd476fc9e8481e086841694ef9ef"
+    },
+    "model_weight_verification": {
+      "path": "/tmp/tmprg38l8pz/fixture/model_weight_verification.txt",
+      "sha256": "410dfc2bc4a4301081fdc232313ee319ca69cd476fc9e8481e086841694ef9ef"
+    },
+    "execution_and_oracle_audit": {
+      "path": "/tmp/tmprg38l8pz/fixture/execution_and_oracle_audit.txt",
+      "sha256": "410dfc2bc4a4301081fdc232313ee319ca69cd476fc9e8481e086841694ef9ef"
+    },
+    "controller_ablation_audit": {
+      "path": "/tmp/tmprg38l8pz/fixture/controller_ablation_audit.txt",
+      "sha256": "410dfc2bc4a4301081fdc232313ee319ca69cd476fc9e8481e086841694ef9ef"
+    }
+  },
+  "annotation_inputs": {
+    "cases": {
+      "path": "/tmp/tmprg38l8pz/fixture/cases.jsonl",
+      "sha256": "abaf84a5724788c6a6199726bfb0c5970f8b194f4dca2bb82756489532440ef9"
+    },
+    "reviews": {
+      "path": "/tmp/tmprg38l8pz/fixture/reviews.jsonl",
+      "sha256": "bb75e8b4e9e8429f9d783314d7f49da30713754f55ccb917f21d7162b49f1015"
+    }
+  },
+  "environment": {
+    "python": "3.12.3",
+    "packages": {}
+  },
+  "readiness": {
+    "ready": true,
+    "blockers": [],
+    "scope": "engineering",
+    "warning": "Readiness binds supplied reviews/evidence; it does not authenticate people or assess scientific adequacy."
+  },
+  "warning": "Content freeze is not an external preregistration timestamp, identity proof or scientific quality guarantee.",
+  "lock_hash": "fbaeecc54244cadb6cc78b6b828cba949eeaa90e89c3144af735b42b80d40de7"
+}

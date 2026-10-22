@@ -1,0 +1,72 @@
+{
+  "kind": "causal_lm_sft",
+  "completed": true,
+  "config": {
+    "data": "/tmp/tmprg38l8pz/fixture/reviewed",
+    "model": "/tmp/tmprg38l8pz/base/model",
+    "revision": null,
+    "mode": "full",
+    "device": "cpu",
+    "schedule": "cosine",
+    "steps": 2,
+    "eval_every": 1,
+    "batch_size": 1,
+    "accumulation": 2,
+    "max_length": 2048,
+    "lr": 0.001,
+    "minimum_lr": 5e-06,
+    "rank": 4,
+    "alpha": 8,
+    "seed": 1,
+    "limit": 0,
+    "threads": 1,
+    "defer_test": true
+  },
+  "data_hash": "b205cd1a127446b1b3bfc5c9ecadaa4f1ce3b5276dfc333b66dc8bb19972e9ac",
+  "base_identity": "4f27c5b2437f9cc1c4e4508f8e69a1f7912b7135dae0878e2175dfbf8e864781",
+  "step": 2,
+  "history": [
+    {
+      "step": 1,
+      "train_loss": 6.558222532272339,
+      "validation": {
+        "loss": 6.381126880645752,
+        "target_tokens": 32
+      },
+      "lr_used": 0.001,
+      "gradient_norm": 2.679415702819824,
+      "scheduler": null
+    },
+    {
+      "step": 2,
+      "train_loss": 6.352290868759155,
+      "validation": {
+        "loss": 6.282393932342529,
+        "target_tokens": 32
+      },
+      "lr_used": 0.001,
+      "gradient_norm": 1.821354627609253,
+      "scheduler": null
+    }
+  ],
+  "train_tokens": 2188,
+  "supervised_tokens": 128,
+  "examples_seen": 4,
+  "sample_exposures": [
+    {
+      "index": 0,
+      "task_id": "source-train",
+      "case_id": "fixture-train",
+      "pair_hash": "838c9ef89ab7fec1dd3862e8c203c9006fb029a4cf7b7087118ac50334bb6843",
+      "count": 4
+    }
+  ],
+  "parameters": 191808,
+  "trainable_parameters": 191808,
+  "seconds_this_invocation": 0.19979373924434185,
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.20.2"
+  },
+  "test_deferred": true
+}

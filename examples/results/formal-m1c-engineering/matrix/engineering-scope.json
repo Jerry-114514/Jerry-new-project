@@ -1,0 +1,7 @@
+{
+  "scope": "engineering",
+  "human_reviews_completed": 0,
+  "formal_9b_training": false,
+  "test_gold_and_reviews_deleted_before_training": true,
+  "warning": "Synthetic unit fixtures and a tiny model; no formal data or human annotation claim."
+}
