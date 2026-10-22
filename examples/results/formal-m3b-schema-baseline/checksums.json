@@ -1,0 +1,18 @@
+{
+  "README.md": "78eb584176349f7646fb0d8db06719830dab4231581e904c0dc7674f26961ce6",
+  "audit-tamper-checks.json": "8d408b865c7b283f0ba84c96afc5ed89399b7a9dd3343e627023a6b59e0c783a",
+  "audit.py": "8d271997e2fbdbfbb018d1234697f0319f3bc3252a18fec0002b0a5c94dfbdf1",
+  "cases.jsonl": "9b7f4d74f41c697e3372fda0881c2e4c95ef8e269a3786631ca2269333665ec1",
+  "inference.log": "266fe4289be1b6e9e578bd922b3256a6ac3bbd9ba02be7be8a4964f412e6773e",
+  "inference/calls.jsonl": "7f87637050b2cbddbc761b8a273ead5ec4fe8a42f6d227088f108ea4014337c2",
+  "inference/manifest.json": "da8e7da12f7c3df60c8db2e7e991591a4bb2938ce9ec7bc59e1f022e7c94e198",
+  "inference/predictions.jsonl": "54037c5ea5d9f023f2398db2da5deeb852b15653ed40e904c75579398eb2b472",
+  "interface-report.json": "8aba261424deb0d475c6e7af9f45520329380e17505f8c1a14d73773d769fd14",
+  "preflight-lengths.json": "40b42f99c6ac1aeb7f9f22c3d463c50d09fd3cc03317344e3615c7486026d968",
+  "rule/calls.jsonl": "0db0b4350324ec9f794b788ea9e687d5c8a74d4ad6a026ac864758b04d8ba526",
+  "rule/manifest.json": "08db45a23d217ed4cd9e6a06a78e8023b43633ce394ed6a765a64fcc230d6aa0",
+  "rule/predictions.jsonl": "f2160bdc13d98fe764b310384f4093eadcd5fc9acdf4be53395e10c41fef1050",
+  "runtime-identity.json": "a0257249703e5b40166dcd4fefa4511dd6d04369cdaf7d230347846b69c487cd",
+  "source-comparison.json": "4868012721fb17659b9e5b0faecc0a747d5d299c7eedaf853beebac1d7142e5f",
+  "tasks.jsonl": "9777c852a9e0d8b901658470c42fbfed5a68b437aec810da127e65c7cbc0dea5"
+}

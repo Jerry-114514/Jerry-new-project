@@ -12,3 +12,4 @@ examples/results/formal-m1o-candidate-statistics/** text eol=lf
 examples/results/formal-m2a-natural-training/** text eol=lf
 examples/results/formal-m3a-context-probe/** text eol=lf
 examples/results/formal-m2b-source-triage/** text eol=lf
+examples/results/formal-m3b-schema-baseline/** text eol=lf

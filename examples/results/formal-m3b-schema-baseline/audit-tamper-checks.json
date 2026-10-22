@@ -1,0 +1,9 @@
+{
+  "scope": "unreviewed_training_development",
+  "checks": {
+    "drop_failed_view_rejected_after_rehash": "Missing, duplicate, reordered or foreign baseline records",
+    "change_call_role_rejected_after_rehash": "Call prompt, role, allowance or actual tokenizer/preflight count changed",
+    "change_rule_state_rejected_after_rehash": "Archived public-rule baseline does not reproduce"
+  },
+  "semantic_accuracy_scored": false
+}
