@@ -19,9 +19,11 @@
 
 修复数量 k 的新增开发检查见 [报告](repair-intensity-development-report.md)：真实模型 fixed-k/dynamic-k 各 2/8，均无修复机会；受控缺交付物检查中固定 k=2、3 与动态 k 均成功。105 项 AutoDL 测试通过。该进展不替代正式执行与冻结绑定，不将人工审核或 M7 记为完成。
 
-用户指出纯模型从不触发修复的问题后，新增显式 rule/model/hybrid 模式。混合模式在三项开发任务、两种策略上共触发八次修复和八次独立硬检查，Unicode 修复成功，时区仍失败；109 项 AutoDL 测试通过，见 [诊断与修复](analyzer-false-pass-fix.md)。本轮及上一轮尚未提交 Git：自动审批服务因用量额度限制未能执行提交请求，GitHub 同步仍待完成。
+用户指出纯模型从不触发修复的问题后，新增显式 rule/model/hybrid 模式。混合模式在三项开发任务、两种策略上共触发八次修复和八次独立硬检查，Unicode 修复成功，时区仍失败；109 项 AutoDL 测试通过，见 [诊断与修复](analyzer-false-pass-fix.md)。此前提交被审批服务额度限制拦截，随后 Git 直连超时；现已通过 GitHub 接口发布为 `7396e01`，核对远端源码树与本地审查树完全一致。
 
 随后补充 [单 GPU 独占保护与失败审计](gpu-resource-audit.md)：CUDA 入口共享进程级内核锁并检查实际 compute PID，AutoDL 全部 114 项测试及微小真实 CUDA 检查通过。另保存两组额外探索的全部 64 条失败记录：3B 输出接口失败及两个 9B 进程争用显存。它们不替代正式 M4/M5；正式数据、人工审核和冻结依赖仍未满足。
+
+[人工标注流程说明](human-annotation-workflow.md)已写成可分发版本，逐步对应现有 packet、conflicts、export 工具；增加同版盲包的中文操作说明。人员仍待确定，人工审核仍为 0，不把流程文档或空白模板当作人工交付。
 
 ## 审计发现和本轮修正
 

@@ -27,6 +27,8 @@ python -m intentlab train-baseline --data runs/data/diagnostic_views.jsonl --out
 
 ## 研究文档
 
+- [正式实验目标与验收依据](idea.md)：M1–M8 的范围、数据隔离与正式实验要求；进度见[执行记录](docs/formal-experiment-status.md)。
+- [人工标注流程说明](docs/human-annotation-workflow.md)：人员分工、盲包发放、三状态与证据、双人独立初审、第三人仲裁及交付验收。
 - [实验规划指南：基于误差曲线的学习率调整与证据驱动纠偏](docs/experimental-planning-guide.md)：最新实验指南，明确动态控制规则、四组对照、数据隔离、单卡预算与验收要求。
 - [Agent 误差分析与纠偏：稳定成果产出导向的研究方案](docs/agent-error-analysis-stable-output-plan.md)：区分可控交付与待验证收益，增加诊断实验、评分验证、条件性保持分析和成果验收标准。
 - [面向多步骤 Agent 的用户要求保真与证据驱动纠偏：研究建议报告](docs/agent-intent-fidelity-research-proposal.md)：研究定位、候选问题、先导实验、评估指标与参考文献。

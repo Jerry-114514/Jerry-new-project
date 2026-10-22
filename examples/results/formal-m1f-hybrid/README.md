@@ -14,4 +14,4 @@ Six real original Qwen3.5-9B runs: first three public development tasks, fixed-f
 
 Rebuild with `python scripts/audit_hybrid_development.py --root examples/results/formal-m1f-hybrid` at the corresponding implementation. Another experiment began sharing the GPU after this run started; do not infer performance benefits from timings. Negative timezone results remain in the denominator. This is not formal M6/M7 completion, and no test/OOD was evaluated.
 
-At report generation, GitHub publication remained pending: automatic Git approval review could not complete due to account usage limits. Local results and the separate AutoDL development directory are available.
+Publication update: initially blocked by automatic approval review quota and then git transport timeouts, the bundle was subsequently published through the connected GitHub interface in commit `7396e01`. Its tree exactly matches the reviewed local tree. Local and separate AutoDL development copies remain available.

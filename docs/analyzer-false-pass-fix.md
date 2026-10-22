@@ -43,4 +43,4 @@ python -m intentlab.execution --tasks runs/inputs/tasks.jsonl --references runs/
 python scripts/audit_hybrid_development.py --root examples/results/formal-m1f-hybrid
 ```
 
-代码和结果已保存在本地工作区及独立 AutoDL 开发目录 `/root/autodl-tmp/formal-m1f-hybrid`。Git 提交请求因自动审批服务的用量额度限制未执行，本次改动尚未上传 GitHub；不能把本地验证写成远端发布完成。
+代码和结果保存在本地工作区及独立 AutoDL 开发目录 `/root/autodl-tmp/formal-m1f-hybrid`。此前提交请求受自动审批服务额度限制，随后 Git 直连超时；现已通过 GitHub 接口发布为 `7396e01`，远端源码树与本地审查树完全一致。此发布不改变开发结果的解释边界。
