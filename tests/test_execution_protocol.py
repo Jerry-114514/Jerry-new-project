@@ -298,12 +298,24 @@ class ExecutionMatrixIntegrationTests(unittest.TestCase):
             Path(spec["execution"]["references"]).unlink()
             self.assertFalse(frozen_ablation.verify_scoring(*ablation_common, root / "ablation-interactions",
                 root / "ablation-reveal", True)["references_reopened"])
+            from intentlab.research_statistics import analyze_records
+            from intentlab.report import save_json
+            statistics_report = analyze_records(lock, json.loads((root / "diagnostic-reveal/scores.json").read_text()),
+                {f"{condition}-seed-{seed}": read_jsonl(root / f"diagnostic-reveal/{condition}-seed-{seed}-loss.jsonl")
+                 for condition in ("D", "E") for seed in (0, 1, 2)},
+                read_jsonl(root / "execution-reveal/runs.jsonl"), read_jsonl(root / "ablation-reveal/runs.jsonl"))
+            self.assertEqual(statistics_report["secondary_family_size"], 17)
+            self.assertFalse(statistics_report["m8_complete"])
+            self.assertTrue(all(row["percentile_95_interval"] is None and row["hypothesis_test"]["p_value"] is None
+                                for row in statistics_report["comparisons"].values()))
+            save_json(root / "research-statistics.json", statistics_report)
             target = os.environ.get("INTENTLAB_EXECUTION_MATRIX_AUDIT_DIR")
             if target:
                 target = Path(target)
                 target.mkdir(parents=True, exist_ok=False)
                 shutil.copyfile(root / "lock.json", target / "protocol.engineering.lock.json")
                 shutil.copyfile(root / "execution-model-lock.json", target / "execution-model-lock.json")
+                shutil.copyfile(root / "research-statistics.json", target / "research-statistics.json")
                 shutil.copytree(root / "controller-development", target / "controller-development")
                 (target / "controller-development/selection.json").write_bytes(controller_report_bytes)
                 (target / "controller-plan.json").write_bytes(controller_plan_bytes)

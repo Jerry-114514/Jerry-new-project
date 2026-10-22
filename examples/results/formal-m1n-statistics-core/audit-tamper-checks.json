@@ -1,0 +1,14 @@
+{
+  "family_override": {
+    "rejected": true,
+    "reason": "Statistical arithmetic, registered family or source/seed aggregation changed"
+  },
+  "changed_loss_population": {
+    "rejected": true,
+    "reason": "D/E seeds must use identical held-out cases and target tokens"
+  },
+  "changed_error_rate": {
+    "rejected": true,
+    "reason": "Statistical arithmetic, registered family or source/seed aggregation changed"
+  }
+}

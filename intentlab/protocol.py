@@ -158,6 +158,12 @@ def check_spec(spec):
         blockers.append("Lock task-level primary RQ1, Holm secondary correction and separate seed results")
     if not isinstance(statistics, dict) or type(statistics.get("bootstrap_samples")) is not int or statistics["bootstrap_samples"] < 2000:
         blockers.append("Predeclare at least 2000 bootstrap samples")
+    if isinstance(statistics, dict):
+        from .research_statistics import validate_analysis_plan
+        try:
+            validate_analysis_plan(statistics, formal=spec["scope"] == "formal")
+        except ValueError as exc:
+            blockers.append(str(exc))
     if spec["conditions"] != ["A", "B", "C", "D", "E", "P1", "P2", "P3", "P4"]:
         blockers.append("All declared diagnostic and closed-loop conditions must be present")
     examples = spec["few_shot_case_ids"]

@@ -1,0 +1,21 @@
+{
+  "data": "/tmp/tmppp3york6/fixture/reviewed-v2",
+  "model": "/tmp/tmppp3york6/base/model",
+  "revision": null,
+  "mode": "full",
+  "device": "cpu",
+  "schedule": "cosine",
+  "steps": 2,
+  "eval_every": 1,
+  "batch_size": 1,
+  "accumulation": 2,
+  "max_length": 2048,
+  "lr": 0.001,
+  "minimum_lr": 5e-06,
+  "rank": 4,
+  "alpha": 8,
+  "seed": 1,
+  "limit": 0,
+  "threads": 1,
+  "defer_test": true
+}

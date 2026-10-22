@@ -16,6 +16,7 @@ from intentlab.matrix import configurations, process_exists, recover_lock, run_m
 from intentlab.matrix_worker import wait_for_ack
 from intentlab.protocol import EVIDENCE, check_spec, freeze, read_json, verify
 from test_formal_data import case, review
+from intentlab.research_statistics import ANALYSIS_PLAN
 
 
 def engineering_fixture(root, model=None, source=None):
@@ -59,7 +60,7 @@ def engineering_fixture(root, model=None, source=None):
         "few_shot_case_ids": ["fixture-validation"],
         "statistics": {"unit": "source_task_id", "primary": "RQ1", "primary_scoring": "normalized",
             "secondary_correction": "holm", "seed_reporting": "separate", "bootstrap_samples": 2000,
-            "bootstrap_seed": 20261022, "confidence_level": 0.95},
+            "bootstrap_seed": 20261022, "confidence_level": 0.95, "analysis_plan": deepcopy(ANALYSIS_PLAN)},
         "budgets": {"token_budget": 8192, "max_new_tokens": 512, "max_repairs": 3, "context_limit": 2048},
         "evidence": evidence, "dependencies": []}
 

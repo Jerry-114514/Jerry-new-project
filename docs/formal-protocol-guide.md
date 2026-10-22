@@ -23,6 +23,8 @@ cp configs/formal-protocol.draft.json runs/formal-private/protocol.final.json
 
 协议必须包含：新任务与双审/仲裁文件、审核导出目录、原始分析模型和固定执行模型、训练参数、两个调度及三个种子、明确的少样本 case ID、A–E 和 P1–P4 条件、统一预算和任务级统计方法。
 
+`statistics.analysis_plan` 现须明确 [M8 统计核心的方法和范围](research-statistics-guide.md)，包括固定种子汇总、源任务聚类、token 加权损失、检验假设和全部次要比较的 Holm 家族。该登记与计算核心不等于 M8 完成或科学假设已得到证明。
+
 审核证据文件分别覆盖功效分析、长度与计算预算、语义近重复检查、来源与发布、测试封存、模型身份、新任务执行与独立 oracle、控制器消融。工具绑定这些文件的内容，不替代对其科学合理性和真实性的审核；人的身份声明也不等于程序证明了其为真人。
 
 其中 `controller_ablation_audit` 须为[结构化控制计划](controller-plan-guide.md)，引用完整 validation 固定 k 开发选择报告，并经两名独立人员审核。空白模板和 engineering 结果不能用于正式冻结；训练阶段不会重新打开这类私有审核材料。

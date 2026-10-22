@@ -1,0 +1,2 @@
+{"case_id":"unit-view-test","findings":[{"evidence":[],"id":"R_INPUT","status":"unknown"},{"evidence":[],"id":"R_ORDER","status":"unknown"},{"evidence":[],"id":"R_RESULT","status":"unknown"},{"evidence":[],"id":"R_REPORT","status":"unknown"}]}
+{"case_id":"unit-view-ood","findings":[{"evidence":[],"id":"R_INPUT","status":"unknown"},{"evidence":[],"id":"R_ORDER","status":"unknown"},{"evidence":[],"id":"R_RESULT","status":"unknown"},{"evidence":[],"id":"R_REPORT","status":"unknown"}]}

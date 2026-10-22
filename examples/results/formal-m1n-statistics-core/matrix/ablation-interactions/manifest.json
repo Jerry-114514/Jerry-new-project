@@ -1,0 +1,136 @@
+{
+  "kind": "frozen_ablation_interactions",
+  "schema_version": 1,
+  "scope": "engineering",
+  "upstream": {
+    "execution_receipt_hash": "0c07f9ba82d050e73cd3af5e7fc2e1b823fc31a6695053b394319b00f3ecec89",
+    "controller_binding_hash": "3714c499feb0042ab573991c03694b7c193379df4f0ade55e9374a099ce9d2f8",
+    "strong_fixed_condition": "fixed-k-1",
+    "parameter_noop_controls": []
+  },
+  "status": "sealed",
+  "protocol_hash": "6331cfbd6da8842fc88f55ede89c2b1bbd39900297066a422ab8e08763ba038f",
+  "model_binding_hash": "96a4ccde9e0b1bd97c6b2be5b60139a85dfc85837076f1c312e428bb09da8a1a",
+  "diagnostic_receipt_hash": "c141d5464cf0649a3603ffc2083458154323b5c745f2ec0c004199131ec2673b",
+  "settings_hash": "27d525e1e3b9bb94317d3bdfcd23ca169f08d7ca717d31cde69b54ce3407f37f",
+  "conditions": {
+    "fixed-k-1": {
+      "policy": "fixed-k",
+      "hard_guard": true,
+      "intensity": {
+        "schema_version": 1,
+        "fixed_k": 1,
+        "max_k": 3,
+        "thresholds": [
+          0.25,
+          0.5
+        ],
+        "hard_weight": 2.0,
+        "unknown_weight": 0.5
+      }
+    },
+    "fixed-k-2": {
+      "policy": "fixed-k",
+      "hard_guard": true,
+      "intensity": {
+        "schema_version": 1,
+        "fixed_k": 2,
+        "max_k": 3,
+        "thresholds": [
+          0.25,
+          0.5
+        ],
+        "hard_weight": 2.0,
+        "unknown_weight": 0.5
+      }
+    },
+    "fixed-k-3": {
+      "policy": "fixed-k",
+      "hard_guard": true,
+      "intensity": {
+        "schema_version": 1,
+        "fixed_k": 3,
+        "max_k": 3,
+        "thresholds": [
+          0.25,
+          0.5
+        ],
+        "hard_weight": 2.0,
+        "unknown_weight": 0.5
+      }
+    },
+    "dynamic-k": {
+      "policy": "dynamic-k",
+      "hard_guard": true,
+      "intensity": {
+        "schema_version": 1,
+        "fixed_k": 1,
+        "max_k": 3,
+        "thresholds": [
+          0.25,
+          0.5
+        ],
+        "hard_weight": 2.0,
+        "unknown_weight": 0.5
+      }
+    },
+    "dynamic-k-remove_hard_weight": {
+      "policy": "dynamic-k",
+      "hard_guard": true,
+      "intensity": {
+        "schema_version": 1,
+        "fixed_k": 1,
+        "max_k": 3,
+        "thresholds": [
+          0.25,
+          0.5
+        ],
+        "hard_weight": 1.0,
+        "unknown_weight": 0.5
+      }
+    },
+    "dynamic-k-remove_unknown_weight": {
+      "policy": "dynamic-k",
+      "hard_guard": true,
+      "intensity": {
+        "schema_version": 1,
+        "fixed_k": 1,
+        "max_k": 3,
+        "thresholds": [
+          0.25,
+          0.5
+        ],
+        "hard_weight": 2.0,
+        "unknown_weight": 0.0
+      }
+    }
+  },
+  "model_paths": {
+    "actor": "/tmp/tmppp3york6/base/model",
+    "analyzer": "/tmp/tmppp3york6/matrix/cosine-seed-0/model"
+  },
+  "task_hash": "76803720fdd3f2144b07ae25f82a04a366c947efdaabff1b794af4a7dc530821",
+  "ordered_task_ids": [
+    "exec-dev-stable-ordering",
+    "exec-dev-unicode-normalization"
+  ],
+  "offline_references_opened": false,
+  "injected_pool": false,
+  "claim": {
+    "phase": "ablation-interactions",
+    "protocol_hash": "6331cfbd6da8842fc88f55ede89c2b1bbd39900297066a422ab8e08763ba038f",
+    "out": "/tmp/tmppp3york6/ablation-interactions",
+    "pid": 98834,
+    "host": "autodl-container-bde2419a6c-1fd287c3",
+    "created_utc": "2026-10-22T16:26:18.378103+00:00"
+  },
+  "budget_unit": "shared actor/analyzer token ledger per condition/task; all starts cold",
+  "warning": "Sealed interactions are not offline task success or formal-data certification.",
+  "active_condition": "dynamic-k-remove_unknown_weight",
+  "active_task": "exec-dev-unicode-normalization",
+  "seconds_including_loading": 2.207598615437746,
+  "files_sha256": {
+    "interactions.jsonl": "97e592edc4cf083198f278e6ca6d1249710de8e597b48125bc3b4c00c8383066"
+  },
+  "seal_hash": "4e025864c761910f816173a8301e90d9cf438a6494aa31650b698c9fafdce660"
+}

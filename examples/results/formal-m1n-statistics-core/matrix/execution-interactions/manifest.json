@@ -1,0 +1,57 @@
+{
+  "kind": "frozen_execution_interactions",
+  "schema_version": 1,
+  "scope": "engineering",
+  "upstream": {},
+  "status": "sealed",
+  "protocol_hash": "6331cfbd6da8842fc88f55ede89c2b1bbd39900297066a422ab8e08763ba038f",
+  "model_binding_hash": "96a4ccde9e0b1bd97c6b2be5b60139a85dfc85837076f1c312e428bb09da8a1a",
+  "diagnostic_receipt_hash": "c141d5464cf0649a3603ffc2083458154323b5c745f2ec0c004199131ec2673b",
+  "settings_hash": "27d525e1e3b9bb94317d3bdfcd23ca169f08d7ca717d31cde69b54ce3407f37f",
+  "conditions": {
+    "P1": {
+      "policy": "fixed-full",
+      "hard_guard": false
+    },
+    "P2": {
+      "policy": "dynamic-k",
+      "hard_guard": false
+    },
+    "P3": {
+      "policy": "fixed-full",
+      "hard_guard": true
+    },
+    "P4": {
+      "policy": "dynamic-k",
+      "hard_guard": true
+    }
+  },
+  "model_paths": {
+    "actor": "/tmp/tmppp3york6/base/model",
+    "analyzer": "/tmp/tmppp3york6/matrix/cosine-seed-0/model"
+  },
+  "task_hash": "76803720fdd3f2144b07ae25f82a04a366c947efdaabff1b794af4a7dc530821",
+  "ordered_task_ids": [
+    "exec-dev-stable-ordering",
+    "exec-dev-unicode-normalization"
+  ],
+  "offline_references_opened": false,
+  "injected_pool": false,
+  "claim": {
+    "phase": "execution-interactions",
+    "protocol_hash": "6331cfbd6da8842fc88f55ede89c2b1bbd39900297066a422ab8e08763ba038f",
+    "out": "/tmp/tmppp3york6/execution-interactions",
+    "pid": 98834,
+    "host": "autodl-container-bde2419a6c-1fd287c3",
+    "created_utc": "2026-10-22T16:26:16.662039+00:00"
+  },
+  "budget_unit": "shared actor/analyzer token ledger per condition/task; all starts cold",
+  "warning": "Sealed interactions are not offline task success or formal-data certification.",
+  "active_condition": "P4",
+  "active_task": "exec-dev-unicode-normalization",
+  "seconds_including_loading": 1.472629975527525,
+  "files_sha256": {
+    "interactions.jsonl": "a1b0069a0953c0e71502ed769efdb49f337c424e95f04886bc625f16d0e62580"
+  },
+  "seal_hash": "44c1e55e2b51818a58eb500f1286645198a0f232a4fc9559ed331f9cacf08f88"
+}

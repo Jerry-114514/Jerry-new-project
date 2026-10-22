@@ -1,0 +1,1035 @@
+{
+  "kind": "source_task_research_statistics",
+  "schema_version": 1,
+  "scope": "engineering",
+  "protocol_hash": "6331cfbd6da8842fc88f55ede89c2b1bbd39900297066a422ab8e08763ba038f",
+  "analysis_plan": {
+    "schema_version": 1,
+    "primary_split": "test",
+    "ood_role": "secondary",
+    "seed_aggregation": "mean_of_three_paired_seed_effects",
+    "seed_uncertainty": "descriptive_sample_sd_only",
+    "bootstrap_unit": "source_task_id",
+    "bootstrap_interval": "percentile_floor_indices",
+    "loss_estimand": "target_token_weighted_ratio",
+    "hypothesis_test": "two_sided_cluster_sign_flip",
+    "null_assumption": "independent_source_clusters_with_paired_exchangeability",
+    "permutation_samples": 10000,
+    "max_exact_nonzero_clusters": 16,
+    "minimum_inference_clusters": 2,
+    "secondary_family": "rq2_rq3_rq4_both_splits_plus_rq1_ood_plus_all_m7_controls",
+    "undefined_p_values": "retain_family_size_and_return_null"
+  },
+  "legacy_engineering_plan_inferred": false,
+  "input_hashes": {
+    "diagnostic_scores": "caea417d9322807cf4d581999ac8ff564a77bc2ab719721bec705b76c21bc0a4",
+    "loss_records": "13408178d1651cb3fcab5e9e807ee7bc16d3b0adcb38a4ad64c405285973dfd3",
+    "execution_records": "527f3f1291ddc54c2c460c532ed7688526dab17b360c09776902d1dc727e2f40",
+    "ablation_records": "212f2f76a2eb64141dfabc055a2ebbc901f42b3db2610faf6f02747a9571d996"
+  },
+  "comparisons": {
+    "RQ1/test": {
+      "right_minus_left": 0.0,
+      "left": 1.0,
+      "right": 1.0,
+      "per_seed": [
+        {
+          "seed_index": 0,
+          "left": 1.0,
+          "right": 1.0,
+          "right_minus_left": 0.0
+        },
+        {
+          "seed_index": 1,
+          "left": 1.0,
+          "right": 1.0,
+          "right_minus_left": 0.0
+        },
+        {
+          "seed_index": 2,
+          "left": 1.0,
+          "right": 1.0,
+          "right_minus_left": 0.0
+        }
+      ],
+      "seed_effect_sample_sd": 0.0,
+      "fixed_training_seeds": 3,
+      "source_task_groups": 1,
+      "estimand": "mean_source_task_difference",
+      "percentile_95_interval": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 14977773560567508796,
+      "hypothesis_test": {
+        "method": "two_sided_cluster_sign_flip",
+        "task_groups": 1,
+        "nonzero_clusters": 0,
+        "p_value": null,
+        "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+        "mode": "insufficient_clusters",
+        "permutations": 0
+      },
+      "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures.",
+      "definition": {
+        "id": "RQ1/test",
+        "rq": "RQ1",
+        "split": "test",
+        "family": "primary"
+      },
+      "interpretation": "negative_favors_cosine",
+      "holm_adjusted_p_value": null,
+      "secondary_family_size": null
+    },
+    "RQ2/test": {
+      "right_minus_left": 0.0,
+      "left": 0.0,
+      "right": 0.0,
+      "per_seed": [
+        {
+          "seed_index": 0,
+          "left": 0.0,
+          "right": 0.0,
+          "right_minus_left": 0.0
+        }
+      ],
+      "seed_effect_sample_sd": null,
+      "fixed_training_seeds": 1,
+      "source_task_groups": 1,
+      "estimand": "mean_source_task_difference",
+      "percentile_95_interval": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 10435147737507173290,
+      "hypothesis_test": {
+        "method": "two_sided_cluster_sign_flip",
+        "task_groups": 1,
+        "nonzero_clusters": 0,
+        "p_value": null,
+        "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+        "mode": "insufficient_clusters",
+        "permutations": 0
+      },
+      "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures.",
+      "definition": {
+        "id": "RQ2/test",
+        "rq": "RQ2",
+        "split": "test",
+        "family": "secondary"
+      },
+      "interpretation": "negative_favors_guard",
+      "holm_adjusted_p_value": null,
+      "secondary_family_size": 17
+    },
+    "RQ3/test": {
+      "right_minus_left": 0.0,
+      "left": 0.0,
+      "right": 0.0,
+      "per_seed": [
+        {
+          "seed_index": 0,
+          "left": 0.0,
+          "right": 0.0,
+          "right_minus_left": 0.0
+        }
+      ],
+      "seed_effect_sample_sd": null,
+      "fixed_training_seeds": 1,
+      "source_task_groups": 1,
+      "estimand": "mean_source_task_difference",
+      "percentile_95_interval": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 2098407898537436291,
+      "hypothesis_test": {
+        "method": "two_sided_cluster_sign_flip",
+        "task_groups": 1,
+        "nonzero_clusters": 0,
+        "p_value": null,
+        "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+        "mode": "insufficient_clusters",
+        "permutations": 0
+      },
+      "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures.",
+      "definition": {
+        "id": "RQ3/test",
+        "rq": "RQ3",
+        "split": "test",
+        "family": "secondary"
+      },
+      "interpretation": "positive_favors_dynamic",
+      "holm_adjusted_p_value": null,
+      "secondary_family_size": 17
+    },
+    "RQ4/test": {
+      "right_minus_left": 0.0,
+      "left": 6.120941944611378,
+      "right": 6.120941944611378,
+      "per_seed": [
+        {
+          "seed_index": 0,
+          "left": 6.121456439678486,
+          "right": 6.121456439678486,
+          "right_minus_left": 0.0
+        },
+        {
+          "seed_index": 1,
+          "left": 6.121033301720252,
+          "right": 6.121033301720252,
+          "right_minus_left": 0.0
+        },
+        {
+          "seed_index": 2,
+          "left": 6.120336092435396,
+          "right": 6.120336092435396,
+          "right_minus_left": 0.0
+        }
+      ],
+      "seed_effect_sample_sd": 0.0,
+      "fixed_training_seeds": 3,
+      "source_task_groups": 1,
+      "estimand": "target_token_weighted_ratio_difference",
+      "percentile_95_interval": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 14377446789494292644,
+      "hypothesis_test": {
+        "method": "two_sided_cluster_sign_flip",
+        "task_groups": 1,
+        "nonzero_clusters": 0,
+        "p_value": null,
+        "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+        "mode": "insufficient_clusters",
+        "permutations": 0
+      },
+      "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures.",
+      "definition": {
+        "id": "RQ4/test",
+        "rq": "RQ4",
+        "split": "test",
+        "family": "secondary"
+      },
+      "interpretation": "negative_favors_plateau",
+      "holm_adjusted_p_value": null,
+      "secondary_family_size": 17
+    },
+    "M7/dynamic-vs-fixed-k-1/test": {
+      "right_minus_left": 0.0,
+      "left": 0.0,
+      "right": 0.0,
+      "per_seed": [
+        {
+          "seed_index": 0,
+          "left": 0.0,
+          "right": 0.0,
+          "right_minus_left": 0.0
+        }
+      ],
+      "seed_effect_sample_sd": null,
+      "fixed_training_seeds": 1,
+      "source_task_groups": 1,
+      "estimand": "mean_source_task_difference",
+      "percentile_95_interval": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 11567189318183775922,
+      "hypothesis_test": {
+        "method": "two_sided_cluster_sign_flip",
+        "task_groups": 1,
+        "nonzero_clusters": 0,
+        "p_value": null,
+        "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+        "mode": "insufficient_clusters",
+        "permutations": 0
+      },
+      "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures.",
+      "definition": {
+        "id": "M7/dynamic-vs-fixed-k-1/test",
+        "rq": "M7",
+        "split": "test",
+        "family": "secondary",
+        "left": "fixed-k-1",
+        "right": "dynamic-k"
+      },
+      "interpretation": "positive_favors_right_condition",
+      "holm_adjusted_p_value": null,
+      "secondary_family_size": 17
+    },
+    "M7/dynamic-vs-fixed-k-2/test": {
+      "right_minus_left": 0.0,
+      "left": 0.0,
+      "right": 0.0,
+      "per_seed": [
+        {
+          "seed_index": 0,
+          "left": 0.0,
+          "right": 0.0,
+          "right_minus_left": 0.0
+        }
+      ],
+      "seed_effect_sample_sd": null,
+      "fixed_training_seeds": 1,
+      "source_task_groups": 1,
+      "estimand": "mean_source_task_difference",
+      "percentile_95_interval": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 14600399310746905501,
+      "hypothesis_test": {
+        "method": "two_sided_cluster_sign_flip",
+        "task_groups": 1,
+        "nonzero_clusters": 0,
+        "p_value": null,
+        "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+        "mode": "insufficient_clusters",
+        "permutations": 0
+      },
+      "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures.",
+      "definition": {
+        "id": "M7/dynamic-vs-fixed-k-2/test",
+        "rq": "M7",
+        "split": "test",
+        "family": "secondary",
+        "left": "fixed-k-2",
+        "right": "dynamic-k"
+      },
+      "interpretation": "positive_favors_right_condition",
+      "holm_adjusted_p_value": null,
+      "secondary_family_size": 17
+    },
+    "M7/dynamic-vs-fixed-k-3/test": {
+      "right_minus_left": 0.0,
+      "left": 0.0,
+      "right": 0.0,
+      "per_seed": [
+        {
+          "seed_index": 0,
+          "left": 0.0,
+          "right": 0.0,
+          "right_minus_left": 0.0
+        }
+      ],
+      "seed_effect_sample_sd": null,
+      "fixed_training_seeds": 1,
+      "source_task_groups": 1,
+      "estimand": "mean_source_task_difference",
+      "percentile_95_interval": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 3962740396560162813,
+      "hypothesis_test": {
+        "method": "two_sided_cluster_sign_flip",
+        "task_groups": 1,
+        "nonzero_clusters": 0,
+        "p_value": null,
+        "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+        "mode": "insufficient_clusters",
+        "permutations": 0
+      },
+      "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures.",
+      "definition": {
+        "id": "M7/dynamic-vs-fixed-k-3/test",
+        "rq": "M7",
+        "split": "test",
+        "family": "secondary",
+        "left": "fixed-k-3",
+        "right": "dynamic-k"
+      },
+      "interpretation": "positive_favors_right_condition",
+      "holm_adjusted_p_value": null,
+      "secondary_family_size": 17
+    },
+    "M7/remove_hard_weight/test": {
+      "right_minus_left": 0.0,
+      "left": 0.0,
+      "right": 0.0,
+      "per_seed": [
+        {
+          "seed_index": 0,
+          "left": 0.0,
+          "right": 0.0,
+          "right_minus_left": 0.0
+        }
+      ],
+      "seed_effect_sample_sd": null,
+      "fixed_training_seeds": 1,
+      "source_task_groups": 1,
+      "estimand": "mean_source_task_difference",
+      "percentile_95_interval": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 11076191935863238101,
+      "hypothesis_test": {
+        "method": "two_sided_cluster_sign_flip",
+        "task_groups": 1,
+        "nonzero_clusters": 0,
+        "p_value": null,
+        "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+        "mode": "insufficient_clusters",
+        "permutations": 0
+      },
+      "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures.",
+      "definition": {
+        "id": "M7/remove_hard_weight/test",
+        "rq": "M7",
+        "split": "test",
+        "family": "secondary",
+        "left": "dynamic-k",
+        "right": "dynamic-k-remove_hard_weight"
+      },
+      "interpretation": "positive_favors_right_condition",
+      "holm_adjusted_p_value": null,
+      "secondary_family_size": 17
+    },
+    "M7/remove_unknown_weight/test": {
+      "right_minus_left": 0.0,
+      "left": 0.0,
+      "right": 0.0,
+      "per_seed": [
+        {
+          "seed_index": 0,
+          "left": 0.0,
+          "right": 0.0,
+          "right_minus_left": 0.0
+        }
+      ],
+      "seed_effect_sample_sd": null,
+      "fixed_training_seeds": 1,
+      "source_task_groups": 1,
+      "estimand": "mean_source_task_difference",
+      "percentile_95_interval": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 11961032914234933927,
+      "hypothesis_test": {
+        "method": "two_sided_cluster_sign_flip",
+        "task_groups": 1,
+        "nonzero_clusters": 0,
+        "p_value": null,
+        "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+        "mode": "insufficient_clusters",
+        "permutations": 0
+      },
+      "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures.",
+      "definition": {
+        "id": "M7/remove_unknown_weight/test",
+        "rq": "M7",
+        "split": "test",
+        "family": "secondary",
+        "left": "dynamic-k",
+        "right": "dynamic-k-remove_unknown_weight"
+      },
+      "interpretation": "positive_favors_right_condition",
+      "holm_adjusted_p_value": null,
+      "secondary_family_size": 17
+    },
+    "RQ1/ood": {
+      "right_minus_left": 0.0,
+      "left": 1.0,
+      "right": 1.0,
+      "per_seed": [
+        {
+          "seed_index": 0,
+          "left": 1.0,
+          "right": 1.0,
+          "right_minus_left": 0.0
+        },
+        {
+          "seed_index": 1,
+          "left": 1.0,
+          "right": 1.0,
+          "right_minus_left": 0.0
+        },
+        {
+          "seed_index": 2,
+          "left": 1.0,
+          "right": 1.0,
+          "right_minus_left": 0.0
+        }
+      ],
+      "seed_effect_sample_sd": 0.0,
+      "fixed_training_seeds": 3,
+      "source_task_groups": 1,
+      "estimand": "mean_source_task_difference",
+      "percentile_95_interval": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 10848836632689830262,
+      "hypothesis_test": {
+        "method": "two_sided_cluster_sign_flip",
+        "task_groups": 1,
+        "nonzero_clusters": 0,
+        "p_value": null,
+        "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+        "mode": "insufficient_clusters",
+        "permutations": 0
+      },
+      "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures.",
+      "definition": {
+        "id": "RQ1/ood",
+        "rq": "RQ1",
+        "split": "ood",
+        "family": "secondary"
+      },
+      "interpretation": "negative_favors_cosine",
+      "holm_adjusted_p_value": null,
+      "secondary_family_size": 17
+    },
+    "RQ2/ood": {
+      "right_minus_left": 0.0,
+      "left": 0.0,
+      "right": 0.0,
+      "per_seed": [
+        {
+          "seed_index": 0,
+          "left": 0.0,
+          "right": 0.0,
+          "right_minus_left": 0.0
+        }
+      ],
+      "seed_effect_sample_sd": null,
+      "fixed_training_seeds": 1,
+      "source_task_groups": 1,
+      "estimand": "mean_source_task_difference",
+      "percentile_95_interval": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 6246789057381690240,
+      "hypothesis_test": {
+        "method": "two_sided_cluster_sign_flip",
+        "task_groups": 1,
+        "nonzero_clusters": 0,
+        "p_value": null,
+        "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+        "mode": "insufficient_clusters",
+        "permutations": 0
+      },
+      "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures.",
+      "definition": {
+        "id": "RQ2/ood",
+        "rq": "RQ2",
+        "split": "ood",
+        "family": "secondary"
+      },
+      "interpretation": "negative_favors_guard",
+      "holm_adjusted_p_value": null,
+      "secondary_family_size": 17
+    },
+    "RQ3/ood": {
+      "right_minus_left": 0.0,
+      "left": 0.0,
+      "right": 0.0,
+      "per_seed": [
+        {
+          "seed_index": 0,
+          "left": 0.0,
+          "right": 0.0,
+          "right_minus_left": 0.0
+        }
+      ],
+      "seed_effect_sample_sd": null,
+      "fixed_training_seeds": 1,
+      "source_task_groups": 1,
+      "estimand": "mean_source_task_difference",
+      "percentile_95_interval": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 5696890898231258806,
+      "hypothesis_test": {
+        "method": "two_sided_cluster_sign_flip",
+        "task_groups": 1,
+        "nonzero_clusters": 0,
+        "p_value": null,
+        "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+        "mode": "insufficient_clusters",
+        "permutations": 0
+      },
+      "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures.",
+      "definition": {
+        "id": "RQ3/ood",
+        "rq": "RQ3",
+        "split": "ood",
+        "family": "secondary"
+      },
+      "interpretation": "positive_favors_dynamic",
+      "holm_adjusted_p_value": null,
+      "secondary_family_size": 17
+    },
+    "RQ4/ood": {
+      "right_minus_left": 0.0,
+      "left": 6.104139083471054,
+      "right": 6.104139083471054,
+      "per_seed": [
+        {
+          "seed_index": 0,
+          "left": 6.104652991661658,
+          "right": 6.104652991661658,
+          "right_minus_left": 0.0
+        },
+        {
+          "seed_index": 1,
+          "left": 6.104040292593149,
+          "right": 6.104040292593149,
+          "right_minus_left": 0.0
+        },
+        {
+          "seed_index": 2,
+          "left": 6.103723966158354,
+          "right": 6.103723966158354,
+          "right_minus_left": 0.0
+        }
+      ],
+      "seed_effect_sample_sd": 0.0,
+      "fixed_training_seeds": 3,
+      "source_task_groups": 1,
+      "estimand": "target_token_weighted_ratio_difference",
+      "percentile_95_interval": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 15296740913109304552,
+      "hypothesis_test": {
+        "method": "two_sided_cluster_sign_flip",
+        "task_groups": 1,
+        "nonzero_clusters": 0,
+        "p_value": null,
+        "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+        "mode": "insufficient_clusters",
+        "permutations": 0
+      },
+      "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures.",
+      "definition": {
+        "id": "RQ4/ood",
+        "rq": "RQ4",
+        "split": "ood",
+        "family": "secondary"
+      },
+      "interpretation": "negative_favors_plateau",
+      "holm_adjusted_p_value": null,
+      "secondary_family_size": 17
+    },
+    "M7/dynamic-vs-fixed-k-1/ood": {
+      "right_minus_left": 0.0,
+      "left": 0.0,
+      "right": 0.0,
+      "per_seed": [
+        {
+          "seed_index": 0,
+          "left": 0.0,
+          "right": 0.0,
+          "right_minus_left": 0.0
+        }
+      ],
+      "seed_effect_sample_sd": null,
+      "fixed_training_seeds": 1,
+      "source_task_groups": 1,
+      "estimand": "mean_source_task_difference",
+      "percentile_95_interval": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 1333035516073523317,
+      "hypothesis_test": {
+        "method": "two_sided_cluster_sign_flip",
+        "task_groups": 1,
+        "nonzero_clusters": 0,
+        "p_value": null,
+        "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+        "mode": "insufficient_clusters",
+        "permutations": 0
+      },
+      "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures.",
+      "definition": {
+        "id": "M7/dynamic-vs-fixed-k-1/ood",
+        "rq": "M7",
+        "split": "ood",
+        "family": "secondary",
+        "left": "fixed-k-1",
+        "right": "dynamic-k"
+      },
+      "interpretation": "positive_favors_right_condition",
+      "holm_adjusted_p_value": null,
+      "secondary_family_size": 17
+    },
+    "M7/dynamic-vs-fixed-k-2/ood": {
+      "right_minus_left": 0.0,
+      "left": 0.0,
+      "right": 0.0,
+      "per_seed": [
+        {
+          "seed_index": 0,
+          "left": 0.0,
+          "right": 0.0,
+          "right_minus_left": 0.0
+        }
+      ],
+      "seed_effect_sample_sd": null,
+      "fixed_training_seeds": 1,
+      "source_task_groups": 1,
+      "estimand": "mean_source_task_difference",
+      "percentile_95_interval": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 4594610556166738672,
+      "hypothesis_test": {
+        "method": "two_sided_cluster_sign_flip",
+        "task_groups": 1,
+        "nonzero_clusters": 0,
+        "p_value": null,
+        "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+        "mode": "insufficient_clusters",
+        "permutations": 0
+      },
+      "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures.",
+      "definition": {
+        "id": "M7/dynamic-vs-fixed-k-2/ood",
+        "rq": "M7",
+        "split": "ood",
+        "family": "secondary",
+        "left": "fixed-k-2",
+        "right": "dynamic-k"
+      },
+      "interpretation": "positive_favors_right_condition",
+      "holm_adjusted_p_value": null,
+      "secondary_family_size": 17
+    },
+    "M7/dynamic-vs-fixed-k-3/ood": {
+      "right_minus_left": 0.0,
+      "left": 0.0,
+      "right": 0.0,
+      "per_seed": [
+        {
+          "seed_index": 0,
+          "left": 0.0,
+          "right": 0.0,
+          "right_minus_left": 0.0
+        }
+      ],
+      "seed_effect_sample_sd": null,
+      "fixed_training_seeds": 1,
+      "source_task_groups": 1,
+      "estimand": "mean_source_task_difference",
+      "percentile_95_interval": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 7628078853734828465,
+      "hypothesis_test": {
+        "method": "two_sided_cluster_sign_flip",
+        "task_groups": 1,
+        "nonzero_clusters": 0,
+        "p_value": null,
+        "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+        "mode": "insufficient_clusters",
+        "permutations": 0
+      },
+      "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures.",
+      "definition": {
+        "id": "M7/dynamic-vs-fixed-k-3/ood",
+        "rq": "M7",
+        "split": "ood",
+        "family": "secondary",
+        "left": "fixed-k-3",
+        "right": "dynamic-k"
+      },
+      "interpretation": "positive_favors_right_condition",
+      "holm_adjusted_p_value": null,
+      "secondary_family_size": 17
+    },
+    "M7/remove_hard_weight/ood": {
+      "right_minus_left": 0.0,
+      "left": 0.0,
+      "right": 0.0,
+      "per_seed": [
+        {
+          "seed_index": 0,
+          "left": 0.0,
+          "right": 0.0,
+          "right_minus_left": 0.0
+        }
+      ],
+      "seed_effect_sample_sd": null,
+      "fixed_training_seeds": 1,
+      "source_task_groups": 1,
+      "estimand": "mean_source_task_difference",
+      "percentile_95_interval": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 1232285942156558189,
+      "hypothesis_test": {
+        "method": "two_sided_cluster_sign_flip",
+        "task_groups": 1,
+        "nonzero_clusters": 0,
+        "p_value": null,
+        "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+        "mode": "insufficient_clusters",
+        "permutations": 0
+      },
+      "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures.",
+      "definition": {
+        "id": "M7/remove_hard_weight/ood",
+        "rq": "M7",
+        "split": "ood",
+        "family": "secondary",
+        "left": "dynamic-k",
+        "right": "dynamic-k-remove_hard_weight"
+      },
+      "interpretation": "positive_favors_right_condition",
+      "holm_adjusted_p_value": null,
+      "secondary_family_size": 17
+    },
+    "M7/remove_unknown_weight/ood": {
+      "right_minus_left": 0.0,
+      "left": 0.0,
+      "right": 0.0,
+      "per_seed": [
+        {
+          "seed_index": 0,
+          "left": 0.0,
+          "right": 0.0,
+          "right_minus_left": 0.0
+        }
+      ],
+      "seed_effect_sample_sd": null,
+      "fixed_training_seeds": 1,
+      "source_task_groups": 1,
+      "estimand": "mean_source_task_difference",
+      "percentile_95_interval": null,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 5656852554944734941,
+      "hypothesis_test": {
+        "method": "two_sided_cluster_sign_flip",
+        "task_groups": 1,
+        "nonzero_clusters": 0,
+        "p_value": null,
+        "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+        "mode": "insufficient_clusters",
+        "permutations": 0
+      },
+      "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures.",
+      "definition": {
+        "id": "M7/remove_unknown_weight/ood",
+        "rq": "M7",
+        "split": "ood",
+        "family": "secondary",
+        "left": "dynamic-k",
+        "right": "dynamic-k-remove_unknown_weight"
+      },
+      "interpretation": "positive_favors_right_condition",
+      "holm_adjusted_p_value": null,
+      "secondary_family_size": 17
+    }
+  },
+  "secondary_family_size": 17,
+  "execution_descriptive": {
+    "P1": {
+      "test": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      },
+      "ood": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      }
+    },
+    "P2": {
+      "test": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      },
+      "ood": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      }
+    },
+    "P3": {
+      "test": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      },
+      "ood": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      }
+    },
+    "P4": {
+      "test": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      },
+      "ood": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      }
+    }
+  },
+  "ablation_descriptive": {
+    "dynamic-k": {
+      "test": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      },
+      "ood": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      }
+    },
+    "dynamic-k-remove_hard_weight": {
+      "test": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      },
+      "ood": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      }
+    },
+    "dynamic-k-remove_unknown_weight": {
+      "test": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      },
+      "ood": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      }
+    },
+    "fixed-k-1": {
+      "test": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      },
+      "ood": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      }
+    },
+    "fixed-k-2": {
+      "test": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      },
+      "ood": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      }
+    },
+    "fixed-k-3": {
+      "test": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      },
+      "ood": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "source_task_mean_compliant_success": 0,
+        "source_task_mean_new_violation": 0,
+        "errors": 1,
+        "repair_proposals": 0,
+        "initially_irreversible_runs": 0,
+        "candidate_audit_available": false
+      }
+    }
+  },
+  "m8_complete": false,
+  "remaining": [
+    "verified statistics entry/receipt",
+    "candidate false-block and common-feasibility analysis",
+    "formal data/experiments and scientific assumption review",
+    "durable model backup and final report"
+  ],
+  "warning": "Statistical arithmetic and source-cluster aggregation only; validity depends on actual independent sampling and paired exchangeability. Neither matching IDs nor Holm adjustment establishes those assumptions. No population training-seed CI or full M8 completion is claimed."
+}

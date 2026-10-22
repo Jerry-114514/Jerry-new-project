@@ -1,0 +1,74 @@
+{
+  "D-seed-0": {
+    "test": {
+      "loss_sum": 318.31573486328125,
+      "target_tokens": 52,
+      "loss": 6.121456439678486
+    },
+    "ood": {
+      "loss_sum": 317.44195556640625,
+      "target_tokens": 52,
+      "loss": 6.104652991661658
+    }
+  },
+  "D-seed-1": {
+    "test": {
+      "loss_sum": 318.2937316894531,
+      "target_tokens": 52,
+      "loss": 6.121033301720252
+    },
+    "ood": {
+      "loss_sum": 317.41009521484375,
+      "target_tokens": 52,
+      "loss": 6.104040292593149
+    }
+  },
+  "D-seed-2": {
+    "test": {
+      "loss_sum": 318.2574768066406,
+      "target_tokens": 52,
+      "loss": 6.120336092435396
+    },
+    "ood": {
+      "loss_sum": 317.3936462402344,
+      "target_tokens": 52,
+      "loss": 6.103723966158354
+    }
+  },
+  "E-seed-0": {
+    "test": {
+      "loss_sum": 318.31573486328125,
+      "target_tokens": 52,
+      "loss": 6.121456439678486
+    },
+    "ood": {
+      "loss_sum": 317.44195556640625,
+      "target_tokens": 52,
+      "loss": 6.104652991661658
+    }
+  },
+  "E-seed-1": {
+    "test": {
+      "loss_sum": 318.2937316894531,
+      "target_tokens": 52,
+      "loss": 6.121033301720252
+    },
+    "ood": {
+      "loss_sum": 317.41009521484375,
+      "target_tokens": 52,
+      "loss": 6.104040292593149
+    }
+  },
+  "E-seed-2": {
+    "test": {
+      "loss_sum": 318.2574768066406,
+      "target_tokens": 52,
+      "loss": 6.120336092435396
+    },
+    "ood": {
+      "loss_sum": 317.3936462402344,
+      "target_tokens": 52,
+      "loss": 6.103723966158354
+    }
+  }
+}
