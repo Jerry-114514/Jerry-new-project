@@ -1,0 +1,56 @@
+{
+  "kind": "frozen_execution_interactions",
+  "schema_version": 1,
+  "scope": "engineering",
+  "status": "sealed",
+  "protocol_hash": "396ccc2f4431921ec148aad1cc96745950d88820c3a2b00d71bf8b82d6ca27bc",
+  "model_binding_hash": "cd03538c0378da77ec336f94f60e61e5172070047fd2baf1929b9334888a3122",
+  "diagnostic_receipt_hash": "9284f367de0013c60cd11aeca015e5d222d8ba5ed579f042b2241dec473223a0",
+  "settings_hash": "27d525e1e3b9bb94317d3bdfcd23ca169f08d7ca717d31cde69b54ce3407f37f",
+  "conditions": {
+    "P1": {
+      "policy": "fixed-full",
+      "hard_guard": false
+    },
+    "P2": {
+      "policy": "dynamic-k",
+      "hard_guard": false
+    },
+    "P3": {
+      "policy": "fixed-full",
+      "hard_guard": true
+    },
+    "P4": {
+      "policy": "dynamic-k",
+      "hard_guard": true
+    }
+  },
+  "model_paths": {
+    "actor": "/tmp/tmpuj879m91/base/model",
+    "analyzer": "/tmp/tmpuj879m91/matrix/cosine-seed-0/model"
+  },
+  "task_hash": "76803720fdd3f2144b07ae25f82a04a366c947efdaabff1b794af4a7dc530821",
+  "ordered_task_ids": [
+    "exec-dev-stable-ordering",
+    "exec-dev-unicode-normalization"
+  ],
+  "offline_references_opened": false,
+  "injected_pool": false,
+  "claim": {
+    "phase": "execution-interactions",
+    "protocol_hash": "396ccc2f4431921ec148aad1cc96745950d88820c3a2b00d71bf8b82d6ca27bc",
+    "out": "/tmp/tmpuj879m91/execution-interactions",
+    "pid": 94335,
+    "host": "autodl-container-bde2419a6c-1fd287c3",
+    "created_utc": "2026-10-22T15:56:41.583776+00:00"
+  },
+  "budget_unit": "shared actor/analyzer token ledger per condition/task; all starts cold",
+  "warning": "Sealed interactions are not offline task success or formal-data certification.",
+  "active_condition": "P4",
+  "active_task": "exec-dev-unicode-normalization",
+  "seconds_including_loading": 1.18876339122653,
+  "files_sha256": {
+    "interactions.jsonl": "67b8656c2a15184bef59ef9863126b1bef8b285f03339eb5d079ce87199dc8e6"
+  },
+  "seal_hash": "a3fb80a1b739190e26cbe488456e8d080e70584a97d989aa366170973352b9ba"
+}

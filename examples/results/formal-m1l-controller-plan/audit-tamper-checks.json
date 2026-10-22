@@ -1,0 +1,18 @@
+{
+  "matrix/controller-development/selection.json": {
+    "rejected": true,
+    "reason": "Controller plan or development selection report changed"
+  },
+  "matrix/controller-plan.json": {
+    "rejected": true,
+    "reason": "Controller plan or development selection report changed"
+  },
+  "blank_plan": {
+    "rejected": true,
+    "reason": "Two distinct controller review declarations required; identity authenticity is external"
+  },
+  "engineering_report_as_formal": {
+    "rejected": true,
+    "reason": "Missing, changed or non-development fixed-k selection report"
+  }
+}

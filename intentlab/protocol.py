@@ -221,6 +221,7 @@ def check_spec(spec):
             read_jsonl(data["adjudications"]) if data["adjudications"] else [])
         if version == 2:
             validate_execution_binding(spec["execution"], cases, spec["evidence"]["execution_and_oracle_audit"])
+            controller_binding(spec, cases)
         by_id = {case["case_id"]: case for case in cases}
         if any(cid not in by_id or by_id[cid]["split"] not in {"train", "validation"} for cid in examples):
             raise ValueError("Few-shot selection includes missing or held-out cases")
@@ -265,6 +266,19 @@ def check_spec(spec):
         blockers.append(str(exc))
     return {"ready": not blockers, "blockers": blockers, "scope": spec["scope"],
             "warning": "Readiness binds supplied reviews/evidence; it does not authenticate people or assess scientific adequacy."}
+
+
+def controller_binding(spec, cases):
+    """Legacy text evidence is engineering-only; formal needs a replayable plan."""
+    from .controller_plan import bind_plan
+    path = spec["evidence"]["controller_ablation_audit"]
+    try:
+        read_json(path)
+    except (ValueError, TypeError):
+        if spec["scope"] == "formal":
+            raise ValueError("Formal controller evidence needs a structured development selection and ablation plan")
+        return None
+    return bind_plan(path, spec["execution"]["settings"], cases, formal=spec["scope"] == "formal", budgets=spec["budgets"])
 
 
 def freeze(spec, out):
@@ -322,6 +336,9 @@ def freeze(spec, out):
             raise ValueError("Execution inputs changed while freezing")
         bundle["execution_binding"] = {"files": {name: {"path": path, "sha256": before[name]} for name, path in paths.items()},
                                        "summary": summary}
+        controller = controller_binding(spec, read_jsonl(data["cases"]))
+        if controller is not None:
+            bundle["controller_binding"] = controller
     bundle["lock_hash"] = digest(bundle)
     out.parent.mkdir(parents=True, exist_ok=True)
     # Exclusive creation prevents a concurrent invocation replacing a freeze.
@@ -340,6 +357,8 @@ def verify(lock, phase="training"):
     spec = lock["spec"]
     if lock["scope"] == "formal" and spec.get("schema_version") != 2:
         raise ValueError("Formal execution binding missing; legacy protocols are engineering only")
+    if lock["scope"] == "formal" and "controller_binding" not in lock:
+        raise ValueError("Formal controller selection/ablation binding missing")
     if spec.get("schema_version") == 2:
         binding = lock.get("execution_binding")
         if not isinstance(binding, dict) or set(binding) != {"files", "summary"} \
@@ -386,6 +405,12 @@ def verify(lock, phase="training"):
                                                  spec["evidence"]["execution_and_oracle_audit"])
             if summary != lock["execution_binding"]["summary"]:
                 raise ValueError("Frozen execution binding differs from the reviewed inputs")
+            if "controller_binding" in lock:
+                for record in lock["controller_binding"]["files"].values():
+                    if file_hash(record["path"]) != record["sha256"]:
+                        raise ValueError("Controller development evidence changed after freeze")
+                if controller_binding(spec, read_jsonl(spec["dataset"]["cases"])) != lock["controller_binding"]:
+                    raise ValueError("Frozen controller selection/ablation plan differs")
     return {"verified": True, "phase": phase, "lock_hash": lock["lock_hash"],
             "heldout_gold_opened": phase == "all"}
 

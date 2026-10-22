@@ -1,0 +1,22 @@
+{
+  "scope": "engineering",
+  "fixed_k_controls": 3,
+  "validation_runs": 3,
+  "validation_errors_retained": 3,
+  "selected_k": 1,
+  "selection_and_raw_trace_audit_replayed": true,
+  "planned_execution_controls": [
+    "fixed-k-1",
+    "fixed-k-2",
+    "fixed-k-3",
+    "dynamic-k",
+    "dynamic-k-remove_hard_weight",
+    "dynamic-k-remove_unknown_weight"
+  ],
+  "m7_execution_controls_run": false,
+  "lr_risk_feedback_run": false,
+  "human_reviews_completed": 0,
+  "formal_9b_training": false,
+  "model_forward_recomputed": false,
+  "warning": "Real tiny CPU validation selection with two output tokens; no formal data, human review, M7 ablation outcome or durable model backup."
+}

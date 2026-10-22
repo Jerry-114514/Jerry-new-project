@@ -25,6 +25,8 @@ cp configs/formal-protocol.draft.json runs/formal-private/protocol.final.json
 
 审核证据文件分别覆盖功效分析、长度与计算预算、语义近重复检查、来源与发布、测试封存、模型身份、新任务执行与独立 oracle、控制器消融。工具绑定这些文件的内容，不替代对其科学合理性和真实性的审核；人的身份声明也不等于程序证明了其为真人。
 
+其中 `controller_ablation_audit` 须为[结构化控制计划](controller-plan-guide.md)，引用完整 validation 固定 k 开发选择报告，并经两名独立人员审核。空白模板和 engineering 结果不能用于正式冻结；训练阶段不会重新打开这类私有审核材料。
+
 ## 2. 检查准备状态
 
 ```bash

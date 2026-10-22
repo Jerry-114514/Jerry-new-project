@@ -1,0 +1,8 @@
+{
+  "scope": "engineering",
+  "schema_version": 2,
+  "human_reviews_completed": 0,
+  "formal_9b_training": false,
+  "execution_tasks_references_and_reviews_deleted_before_training": true,
+  "warning": "Tiny CPU model and synthetic unit identities, not formal data or human annotation."
+}

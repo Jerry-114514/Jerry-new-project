@@ -1,0 +1,41 @@
+{
+  "workers": 6,
+  "worker_attempts": 7,
+  "paired_seeds": 3
+}
+{
+  "scope": "engineering",
+  "diagnostic_conditions": 9,
+  "public_cases": 2,
+  "prediction_records": 18,
+  "loss_records": 12,
+  "scores_rule_predictions_loss_totals_and_bootstrap_replayed": true,
+  "model_forward_recomputed": false,
+  "human_reviews_completed": 0,
+  "formal_9b_training": false,
+  "warning": "Original tiny CPU forward losses were recorded live; weights are not archived. Summed loss replay is not recomputation of model logits, durable backup, formal data or efficacy evidence."
+}
+{
+  "scope": "engineering",
+  "conditions": 4,
+  "runs": 8,
+  "source_task_groups": 2,
+  "errors_retained": 8,
+  "compliant_successes": 0,
+  "trace_metrics_budget_intensity_and_summary_replayed": true,
+  "model_forward_recomputed": false,
+  "human_reviews_completed": 0,
+  "formal_9b_training": false,
+  "warning": "Real tiny CPU generations with two output tokens; engineering failure-path coverage, not model capability, guard efficacy, formal execution or persistent model backup."
+}
+Traceback (most recent call last):
+  File "D:\Profile\ChatGPT\new project 2\scripts\audit_controller_plan_evidence.py", line 55, in <module>
+    main()
+    ~~~~^^
+  File "D:\Profile\ChatGPT\new project 2\scripts\audit_controller_plan_evidence.py", line 46, in main
+    report = audit(args.root)
+  File "D:\Profile\ChatGPT\new project 2\scripts\audit_controller_plan_evidence.py", line 28, in audit
+    selection = validate_selection(report, lock["spec"]["execution"]["settings"], read_jsonl(matrix / "controller-cases.jsonl"))
+  File "D:\Profile\ChatGPT\new project 2\intentlab\controller_plan.py", line 79, in validate_selection
+    raise ValueError("Selection requires explicit local model asset SHA256 identities")
+ValueError: Selection requires explicit local model asset SHA256 identities

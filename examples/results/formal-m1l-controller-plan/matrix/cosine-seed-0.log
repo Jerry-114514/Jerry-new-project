@@ -1,0 +1,111 @@
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 16203.16it/s]
+{"step": 1, "validation_loss": 6.222339336688702, "lr": 0.001, "elapsed_seconds": 0.749071329832077}
+{
+  "kind": "causal_lm_sft",
+  "completed": false,
+  "config": {
+    "data": "/tmp/tmpuj879m91/fixture/reviewed-v2",
+    "model": "/tmp/tmpuj879m91/base/model",
+    "revision": null,
+    "mode": "full",
+    "device": "cpu",
+    "schedule": "cosine",
+    "steps": 2,
+    "eval_every": 1,
+    "batch_size": 1,
+    "accumulation": 2,
+    "max_length": 2048,
+    "lr": 0.001,
+    "minimum_lr": 5e-06,
+    "rank": 4,
+    "alpha": 8,
+    "seed": 0,
+    "limit": 0,
+    "threads": 1,
+    "defer_test": true
+  },
+  "data_hash": "0e71fcac3663ebb4423b97f51c4758bc6d9236dc66687562992f7fcdbc505fba",
+  "base_identity": "4f27c5b2437f9cc1c4e4508f8e69a1f7912b7135dae0878e2175dfbf8e864781",
+  "step": 1,
+  "train_tokens": 3594,
+  "supervised_tokens": 104,
+  "examples_seen": 2,
+  "sample_exposures": [
+    {
+      "index": 0,
+      "task_id": "dev-decimal-rounding",
+      "case_id": "unit-view-train",
+      "pair_hash": "3fb576ad0900fa2c1fc6cb48953ca7dfd6f8e5dfb706cdbddb9adf0bbb8360db",
+      "count": 2
+    }
+  ],
+  "parameters": 191808,
+  "trainable_parameters": 191808,
+  "seconds_this_invocation": 0.7570157665759325,
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.20.2"
+  }
+}
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 14429.35it/s]
+{"step": 2, "validation_loss": 6.114051231971154, "lr": 0.001, "elapsed_seconds": 0.781672764569521}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 493.51it/s]
+{
+  "kind": "causal_lm_sft",
+  "completed": true,
+  "config": {
+    "data": "/tmp/tmpuj879m91/fixture/reviewed-v2",
+    "model": "/tmp/tmpuj879m91/base/model",
+    "revision": null,
+    "mode": "full",
+    "device": "cpu",
+    "schedule": "cosine",
+    "steps": 2,
+    "eval_every": 1,
+    "batch_size": 1,
+    "accumulation": 2,
+    "max_length": 2048,
+    "lr": 0.001,
+    "minimum_lr": 5e-06,
+    "rank": 4,
+    "alpha": 8,
+    "seed": 0,
+    "limit": 0,
+    "threads": 1,
+    "defer_test": true
+  },
+  "data_hash": "0e71fcac3663ebb4423b97f51c4758bc6d9236dc66687562992f7fcdbc505fba",
+  "base_identity": "4f27c5b2437f9cc1c4e4508f8e69a1f7912b7135dae0878e2175dfbf8e864781",
+  "step": 2,
+  "train_tokens": 7188,
+  "supervised_tokens": 208,
+  "examples_seen": 4,
+  "sample_exposures": [
+    {
+      "index": 0,
+      "task_id": "dev-decimal-rounding",
+      "case_id": "unit-view-train",
+      "pair_hash": "3fb576ad0900fa2c1fc6cb48953ca7dfd6f8e5dfb706cdbddb9adf0bbb8360db",
+      "count": 4
+    }
+  ],
+  "parameters": 191808,
+  "trainable_parameters": 191808,
+  "seconds_this_invocation": 0.7891086637973785,
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.20.2"
+  },
+  "test_deferred": true,
+  "selection": {
+    "rule": "minimum_validation_loss_first_tie",
+    "step": 2,
+    "validation_loss": 6.114051231971154,
+    "validation_target_tokens": 52,
+    "trainable_tensor_sha256": "476e044df5d3bc23cddf91739b0bb05dc20df1b2af8aac10e369feba1cb663b1",
+    "trainable_tensor_count": 28,
+    "export_files_sha256": {
+      "model.safetensors": "7673a5da51d5dc348bba0efd1aa2577a669bc2c8827ab920bb24c55bfd3e49c1"
+    }
+  }
+}

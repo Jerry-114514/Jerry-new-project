@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "stage": "first_stage_execution_intensity",
+  "selection_report": {"path": "", "sha256": ""},
+  "risk_controls": ["remove_hard_weight", "remove_unknown_weight"],
+  "lr_risk_feedback": "deferred_exploratory_requires_new_unseen_test",
+  "reviewers": [
+    {"reviewer": "", "human_verified": false, "notes": ""},
+    {"reviewer": "", "human_verified": false, "notes": ""}
+  ]
+}

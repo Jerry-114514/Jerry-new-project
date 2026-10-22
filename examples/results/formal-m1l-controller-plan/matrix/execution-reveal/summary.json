@@ -1,0 +1,178 @@
+{
+  "P1": {
+    "raw_audit": {
+      "kind": "raw_execution_replay_audit",
+      "verified": true,
+      "runs": 2,
+      "intensity_decisions_recomputed": 0,
+      "source_task_groups": 2,
+      "policies": {
+        "fixed-full": {
+          "runs": 2,
+          "compliant_successes": 0,
+          "errors": 2,
+          "repair_introduced_violation_runs": 0,
+          "charged_tokens": 3614
+        }
+      },
+      "scope": "engineering",
+      "warning": "Recomputes program-defined references, not human truth or statistical independence."
+    },
+    "splits": {
+      "test": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "compliant_successes": 0,
+        "errors": 1,
+        "feasible_runs": 1,
+        "initially_irreversible_runs": 0,
+        "feasible_compliant_successes": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 1775
+      },
+      "ood": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "compliant_successes": 0,
+        "errors": 1,
+        "feasible_runs": 1,
+        "initially_irreversible_runs": 0,
+        "feasible_compliant_successes": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 1839
+      }
+    }
+  },
+  "P2": {
+    "raw_audit": {
+      "kind": "raw_execution_replay_audit",
+      "verified": true,
+      "runs": 2,
+      "intensity_decisions_recomputed": 0,
+      "source_task_groups": 2,
+      "policies": {
+        "dynamic-k": {
+          "runs": 2,
+          "compliant_successes": 0,
+          "errors": 2,
+          "repair_introduced_violation_runs": 0,
+          "charged_tokens": 3614
+        }
+      },
+      "scope": "engineering",
+      "warning": "Recomputes program-defined references, not human truth or statistical independence."
+    },
+    "splits": {
+      "test": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "compliant_successes": 0,
+        "errors": 1,
+        "feasible_runs": 1,
+        "initially_irreversible_runs": 0,
+        "feasible_compliant_successes": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 1775
+      },
+      "ood": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "compliant_successes": 0,
+        "errors": 1,
+        "feasible_runs": 1,
+        "initially_irreversible_runs": 0,
+        "feasible_compliant_successes": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 1839
+      }
+    }
+  },
+  "P3": {
+    "raw_audit": {
+      "kind": "raw_execution_replay_audit",
+      "verified": true,
+      "runs": 2,
+      "intensity_decisions_recomputed": 0,
+      "source_task_groups": 2,
+      "policies": {
+        "fixed-full": {
+          "runs": 2,
+          "compliant_successes": 0,
+          "errors": 2,
+          "repair_introduced_violation_runs": 0,
+          "charged_tokens": 3614
+        }
+      },
+      "scope": "engineering",
+      "warning": "Recomputes program-defined references, not human truth or statistical independence."
+    },
+    "splits": {
+      "test": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "compliant_successes": 0,
+        "errors": 1,
+        "feasible_runs": 1,
+        "initially_irreversible_runs": 0,
+        "feasible_compliant_successes": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 1775
+      },
+      "ood": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "compliant_successes": 0,
+        "errors": 1,
+        "feasible_runs": 1,
+        "initially_irreversible_runs": 0,
+        "feasible_compliant_successes": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 1839
+      }
+    }
+  },
+  "P4": {
+    "raw_audit": {
+      "kind": "raw_execution_replay_audit",
+      "verified": true,
+      "runs": 2,
+      "intensity_decisions_recomputed": 0,
+      "source_task_groups": 2,
+      "policies": {
+        "dynamic-k": {
+          "runs": 2,
+          "compliant_successes": 0,
+          "errors": 2,
+          "repair_introduced_violation_runs": 0,
+          "charged_tokens": 3614
+        }
+      },
+      "scope": "engineering",
+      "warning": "Recomputes program-defined references, not human truth or statistical independence."
+    },
+    "splits": {
+      "test": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "compliant_successes": 0,
+        "errors": 1,
+        "feasible_runs": 1,
+        "initially_irreversible_runs": 0,
+        "feasible_compliant_successes": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 1775
+      },
+      "ood": {
+        "runs": 1,
+        "source_task_groups": 1,
+        "compliant_successes": 0,
+        "errors": 1,
+        "feasible_runs": 1,
+        "initially_irreversible_runs": 0,
+        "feasible_compliant_successes": 0,
+        "repair_introduced_violation_runs": 0,
+        "charged_tokens": 1839
+      }
+    }
+  }
+}

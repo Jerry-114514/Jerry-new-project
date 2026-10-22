@@ -1,0 +1,110 @@
+{
+  "kind": "execution_model_lock",
+  "schema_version": 1,
+  "scope": "engineering",
+  "created_utc": "2026-10-22T15:56:38.879057+00:00",
+  "training_protocol_hash": "396ccc2f4431921ec148aad1cc96745950d88820c3a2b00d71bf8b82d6ca27bc",
+  "matrix": {
+    "root": "/tmp/tmpuj879m91/matrix",
+    "sha256": "ea9caaa59d2b34c8f4ae235c322661fca52876cd9a1fa415cf2d6d769f8f970d"
+  },
+  "selected_job": "cosine-seed-0",
+  "selected_result_sha256": "eae90cecc7d1f1e0fa10d2eb06eaa45a4beee8e1559d9e59ed9dcfe928a1069f",
+  "selected_checkpoint_sha256": "afa7aa0bf17036721f3cd0faeb5a3e95f7ea50f404a56a1f4ea585ac354771a5",
+  "settings_hash": "27d525e1e3b9bb94317d3bdfcd23ca169f08d7ca717d31cde69b54ce3407f37f",
+  "selections": {
+    "cosine-seed-0": {
+      "rule": "minimum_validation_loss_first_tie",
+      "step": 2,
+      "validation_loss": 6.114051231971154,
+      "validation_target_tokens": 52,
+      "trainable_tensor_sha256": "476e044df5d3bc23cddf91739b0bb05dc20df1b2af8aac10e369feba1cb663b1",
+      "trainable_tensor_count": 28,
+      "export_files_sha256": {
+        "model.safetensors": "7673a5da51d5dc348bba0efd1aa2577a669bc2c8827ab920bb24c55bfd3e49c1"
+      }
+    },
+    "plateau-seed-0": {
+      "rule": "minimum_validation_loss_first_tie",
+      "step": 2,
+      "validation_loss": 6.114051231971154,
+      "validation_target_tokens": 52,
+      "trainable_tensor_sha256": "476e044df5d3bc23cddf91739b0bb05dc20df1b2af8aac10e369feba1cb663b1",
+      "trainable_tensor_count": 28,
+      "export_files_sha256": {
+        "model.safetensors": "7673a5da51d5dc348bba0efd1aa2577a669bc2c8827ab920bb24c55bfd3e49c1"
+      }
+    },
+    "cosine-seed-1": {
+      "rule": "minimum_validation_loss_first_tie",
+      "step": 2,
+      "validation_loss": 6.112550588754507,
+      "validation_target_tokens": 52,
+      "trainable_tensor_sha256": "cb973eced47691f311a07eeaafa053d783ff2eee91eef5c5cfa2979ea2c57e84",
+      "trainable_tensor_count": 28,
+      "export_files_sha256": {
+        "model.safetensors": "1a1742345b7a38a599661b27afd04db79194495e896d2a720cc72aff9bc70036"
+      }
+    },
+    "plateau-seed-1": {
+      "rule": "minimum_validation_loss_first_tie",
+      "step": 2,
+      "validation_loss": 6.112550588754507,
+      "validation_target_tokens": 52,
+      "trainable_tensor_sha256": "cb973eced47691f311a07eeaafa053d783ff2eee91eef5c5cfa2979ea2c57e84",
+      "trainable_tensor_count": 28,
+      "export_files_sha256": {
+        "model.safetensors": "1a1742345b7a38a599661b27afd04db79194495e896d2a720cc72aff9bc70036"
+      }
+    },
+    "cosine-seed-2": {
+      "rule": "minimum_validation_loss_first_tie",
+      "step": 2,
+      "validation_loss": 6.112021813025842,
+      "validation_target_tokens": 52,
+      "trainable_tensor_sha256": "9f7c086f62046fc0c6cda690a8941234fbcad43f4d36501925e2476a377580e8",
+      "trainable_tensor_count": 28,
+      "export_files_sha256": {
+        "model.safetensors": "cd60a748a66bd12f13aefc49484315d35838914d8f6930ea7d3987f0c1389484"
+      }
+    },
+    "plateau-seed-2": {
+      "rule": "minimum_validation_loss_first_tie",
+      "step": 2,
+      "validation_loss": 6.112021813025842,
+      "validation_target_tokens": 52,
+      "trainable_tensor_sha256": "9f7c086f62046fc0c6cda690a8941234fbcad43f4d36501925e2476a377580e8",
+      "trainable_tensor_count": 28,
+      "export_files_sha256": {
+        "model.safetensors": "cd60a748a66bd12f13aefc49484315d35838914d8f6930ea7d3987f0c1389484"
+      }
+    }
+  },
+  "models": {
+    "actor": {
+      "path": "/tmp/tmpuj879m91/base/model",
+      "files_sha256": {
+        "config.json": "43cfe49a5952c1a55ced051284a1238c2dbf8608b14b2df5e87a9f9c90f5566f",
+        "generation_config.json": "03c33f6bf812d2c5d5571360c587cc2f6544869513b44bf9d104605889935cdb",
+        "model.safetensors": "ebc2503c8d23242cfe23d05ec8159b9012b71da4fd2e10ec6335a3727e471fdc",
+        "selection.json": "44f8555833264e2ca719f1d5e43a19f487c96639c45b933928081c4e1062becb",
+        "tokenizer.json": "130bd9152ed3e5a84dcea7bd9e439a39bc2ddf80fa1d09a8ab334bca2f41b271",
+        "tokenizer_config.json": "0faecb102b2782924ac9312986d64ef59bb57d3ee9b4a8c3bbf03f2e56b438b4"
+      }
+    },
+    "analyzer": {
+      "path": "/tmp/tmpuj879m91/matrix/cosine-seed-0/model",
+      "files_sha256": {
+        "config.json": "43cfe49a5952c1a55ced051284a1238c2dbf8608b14b2df5e87a9f9c90f5566f",
+        "generation_config.json": "03c33f6bf812d2c5d5571360c587cc2f6544869513b44bf9d104605889935cdb",
+        "model.safetensors": "7673a5da51d5dc348bba0efd1aa2577a669bc2c8827ab920bb24c55bfd3e49c1",
+        "selection.json": "39e5b3b88b3fe4784af50cf269c524405ae8fc06a727834aa293ed7baa5ed8cd",
+        "tokenizer.json": "130bd9152ed3e5a84dcea7bd9e439a39bc2ddf80fa1d09a8ab334bca2f41b271",
+        "tokenizer_config.json": "4771a3eafb4f5e40dbb1b9068cc3a5c823029eae4fcae3fe8ef1ca92da7836c7"
+      }
+    }
+  },
+  "hidden_inputs_opened": false,
+  "warning": "Weight/provenance binding, not test evaluation or a scientific efficacy result.",
+  "binding_hash": "cd03538c0378da77ec336f94f60e61e5172070047fd2baf1929b9334888a3122"
+}

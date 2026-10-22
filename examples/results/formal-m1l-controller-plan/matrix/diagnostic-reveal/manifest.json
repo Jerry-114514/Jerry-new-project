@@ -1,0 +1,34 @@
+{
+  "kind": "frozen_diagnostic_reveal",
+  "schema_version": 1,
+  "scope": "engineering",
+  "protocol_hash": "396ccc2f4431921ec148aad1cc96745950d88820c3a2b00d71bf8b82d6ca27bc",
+  "model_binding_hash": "cd03538c0378da77ec336f94f60e61e5172070047fd2baf1929b9334888a3122",
+  "prediction_seal_hash": "b47f0988cae7f97bcf5ea5538c1569a6882151d2d9dd2dca0f5577eb02715c63",
+  "claim": {
+    "phase": "reveal",
+    "protocol_hash": "396ccc2f4431921ec148aad1cc96745950d88820c3a2b00d71bf8b82d6ca27bc",
+    "out": "/tmp/tmpuj879m91/diagnostic-reveal",
+    "pid": 94335,
+    "host": "autodl-container-bde2419a6c-1fd287c3",
+    "created_utc": "2026-10-22T15:56:40.390545+00:00"
+  },
+  "status": "completed",
+  "test_loss_injected": false,
+  "gold_opened_after_claim": true,
+  "active_loss_condition": "E-seed-2",
+  "files_sha256": {
+    "D-seed-0-loss.jsonl": "e0786975b3923804f6c66dfd0dcbde9e1360428fd09160dc1eaf4e9eeea3083e",
+    "D-seed-1-loss.jsonl": "d5b139a84b22e21091674e6ad1f0440f0eab692bb77f2959ac51854361397fbc",
+    "D-seed-2-loss.jsonl": "18fa583867781a6ffa8a3d7deddcbc8bc90e90f35880062022f80520efc21783",
+    "E-seed-0-loss.jsonl": "e0786975b3923804f6c66dfd0dcbde9e1360428fd09160dc1eaf4e9eeea3083e",
+    "E-seed-1-loss.jsonl": "d5b139a84b22e21091674e6ad1f0440f0eab692bb77f2959ac51854361397fbc",
+    "E-seed-2-loss.jsonl": "18fa583867781a6ffa8a3d7deddcbc8bc90e90f35880062022f80520efc21783",
+    "losses.json": "94920aef2621274c40bbe9b7efb892b841875dcd315e612e1bbbdac8874eeb82",
+    "rq1-per-seed.json": "f09984f9938486fd0c2f312b58dd92883d023e6e0846594505ab4db1b8ac84cd",
+    "scores.json": "42c1e244550ef094228e60f4e5dfbbdce6a0464eaccb838f519f4b50de5c7591"
+  },
+  "loss_precision": "BF16 model + FP32 summed CE on CUDA; FP32 CPU; identical for all six exports",
+  "warning": "Seedwise task-conditional RQ1 intervals only. M8 seed aggregation, RQ4 cluster inference and Holm reporting remain required.",
+  "receipt_hash": "9284f367de0013c60cd11aeca015e5d222d8ba5ed579f042b2241dec473223a0"
+}

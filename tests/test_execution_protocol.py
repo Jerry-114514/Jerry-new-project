@@ -198,7 +198,14 @@ class ExecutionMatrixIntegrationTests(unittest.TestCase):
             train_neural(dict(configuration(root / "base-data"), steps=2, eval_every=1, defer_test=True), root / "base")
             spec = fixture(root / "fixture", root / "base/model", Path(__file__).resolve().parents[1])
             spec["budgets"]["max_new_tokens"] = 2  # Tiny engineering generations, not a quality experiment.
+            from test_controller_plan import prepare_controller_plan
+            controller_report = prepare_controller_plan(spec, root)
+            controller_report_bytes = (root / "controller-development/selection.json").read_bytes()
+            controller_plan_bytes = Path(spec["evidence"]["controller_ablation_audit"]).read_bytes()
             lock = freeze(spec, root / "lock.json")
+            self.assertEqual(lock["controller_binding"]["selection"], controller_report["selection"])
+            for record in lock["controller_binding"]["files"].values():
+                Path(record["path"]).unlink()
             public_tasks_backup = Path(spec["execution"]["tasks"]).read_bytes()
             execution_references_backup = Path(spec["execution"]["references"]).read_bytes()
             for path in (spec["execution"]["tasks"], spec["execution"]["references"],
@@ -282,6 +289,10 @@ class ExecutionMatrixIntegrationTests(unittest.TestCase):
                 target.mkdir(parents=True, exist_ok=False)
                 shutil.copyfile(root / "lock.json", target / "protocol.engineering.lock.json")
                 shutil.copyfile(root / "execution-model-lock.json", target / "execution-model-lock.json")
+                shutil.copytree(root / "controller-development", target / "controller-development")
+                (target / "controller-development/selection.json").write_bytes(controller_report_bytes)
+                (target / "controller-plan.json").write_bytes(controller_plan_bytes)
+                shutil.copyfile(spec["dataset"]["cases"], target / "controller-cases.jsonl")
                 for directory in ("diagnostic-predictions", "diagnostic-reveal", "execution-interactions", "execution-reveal"):
                     shutil.copytree(root / directory, target / directory)
                 # Publish synthetic engineering inputs for independent offline

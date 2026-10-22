@@ -1,0 +1,23 @@
+{
+  "kind": "formal_diagnostic_inference",
+  "cases_hash": "c948828811c08eaabc4c9ec1fc14f91bac8c934e47480c0cb937a4f4b2f7e43d",
+  "examples_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "example_count": 0,
+  "model_identity": {
+    "frozen_condition": "D-seed-2",
+    "binding_hash": "cd03538c0378da77ec336f94f60e61e5172070047fd2baf1929b9334888a3122"
+  },
+  "condition": "schema_zero_shot",
+  "status": "completed",
+  "budget_unit": "diagnostic evidence view; reset per case",
+  "gold_loaded": false,
+  "effective_context_limit": 2048,
+  "case_count": 2,
+  "errors": 0,
+  "warning": "Inference completion is not a diagnostic accuracy result or preregistration.",
+  "seconds": 0.04326271824538708,
+  "file_sha256": {
+    "predictions.jsonl": "e73d967f1b9f2eee43e0d7d6529c607144daff303be4aae445ce3eb3b73ee3b1",
+    "calls.jsonl": "0c71551499c4915a151b9d9b5b7a541500133503d586af792ad0f2386b64985e"
+  }
+}
