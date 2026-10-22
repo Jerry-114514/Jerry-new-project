@@ -52,6 +52,22 @@ class HardGuardTests(unittest.TestCase):
         candidate.apply([{'op': 'write', 'path': task['output_path'], 'value': []}])
         self.assertEqual(repair_hard_guard(task, before, candidate), (False, 'hard_guard_validation_order'))
 
+    def test_ablation_exposes_false_pass_regression_without_changing_model_gate(self):
+        task = build_tasks()[1]
+        def false_input_pass(public, state, visible):
+            findings = analyze(public, state, visible)
+            for finding in findings:
+                if finding['id'] == 'R_INPUT':
+                    finding['status'] = 'satisfied'
+            return findings
+        guarded = run_task(task, ScriptedActor(), analyzer=false_input_pass)
+        unguarded = run_task(task, ScriptedActor(), analyzer=false_input_pass, hard_guard=False)
+        self.assertTrue(guarded['metrics']['compliant_success'])
+        self.assertFalse(unguarded['metrics']['compliant_success'])
+        self.assertFalse(unguarded['hard_guard_enabled'])
+        self.assertEqual(unguarded['cost']['hard_rejections'], 0)
+        self.assertTrue(any(e.get('path') in task['inputs'] for e in unguarded['final_state']['events']))
+
 
 if __name__ == '__main__':
     unittest.main()

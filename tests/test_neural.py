@@ -23,6 +23,20 @@ def configuration(data, schedule="cosine", mode="full"):
 
 @unittest.skipUnless(AVAILABLE, "Install optional ML dependencies to run real-transformer tests")
 class NeuralIntegrationTests(unittest.TestCase):
+    def test_deferred_test_training_never_opens_holdout(self):
+        from intentlab.neural import train_neural
+        with tempfile.TemporaryDirectory() as name:
+            root = Path(name)
+            export_sft(build_tasks(), root / "data")
+            # Even malformed/inaccessible test material must not be read.
+            (root / "data/test.jsonl").write_text("THIS IS NOT JSON")
+            config = dict(configuration(root / "data"), defer_test=True)
+            result = train_neural(config, root / "model")
+            self.assertTrue(result["completed"])
+            self.assertTrue(result["test_deferred"])
+            self.assertNotIn("test", result)
+            self.assertTrue((root / "model/model/config.json").exists())
+
     def test_controlled_plateau_reduces_actual_optimizer_lr(self):
         """Injected validation fixture tests control wiring, not empirical loss behavior."""
         import torch

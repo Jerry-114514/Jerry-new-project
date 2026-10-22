@@ -11,7 +11,8 @@ from .learning import predict
 from .hard_guard import repair_hard_guard
 
 
-def run_task(task, actor, policy="dynamic", max_repairs=3, redact_events=False, analyzer=None, risk_weights=None):
+def run_task(task, actor, policy="dynamic", max_repairs=3, redact_events=False, analyzer=None, risk_weights=None,
+             hard_guard=True):
     if policy not in {"none", "fixed", "fixed-full", "dynamic"}:
         raise ValueError("Unknown policy")
     started = time.perf_counter()
@@ -61,14 +62,15 @@ def run_task(task, actor, policy="dynamic", max_repairs=3, redact_events=False, 
                 counters["proposed_actions"] += len(proposal["actions"])
                 candidate = state.clone()
                 candidate.apply(proposal["actions"])
-                hard_allowed, hard_reason = repair_hard_guard(visible, state, candidate)
+                hard_allowed, hard_reason = (repair_hard_guard(visible, state, candidate)
+                                             if hard_guard else (True, "independent_guard_disabled"))
                 new = inspect(visible, candidate, events_visible)
                 counters["checks"] += 1
                 accepted, reason = gate(findings, new) if hard_allowed else (False, hard_reason)
                 counters['hard_rejections'] += not hard_allowed
                 history.append({"phase": "repair", "target": target, "actions": proposal["actions"],
                                 "findings": new, "accepted": accepted, "reason": reason,
-                                'hard_guard_passed': hard_allowed})
+                                'hard_guard_passed': hard_allowed if hard_guard else None})
                 if accepted:
                     state, findings = candidate, new
                 else:
@@ -78,6 +80,7 @@ def run_task(task, actor, policy="dynamic", max_repairs=3, redact_events=False, 
         history.append({"phase": "error", "message": str(exc)})
     final = evaluate(task, state)
     return {"task_id": task["id"], "family": task["family"], "split": task["split"], "policy": policy,
+            "hard_guard_enabled": hard_guard,
             "parsed_requirements": requirements,
             "actor": type(actor).__name__, "status": status, "metrics": final, "cost": counters,
             "elapsed_seconds": time.perf_counter() - started,

@@ -126,9 +126,10 @@ class LanguageModelAnalyzer:
                 if not isinstance(evidence, list) or any(type(i) is not int or i not in indices for i in evidence):
                     raise ValueError("Invented or hidden evidence reference")
                 by_id[rid] = dict(item)
-            if not events_visible:
-                for rid in ("R_INPUT", "R_ORDER"):
-                    by_id[rid]["status"] = "unknown"
+            # Preserve model judgments for evaluation. Hidden history cannot be
+            # cited, but a visible snapshot may independently prove a violation.
+            # Unconditional abstention here concealed both correct and unsafe
+            # predictions; constraint enforcement belongs in the independent guard.
         except (ValueError, TypeError, KeyError) as exc:
             self.errors.append(str(exc))
             by_id = {rid: {"id": rid, "status": "unknown", "evidence": []} for rid in REQUIREMENTS}

@@ -1,0 +1,8 @@
+{"case_id":"dev-decimal-rounding-view-1","findings":[{"evidence":[],"id":"R_INPUT","status":""},{"evidence":[],"id":"R_RESULT","status":""}],"human_verified":false,"reviewer":""}
+{"case_id":"dev-timezone-boundary-view-1","findings":[{"evidence":[],"id":"R_INPUT","status":""},{"evidence":[],"id":"R_RESULT","status":""}],"human_verified":false,"reviewer":""}
+{"case_id":"dev-unicode-normalization-view-1","findings":[{"evidence":[],"id":"R_INPUT","status":""},{"evidence":[],"id":"R_RESULT","status":""}],"human_verified":false,"reviewer":""}
+{"case_id":"dev-stable-ordering-view-1","findings":[{"evidence":[],"id":"R_INPUT","status":""},{"evidence":[],"id":"R_RESULT","status":""}],"human_verified":false,"reviewer":""}
+{"case_id":"dev-missing-vs-null-view-1","findings":[{"evidence":[],"id":"R_INPUT","status":""},{"evidence":[],"id":"R_RESULT","status":""}],"human_verified":false,"reviewer":""}
+{"case_id":"dev-interval-endpoint-view-1","findings":[{"evidence":[],"id":"R_INPUT","status":""},{"evidence":[],"id":"R_RESULT","status":""}],"human_verified":false,"reviewer":""}
+{"case_id":"dev-literal-identifiers-view-1","findings":[{"evidence":[],"id":"R_INPUT","status":""},{"evidence":[],"id":"R_RESULT","status":""}],"human_verified":false,"reviewer":""}
+{"case_id":"dev-history-restoration-view-1","findings":[{"evidence":[],"id":"R_INPUT","status":""},{"evidence":[],"id":"R_RESULT","status":""}],"human_verified":false,"reviewer":""}

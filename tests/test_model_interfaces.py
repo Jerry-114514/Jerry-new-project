@@ -59,11 +59,11 @@ class ModelInterfaceTests(unittest.TestCase):
         self.assertTrue(all(f["status"] == "unknown" for f in findings))
         self.assertEqual(len(analyzer.errors), 1)
 
-    def test_analyzer_forces_unknown_when_history_is_hidden(self):
+    def test_analyzer_preserves_snapshot_judgment_when_history_is_hidden(self):
         task = public_task(build_tasks()[0])
-        backend = FakeBackend({"findings": [{"id": rid, "status": "satisfied", "evidence": []} for rid in REQUIREMENTS]})
+        backend = FakeBackend({"findings": [{"id": rid, "status": "violated", "evidence": []} for rid in REQUIREMENTS]})
         findings = LanguageModelAnalyzer(backend)(task, initial_state(task), False)
-        self.assertEqual([f["status"] for f in findings[:2]], ["unknown", "unknown"])
+        self.assertEqual([f["status"] for f in findings[:2]], ["violated", "violated"])
 
     def test_source_spans_and_unsupported_grammar(self):
         for task in build_tasks():

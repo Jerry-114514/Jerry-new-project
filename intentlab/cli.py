@@ -28,6 +28,8 @@ def main(argv=None):
     run.add_argument("--repeats", type=int, default=2)
     run.add_argument("--max-repairs", type=int, default=3)
     run.add_argument("--redact-events", action="store_true")
+    run.add_argument("--disable-hard-guard", action="store_true",
+                     help="Independent guard ablation in the virtual environment; model gate remains active")
     run.add_argument("--actor-url", default=None)
     run.add_argument("--model-path", type=Path, help="Local saved model for real language-model inference")
     run.add_argument("--model-role", choices=["actor", "analyzer", "both"], default="analyzer")
@@ -95,7 +97,8 @@ def main(argv=None):
                             actor = LanguageModelActor(backend)
                         if args.model_role in {"analyzer", "both"}:
                             analyzer = LanguageModelAnalyzer(backend)
-                    result = run_task(task, actor, policy, args.max_repairs, args.redact_events, analyzer, risk_weights)
+                    result = run_task(task, actor, policy, args.max_repairs, args.redact_events, analyzer, risk_weights,
+                                      hard_guard=not args.disable_hard_guard)
                     if backend:
                         result["model_usage"] = dict(backend.usage)
                         result["model_generations"] = list(backend.generations)
@@ -105,6 +108,7 @@ def main(argv=None):
         manifest = {"version": __version__, "python": platform.python_version(), "actor": "local_model" if backend else "http" if args.actor_url else "scripted",
                     "task_hash": digest(all_tasks), "policies": args.policies, "repeats": args.repeats,
                     "max_repairs": args.max_repairs, "redact_events": args.redact_events, "split": args.split,
+                    "hard_guard_enabled": not args.disable_hard_guard,
                     "model_role": args.model_role if backend else None, "token_budget": args.token_budget if backend else None,
                     "risk_model_hash": digest(risk_weights) if risk_weights else None,
                     "warning": ("Greedy model repeats are not independent statistical samples." if backend else

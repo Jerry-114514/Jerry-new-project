@@ -151,7 +151,8 @@ def train_neural(config, out, stop_after=None, resume=None):
     random.seed(config["seed"])
     torch.manual_seed(config["seed"])
     torch.set_num_threads(config.get("threads", 2))
-    splits = {split: read_pairs(Path(config["data"]) / f"{split}.jsonl") for split in ("train", "validation", "test")}
+    split_names = ("train", "validation") if config.get("defer_test", False) else ("train", "validation", "test")
+    splits = {split: read_pairs(Path(config["data"]) / f"{split}.jsonl") for split in split_names}
     validate_splits(splits)
     fingerprint = digest(splits)
     if config.get("limit"):
@@ -287,7 +288,10 @@ def train_neural(config, out, stop_after=None, resume=None):
         if best_weights is None:
             raise ValueError("No evaluated checkpoint")
         restore_trainable(model, best_weights)
-        result["test"] = evaluate_loss(model, encoded["test"], tokenizer, device, config["batch_size"])
+        if config.get("defer_test", False):
+            result["test_deferred"] = True
+        else:
+            result["test"] = evaluate_loss(model, encoded["test"], tokenizer, device, config["batch_size"])
         model.save_pretrained(out / "model", safe_serialization=True)
         tokenizer.save_pretrained(out / "model")
         if config["mode"] in {"lora", "qlora"}:
@@ -329,6 +333,8 @@ def main(argv=None):
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--limit", type=int, default=8, help="0 uses all examples; default is smoke-only")
     parser.add_argument("--threads", type=int, default=2)
+    parser.add_argument("--defer-test", action="store_true",
+                        help="Do not open or evaluate test data; required during formal development/training")
     parser.add_argument("--stop-after", type=int)
     parser.add_argument("--resume", type=Path)
     raw_args = sys.argv[1:] if argv is None else argv
