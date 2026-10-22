@@ -1,0 +1,21 @@
+test_full_and_lora_exports_contain_best_not_last_tensors_and_tampering_is_refused (test_checkpoint_selection.SelectedTensorIntegrationTests.test_full_and_lora_exports_contain_best_not_last_tensors_and_tampering_is_refused) ... 
+
+
+{"step": 1, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.1760327648371458}
+{"step": 2, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.31913336366415024}
+{"step": 3, "validation_loss": 1.0, "lr": 5e-06, "elapsed_seconds": 0.4457261264324188}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 393.68it/s]
+
+
+
+{"step": 1, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.15878855250775814}
+{"step": 2, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.29409001022577286}
+{"step": 3, "validation_loss": 1.0, "lr": 5e-06, "elapsed_seconds": 0.4158603921532631}
+ok
+test_invalid_or_incomparable_validation_history_is_refused (test_checkpoint_selection.SelectionTests.test_invalid_or_incomparable_validation_history_is_refused) ... ok
+test_selection_uses_validation_and_first_tie (test_checkpoint_selection.SelectionTests.test_selection_uses_validation_and_first_tie) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 5.937s
+
+OK

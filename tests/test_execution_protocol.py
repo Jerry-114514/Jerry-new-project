@@ -211,11 +211,44 @@ class ExecutionMatrixIntegrationTests(unittest.TestCase):
             self.assertEqual(len(complete["paired_audit"]), 3)
             self.assertEqual(len(complete["jobs"][0]["attempts"]), 2)
             self.assertTrue(all(job["status"] == "completed" for job in complete["jobs"]))
+            from intentlab.execution_models import bind_execution_models, verify_execution_models
+            matrix_file = root / "matrix/matrix.json"
+            original_matrix = matrix_file.read_bytes()
+            try:
+                invalid = deepcopy(complete)
+                invalid["status"] = "running"
+                matrix_file.write_text(json.dumps(invalid))
+                with self.assertRaises(ValueError):
+                    bind_execution_models(lock, root / "matrix", root / "incomplete-model-lock.json", engineering=True)
+                invalid = deepcopy(complete)
+                invalid["jobs"][-1]["config"]["seed"] = 99
+                matrix_file.write_text(json.dumps(invalid))
+                with self.assertRaises(ValueError):
+                    bind_execution_models(lock, root / "matrix", root / "different-plan-model-lock.json", engineering=True)
+            finally:
+                matrix_file.write_bytes(original_matrix)
+            with self.assertRaises(ValueError):
+                bind_execution_models(lock, root / "matrix", root / "forbidden-model-lock.json")
+            binding = bind_execution_models(lock, root / "matrix", root / "execution-model-lock.json", engineering=True)
+            self.assertEqual(binding["selected_job"], "cosine-seed-0")
+            self.assertFalse(binding["hidden_inputs_opened"])
+            self.assertTrue(verify_execution_models(lock, binding, engineering=True)["verified"])
+            # The model binding must continue checking completed export assets.
+            proof_path = root / "matrix/cosine-seed-0/model/selection.json"
+            original = proof_path.read_bytes()
+            try:
+                proof_path.write_bytes(original + b" ")
+                with self.assertRaises(ValueError):
+                    verify_execution_models(lock, binding, engineering=True)
+            finally:
+                proof_path.write_bytes(original)
+            self.assertTrue(verify_execution_models(lock, binding, engineering=True)["verified"])
             target = os.environ.get("INTENTLAB_EXECUTION_MATRIX_AUDIT_DIR")
             if target:
                 target = Path(target)
                 target.mkdir(parents=True, exist_ok=False)
                 shutil.copyfile(root / "lock.json", target / "protocol.engineering.lock.json")
+                shutil.copyfile(root / "execution-model-lock.json", target / "execution-model-lock.json")
                 for path in (root / "matrix").rglob("*"):
                     if path.is_file() and path.suffix in {".json", ".log"} and "model" not in path.parts:
                         destination = target / path.relative_to(root / "matrix")

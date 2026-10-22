@@ -304,6 +304,8 @@ def train_neural(config, out, stop_after=None, resume=None):
             "used_supervised_tokens": used_supervised_tokens, "sample_exposures": exposures,
             "python_rng": random.getstate(), "torch_rng": torch.get_rng_state(),
             "cuda_rng": torch.cuda.get_rng_state_all() if device == "cuda" else []}
+        from .checkpoint_selection import best_validation
+        checkpoint["best_step"] = best_validation(history)["step"] if history else None
         # Atomic replacement prevents a failed save from destroying the last good checkpoint.
         temporary = out / "latest.tmp"
         torch.save(checkpoint, temporary)
@@ -344,6 +346,9 @@ def train_neural(config, out, stop_after=None, resume=None):
             base = model.get_base_model()
             # Base tensors with LoRA wrappers are not a standalone base model: inference rebuilds by seed.
             save_json(out / "model" / "tiny_base_recipe.json", {"seed": config["seed"], "config": base.config.to_dict()})
+        from .checkpoint_selection import selection_proof
+        result["selection"] = selection_proof(history, best_weights, out / "model", config["mode"])
+        save_json(out / "model/selection.json", result["selection"])
     save_json(out / "result.json", result)
     return result
 

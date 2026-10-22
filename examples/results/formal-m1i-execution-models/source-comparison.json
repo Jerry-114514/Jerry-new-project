@@ -1,0 +1,13 @@
+{
+  "kind": "engineering_test_source_comparison",
+  "implementation_and_tests_match": true,
+  "compared_implementation_and_test_files": 56,
+  "differing_files": [
+    "idea.md",
+    "pyproject.toml",
+    "requirements-gpu-5090.txt",
+    "requirements-ml.txt",
+    "scripts/audit_execution_binding_evidence.py"
+  ],
+  "warning": "The audit script was extended locally after the remote suite; missing configuration/source-plan files in the remote source archive were not tested as formal frozen inputs."
+}

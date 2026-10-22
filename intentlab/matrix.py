@@ -104,7 +104,7 @@ def validate_result(result, config):
 
 def training_artifacts(directory):
     directory = Path(directory)
-    files = [directory / "latest.pt", *sorted((directory / "model").glob("*"))]
+    files = [directory / "latest.pt", *sorted((directory / "model").rglob("*"))]
     if not files[0].is_file() or not any(path.suffix == ".safetensors" for path in files[1:] if path.is_file()):
         raise ValueError("Completed job is missing its checkpoint or exported model")
     return {path.relative_to(directory).as_posix(): file_hash(path) for path in files if path.is_file()}

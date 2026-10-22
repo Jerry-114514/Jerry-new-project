@@ -1,0 +1,342 @@
+{
+  "kind": "paired_training_matrix",
+  "schema_version": 1,
+  "scope": "engineering",
+  "lock_hash": "c8f718533f57691bfa98e4073b786bfc06b0f21b5873b02f54524f9dde886a43",
+  "status": "completed",
+  "jobs": [
+    {
+      "name": "cosine-seed-0",
+      "config": {
+        "revision": null,
+        "mode": "full",
+        "device": "cpu",
+        "steps": 2,
+        "eval_every": 1,
+        "batch_size": 1,
+        "accumulation": 2,
+        "max_length": 2048,
+        "lr": 0.001,
+        "minimum_lr": 5e-06,
+        "rank": 4,
+        "alpha": 8,
+        "limit": 0,
+        "threads": 1,
+        "defer_test": true,
+        "data": "/tmp/tmppog8nc6y/fixture/reviewed-v2",
+        "model": "/tmp/tmppog8nc6y/base/model",
+        "schedule": "cosine",
+        "seed": 0
+      },
+      "status": "completed",
+      "attempt": "7ee34fca533a4487a337537c56e3bc7a",
+      "acknowledgement": "/tmp/tmppog8nc6y/matrix/attempts/7ee34fca533a4487a337537c56e3bc7a.ack.json",
+      "pid": 77174,
+      "attempts": [
+        {
+          "attempt": "a629a000f4ad4b47bed0d4366c142a06",
+          "status": "interrupted",
+          "pid": 77008,
+          "exit_code": 0
+        },
+        {
+          "attempt": "7ee34fca533a4487a337537c56e3bc7a",
+          "status": "completed",
+          "pid": 77174,
+          "exit_code": 0,
+          "result_sha256": "76dd00f741bfe0dbaaf6ccd92c7ac79a558cbdae03986bcd8958b8821454f0ee"
+        }
+      ],
+      "host": "autodl-container-bde2419a6c-1fd287c3",
+      "started_utc": "2026-10-22T14:54:57.758081+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-22T14:55:02.120748+00:00",
+      "result_sha256": "76dd00f741bfe0dbaaf6ccd92c7ac79a558cbdae03986bcd8958b8821454f0ee",
+      "artifacts_sha256": {
+        "latest.pt": "9fc9c5bea99a58b21e91df08257ae2ccc8a5c45baecb5a72864b9e49736530ea",
+        "model/config.json": "43cfe49a5952c1a55ced051284a1238c2dbf8608b14b2df5e87a9f9c90f5566f",
+        "model/generation_config.json": "03c33f6bf812d2c5d5571360c587cc2f6544869513b44bf9d104605889935cdb",
+        "model/model.safetensors": "7673a5da51d5dc348bba0efd1aa2577a669bc2c8827ab920bb24c55bfd3e49c1",
+        "model/selection.json": "39e5b3b88b3fe4784af50cf269c524405ae8fc06a727834aa293ed7baa5ed8cd",
+        "model/tokenizer.json": "130bd9152ed3e5a84dcea7bd9e439a39bc2ddf80fa1d09a8ab334bca2f41b271",
+        "model/tokenizer_config.json": "4771a3eafb4f5e40dbb1b9068cc3a5c823029eae4fcae3fe8ef1ca92da7836c7"
+      }
+    },
+    {
+      "name": "plateau-seed-0",
+      "config": {
+        "revision": null,
+        "mode": "full",
+        "device": "cpu",
+        "steps": 2,
+        "eval_every": 1,
+        "batch_size": 1,
+        "accumulation": 2,
+        "max_length": 2048,
+        "lr": 0.001,
+        "minimum_lr": 5e-06,
+        "rank": 4,
+        "alpha": 8,
+        "limit": 0,
+        "threads": 1,
+        "defer_test": true,
+        "data": "/tmp/tmppog8nc6y/fixture/reviewed-v2",
+        "model": "/tmp/tmppog8nc6y/base/model",
+        "schedule": "plateau",
+        "seed": 0
+      },
+      "status": "completed",
+      "attempt": "86e5136cbf404da390056539fe2f22c2",
+      "acknowledgement": "/tmp/tmppog8nc6y/matrix/attempts/86e5136cbf404da390056539fe2f22c2.ack.json",
+      "pid": 77272,
+      "attempts": [
+        {
+          "attempt": "86e5136cbf404da390056539fe2f22c2",
+          "status": "completed",
+          "pid": 77272,
+          "exit_code": 0,
+          "result_sha256": "92b4c4e71e4f8f49fcd365def21430e963a75320aa864d4ea058d981b4fa43e6"
+        }
+      ],
+      "host": "autodl-container-bde2419a6c-1fd287c3",
+      "started_utc": "2026-10-22T14:55:02.132373+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-22T14:55:07.165364+00:00",
+      "result_sha256": "92b4c4e71e4f8f49fcd365def21430e963a75320aa864d4ea058d981b4fa43e6",
+      "artifacts_sha256": {
+        "latest.pt": "cae1e0aebaa8aff8942cc30c7065e3fcd3afe0d6b64501e02e553db81ac428e3",
+        "model/config.json": "43cfe49a5952c1a55ced051284a1238c2dbf8608b14b2df5e87a9f9c90f5566f",
+        "model/generation_config.json": "03c33f6bf812d2c5d5571360c587cc2f6544869513b44bf9d104605889935cdb",
+        "model/model.safetensors": "7673a5da51d5dc348bba0efd1aa2577a669bc2c8827ab920bb24c55bfd3e49c1",
+        "model/selection.json": "39e5b3b88b3fe4784af50cf269c524405ae8fc06a727834aa293ed7baa5ed8cd",
+        "model/tokenizer.json": "130bd9152ed3e5a84dcea7bd9e439a39bc2ddf80fa1d09a8ab334bca2f41b271",
+        "model/tokenizer_config.json": "4771a3eafb4f5e40dbb1b9068cc3a5c823029eae4fcae3fe8ef1ca92da7836c7"
+      }
+    },
+    {
+      "name": "cosine-seed-1",
+      "config": {
+        "revision": null,
+        "mode": "full",
+        "device": "cpu",
+        "steps": 2,
+        "eval_every": 1,
+        "batch_size": 1,
+        "accumulation": 2,
+        "max_length": 2048,
+        "lr": 0.001,
+        "minimum_lr": 5e-06,
+        "rank": 4,
+        "alpha": 8,
+        "limit": 0,
+        "threads": 1,
+        "defer_test": true,
+        "data": "/tmp/tmppog8nc6y/fixture/reviewed-v2",
+        "model": "/tmp/tmppog8nc6y/base/model",
+        "schedule": "cosine",
+        "seed": 1
+      },
+      "status": "completed",
+      "attempt": "9ba58b316852415599a316870058ec0e",
+      "acknowledgement": "/tmp/tmppog8nc6y/matrix/attempts/9ba58b316852415599a316870058ec0e.ack.json",
+      "pid": 77370,
+      "attempts": [
+        {
+          "attempt": "9ba58b316852415599a316870058ec0e",
+          "status": "completed",
+          "pid": 77370,
+          "exit_code": 0,
+          "result_sha256": "a4b2016832283b0f5a35ba21b040dcf6e0bff78209cac93534b86c5f7fc5980e"
+        }
+      ],
+      "host": "autodl-container-bde2419a6c-1fd287c3",
+      "started_utc": "2026-10-22T14:55:07.176564+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-22T14:55:12.295899+00:00",
+      "result_sha256": "a4b2016832283b0f5a35ba21b040dcf6e0bff78209cac93534b86c5f7fc5980e",
+      "artifacts_sha256": {
+        "latest.pt": "c716925c28bc16c7a27bfabdc125b81d64e82072083a68a6ae1c83a0fab319e0",
+        "model/config.json": "43cfe49a5952c1a55ced051284a1238c2dbf8608b14b2df5e87a9f9c90f5566f",
+        "model/generation_config.json": "03c33f6bf812d2c5d5571360c587cc2f6544869513b44bf9d104605889935cdb",
+        "model/model.safetensors": "1a1742345b7a38a599661b27afd04db79194495e896d2a720cc72aff9bc70036",
+        "model/selection.json": "bb7fe1e68556faa38eb87f704a6811da5eec09cef84d505c76e1ffbe3f07e3f2",
+        "model/tokenizer.json": "130bd9152ed3e5a84dcea7bd9e439a39bc2ddf80fa1d09a8ab334bca2f41b271",
+        "model/tokenizer_config.json": "4771a3eafb4f5e40dbb1b9068cc3a5c823029eae4fcae3fe8ef1ca92da7836c7"
+      }
+    },
+    {
+      "name": "plateau-seed-1",
+      "config": {
+        "revision": null,
+        "mode": "full",
+        "device": "cpu",
+        "steps": 2,
+        "eval_every": 1,
+        "batch_size": 1,
+        "accumulation": 2,
+        "max_length": 2048,
+        "lr": 0.001,
+        "minimum_lr": 5e-06,
+        "rank": 4,
+        "alpha": 8,
+        "limit": 0,
+        "threads": 1,
+        "defer_test": true,
+        "data": "/tmp/tmppog8nc6y/fixture/reviewed-v2",
+        "model": "/tmp/tmppog8nc6y/base/model",
+        "schedule": "plateau",
+        "seed": 1
+      },
+      "status": "completed",
+      "attempt": "8dc4b850f998446b8f25e88609ed8cb2",
+      "acknowledgement": "/tmp/tmppog8nc6y/matrix/attempts/8dc4b850f998446b8f25e88609ed8cb2.ack.json",
+      "pid": 77469,
+      "attempts": [
+        {
+          "attempt": "8dc4b850f998446b8f25e88609ed8cb2",
+          "status": "completed",
+          "pid": 77469,
+          "exit_code": 0,
+          "result_sha256": "43187b722e6936e87daaf57e6aa57399c9d0000659f5e9b5e473fdd844f0d660"
+        }
+      ],
+      "host": "autodl-container-bde2419a6c-1fd287c3",
+      "started_utc": "2026-10-22T14:55:12.307834+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-22T14:55:17.487060+00:00",
+      "result_sha256": "43187b722e6936e87daaf57e6aa57399c9d0000659f5e9b5e473fdd844f0d660",
+      "artifacts_sha256": {
+        "latest.pt": "6e72979f5205ce5f5867d6c13c5ca5337d30463f51ef3fae1a2b4e1231183f12",
+        "model/config.json": "43cfe49a5952c1a55ced051284a1238c2dbf8608b14b2df5e87a9f9c90f5566f",
+        "model/generation_config.json": "03c33f6bf812d2c5d5571360c587cc2f6544869513b44bf9d104605889935cdb",
+        "model/model.safetensors": "1a1742345b7a38a599661b27afd04db79194495e896d2a720cc72aff9bc70036",
+        "model/selection.json": "bb7fe1e68556faa38eb87f704a6811da5eec09cef84d505c76e1ffbe3f07e3f2",
+        "model/tokenizer.json": "130bd9152ed3e5a84dcea7bd9e439a39bc2ddf80fa1d09a8ab334bca2f41b271",
+        "model/tokenizer_config.json": "4771a3eafb4f5e40dbb1b9068cc3a5c823029eae4fcae3fe8ef1ca92da7836c7"
+      }
+    },
+    {
+      "name": "cosine-seed-2",
+      "config": {
+        "revision": null,
+        "mode": "full",
+        "device": "cpu",
+        "steps": 2,
+        "eval_every": 1,
+        "batch_size": 1,
+        "accumulation": 2,
+        "max_length": 2048,
+        "lr": 0.001,
+        "minimum_lr": 5e-06,
+        "rank": 4,
+        "alpha": 8,
+        "limit": 0,
+        "threads": 1,
+        "defer_test": true,
+        "data": "/tmp/tmppog8nc6y/fixture/reviewed-v2",
+        "model": "/tmp/tmppog8nc6y/base/model",
+        "schedule": "cosine",
+        "seed": 2
+      },
+      "status": "completed",
+      "attempt": "4a170c0d1b194a88b76956577aed1e26",
+      "acknowledgement": "/tmp/tmppog8nc6y/matrix/attempts/4a170c0d1b194a88b76956577aed1e26.ack.json",
+      "pid": 77567,
+      "attempts": [
+        {
+          "attempt": "4a170c0d1b194a88b76956577aed1e26",
+          "status": "completed",
+          "pid": 77567,
+          "exit_code": 0,
+          "result_sha256": "f60c69faf6535aa5025ba7140c08cee01243d847d97c774a2ac446a9ad4a580c"
+        }
+      ],
+      "host": "autodl-container-bde2419a6c-1fd287c3",
+      "started_utc": "2026-10-22T14:55:17.498586+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-22T14:55:22.583869+00:00",
+      "result_sha256": "f60c69faf6535aa5025ba7140c08cee01243d847d97c774a2ac446a9ad4a580c",
+      "artifacts_sha256": {
+        "latest.pt": "73cfef49dc3e7544cc5d4d76a44ed8d9e7b81893e7732bed8179047768d71515",
+        "model/config.json": "43cfe49a5952c1a55ced051284a1238c2dbf8608b14b2df5e87a9f9c90f5566f",
+        "model/generation_config.json": "03c33f6bf812d2c5d5571360c587cc2f6544869513b44bf9d104605889935cdb",
+        "model/model.safetensors": "cd60a748a66bd12f13aefc49484315d35838914d8f6930ea7d3987f0c1389484",
+        "model/selection.json": "67848854e93441314085bfee9bba9df4a59a9b8d35f02094137722b333c58f46",
+        "model/tokenizer.json": "130bd9152ed3e5a84dcea7bd9e439a39bc2ddf80fa1d09a8ab334bca2f41b271",
+        "model/tokenizer_config.json": "4771a3eafb4f5e40dbb1b9068cc3a5c823029eae4fcae3fe8ef1ca92da7836c7"
+      }
+    },
+    {
+      "name": "plateau-seed-2",
+      "config": {
+        "revision": null,
+        "mode": "full",
+        "device": "cpu",
+        "steps": 2,
+        "eval_every": 1,
+        "batch_size": 1,
+        "accumulation": 2,
+        "max_length": 2048,
+        "lr": 0.001,
+        "minimum_lr": 5e-06,
+        "rank": 4,
+        "alpha": 8,
+        "limit": 0,
+        "threads": 1,
+        "defer_test": true,
+        "data": "/tmp/tmppog8nc6y/fixture/reviewed-v2",
+        "model": "/tmp/tmppog8nc6y/base/model",
+        "schedule": "plateau",
+        "seed": 2
+      },
+      "status": "completed",
+      "attempt": "089470c0f5d34fa6a9065d636d664f52",
+      "acknowledgement": "/tmp/tmppog8nc6y/matrix/attempts/089470c0f5d34fa6a9065d636d664f52.ack.json",
+      "pid": 77666,
+      "attempts": [
+        {
+          "attempt": "089470c0f5d34fa6a9065d636d664f52",
+          "status": "completed",
+          "pid": 77666,
+          "exit_code": 0,
+          "result_sha256": "8ea457714ba85cd49a94732622eb8979f5778b5fff08e6c4f0a80f0978a0c409"
+        }
+      ],
+      "host": "autodl-container-bde2419a6c-1fd287c3",
+      "started_utc": "2026-10-22T14:55:22.595454+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-22T14:55:27.685578+00:00",
+      "result_sha256": "8ea457714ba85cd49a94732622eb8979f5778b5fff08e6c4f0a80f0978a0c409",
+      "artifacts_sha256": {
+        "latest.pt": "f410d350474f8ebd172753146e952b69cffec39d0de717d4c5f468de7f14b568",
+        "model/config.json": "43cfe49a5952c1a55ced051284a1238c2dbf8608b14b2df5e87a9f9c90f5566f",
+        "model/generation_config.json": "03c33f6bf812d2c5d5571360c587cc2f6544869513b44bf9d104605889935cdb",
+        "model/model.safetensors": "cd60a748a66bd12f13aefc49484315d35838914d8f6930ea7d3987f0c1389484",
+        "model/selection.json": "67848854e93441314085bfee9bba9df4a59a9b8d35f02094137722b333c58f46",
+        "model/tokenizer.json": "130bd9152ed3e5a84dcea7bd9e439a39bc2ddf80fa1d09a8ab334bca2f41b271",
+        "model/tokenizer_config.json": "4771a3eafb4f5e40dbb1b9068cc3a5c823029eae4fcae3fe8ef1ca92da7836c7"
+      }
+    }
+  ],
+  "heldout_evaluated": false,
+  "paired_audit": [
+    {
+      "seed": 0,
+      "paired_exposure_equal": true,
+      "supervised_tokens": 208,
+      "examples_seen": 4
+    },
+    {
+      "seed": 1,
+      "paired_exposure_equal": true,
+      "supervised_tokens": 208,
+      "examples_seen": 4
+    },
+    {
+      "seed": 2,
+      "paired_exposure_equal": true,
+      "supervised_tokens": 208,
+      "examples_seen": 4
+    }
+  ]
+}
