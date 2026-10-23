@@ -1,0 +1,93 @@
+{
+  "kind": "causal_lm_sft",
+  "completed": true,
+  "config": {
+    "data": "/root/autodl-tmp/procedural-real-probe-20261023/data",
+    "model": "/root/autodl-tmp/models/Qwen3.5-9B",
+    "revision": null,
+    "mode": "qlora",
+    "device": "cuda",
+    "schedule": "cosine",
+    "steps": 2,
+    "eval_every": 1,
+    "batch_size": 1,
+    "accumulation": 2,
+    "max_length": 7168,
+    "lr": 5e-05,
+    "minimum_lr": 5e-06,
+    "rank": 16,
+    "alpha": 32,
+    "seed": 0,
+    "limit": 0,
+    "threads": 2,
+    "defer_test": true
+  },
+  "data_hash": "1ce5683ade31303ac21997a1695bbf270e4e0557de8d96899223a272c722012c",
+  "base_identity": "457bf3ae902e56e0a24588f4a691ae1aa611de4c8f7cb7429d8b5d100b7ca1ef",
+  "step": 2,
+  "history": [
+    {
+      "step": 1,
+      "train_loss": 0.3679051922924946,
+      "validation": {
+        "loss": 0.20328922898556706,
+        "target_tokens": 426
+      },
+      "lr_used": 5e-05,
+      "gradient_norm": 2.8094770908355713,
+      "scheduler": null
+    },
+    {
+      "step": 2,
+      "train_loss": 0.2134384640379448,
+      "validation": {
+        "loss": 0.1602296426262654,
+        "target_tokens": 426
+      },
+      "lr_used": 5e-05,
+      "gradient_norm": 2.218111038208008,
+      "scheduler": null
+    }
+  ],
+  "train_tokens": 13616,
+  "supervised_tokens": 692,
+  "examples_seen": 4,
+  "sample_exposures": [
+    {
+      "index": 0,
+      "task_id": "proc-v1-14e970797dfebd803f6c9918",
+      "case_id": "proc-v1-14e970797dfebd803f6c9918-single-fault-v2",
+      "pair_hash": "bdd9305329dc526e182f13f5ca38f6ed077fd511485c620f95d5cacc9a04da7a",
+      "count": 2
+    },
+    {
+      "index": 1,
+      "task_id": "proc-v1-7d2f42256f505364555a319f",
+      "case_id": "proc-v1-7d2f42256f505364555a319f-combined-fault",
+      "pair_hash": "134e61e7d839238253922e55154f8c6583187a8d5c0a83bc8f6886db4121123f",
+      "count": 2
+    }
+  ],
+  "parameters": 5537829376,
+  "trainable_parameters": 43278336,
+  "seconds_this_invocation": 21.433934181928635,
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.20.2"
+  },
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "peak_allocated_bytes": 17299102208,
+  "peak_reserved_bytes": 18807259136,
+  "test_deferred": true,
+  "selection": {
+    "rule": "minimum_validation_loss_first_tie",
+    "step": 2,
+    "validation_loss": 0.1602296426262654,
+    "validation_target_tokens": 426,
+    "trainable_tensor_sha256": "0e13ba95de74d218b73d98f2ffaf270002e50a2435bb9dd955c1f9cbe8d8c57e",
+    "trainable_tensor_count": 496,
+    "export_files_sha256": {
+      "adapter_model.safetensors": "830db3d4494ecaa0ad283529f94e5c89ec5c1c3dfc51fb63d8471baa3fc67af8"
+    }
+  }
+}

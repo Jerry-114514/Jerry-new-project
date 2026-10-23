@@ -1,0 +1,94 @@
+{
+  "status": "completed",
+  "scope": "real_development_resource_probe_not_formal_training",
+  "source_commit": "8eacc3a05b289b9d10189b2a304fdea82d8e7eb7",
+  "selection_policy": "lower median and maximum total length per split; case_id tie break",
+  "selection": {
+    "train": [
+      {
+        "case_id": "proc-v1-14e970797dfebd803f6c9918-single-fault-v2",
+        "family": "decimal_round",
+        "prompt_tokens": 2232,
+        "source_task_id": "proc-v1-14e970797dfebd803f6c9918",
+        "split": "train",
+        "target_tokens_including_eos": 157,
+        "total_tokens": 2389
+      },
+      {
+        "case_id": "proc-v1-7d2f42256f505364555a319f-combined-fault",
+        "family": "local_date_filter",
+        "prompt_tokens": 4230,
+        "source_task_id": "proc-v1-7d2f42256f505364555a319f",
+        "split": "train",
+        "target_tokens_including_eos": 189,
+        "total_tokens": 4419
+      }
+    ],
+    "validation": [
+      {
+        "case_id": "proc-v1-dee4ea74f72c23df85c97a4a-single-fault-v2",
+        "family": "decimal_round",
+        "prompt_tokens": 3777,
+        "source_task_id": "proc-v1-dee4ea74f72c23df85c97a4a",
+        "split": "validation",
+        "target_tokens_including_eos": 213,
+        "total_tokens": 3990
+      },
+      {
+        "case_id": "proc-v1-37ccadb80883e4dd88418e6e-single-fault-v2",
+        "family": "date_format",
+        "prompt_tokens": 6415,
+        "source_task_id": "proc-v1-37ccadb80883e4dd88418e6e",
+        "split": "validation",
+        "target_tokens_including_eos": 213,
+        "total_tokens": 6628
+      }
+    ]
+  },
+  "command": [
+    "/root/autodl-tmp/intentlab-venv/bin/python",
+    "-m",
+    "intentlab.neural",
+    "--data",
+    "/root/autodl-tmp/procedural-real-probe-20261023/data",
+    "--out",
+    "/root/autodl-tmp/procedural-real-probe-20261023/train",
+    "--model",
+    "/root/autodl-tmp/models/Qwen3.5-9B",
+    "--mode",
+    "qlora",
+    "--device",
+    "cuda",
+    "--schedule",
+    "cosine",
+    "--steps",
+    "2",
+    "--eval-every",
+    "1",
+    "--batch-size",
+    "1",
+    "--accumulation",
+    "2",
+    "--max-length",
+    "7168",
+    "--lr",
+    "0.00005",
+    "--minimum-lr",
+    "0.000005",
+    "--rank",
+    "16",
+    "--alpha",
+    "32",
+    "--seed",
+    "0",
+    "--limit",
+    "0",
+    "--threads",
+    "2",
+    "--defer-test"
+  ],
+  "heldout_read": false,
+  "driver_sha256": "acdcfee600adb4450cc4a0e6ba8ed74d7d2e94e5e98410d3cda614b16a26d5a6",
+  "exit_code": 0,
+  "wall_seconds": 51.66930818930268
+}

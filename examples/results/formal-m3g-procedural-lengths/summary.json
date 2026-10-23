@@ -1,0 +1,115 @@
+{
+  "driver_sha256": "703e5987cb69c0b0102446206d692e09594525c6de0d0a1820c450cff3fe0302",
+  "fewshot_measured": false,
+  "formal_budget_approved": false,
+  "gpu_used": false,
+  "heldout_files_read": false,
+  "official_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "packages": {
+    "tokenizers": "0.23.3",
+    "transformers": "5.20.2"
+  },
+  "source_commit": "8eacc3a05b289b9d10189b2a304fdea82d8e7eb7",
+  "splits": {
+    "train": {
+      "inference_cannot_reserve_512": {
+        "2048": 2055,
+        "3328": 676,
+        "4096": 84,
+        "4608": 7,
+        "6144": 0,
+        "8192": 0
+      },
+      "pair_file_sha256": "94d66bd95ce9443f2bfc38071bee2cb3ae005a16002aaf8cd37f2d453f0102b7",
+      "prompt_tokens": {
+        "maximum": 4230,
+        "minimum": 1142,
+        "p50": 2231,
+        "p95": 3515,
+        "p99": 3875,
+        "sum": 5636556
+      },
+      "target_tokens_including_eos": {
+        "maximum": 189,
+        "minimum": 90,
+        "p50": 157,
+        "p95": 189,
+        "p99": 189,
+        "sum": 365880
+      },
+      "targets_exceed_512": 0,
+      "total_tokens": {
+        "maximum": 4419,
+        "minimum": 1232,
+        "p50": 2389,
+        "p95": 3698,
+        "p99": 4064,
+        "sum": 6002436
+      },
+      "training_overflow": {
+        "2048": 1671,
+        "3328": 447,
+        "4096": 24,
+        "4608": 0,
+        "6144": 0,
+        "8192": 0
+      },
+      "views": 2400
+    },
+    "validation": {
+      "inference_cannot_reserve_512": {
+        "2048": 600,
+        "3328": 494,
+        "4096": 339,
+        "4608": 241,
+        "6144": 17,
+        "8192": 0
+      },
+      "pair_file_sha256": "43881e276f7a3e87aff3f501981a2350a1955dc10210b597f796a42babea512b",
+      "prompt_tokens": {
+        "maximum": 6415,
+        "minimum": 1773,
+        "p50": 3805,
+        "p95": 5451,
+        "p99": 5937,
+        "sum": 2281542
+      },
+      "target_tokens_including_eos": {
+        "maximum": 229,
+        "minimum": 106,
+        "p50": 197,
+        "p95": 229,
+        "p99": 229,
+        "sum": 112110
+      },
+      "targets_exceed_512": 0,
+      "total_tokens": {
+        "maximum": 6628,
+        "minimum": 1879,
+        "p50": 3990,
+        "p95": 5680,
+        "p99": 6150,
+        "sum": 2393652
+      },
+      "training_overflow": {
+        "2048": 598,
+        "3328": 436,
+        "4096": 288,
+        "4608": 159,
+        "6144": 7,
+        "8192": 0
+      },
+      "views": 600
+    }
+  },
+  "tokenizer_files_sha256": {
+    "chat_template.jinja": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+    "config.json": "d0883072e01861ed0b2d47be3c16c36a8e81c224c7ffaa310c6558fb3f932b05",
+    "merges.txt": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d",
+    "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+    "tokenizer_config.json": "316230d6a809701f4db5ea8f8fc862bc3a6f3229c937c174e674ff3ca0a64ac8",
+    "vocab.json": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003"
+  },
+  "truncation": false,
+  "weights_loaded": false
+}
