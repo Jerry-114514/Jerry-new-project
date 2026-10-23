@@ -1,0 +1,21 @@
+.Failed to load CPU gemm_4bit_forward from kernels-community: No module named 'kernels'. Please make sure you already `pip install kernels` and the kernels >= 0.11.1
+
+
+
+[transformers] Model config: bos_token_id must be `None` or an integer within the vocabulary (between 0 and 299), got 50256. This may result in unexpected behavior.
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 616.54it/s]
+/root/autodl-tmp/intentlab-venv/lib/python3.12/site-packages/peft/tuners/lora/layer.py:2760: UserWarning: fan_in_fan_out is set to False but the target module is `Conv1D`. Setting fan_in_fan_out to True.
+  warnings.warn(
+F
+======================================================================
+FAIL: test_real_adapter_alternation_matches_reload_and_restores_after_failure (test_shared_role_backend.SharedRoleIntegrationTests.test_real_adapter_alternation_matches_reload_and_restores_after_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/autodl-tmp/shared-role-cpu-20261023/source/tests/test_shared_role_backend.py", line 73, in test_real_adapter_alternation_matches_reload_and_restores_after_failure
+    self.assertTrue(compatible_base_adapter(paths))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 2 tests in 4.487s
+
+FAILED (failures=1)

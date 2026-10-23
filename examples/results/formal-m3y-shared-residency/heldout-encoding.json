@@ -1,0 +1,35 @@
+{
+  "scope": "sealed_material_encoding_only_not_model_evaluation",
+  "source_commit": "0998f91209abf543779e92c29e54dcae639a7aa1",
+  "generation_context": 17408,
+  "maximum_generation_tokens": 1536,
+  "training_context": 12288,
+  "heldout_gold_read_for_encoding": true,
+  "model_outputs_read": false,
+  "new_model_calls": 0,
+  "budgets_changed": false,
+  "splits": {
+    "test": {
+      "cases": 832,
+      "source_groups": 200,
+      "maximum_complete_loss_sequence": 7940,
+      "loss_sequences_exceed_17408": 0,
+      "target_tokens": 136840,
+      "A_maximum_prompt": 7427,
+      "B3_maximum_prompt": 11320,
+      "B3_context_denied": 0,
+      "B3_cannot_reserve_full_1536": 0
+    },
+    "ood": {
+      "cases": 408,
+      "source_groups": 100,
+      "maximum_complete_loss_sequence": 9390,
+      "loss_sequences_exceed_17408": 0,
+      "target_tokens": 78540,
+      "A_maximum_prompt": 8837,
+      "B3_maximum_prompt": 12730,
+      "B3_context_denied": 0,
+      "B3_cannot_reserve_full_1536": 0
+    }
+  }
+}

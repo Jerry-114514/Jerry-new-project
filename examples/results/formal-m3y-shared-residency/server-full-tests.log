@@ -1,0 +1,192 @@
+...........
+
+
+{"step": 1, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.1762136071920395}
+{"step": 2, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.28993221558630466}
+{"step": 3, "validation_loss": 1.0, "lr": 5e-06, "elapsed_seconds": 0.4059978127479553}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 322.39it/s]
+
+
+
+Failed to load CPU gemm_4bit_forward from kernels-community: No module named 'kernels'. Please make sure you already `pip install kernels` and the kernels >= 0.11.1
+{"step": 1, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.13355612568557262}
+{"step": 2, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.2513363566249609}
+{"step": 3, "validation_loss": 1.0, "lr": 5e-06, "elapsed_seconds": 0.3664707522839308}
+.............................................
+
+
+{"step": 1, "validation_loss": 6.47598671913147, "lr": 0.001, "elapsed_seconds": 0.1367539670318365}
+{"step": 2, "validation_loss": 6.322148084640503, "lr": 0.001, "elapsed_seconds": 0.2530474364757538}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 914.99it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 9450.43it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11881.88it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11893.91it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11452.02it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10694.88it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11496.87it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10792.18it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 9216.08it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12595.51it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12678.45it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 9433.73it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 13092.59it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11022.10it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11079.29it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10762.51it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 9893.89it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12172.52it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10771.39it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12048.89it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 17040.12it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11790.03it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11995.97it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11179.49it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11961.76it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11555.69it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11204.02it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 13525.34it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10058.28it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10064.32it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11499.12it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10204.23it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10852.02it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11588.76it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11872.27it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11073.03it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10866.07it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10504.52it/s]
+.......................................................................................................................
+
+
+{"step": 1, "validation_loss": 6.660272121429443, "lr": 0.001, "elapsed_seconds": 0.12963134050369263}
+{"step": 2, "validation_loss": 6.652384281158447, "lr": 0.001, "elapsed_seconds": 0.26529809460043907}
+
+
+
+{"step": 1, "validation_loss": 6.660272121429443, "lr": 0.001, "elapsed_seconds": 0.1407794039696455}
+{"step": 2, "validation_loss": 6.652384281158447, "lr": 0.001, "elapsed_seconds": 0.26748138666152954}
+
+
+
+{"step": 1, "validation_loss": 6.630784034729004, "lr": 0.001, "elapsed_seconds": 0.1389862224459648}
+{"step": 2, "validation_loss": 6.623560667037964, "lr": 0.001, "elapsed_seconds": 0.27369081415235996}
+
+
+
+{"step": 1, "validation_loss": 6.660272121429443, "lr": 0.001, "elapsed_seconds": 0.13464566692709923}
+
+
+
+
+
+
+{"step": 2, "validation_loss": 6.652384281158447, "lr": 0.001, "elapsed_seconds": 0.1253369189798832}
+.
+
+
+{"step": 1, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.1065889224410057}
+{"step": 2, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.22764856927096844}
+{"step": 3, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.3375253211706877}
+{"step": 4, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.4618647415190935}
+{"step": 5, "validation_loss": 1.0, "lr": 0.0005, "elapsed_seconds": 0.5724891759455204}
+{"step": 6, "validation_loss": 1.0, "lr": 0.0005, "elapsed_seconds": 0.6826285421848297}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 740.39it/s]
+.
+
+
+{"step": 2, "validation_loss": 6.322148084640503, "lr": 0.001, "elapsed_seconds": 0.41793794743716717}
+{"step": 4, "validation_loss": 6.177117347717285, "lr": 0.0005025, "elapsed_seconds": 0.7037509959191084}
+{"step": 6, "validation_loss": 6.161113500595093, "lr": 5e-06, "elapsed_seconds": 0.9612398911267519}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 960.45it/s]
+.
+
+
+{"step": 2, "validation_loss": 6.652384281158447, "lr": 0.001, "elapsed_seconds": 0.25974988006055355}
+{"step": 4, "validation_loss": 6.64064884185791, "lr": 0.0005025, "elapsed_seconds": 0.5144871808588505}
+{"step": 6, "validation_loss": 6.639207124710083, "lr": 5e-06, "elapsed_seconds": 0.7595045659691095}
+.
+
+
+.
+
+
+{"step": 2, "validation_loss": 6.322148084640503, "lr": 0.001, "elapsed_seconds": 0.23609066009521484}
+{"step": 4, "validation_loss": 6.177117347717285, "lr": 0.0005025, "elapsed_seconds": 0.4674332067370415}
+{"step": 6, "validation_loss": 6.161113500595093, "lr": 5e-06, "elapsed_seconds": 0.7086747698485851}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 911.41it/s]
+
+
+
+{"step": 2, "validation_loss": 6.322148084640503, "lr": 0.001, "elapsed_seconds": 0.22946991585195065}
+
+
+
+{"step": 4, "validation_loss": 6.177117347717285, "lr": 0.0005025, "elapsed_seconds": 0.12663930840790272}
+{"step": 6, "validation_loss": 6.161113500595093, "lr": 5e-06, "elapsed_seconds": 0.36426293663680553}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 506.74it/s]
+
+
+
+{"step": 2, "validation_loss": 6.322148084640503, "lr": 0.001, "elapsed_seconds": 0.24376359581947327}
+{"step": 4, "validation_loss": 6.11797571182251, "lr": 0.001, "elapsed_seconds": 0.4888414964079857}
+{"step": 6, "validation_loss": 5.94657564163208, "lr": 0.001, "elapsed_seconds": 0.7337982188910246}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 864.45it/s]
+
+
+
+{"step": 2, "validation_loss": 6.322148084640503, "lr": 0.001, "elapsed_seconds": 0.22509435564279556}
+
+
+
+{"step": 4, "validation_loss": 6.11797571182251, "lr": 0.001, "elapsed_seconds": 0.11815514042973518}
+{"step": 6, "validation_loss": 5.94657564163208, "lr": 0.001, "elapsed_seconds": 0.34833058528602123}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 697.19it/s]
+.
+
+
+{"step": 2, "validation_loss": 6.322148084640503, "lr": 0.001, "elapsed_seconds": 0.23313507996499538}
+{"step": 4, "validation_loss": 6.177117347717285, "lr": 0.0005025, "elapsed_seconds": 0.47064108215272427}
+{"step": 6, "validation_loss": 6.161113500595093, "lr": 5e-06, "elapsed_seconds": 0.7117331326007843}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 927.74it/s]
+
+
+
+{"step": 2, "validation_loss": 6.652384281158447, "lr": 0.001, "elapsed_seconds": 0.2472326774150133}
+{"step": 4, "validation_loss": 6.64064884185791, "lr": 0.0005025, "elapsed_seconds": 0.48870898596942425}
+{"step": 6, "validation_loss": 6.639207124710083, "lr": 5e-06, "elapsed_seconds": 0.7283305749297142}
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12133.54it/s]
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]Loading weights: 100%|██████████| 28/28 [00:00<00:00, 8840.08it/s]
+....................
+
+
+{"step": 1, "validation_loss": 6.471860408782959, "lr": 0.001, "elapsed_seconds": 0.12368423119187355}
+{"step": 2, "validation_loss": 6.311890125274658, "lr": 0.001, "elapsed_seconds": 0.2549906000494957}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 781.79it/s]
+.........
+
+
+{"step": 1, "validation_loss": 6.47598671913147, "lr": 0.001, "elapsed_seconds": 0.12168006412684917}
+{"step": 2, "validation_loss": 6.322148084640503, "lr": 0.001, "elapsed_seconds": 0.24247842095792294}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 899.29it/s]
+......................
+
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 1200.77it/s]
+Loading weights:   0%|          | 0/16 [00:00<?, ?it/s]Loading weights: 100%|██████████| 16/16 [00:00<00:00, 11544.62it/s]
+/root/autodl-tmp/intentlab-venv/lib/python3.12/site-packages/peft/tuners/lora/layer.py:2760: UserWarning: fan_in_fan_out is set to False but the target module is `Conv1D`. Setting fan_in_fan_out to True.
+  warnings.warn(
+Loading weights:   0%|          | 0/16 [00:00<?, ?it/s]Loading weights: 100%|██████████| 16/16 [00:00<00:00, 10234.69it/s]
+Loading weights:   0%|          | 0/16 [00:00<?, ?it/s]Loading weights: 100%|██████████| 16/16 [00:00<00:00, 10876.64it/s]
+Loading weights:   0%|          | 0/16 [00:00<?, ?it/s]Loading weights: 100%|██████████| 16/16 [00:00<00:00, 12264.05it/s]
+Loading weights:   0%|          | 0/16 [00:00<?, ?it/s]Loading weights: 100%|██████████| 16/16 [00:00<00:00, 13400.33it/s]
+.............../root/autodl-tmp/intentlab-venv/lib/python3.12/site-packages/fla/utils/_device.py:100: UserWarning: Triton is not supported on current platform, roll back to CPU.
+  _cpu_device_warning()
+/root/autodl-tmp/intentlab-venv/lib/python3.12/site-packages/fla/ops/nsa/naive.py:19: ImportWarning: Flash Attention is not installed. Please install it via `pip install flash-attn --no-build-isolation`
+  warnings.warn(
+/root/autodl-tmp/intentlab-venv/lib/python3.12/site-packages/fla/ops/nsa/parallel.py:25: ImportWarning: Flash Attention is not installed. Please install it via `pip install flash-attn --no-build-isolation`
+  warnings.warn(
+.............................
+----------------------------------------------------------------------
+Ran 276 tests in 135.923s
+
+OK

@@ -21,7 +21,8 @@ class RoleBackend:
 
 
 class LocalModelPool:
-    def __init__(self, paths, device="cpu", max_new_tokens=256, token_budget=20000, factory=None, context_limit=None):
+    def __init__(self, paths, device="cpu", max_new_tokens=256, token_budget=20000, factory=None, context_limit=None,
+                 share_base_adapter=False):
         if not paths or set(paths) - {"actor", "analyzer"}:
             raise ValueError("Expected actor and/or analyzer model paths")
         self.paths = {role: str(Path(path).resolve()) for role, path in paths.items()}
@@ -33,6 +34,10 @@ class LocalModelPool:
         self.context_limit = context_limit
         self.ledger = TokenLedger(token_budget)
         self.factory = factory or LocalBackend
+        # Off until development equivalence and residency policy are validated.
+        # Injected factories keep their existing reload semantics.
+        from .shared_role_backend import compatible_base_adapter
+        self.shared_residency = bool(share_base_adapter and factory is None and compatible_base_adapter(self.paths))
         self.current, self.current_path = None, None
         self.reset()
 
@@ -59,15 +64,20 @@ class LocalModelPool:
         if self.device == "cuda":
             ensure_gpu_lease()
         path = self.paths[role]
-        if self.current_path != path:
+        resident_key = "shared-base-adapter" if self.shared_residency else path
+        if self.current_path != resident_key:
             self.close()
             started = time.perf_counter()
             try:
                 kwargs = {"ledger": self.ledger}
                 if self.context_limit is not None:
                     kwargs["context_limit"] = self.context_limit
-                self.current = self.factory(path, self.device, self.maximum, self.ledger.limit, **kwargs)
-                self.current_path = path
+                if self.shared_residency:
+                    from .shared_role_backend import SharedRoleBackend
+                    self.current = SharedRoleBackend(self.paths, self.device, self.maximum, self.ledger.limit, **kwargs)
+                else:
+                    self.current = self.factory(path, self.device, self.maximum, self.ledger.limit, **kwargs)
+                self.current_path = resident_key
             except Exception as exc:
                 self.loads.append({"role": role, "path": path, "status": "error", "error": type(exc).__name__,
                                    "seconds": time.perf_counter() - started})
@@ -89,4 +99,5 @@ class LocalModelPool:
         return {"shared_token_ledger": self.ledger.snapshot(), "models": dict(self.paths),
                 "context_limit": self.context_limit,
                 "model_loads": list(self.loads), "generations": list(self.generations),
-                "resident_model_limit": 1}
+                "resident_model_limit": 1,
+                "residency_strategy": "shared-base-adapter" if self.shared_residency else "reload-by-path"}

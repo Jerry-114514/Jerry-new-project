@@ -1,0 +1,15 @@
+{
+  "status": "completed",
+  "source_commit": "0998f91209abf543779e92c29e54dcae639a7aa1",
+  "gpu_used": false,
+  "weights_loaded": false,
+  "heldout_gold_read_for_encoding": true,
+  "heldout_model_outputs_read": false,
+  "new_model_calls": 0,
+  "budgets_changed": false,
+  "formal_protocol_frozen": false,
+  "suites": {
+    "test_heldout_loss_context.py": 0,
+    "test_diagnostic_protocol.py": 0
+  }
+}
