@@ -1,0 +1,14 @@
+{
+  "fewshot_coverage_proven": false,
+  "formal_training": false,
+  "formal_training_runtime_estimated": false,
+  "human_task_labels": false,
+  "peak_allocated_bytes": 18482309632,
+  "peak_reserved_bytes": 19312672768,
+  "scope": "synthetic_hardware_only",
+  "sequence_tokens": 4608,
+  "successful_updates": 2,
+  "target_tokens_per_sample": 512,
+  "train_loop_seconds": 33.68737541139126,
+  "wall_seconds": 63.63044803030789
+}

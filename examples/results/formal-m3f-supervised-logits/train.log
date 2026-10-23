@@ -1,0 +1,80 @@
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]Loading weights:   0%|          | 1/427 [00:00<02:47,  2.54it/s]Loading weights:   0%|          | 2/427 [00:00<02:41,  2.63it/s]Loading weights:   3%|▎         | 13/427 [00:00<00:19, 21.62it/s]Loading weights:   7%|▋         | 28/427 [00:00<00:08, 46.01it/s]Loading weights:  10%|█         | 43/427 [00:01<00:05, 68.54it/s]Loading weights:  15%|█▍        | 63/427 [00:01<00:03, 99.05it/s]Loading weights:  19%|█▊        | 80/427 [00:01<00:03, 113.46it/s]Loading weights:  22%|██▏       | 95/427 [00:01<00:02, 120.67it/s]Loading weights:  26%|██▌       | 110/427 [00:01<00:02, 128.46it/s]Loading weights:  30%|███       | 130/427 [00:01<00:02, 145.39it/s]Loading weights:  34%|███▍      | 147/427 [00:01<00:01, 148.19it/s]Loading weights:  38%|███▊      | 163/427 [00:01<00:01, 141.93it/s]Loading weights:  43%|████▎     | 185/427 [00:01<00:01, 160.85it/s]Loading weights:  47%|████▋     | 202/427 [00:02<00:01, 146.81it/s]Loading weights:  52%|█████▏    | 222/427 [00:02<00:01, 160.43it/s]Loading weights:  56%|█████▌    | 239/427 [00:02<00:01, 158.06it/s]Loading weights:  60%|█████▉    | 256/427 [00:02<00:01, 151.25it/s]Loading weights:  65%|██████▍   | 277/427 [00:02<00:00, 165.01it/s]Loading weights:  69%|██████▉   | 294/427 [00:02<00:00, 151.48it/s]Loading weights:  73%|███████▎  | 312/427 [00:02<00:00, 151.93it/s]Loading weights:  78%|███████▊  | 332/427 [00:02<00:00, 160.42it/s]Loading weights:  82%|████████▏ | 349/427 [00:03<00:00, 160.96it/s]Loading weights:  86%|████████▌ | 366/427 [00:03<00:00, 145.30it/s]Loading weights:  90%|█████████ | 385/427 [00:03<00:00, 156.82it/s]Loading weights:  94%|█████████▍| 402/427 [00:03<00:00, 157.37it/s]Loading weights:  98%|█████████▊| 419/427 [00:03<00:00, 137.21it/s]Loading weights: 100%|██████████| 427/427 [00:03<00:00, 120.16it/s]
+/root/miniconda3/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:929: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/root/miniconda3/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:929: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/root/miniconda3/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:929: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+{"step": 1, "validation_loss": 0.029623931273818016, "lr": 5e-05, "elapsed_seconds": 27.21146154217422}
+/root/miniconda3/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:929: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+{"step": 2, "validation_loss": 0.01677870936691761, "lr": 5e-05, "elapsed_seconds": 32.915451219305396}
+{
+  "kind": "causal_lm_sft",
+  "completed": true,
+  "config": {
+    "data": "/root/autodl-tmp/supervised-logits-probe-20261023/data",
+    "model": "/root/autodl-tmp/models/Qwen3.5-9B",
+    "revision": null,
+    "mode": "qlora",
+    "device": "cuda",
+    "schedule": "cosine",
+    "steps": 2,
+    "eval_every": 1,
+    "batch_size": 1,
+    "accumulation": 2,
+    "max_length": 4608,
+    "lr": 5e-05,
+    "minimum_lr": 5e-06,
+    "rank": 16,
+    "alpha": 32,
+    "seed": 0,
+    "limit": 0,
+    "threads": 2,
+    "defer_test": true
+  },
+  "data_hash": "7b7cb462c0c33fb6ebf00de9a400d4caf7920998c0277629d6de4550bdea5677",
+  "base_identity": "457bf3ae902e56e0a24588f4a691ae1aa611de4c8f7cb7429d8b5d100b7ca1ef",
+  "step": 2,
+  "train_tokens": 18432,
+  "supervised_tokens": 2048,
+  "examples_seen": 4,
+  "sample_exposures": [
+    {
+      "index": 0,
+      "task_id": "synthetic-supervised-logits-train-a",
+      "case_id": null,
+      "pair_hash": "a0b8d1e589c634363c50cbab39c2576219338a42f4e6601b1a6a6492d156139f",
+      "count": 2
+    },
+    {
+      "index": 1,
+      "task_id": "synthetic-supervised-logits-train-b",
+      "case_id": null,
+      "pair_hash": "84e2360caf0827412ebc5598dc43c8fc4582514226de9b32382d397b1b1feb70",
+      "count": 2
+    }
+  ],
+  "parameters": 5537829376,
+  "trainable_parameters": 43278336,
+  "seconds_this_invocation": 33.68737541139126,
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.20.2"
+  },
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "peak_allocated_bytes": 18482309632,
+  "peak_reserved_bytes": 19312672768,
+  "test_deferred": true,
+  "selection": {
+    "rule": "minimum_validation_loss_first_tie",
+    "step": 2,
+    "validation_loss": 0.01677870936691761,
+    "validation_target_tokens": 512,
+    "trainable_tensor_sha256": "8b0f87792beb3723cebed7e2e7ac620a48fe09fbcd0d9b12a0601f48a383f412",
+    "trainable_tensor_count": 496,
+    "export_files_sha256": {
+      "adapter_model.safetensors": "30172506202841309c12945ab4114f73b96d47dab8388d5046ddea23d2145010"
+    }
+  }
+}

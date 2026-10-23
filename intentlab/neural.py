@@ -11,6 +11,7 @@ from contextlib import nullcontext
 from dataclasses import asdict
 import hashlib
 import importlib.metadata
+import inspect
 import json
 import math
 from pathlib import Path
@@ -73,16 +74,29 @@ def batch_tensors(examples, pad_id, device):
 
 def token_loss(model, batch):
     torch, _ = dependencies()
+    labels = batch["labels"][:, 1:].contiguous()
+    supervised = labels != -100
+    count = int(supervised.sum().item())
+    if not count:
+        raise ValueError("Batch contains no supervised targets")
+    # Every row shares the selected sequence positions. The per-row mask below
+    # still excludes padding and other rows' prompt tokens from the objective.
+    positions = supervised.any(dim=0).nonzero(as_tuple=True)[0]
+    base = model.get_base_model() if hasattr(model, "get_base_model") else model
+    supports_selection = "logits_to_keep" in inspect.signature(base.forward).parameters
+    kwargs = {"logits_to_keep": positions} if supports_selection else {}
     precision = (torch.autocast('cuda', dtype=torch.bfloat16)
                  if batch['input_ids'].device.type == 'cuda' else nullcontext())
     with precision:
-        output = model(input_ids=batch["input_ids"], attention_mask=batch["attention_mask"], use_cache=False)
-    labels = batch["labels"][:, 1:].contiguous()
-    count = int((labels != -100).sum().item())
-    if not count:
-        raise ValueError("Batch contains no supervised targets")
-    loss = torch.nn.functional.cross_entropy(output.logits[:, :-1].float().reshape(-1, output.logits.shape[-1]),
-                                             labels.reshape(-1), ignore_index=-100, reduction="sum")
+        output = model(input_ids=batch["input_ids"], attention_mask=batch["attention_mask"], use_cache=False, **kwargs)
+    logits = output.logits if supports_selection else output.logits[:, positions, :]
+    selected_labels = labels[:, positions]
+    if logits.shape[:2] != selected_labels.shape:
+        raise ValueError("Model did not honor supervised-position logits selection")
+    valid = selected_labels != -100
+    # FP32 cross entropy on exactly the same causal target tokens; avoid a
+    # full sequence x vocabulary FP32 allocation for masked prompt positions.
+    loss = torch.nn.functional.cross_entropy(logits[valid].float(), selected_labels[valid], reduction="sum")
     return loss, count
 
 

@@ -29,6 +29,8 @@ python -m intentlab train-baseline --data runs/data/diagnostic_views.jsonl --out
 
 - [600份单模板训练候选扩充](docs/training-candidate-scale.md)：3000来源中确定性取600份未审核合同、2400注入视图，包含原12份；程序参考一致性通过，来源、模板覆盖及人审仍缺。
 - [2400视图完整输入长度](docs/training-length-budget.md)：压缩候选在3328上下文仍有31例不能预留512输出，最长需4202；不能外推旧104视图的长度覆盖。
+- [标注负担修订提案](docs/annotation-workload-revision-proposal.md)：不再默认向每人发放9600项，讨论程序标签主实验与每人320项的抽样审计；正式协议尚未变更。
+- [监督位置logits显存优化](docs/supervised-logits-memory.md)：保持因果损失和输入完整，5090上4608/512合成序列两更新通过，reserved约17.99GiB；非正式训练。
 - [压缩提示的真实模型开发对照](docs/compact-prompt-development-report.md)：208次调用完成，格式通过99/104与103/104、计费token减少31.68%；有40项状态分歧，无人工真值，不报告准确率。
 - [新来源提示与显存预算](docs/context-coverage-budget.md)：104 个实际提示暴露 2048 草案缺口；4096 合成压力显存不足、3328 通过，另有保留全部公开数据的离线提示压缩提案，尚未用于模型实验。
 - [跨批来源覆盖及协调人审核](docs/combined-source-coverage.md)：104 视图合并为 32 合同、24 个声明来源，78 对风险待审；固定既往公开资产目录，原文保持私有。

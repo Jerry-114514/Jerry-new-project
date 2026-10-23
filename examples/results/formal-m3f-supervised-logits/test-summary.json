@@ -1,0 +1,41 @@
+[
+  {
+    "log_name": "supervised-logits-core-tests-final.log",
+    "sha256": "4520d73cd32fbacfe7bf6336f116fa54277e51ffc63071f798d1e7def094c95e",
+    "tests_discovered": 198,
+    "skipped": 13,
+    "tail": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 198 tests in 12.164s",
+      "",
+      "OK (skipped=13)"
+    ]
+  },
+  {
+    "log_name": "supervised-logits-regression-remote.log",
+    "sha256": "b1b7726045dd91971e1e88138ce87560c39f7ce925ff69624ae8ae3f258f21cb",
+    "tests_discovered": 197,
+    "skipped": 0,
+    "tail": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 197 tests in 92.317s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "log_name": "supervised-logits-equivalence.log",
+    "sha256": "6b7e33a99b8e94c939f6e44d6563bd6a3a04179af93048665479dff54c89f7d3",
+    "tests_discovered": 3,
+    "skipped": 0,
+    "tail": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 3 tests in 5.752s",
+      "",
+      "OK"
+    ]
+  }
+]
