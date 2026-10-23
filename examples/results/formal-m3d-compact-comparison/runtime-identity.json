@@ -1,0 +1,16 @@
+{
+  "scope": "post_run_environment_capture",
+  "python": "3.12.3",
+  "packages": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.20.2",
+    "tokenizers": "0.23.3",
+    "peft": "0.21.2",
+    "accelerate": "1.15.0"
+  },
+  "gpu": "NVIDIA GeForce RTX 5090, 32607 MiB",
+  "analyzer_sha256": "1981c75b0c55082fa29e558a4fd3467c47edc4d744c57b631d2a097e25a3e9d4",
+  "driver_sha256": "9258a73e2660094ae3f2a467ec88a9885a843afc95106eb10b115650eb50bbd0",
+  "versions_captured_after_run": true,
+  "warning": "Post-run dependency capture, not external attestation of model execution or human review."
+}

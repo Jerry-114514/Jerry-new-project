@@ -27,6 +27,7 @@ python -m intentlab train-baseline --data runs/data/diagnostic_views.jsonl --out
 
 ## 研究文档
 
+- [压缩提示的真实模型开发对照](docs/compact-prompt-development-report.md)：208次调用完成，格式通过99/104与103/104、计费token减少31.68%；有40项状态分歧，无人工真值，不报告准确率。
 - [新来源提示与显存预算](docs/context-coverage-budget.md)：104 个实际提示暴露 2048 草案缺口；4096 合成压力显存不足、3328 通过，另有保留全部公开数据的离线提示压缩提案，尚未用于模型实验。
 - [跨批来源覆盖及协调人审核](docs/combined-source-coverage.md)：104 视图合并为 32 合同、24 个声明来源，78 对风险待审；固定既往公开资产目录，原文保持私有。
 - [外部来源合同的自然轨迹采集](docs/wikisql-natural-collection.md)：保留旧两题、补采十题，共 12 次真实执行、24 个未标注视图；候选参考下合规 7/12，含两次接口失败，逐调用回放通过。

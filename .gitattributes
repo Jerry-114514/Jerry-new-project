@@ -18,3 +18,4 @@ examples/results/formal-m2d-wikisql-adaptation/** text eol=lf
 examples/results/formal-m2e-wikisql-natural/** text eol=lf
 examples/results/formal-m2f-source-coverage/** text eol=lf
 examples/results/formal-m3c-context-coverage/** text eol=lf
+examples/results/formal-m3d-compact-comparison/** text eol=lf

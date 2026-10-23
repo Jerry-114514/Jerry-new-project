@@ -1,0 +1,19 @@
+{
+  "model": "Qwen/Qwen3.5-9B",
+  "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "verified_assets": [
+    "chat_template.jinja",
+    "config.json",
+    "merges.txt",
+    "model.safetensors-00001-of-00004.safetensors",
+    "model.safetensors-00002-of-00004.safetensors",
+    "model.safetensors-00003-of-00004.safetensors",
+    "model.safetensors-00004-of-00004.safetensors",
+    "model.safetensors.index.json",
+    "preprocessor_config.json",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "video_preprocessor_config.json",
+    "vocab.json"
+  ]
+}

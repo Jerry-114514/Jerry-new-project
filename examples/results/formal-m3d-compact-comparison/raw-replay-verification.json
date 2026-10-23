@@ -1,0 +1,10 @@
+{
+  "scope": "unreviewed_development_prompt_interface_comparison",
+  "views": 104,
+  "calls": 208,
+  "raw_calls_and_aggregate_replayed": true,
+  "human_accuracy": null,
+  "formal_training_started": false,
+  "formal_budget_approved": false,
+  "warning": "Metadata only unless private records are supplied; replay verifies records and arithmetic, not model authenticity, human truth or unchanged semantic behavior."
+}
