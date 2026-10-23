@@ -1,0 +1,9 @@
+{
+  "source_commit": "71a361d5437d59294696f40ee015c599441df4ec",
+  "all_file_sha256_equal": true,
+  "data_files": 19,
+  "canonical_gpu_source_unchanged": "d80be96feedd06daf0b2340bfedd24e900b23d7a",
+  "targeted_server_tests": 2,
+  "targeted_server_test_exit_code": 0,
+  "full_server_264_tests_rerun": false
+}

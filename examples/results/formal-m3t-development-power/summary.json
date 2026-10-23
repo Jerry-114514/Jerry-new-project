@@ -1,0 +1,266 @@
+{
+  "alpha": 0.05,
+  "cells": [
+    {
+      "rejection_rate": 0.0425,
+      "rejections": 17,
+      "replicates": 400,
+      "scenario": "symmetrized_A_B3_proxy",
+      "sign_flips_per_replicate": 10000,
+      "simulation_wilson_95": [
+        0.026701694991131116,
+        0.06700205432475019
+      ],
+      "source_tasks": 200,
+      "source_tasks_per_family": 25,
+      "true_absolute_mean_improvement": 0.0
+    },
+    {
+      "rejection_rate": 0.965,
+      "rejections": 386,
+      "replicates": 400,
+      "scenario": "symmetrized_A_B3_proxy",
+      "sign_flips_per_replicate": 10000,
+      "simulation_wilson_95": [
+        0.9421148604670819,
+        0.9790387058020222
+      ],
+      "source_tasks": 200,
+      "source_tasks_per_family": 25,
+      "true_absolute_mean_improvement": 0.025
+    },
+    {
+      "rejection_rate": 1.0,
+      "rejections": 400,
+      "replicates": 400,
+      "scenario": "symmetrized_A_B3_proxy",
+      "sign_flips_per_replicate": 10000,
+      "simulation_wilson_95": [
+        0.9904877056657034,
+        0.9999999999999999
+      ],
+      "source_tasks": 200,
+      "source_tasks_per_family": 25,
+      "true_absolute_mean_improvement": 0.05
+    },
+    {
+      "rejection_rate": 1.0,
+      "rejections": 400,
+      "replicates": 400,
+      "scenario": "symmetrized_A_B3_proxy",
+      "sign_flips_per_replicate": 10000,
+      "simulation_wilson_95": [
+        0.9904877056657034,
+        0.9999999999999999
+      ],
+      "source_tasks": 200,
+      "source_tasks_per_family": 25,
+      "true_absolute_mean_improvement": 0.075
+    },
+    {
+      "rejection_rate": 0.0475,
+      "rejections": 19,
+      "replicates": 400,
+      "scenario": "twice_proxy_residual",
+      "sign_flips_per_replicate": 10000,
+      "simulation_wilson_95": [
+        0.030617076962711882,
+        0.07299154940982647
+      ],
+      "source_tasks": 200,
+      "source_tasks_per_family": 25,
+      "true_absolute_mean_improvement": 0.0
+    },
+    {
+      "rejection_rate": 0.43,
+      "rejections": 172,
+      "replicates": 400,
+      "scenario": "twice_proxy_residual",
+      "sign_flips_per_replicate": 10000,
+      "simulation_wilson_95": [
+        0.3823760406443324,
+        0.47895568056246907
+      ],
+      "source_tasks": 200,
+      "source_tasks_per_family": 25,
+      "true_absolute_mean_improvement": 0.025
+    },
+    {
+      "rejection_rate": 0.945,
+      "rejections": 378,
+      "replicates": 400,
+      "scenario": "twice_proxy_residual",
+      "sign_flips_per_replicate": 10000,
+      "simulation_wilson_95": [
+        0.9181325521920267,
+        0.9634015058504493
+      ],
+      "source_tasks": 200,
+      "source_tasks_per_family": 25,
+      "true_absolute_mean_improvement": 0.05
+    },
+    {
+      "rejection_rate": 1.0,
+      "rejections": 400,
+      "replicates": 400,
+      "scenario": "twice_proxy_residual",
+      "sign_flips_per_replicate": 10000,
+      "simulation_wilson_95": [
+        0.9904877056657034,
+        0.9999999999999999
+      ],
+      "source_tasks": 200,
+      "source_tasks_per_family": 25,
+      "true_absolute_mean_improvement": 0.075
+    },
+    {
+      "rejection_rate": 0.0325,
+      "rejections": 13,
+      "replicates": 400,
+      "scenario": "symmetric_sd_0.3",
+      "sign_flips_per_replicate": 10000,
+      "simulation_wilson_95": [
+        0.01908984237880045,
+        0.0548041528237668
+      ],
+      "source_tasks": 200,
+      "source_tasks_per_family": 25,
+      "true_absolute_mean_improvement": 0.0
+    },
+    {
+      "rejection_rate": 0.2225,
+      "rejections": 89,
+      "replicates": 400,
+      "scenario": "symmetric_sd_0.3",
+      "sign_flips_per_replicate": 10000,
+      "simulation_wilson_95": [
+        0.18448827447183322,
+        0.2657910488837013
+      ],
+      "source_tasks": 200,
+      "source_tasks_per_family": 25,
+      "true_absolute_mean_improvement": 0.025
+    },
+    {
+      "rejection_rate": 0.5975,
+      "rejections": 239,
+      "replicates": 400,
+      "scenario": "symmetric_sd_0.3",
+      "sign_flips_per_replicate": 10000,
+      "simulation_wilson_95": [
+        0.5487342037489487,
+        0.6444108988558637
+      ],
+      "source_tasks": 200,
+      "source_tasks_per_family": 25,
+      "true_absolute_mean_improvement": 0.05
+    },
+    {
+      "rejection_rate": 0.93,
+      "rejections": 372,
+      "replicates": 400,
+      "scenario": "symmetric_sd_0.3",
+      "sign_flips_per_replicate": 10000,
+      "simulation_wilson_95": [
+        0.9006910535722495,
+        0.9511283733002555
+      ],
+      "source_tasks": 200,
+      "source_tasks_per_family": 25,
+      "true_absolute_mean_improvement": 0.075
+    },
+    {
+      "rejection_rate": 0.0425,
+      "rejections": 17,
+      "replicates": 400,
+      "scenario": "symmetric_sd_0.5",
+      "sign_flips_per_replicate": 10000,
+      "simulation_wilson_95": [
+        0.026701694991131116,
+        0.06700205432475019
+      ],
+      "source_tasks": 200,
+      "source_tasks_per_family": 25,
+      "true_absolute_mean_improvement": 0.0
+    },
+    {
+      "rejection_rate": 0.11,
+      "rejections": 44,
+      "replicates": 400,
+      "scenario": "symmetric_sd_0.5",
+      "sign_flips_per_replicate": 10000,
+      "simulation_wilson_95": [
+        0.08296867911910685,
+        0.1444509104616444
+      ],
+      "source_tasks": 200,
+      "source_tasks_per_family": 25,
+      "true_absolute_mean_improvement": 0.025
+    },
+    {
+      "rejection_rate": 0.2575,
+      "rejections": 103,
+      "replicates": 400,
+      "scenario": "symmetric_sd_0.5",
+      "sign_flips_per_replicate": 10000,
+      "simulation_wilson_95": [
+        0.21709827513471777,
+        0.302515187617416
+      ],
+      "source_tasks": 200,
+      "source_tasks_per_family": 25,
+      "true_absolute_mean_improvement": 0.05
+    },
+    {
+      "rejection_rate": 0.5825,
+      "rejections": 233,
+      "replicates": 400,
+      "scenario": "symmetric_sd_0.5",
+      "sign_flips_per_replicate": 10000,
+      "simulation_wilson_95": [
+        0.5336117391164401,
+        0.629818732318401
+      ],
+      "source_tasks": 200,
+      "source_tasks_per_family": 25,
+      "true_absolute_mean_improvement": 0.075
+    }
+  ],
+  "development_A_minus_B3_mean": 0.08833333333333333,
+  "development_A_minus_B3_sd": 0.10547776677630377,
+  "development_sources": 150,
+  "driver_sha256": "902be2445c908ceed60f9f1a198c9f12f3f81dbfffd3e13361e611113257aad7",
+  "formal_protocol_frozen": false,
+  "heldout_model_outputs_read": false,
+  "input_sha256": {
+    "scoring\\A.json": "a4e88a516f6e1f7a99b5e785ebc7393d70536b82262e01a1769f8a89eb825664",
+    "scoring\\B3.json": "7da68d2bd5305e80b71a851a689a20a59ee553afc90b1ccc0b3e175f968bd6c0",
+    "validation-cases.jsonl": "f3c40f45733a78656c057e0c20f2b35a1ff8d86768a71fb5948089fb781c8863"
+  },
+  "kind": "development_proxy_calibration_not_D_B_power_guarantee",
+  "limitations": [
+    "A/B3 was selected on the same development observations; its effect and residual spread are optimistic proxies, not D/B measurements.",
+    "Residual magnitudes are centered within family then independently symmetrized; this imposes the sign-exchangeable null rather than validating it for real tasks.",
+    "Family quotas fixed at 25; blocked/fault quotas and near-neighbor dependence are not simulated.",
+    "Conditional on fixed fitted models; does not estimate training-seed population uncertainty.",
+    "Two-point stress scenarios vary SD under symmetric bounded differences; they are assumptions, not fitted natural-error distributions.",
+    "Wilson intervals quantify finite simulation error only, not uncertainty in the real experimental power.",
+    "Calibration concerns the primary unadjusted sign-flip test, not CI coverage or Holm secondary power."
+  ],
+  "new_model_calls": 0,
+  "numpy_version": "2.4.6",
+  "planned_test_sources": 200,
+  "production_test_semantics_audit_passed": true,
+  "seconds": 30.446886599995196,
+  "simulation_seed": 20261023,
+  "source_groups_per_family": {
+    "ascii_filter_project": 18,
+    "date_format": 18,
+    "decimal_round": 19,
+    "half_open_interval": 19,
+    "key_present": 19,
+    "local_date_filter": 19,
+    "stable_sort": 19,
+    "unicode_nfc": 19
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "status": "completed",
+  "source_commit": "71a361d5437d59294696f40ee015c599441df4ec",
+  "canonical_running_source_unchanged": true,
+  "gpu_used": false,
+  "targeted_test_exit_code": 0,
+  "build_exit_code": 0
+}
