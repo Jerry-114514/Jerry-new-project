@@ -1,0 +1,36 @@
+{
+  "cases_hash": "81527ea94b9d71754393d892145464baad3fc781125ce090fb71037312b6685f",
+  "event_count_range": [
+    31,
+    40
+  ],
+  "formal_protocol_frozen": false,
+  "human_evaluation_claim": false,
+  "kind": "injected_history_development_only",
+  "labels_hash": "56b8a2a04644fb27a77f9c7788205a7b028054e3f41b196709b0db9a146c30fc",
+  "model_calls": 0,
+  "new_independent_sources": 0,
+  "plan": {
+    "new_independent_sources": 0,
+    "provenance": "injected_not_model_generated",
+    "repair_rounds": 3,
+    "schema_version": 1,
+    "selection": "minimum_sha256_task_id_per_split_family_blocked_stratum",
+    "selection_uses_model_outputs": false,
+    "validation_calls_per_round": 8,
+    "views": [
+      "repaired_final",
+      "protected_input_restored_early"
+    ]
+  },
+  "plan_hash": "cb16b8a60a9ee95e44e1fc090d63cb2f906e7669d854c7bab37a488f97d7846a",
+  "sources_by_split": {
+    "train": 16,
+    "validation": 16
+  },
+  "test_views_built": false,
+  "views_by_split": {
+    "train": 32,
+    "validation": 32
+  }
+}

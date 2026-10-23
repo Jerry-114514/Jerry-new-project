@@ -1,0 +1,252 @@
+...........
+
+
+{"step": 1, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.44692834094166756}
+{"step": 2, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.5689553376287222}
+{"step": 3, "validation_loss": 1.0, "lr": 5e-06, "elapsed_seconds": 0.701791362836957}
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 465.36it/s]
+
+
+
+{"step": 1, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.12519909627735615}
+{"step": 2, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.2532198056578636}
+{"step": 3, "validation_loss": 1.0, "lr": 5e-06, "elapsed_seconds": 0.37831711396574974}
+.............................................
+
+
+{"step": 1, "validation_loss": 6.47598671913147, "lr": 0.001, "elapsed_seconds": 0.13841719552874565}
+{"step": 2, "validation_loss": 6.322148084640503, "lr": 0.001, "elapsed_seconds": 0.2732530701905489}
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 831.21it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10694.88it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10649.30it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 14019.40it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 14164.82it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 15954.42it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 15669.18it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11201.88it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 16333.87it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11283.68it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12971.12it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12681.19it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10318.09it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10041.94it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12730.68it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11579.62it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11838.76it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12194.01it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11292.36it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12293.57it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11322.84it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10134.67it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12380.40it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10179.47it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 16791.61it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12936.83it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 15532.40it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 6048.96it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11699.59it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12359.56it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 16074.53it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 13982.68it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 13028.68it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12564.51it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10542.24it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10292.77it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10468.93it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11291.27it/s]
+..............................................................................................................
+
+
+{"step": 1, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.12394304946064949}
+{"step": 2, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.23918026313185692}
+{"step": 3, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.3506310470402241}
+{"step": 4, "validation_loss": 1.0, "lr": 0.001, "elapsed_seconds": 0.468088760972023}
+{"step": 5, "validation_loss": 1.0, "lr": 0.0005, "elapsed_seconds": 0.5763912573456764}
+{"step": 6, "validation_loss": 1.0, "lr": 0.0005, "elapsed_seconds": 0.697533531114459}
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 799.68it/s]
+.
+
+
+{"step": 2, "validation_loss": 6.322148084640503, "lr": 0.001, "elapsed_seconds": 0.24624283611774445}
+{"step": 4, "validation_loss": 6.177117347717285, "lr": 0.0005025, "elapsed_seconds": 0.4906037263572216}
+{"step": 6, "validation_loss": 6.161113500595093, "lr": 5e-06, "elapsed_seconds": 0.733104020357132}
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 941.06it/s]
+.
+
+
+{"step": 2, "validation_loss": 6.652384281158447, "lr": 0.001, "elapsed_seconds": 0.2443576641380787}
+{"step": 4, "validation_loss": 6.64064884185791, "lr": 0.0005025, "elapsed_seconds": 0.49628917314112186}
+{"step": 6, "validation_loss": 6.639207124710083, "lr": 5e-06, "elapsed_seconds": 0.749837713316083}
+.
+
+
+.
+
+
+{"step": 2, "validation_loss": 6.322148084640503, "lr": 0.001, "elapsed_seconds": 0.2334297802299261}
+{"step": 4, "validation_loss": 6.177117347717285, "lr": 0.0005025, "elapsed_seconds": 0.4604323264211416}
+{"step": 6, "validation_loss": 6.161113500595093, "lr": 5e-06, "elapsed_seconds": 0.6936828661710024}
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 912.80it/s]
+
+
+
+{"step": 2, "validation_loss": 6.322148084640503, "lr": 0.001, "elapsed_seconds": 0.2259033564478159}
+
+
+
+{"step": 4, "validation_loss": 6.177117347717285, "lr": 0.0005025, "elapsed_seconds": 0.12697799503803253}
+{"step": 6, "validation_loss": 6.161113500595093, "lr": 5e-06, "elapsed_seconds": 0.3708410728722811}
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 801.82it/s]
+
+
+
+{"step": 2, "validation_loss": 6.322148084640503, "lr": 0.001, "elapsed_seconds": 0.21277759596705437}
+{"step": 4, "validation_loss": 6.11797571182251, "lr": 0.001, "elapsed_seconds": 0.43813631869852543}
+{"step": 6, "validation_loss": 5.94657564163208, "lr": 0.001, "elapsed_seconds": 0.664464658126235}
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 848.19it/s]
+
+
+
+{"step": 2, "validation_loss": 6.322148084640503, "lr": 0.001, "elapsed_seconds": 0.22556702606379986}
+
+
+
+{"step": 4, "validation_loss": 6.11797571182251, "lr": 0.001, "elapsed_seconds": 0.11978065222501755}
+{"step": 6, "validation_loss": 5.94657564163208, "lr": 0.001, "elapsed_seconds": 0.35744673013687134}
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 891.65it/s]
+.
+
+
+{"step": 2, "validation_loss": 6.322148084640503, "lr": 0.001, "elapsed_seconds": 0.2503187507390976}
+{"step": 4, "validation_loss": 6.177117347717285, "lr": 0.0005025, "elapsed_seconds": 0.5020843725651503}
+{"step": 6, "validation_loss": 6.161113500595093, "lr": 5e-06, "elapsed_seconds": 0.754646610468626}
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 860.19it/s]
+
+
+
+{"step": 2, "validation_loss": 6.652384281158447, "lr": 0.001, "elapsed_seconds": 0.25072435662150383}
+{"step": 4, "validation_loss": 6.64064884185791, "lr": 0.0005025, "elapsed_seconds": 0.5203004907816648}
+{"step": 6, "validation_loss": 6.639207124710083, "lr": 5e-06, "elapsed_seconds": 0.7731341663748026}
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12343.97it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11918.05it/s]
+....................
+
+
+{"step": 1, "validation_loss": 6.471860408782959, "lr": 0.001, "elapsed_seconds": 0.1356688179075718}
+{"step": 2, "validation_loss": 6.311890125274658, "lr": 0.001, "elapsed_seconds": 0.2743263654410839}
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 759.29it/s]
+.........
+
+
+{"step": 1, "validation_loss": 6.47598671913147, "lr": 0.001, "elapsed_seconds": 0.14083250798285007}
+{"step": 2, "validation_loss": 6.322148084640503, "lr": 0.001, "elapsed_seconds": 0.2849583178758621}
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 908.05it/s]
+.................................../root/autodl-tmp/intentlab-venv/lib/python3.12/site-packages/fla/ops/nsa/naive.py:19: ImportWarning: Flash Attention is not installed. Please install it via `pip install flash-attn --no-build-isolation`
+  warnings.warn(
+/root/autodl-tmp/intentlab-venv/lib/python3.12/site-packages/fla/ops/nsa/parallel.py:25: ImportWarning: Flash Attention is not installed. Please install it via `pip install flash-attn --no-build-isolation`
+  warnings.warn(
+........................
+----------------------------------------------------------------------
+Ran 259 tests in 138.037s
+
+OK

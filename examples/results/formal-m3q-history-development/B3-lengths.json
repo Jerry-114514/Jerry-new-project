@@ -1,0 +1,12 @@
+{
+  "split": "validation",
+  "condition": "B3_fixed_previous_selection",
+  "views": 32,
+  "weights_loaded": false,
+  "min_prompt_tokens": 8335,
+  "max_prompt_tokens": 15490,
+  "generation_reserve": 1024,
+  "over_16384_with_reserve": 1,
+  "over_17408_with_reserve": 0,
+  "formal_budget_frozen": false
+}

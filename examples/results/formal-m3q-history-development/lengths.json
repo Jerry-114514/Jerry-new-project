@@ -1,0 +1,28 @@
+{
+  "weights_loaded": false,
+  "gpu_used": false,
+  "heldout_model_outputs_read": false,
+  "test_views_built": false,
+  "truncation": false,
+  "archive_sha256": "be9ef1c4d790eabb4f302a15ddeb1509f1e762155b8d17db3ce63e76ed748ff3",
+  "splits": {
+    "train": {
+      "views": 32,
+      "max_sequence_tokens": 9086,
+      "min_sequence_tokens": 4209,
+      "max_target_tokens": 513,
+      "over_7168": 8,
+      "over_13312": 0,
+      "over_16384": 0
+    },
+    "validation": {
+      "views": 32,
+      "max_sequence_tokens": 12150,
+      "min_sequence_tokens": 4893,
+      "max_target_tokens": 553,
+      "over_7168": 17,
+      "over_13312": 0,
+      "over_16384": 0
+    }
+  }
+}
