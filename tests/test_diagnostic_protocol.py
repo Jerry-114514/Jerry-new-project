@@ -10,6 +10,9 @@ from unittest.mock import patch
 from intentlab.budget import TokenLedger
 from intentlab.diagnostic_protocol import CONDITIONS, backend_for, generate, reveal, verify_predictions, verify_reveal
 from intentlab.protocol import freeze
+from intentlab.core import digest
+from intentlab.diagnostic_protocol import seal_files
+from intentlab.gpu_lease import GpuBusy
 from test_execution_protocol import fixture
 
 
@@ -35,6 +38,24 @@ def fake_loss(protocol, path, cases, gold):
 
 
 class DiagnosticProtocolTests(unittest.TestCase):
+    @patch("intentlab.diagnostic_protocol.verify_execution_models", return_value={"verified": True})
+    def test_rehashed_resource_failure_cannot_be_revealed(self, unused):
+        with tempfile.TemporaryDirectory() as name:
+            root = Path(name)
+            _, lock, binding = self.setup_fixture(root)
+            directory = root / "predictions"
+            manifest = generate(lock, binding, directory, True, FakeBackend)
+            path = directory / "B/calls.jsonl"
+            calls = [json.loads(line) for line in path.read_text().splitlines()]
+            calls[0].update(status="error", error_type="GpuBusy", error="occupied")
+            path.write_text("".join(json.dumps(row) + "\n" for row in calls))
+            manifest["files_sha256"] = seal_files(directory)
+            manifest["seal_hash"] = digest({k: v for k, v in manifest.items() if k != "seal_hash"})
+            (directory / "manifest.json").write_text(json.dumps(manifest))
+            with self.assertRaises(GpuBusy):
+                reveal(lock, binding, directory, root / "scores", True, fake_loss)
+            self.assertFalse((root / "scores").exists())
+
     def setup_fixture(self, root):
         spec = fixture(root / "fixture")
         lock = freeze(spec, root / "protocol.json")

@@ -8,6 +8,7 @@ from intentlab.core import initial_state, public_task
 from intentlab.fixtures import build_tasks
 from intentlab.formal_inference import diagnostic_prompt, reviewed_examples, run_diagnostics
 from intentlab.model_backend import SchemaLanguageModelAnalyzer
+from intentlab.gpu_lease import GpuBusy
 from test_formal_data import case, review
 
 
@@ -30,6 +31,27 @@ class ControlledBackend:
 
 
 class FormalInferenceTests(unittest.TestCase):
+    def test_resource_failure_is_preserved_and_aborts_before_next_case(self):
+        for error in (GpuBusy("occupied"), RuntimeError("Other CUDA compute processes are active (PIDs 123)")):
+            with self.subTest(error=type(error).__name__), tempfile.TemporaryDirectory() as name:
+                backend = ControlledBackend()
+                def fail(prompt, role="analyzer"):
+                    backend.prompts.append(prompt)
+                    raise error
+                backend.complete = fail
+                out = Path(name) / "result"
+                second = case("view-2", "test", "source-2", "template-2")
+                second["public"]["request"] += " Distinct second task."
+                with self.assertRaises(GpuBusy):
+                    run_diagnostics([case(), second], backend, out)
+                self.assertEqual(len(backend.prompts), 1)
+                self.assertEqual(len((out / "predictions.jsonl").read_text().splitlines()), 1)
+                call = json.loads((out / "calls.jsonl").read_text())
+                self.assertEqual(call["error"], str(error))
+                manifest = json.loads((out / "manifest.json").read_text())
+                self.assertEqual(manifest["status"], "failed")
+                self.assertEqual(manifest["completed_records"], 1)
+
     def test_no_labels_enter_query_and_failed_cases_are_saved(self):
         for fail in (False, True):
             with tempfile.TemporaryDirectory() as name:

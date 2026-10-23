@@ -23,6 +23,7 @@ from .formal_data import formal_prompt, read_jsonl, validate_cases, validate_fin
 from .formal_eval import paired_task_bootstrap, score_predictions
 from .formal_inference import reject_example_overlap, run_diagnostics
 from .model_backend import LocalBackend
+from .gpu_lease import reject_interfered_trial
 from .protocol import file_hash, read_json
 from .report import save_json
 
@@ -199,6 +200,9 @@ def verify_predictions(protocol, binding, directory, engineering=False):
     for condition in CONDITIONS:
         if read_json(directory / condition / "manifest.json")["status"] != "completed":
             raise ValueError("Condition generation did not complete")
+        for call in read_jsonl(directory / condition / "calls.jsonl"):
+            reject_interfered_trial({"history": [{"phase": "error",
+                "error_type": call.get("error_type"), "message": call.get("error", "")}]})
         rows = read_jsonl(directory / condition / "predictions.jsonl")
         if len(rows) != len(expected) or {row["case_id"] for row in rows} != expected \
                 or any(set(row) != {"case_id", "text"} or not isinstance(row["text"], str) for row in rows):

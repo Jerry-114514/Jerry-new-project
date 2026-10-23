@@ -9,6 +9,7 @@ import time
 from .core import canonical, digest
 from .formal_data import formal_prompt, normalized_request, read_jsonl, resolve_reviews, validate_cases
 from .model_backend import LocalBackend
+from .gpu_lease import GpuBusy, reject_interfered_trial
 from .report import save_json
 
 
@@ -65,7 +66,7 @@ def run_diagnostics(cases, backend, out, examples=(), model_identity=None):
     started = time.perf_counter()
     with (out / "predictions.jsonl").open("w", encoding="utf-8", newline="\n") as predictions, \
          (out / "calls.jsonl").open("w", encoding="utf-8", newline="\n") as calls:
-        for row in cases:
+        for completed_records, row in enumerate(cases, 1):
             backend.reset()
             prompt = diagnostic_prompt(row, examples)
             record = {"case_id": row["case_id"], "prompt_hash": digest(prompt)}
@@ -84,6 +85,15 @@ def run_diagnostics(cases, backend, out, examples=(), model_identity=None):
             calls.write(canonical(record) + "\n")
             predictions.flush()
             calls.flush()
+            try:
+                reject_interfered_trial({"history": [{"phase": "error",
+                    "error_type": record.get("error_type"), "message": record.get("error", "")}]})
+            except GpuBusy as exc:
+                manifest.update(status="failed", error_type=type(exc).__name__, error=str(exc),
+                    completed_records=completed_records,
+                    seconds=time.perf_counter() - started)
+                save_json(out / "manifest.json", manifest)
+                raise
     manifest.update(status="completed", seconds=time.perf_counter() - started,
         file_sha256={path.name: hashlib.sha256(path.read_bytes()).hexdigest()
                      for path in (out / "predictions.jsonl", out / "calls.jsonl")})

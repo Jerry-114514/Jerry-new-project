@@ -4,7 +4,7 @@
 
 实际验证已使用先前两步长历史压力实验端点：10个文件、886409656源字节，生成886435840字节未压缩tar。整包SHA256为4aa8cc37a683b945658c9e266c9ac6be2ead76f29ab3cdb8b1089a33ad81d6b6。源端包校验通过，已从AutoDL传输到用户Windows本地工作区，再用源端预先记录的整包SHA及内部各文件SHA独立核对，全部一致。该端点仍是工程压力产物，正式端点备份数0。
 
-本轮官方底座固定revision c202236235762e1c871ad0ccb60c8ee5ba337b9a。[已有资产清单](../configs/qwen35-official-assets.json)涵盖四份权重分片和其余模型/tokenizer资产。正另行复制模型快照中的14个冻结输入文件（含下载来源记录），不创建第二份远端大模型tar；复制后逐项对照源SHA256，再核验13项官方资产。只有复制及核验成功后才生成 `official-base-backup-index.json`，不能把在传文件记成完成。
+本轮官方底座固定revision c202236235762e1c871ad0ccb60c8ee5ba337b9a。[已有资产清单](../configs/qwen35-official-assets.json)涵盖四份权重分片和其余模型/tokenizer资产。模型快照中的14个冻结输入文件（含下载来源记录），共19329305870字节，已复制至用户Windows本地工作区。全部文件SHA256与复制前冻结的源快照一致，13项官方资产再次核验通过；复制进程已退出0。[实际备份索引](../examples/results/formal-m3ad-model-backup/official-base-backup-index.json)记录文件大小和SHA，不包含模型二进制。该备份不代表正式训练或M8完成。
 
 正式端点使用完成的矩阵job和协议hash绑定，逐项比对result/config及矩阵记录的checkpoint、导出文件SHA；可在六次矩阵尚未全部结束时备份已经完成的一项。冻结协议、矩阵快照及后续模型绑定也应单独保留，归档索引通过协议/job哈希联系这些记录，不能只留tar而丢失来源。没有矩阵绑定时必须显式使用engineering，不能把零散目录登记为正式完成。既有训练器/模型绑定负责验证选中的权重确为验证集最优；备份工具负责保存已绑定的字节，不能替代选点和完整实验核验。
 
