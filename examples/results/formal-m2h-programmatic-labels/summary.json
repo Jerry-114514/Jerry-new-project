@@ -1,0 +1,33 @@
+{
+  "candidate_contracts": 600,
+  "formal_protocol_migrated": false,
+  "formal_training_started": false,
+  "human_evaluation_claim": false,
+  "human_reviews_completed": 0,
+  "label_items": 9600,
+  "new_model_calls": 0,
+  "online_state_disagreements": 0,
+  "scope": "existing_single_template_train_programmatic_label_export",
+  "source_independence_proven": false,
+  "status_counts": {
+    "R_INPUT": {
+      "satisfied": 1200,
+      "unknown": 600,
+      "violated": 600
+    },
+    "R_ORDER": {
+      "satisfied": 1800,
+      "unknown": 600
+    },
+    "R_REPORT": {
+      "satisfied": 1800,
+      "violated": 600
+    },
+    "R_RESULT": {
+      "satisfied": 1800,
+      "violated": 600
+    }
+  },
+  "views": 2400,
+  "warning": "Programmatic labels for explicit specifications, not human gold or proof that all specifications/references are correct. Existing train candidates only, one template, no new sealed test/OOD."
+}

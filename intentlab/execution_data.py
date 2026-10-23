@@ -49,7 +49,11 @@ def load_execution_tasks(path):
 
 
 def load_references(path, tasks):
-    records = read_jsonl(path)
+    return validate_references(read_jsonl(path), tasks)
+
+
+def validate_references(records, tasks):
+    """Validate in-memory references with the same rules as file loading."""
     by_id = {task["id"]: task for task in tasks}
     references = {}
     for record in records:

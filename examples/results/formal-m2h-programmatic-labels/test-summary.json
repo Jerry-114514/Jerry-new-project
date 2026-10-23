@@ -1,0 +1,41 @@
+[
+  {
+    "log_name": "programmatic-tests-local-final.log",
+    "sha256": "6ad191bcefbde17565d8daeefc420d34e4b3bf6e4f8c80506a7ca8165a1779d1",
+    "tests_discovered": 204,
+    "skipped": 13,
+    "tail": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 204 tests in 12.714s",
+      "",
+      "OK (skipped=13)"
+    ]
+  },
+  {
+    "log_name": "programmatic-regression-remote.log",
+    "sha256": "b160e7d2409f9261c846f870b47ce8746f62c90fc57ee4544026f5f4b1fa4240",
+    "tests_discovered": 203,
+    "skipped": 0,
+    "tail": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 203 tests in 94.711s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "log_name": "programmatic-targeted-remote.log",
+    "sha256": "d374b13ae0ba704dafe3ab4b5c1f41e8046c332e0f7e73b24f692d9b0c4bf0d3",
+    "tests_discovered": 6,
+    "skipped": 0,
+    "tail": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 6 tests in 0.026s",
+      "",
+      "OK"
+    ]
+  }
+]

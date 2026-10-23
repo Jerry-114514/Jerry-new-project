@@ -1,0 +1,10 @@
+{
+  "audit.py": "9ba9030564fe065bedb9e9fd726cf3cd278a3bbeb019d1d16747e34f35673c21",
+  "export-manifest.json": "14a8ed4cda8ec6a40f6544b70327e32bc2ef8ea360aca21ccd74c48c8fd9ca18",
+  "input-sha256.json": "286dace4e9e4ed109ea8ce5041426c712ee5de6da5c1e5bc9d81ac5757431a86",
+  "private-backup.json": "bcd6de056ce797bd854ffbf2f0bfd1d57ac2cbbf5579947fd93a86fc62a1c281",
+  "README.md": "59d2fb6a601d844a086143a4ebf4a1ad1a59516b1e4a608ad9efd7e875d16ad5",
+  "source-snapshot.json": "81d956a079f31ae59eedb893d7a3b7b44751dae832720bbe9ae577176e8501c6",
+  "summary.json": "7c624a2d4007eca3030c35f47e069c46daa5543f7ab7af110ce6d154b0b7a607",
+  "test-summary.json": "d2593fda31f5badbbd8709b299420560e375e7ac145c1fa893ea130e52ffa4a9"
+}

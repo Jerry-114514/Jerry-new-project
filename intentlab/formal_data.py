@@ -67,7 +67,7 @@ def validate_cases(cases):
         source = row["source"]
         if not isinstance(source, dict) or set(source) != {"origin", "reference", "license", "trajectory"}:
             raise ValueError("Source needs origin, reference, license and trajectory")
-        if source["origin"] not in {"human_authored", "model_generated", "adapted_public"}:
+        if source["origin"] not in {"human_authored", "model_generated", "adapted_public", "program_generated"}:
             raise ValueError("Unknown task origin")
         if source["trajectory"] not in {"natural", "injected", "none"}:
             raise ValueError("Unknown trajectory provenance")
