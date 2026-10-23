@@ -1,0 +1,29 @@
+{
+  "active_gpu_source_commit": "bb168cd0f75f1077de20a3991b7d5a1de88d97de",
+  "active_gpu_source_unchanged": true,
+  "all_10_material_bindings_byte_identical": true,
+  "candidate_spec_hash": "24a1fb1bf32ac17eb80bc4f666b2f2f886d91eaca1984444959555117a2f39d1",
+  "construction_source_commit": "eeca31301a22cf7de3c6ebf20d2dd99d654a0715",
+  "controller_selection_ready": false,
+  "deep_readiness_checks_completed": false,
+  "final_compute_budget_ready": false,
+  "formal_protocol_frozen": false,
+  "formal_training": false,
+  "gold_access": "construction-side case/finding validation only",
+  "heldout_case_counts": {
+    "ood": 408,
+    "test": 832
+  },
+  "heldout_metrics_computed": false,
+  "heldout_model_calls": 0,
+  "old_candidate_spec_hash": "9c1b84f1a8b0148b6d3bb0502f7aabab62d51683c226d346274bc2c9795ad0aa",
+  "old_material_seal_unchanged": true,
+  "preliminary_blockers": [
+    "Missing reviewed evidence file: length_and_compute_budget",
+    "Missing reviewed evidence file: controller_ablation_audit",
+    "Formal source_root must be the active protocol implementation checkout"
+  ],
+  "prospective_runtime_source_root": "/root/autodl-tmp/intentlab-history-cpu-source-20261023",
+  "status": "prepared_not_frozen",
+  "training_and_generation_budgets_unchanged": true
+}

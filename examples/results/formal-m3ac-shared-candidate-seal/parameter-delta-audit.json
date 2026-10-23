@@ -1,0 +1,27 @@
+{
+  "kind": "shared_candidate_parameter_delta_audit",
+  "all_other_spec_fields_identical": true,
+  "changed_fields": [
+    "execution.settings.model_residency",
+    "evidence paths except model_weight_verification"
+  ],
+  "data_paths_and_content_unchanged": true,
+  "training_steps": 2464,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "schedules": [
+    "cosine",
+    "plateau"
+  ],
+  "budgets": {
+    "context_limit": 17408,
+    "max_new_tokens": 1536,
+    "max_repairs": 3,
+    "token_budget": 49152
+  },
+  "formal_protocol_frozen": false,
+  "heldout_model_outputs_read": false
+}

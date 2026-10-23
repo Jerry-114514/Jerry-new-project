@@ -1,0 +1,64 @@
+{
+  "kind": "programmatic_test_material_seal",
+  "schema_version": 1,
+  "scope": "formal",
+  "candidate_spec_hash": "24a1fb1bf32ac17eb80bc4f666b2f2f886d91eaca1984444959555117a2f39d1",
+  "files": {
+    "annotation/cases": {
+      "path": "/root/autodl-tmp/history-augmented-candidate-20261023/cases.jsonl",
+      "sha256": "6eb1c5c64cb3061e1fa29e43842506bfe40e0b54fdd552a3f8ad8f901b174935"
+    },
+    "annotation/labels": {
+      "path": "/root/autodl-tmp/history-augmented-candidate-20261023/export/programmatic-labels.jsonl",
+      "sha256": "14cd68f8ab8c110c070593f7c555604bbeb6200a7fc3c578a3bc96574b6757cb"
+    },
+    "annotation/tasks": {
+      "path": "/root/autodl-tmp/history-augmented-candidate-20261023/tasks.jsonl",
+      "sha256": "3adb95d02a0224b4b4078f237813c5f47d808e5055a637d2b7ce3a706c8c4c24"
+    },
+    "annotation/references": {
+      "path": "/root/autodl-tmp/history-augmented-candidate-20261023/references.jsonl",
+      "sha256": "5e1a71bfa23bc957e9f572d7313c960eb9a591e5eeb3cff31169a7ec4548925f"
+    },
+    "dataset/heldout/test/cases.jsonl": {
+      "path": "/root/autodl-tmp/history-augmented-candidate-20261023/export/heldout/test/cases.jsonl",
+      "sha256": "914394d6a105ad0f6d1bd8fedb6e623066a0ba795a8d05be61d1eec677a8cceb"
+    },
+    "dataset/heldout/test/gold.jsonl": {
+      "path": "/root/autodl-tmp/history-augmented-candidate-20261023/export/heldout/test/gold.jsonl",
+      "sha256": "2687bfc74a4507a6db0c3bd54c40060a563358085760339135cadab0b89cbd38"
+    },
+    "dataset/heldout/ood/cases.jsonl": {
+      "path": "/root/autodl-tmp/history-augmented-candidate-20261023/export/heldout/ood/cases.jsonl",
+      "sha256": "c602d2557e1267b647cf934ba4f6d26a76b4e881abfc8a36ffe271f6115e88f0"
+    },
+    "dataset/heldout/ood/gold.jsonl": {
+      "path": "/root/autodl-tmp/history-augmented-candidate-20261023/export/heldout/ood/gold.jsonl",
+      "sha256": "21245a52441c7f870535d431a9c2412daa0979cc331dfb1af6a8c344cdedcc58"
+    },
+    "execution/tasks": {
+      "path": "/root/autodl-tmp/history-augmented-candidate-20261023/execution-tasks.jsonl",
+      "sha256": "e3acee9c6761baa1ca4dee52a3aadc7901288a4befcaecc04724283ad1181a9d"
+    },
+    "execution/references": {
+      "path": "/root/autodl-tmp/history-augmented-candidate-20261023/execution-references.jsonl",
+      "sha256": "c8b9d3cb8c3f3121c4e2c99430b48b14253234f1a570a6d9007a5885416a38aa"
+    }
+  },
+  "heldout_case_counts": {
+    "test": 832,
+    "ood": 408
+  },
+  "policy": {
+    "generation_attempts_per_protocol": 1,
+    "gold_access": "separate_reveal_after_all_predictions",
+    "training_inputs": [
+      "train.jsonl",
+      "validation.jsonl"
+    ],
+    "os_access_isolation_claim": false
+  },
+  "created_utc": "2026-10-23T15:49:49.037329+00:00",
+  "known_claims_at_creation": [],
+  "warning": "Application input separation and content hashes only. Same-root access is not OS isolation; local clock and empty known claim set are not independent proof that nobody previously inspected material."
+}
