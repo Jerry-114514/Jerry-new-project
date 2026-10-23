@@ -1,11 +1,13 @@
-"""Extract unlabeled training/development views from recorded real-model runs.
+"""Extract training/development views from recorded real-model runs.
 
 This verifies replay and provenance consistency, not human identity, source
 independence, model authenticity, or the semantic correctness of a reference.
-It never loads offline references or transfers automatic judgments to reviewers.
+The legacy packet path never loads offline references. The opt-in programmatic
+path uses independently checked references and makes no human-review claim.
 """
 
 import argparse
+from collections import Counter
 from copy import deepcopy
 import hashlib
 import json
@@ -98,13 +100,74 @@ def build(tasks_path, execution_directory, out):
     return result
 
 
+def build_programmatic(tasks_path, references_path, execution_directory, out):
+    """Replay natural development snapshots and label explicit specs offline.
+
+    This opt-in path does not create or require human review packets. Reference
+    evaluation is independent of the recorded online analyzer and metrics.
+    """
+    from .execution_data import load_references
+    from .programmatic_labels import export_programmatic, generate_labels
+    from .spec_reference import verify_references
+
+    tasks_path, references_path = Path(tasks_path), Path(references_path)
+    execution_directory, out = Path(execution_directory), Path(out)
+    if out.exists():
+        raise FileExistsError('Preserve prior natural intake; choose a new output')
+    task_bytes = tasks_path.read_bytes()
+    tasks = load_execution_tasks(tasks_path)
+    manifest_path, raw_path = execution_directory/'manifest.json', execution_directory/'runs.jsonl'
+    execution = json.loads(manifest_path.read_text(encoding='utf-8'))
+    # Refuse heldout tasks before loading any corresponding reference content.
+    if any(task['split'] not in {'train', 'validation'} for task in tasks):
+        raise ValueError('Programmatic natural intake cannot read test/OOD references')
+    reference_bytes = references_path.read_bytes()
+    references = load_references(references_path, tasks)
+    if execution.get('offline_reference_hash') != digest(references):
+        raise ValueError('Natural execution references differ from recorded offline binding')
+    raw = raw_path.read_bytes()
+    raw_sha = hashlib.sha256(raw).hexdigest()
+    records = [json.loads(line) for line in raw.decode('utf-8').splitlines() if line.strip()]
+    cases, index = extract_views(tasks, execution, records, raw_sha)
+    checked = verify_references(tasks, references)
+    labels = generate_labels(cases, tasks, references)
+    if task_bytes != tasks_path.read_bytes() or reference_bytes != references_path.read_bytes():
+        raise ValueError('Natural intake contract/reference changed while reading')
+    out.mkdir(parents=True, exist_ok=False)
+    write_jsonl(out/'cases.jsonl', cases)
+    write_jsonl(out/'provenance.jsonl', index)
+    exported = export_programmatic(cases, tasks, references, out/'export')
+    result = {'kind':'programmatic_natural_development_intake', 'schema_version':1,
+        'scope':'encoded_specifications_only_no_human_evaluation',
+        'raw_records_sha256':raw_sha, 'execution_manifest_hash':digest(execution),
+        'tasks_sha256':hashlib.sha256(task_bytes).hexdigest(),
+        'references_sha256':hashlib.sha256(reference_bytes).hexdigest(),
+        'reference_check':checked, 'labels_hash':digest(labels),
+        'raw_runs':len(index)//2, 'views':len(cases),
+        'source_task_groups':len({c['source_task_id'] for c in cases}),
+        'splits':sorted({c['split'] for c in cases}),
+        'execution_status_counts':dict(Counter(r['execution_status'] for r in index[::2])),
+        'human_reviews_completed':0, 'human_evaluation_claim':False,
+        'automatic_labels_exported':True, 'formal_protocol_frozen':False,
+        'export_manifest_hash':digest(exported),
+        'warning':'Natural means recorded model attempts, including failures. Metadata does not authenticate the model or prove semantic independence. Two visibility views share each run and retain the original source/split. No online metrics or analyzer judgments are used as gold.'}
+    result['files_sha256'] = {p.relative_to(out).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+                             for p in out.rglob('*') if p.is_file()}
+    (out/'manifest.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n',encoding='utf-8',newline='\n')
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--tasks", type=Path, required=True)
     parser.add_argument("--execution", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--references", type=Path,
+                        help="Opt in to independent programmatic labels for train/validation; no human packet")
     args = parser.parse_args()
-    print(json.dumps(build(args.tasks, args.execution, args.out), indent=2))
+    result = (build_programmatic(args.tasks, args.references, args.execution, args.out)
+              if args.references else build(args.tasks, args.execution, args.out))
+    print(json.dumps(result, indent=2))
 
 
 if __name__ == "__main__":

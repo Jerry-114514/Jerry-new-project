@@ -10,7 +10,7 @@ from intentlab.core import digest, initial_state
 from intentlab.contracts import public_solution
 from intentlab.execution_oracle import evaluate_execution
 from intentlab.formal_data import read_jsonl, write_jsonl
-from intentlab.trajectory_intake import build, extract_views
+from intentlab.trajectory_intake import build, build_programmatic, extract_views
 from scripts.build_training_candidates import training_tasks
 
 
@@ -32,6 +32,60 @@ def fixture():
 
 
 class TrajectoryIntakeTests(unittest.TestCase):
+    def write_programmatic_fixture(self, root):
+        tasks,manifest,records=fixture()
+        all_tasks,all_refs=training_tasks()
+        refs={r['task_id']:r for r in all_refs if r['task_id']==tasks[0]['id']}
+        manifest['offline_reference_hash']=digest(refs)
+        write_jsonl(root/'tasks.jsonl',tasks)
+        write_jsonl(root/'references.jsonl',list(refs.values()))
+        write_jsonl(root/'runs.jsonl',records)
+        (root/'manifest.json').write_text(json.dumps(manifest))
+        return tasks,manifest,records
+
+    def test_programmatic_failure_labels_use_replayed_evidence_not_online_truth(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            self.write_programmatic_fixture(root)
+            result=build_programmatic(root/'tasks.jsonl',root/'references.jsonl',root,root/'intake')
+            self.assertFalse(result['human_evaluation_claim'])
+            self.assertEqual(result['views'],2)
+            self.assertEqual(result['source_task_groups'],1)
+            self.assertEqual(result['execution_status_counts'],{'error':1})
+            self.assertFalse((root/'intake/reviewer-packet').exists())
+            self.assertFalse((root/'intake/export/test.jsonl').exists())
+            pairs=read_jsonl(root/'intake/export/train.jsonl')
+            self.assertEqual(len(pairs),2)
+            self.assertNotIn('NEVER_EXPORT',json.dumps(pairs))
+            statuses=[{f['id']:f['status'] for f in json.loads(p['completion'])['findings']} for p in pairs]
+            self.assertEqual(statuses[0]['R_ORDER'],'violated')
+            self.assertEqual(statuses[1]['R_ORDER'],'unknown')
+            self.assertEqual(statuses[0]['R_RESULT'],'violated')
+            self.assertEqual(statuses[1]['R_RESULT'],'violated')
+            with self.assertRaises(FileExistsError):
+                build_programmatic(root/'tasks.jsonl',root/'references.jsonl',root,root/'intake')
+
+    def test_programmatic_rejects_unbound_reference_without_creating_output(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            _,manifest,_=self.write_programmatic_fixture(root)
+            manifest['offline_reference_hash']='not-the-reference-hash'
+            (root/'manifest.json').write_text(json.dumps(manifest))
+            with self.assertRaisesRegex(ValueError,'references differ'):
+                build_programmatic(root/'tasks.jsonl',root/'references.jsonl',root,root/'intake')
+            self.assertFalse((root/'intake').exists())
+
+    def test_programmatic_heldout_rejected_before_opening_invalid_reference(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            tasks,manifest,_=self.write_programmatic_fixture(root)
+            tasks[0]['split']='test'
+            write_jsonl(root/'tasks.jsonl',tasks)
+            (root/'references.jsonl').write_text('INVALID JSON MUST NOT BE READ')
+            with self.assertRaisesRegex(ValueError,'test/OOD references'):
+                build_programmatic(root/'tasks.jsonl',root/'references.jsonl',root,root/'intake')
+            self.assertFalse((root/'intake').exists())
+
     def test_training_variants_are_conservatively_grouped_and_static_references_consistent(self):
         tasks, refs = training_tasks()
         self.assertEqual(len(tasks), 12)

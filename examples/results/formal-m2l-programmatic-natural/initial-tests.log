@@ -1,0 +1,22 @@
+...........ss...................................s.....................................................................................................ssssss...E............s........s............................sss......................
+======================================================================
+ERROR: test_heldout_source_never_enters_selection_or_reference_generation (test_prepare_natural_development.NaturalSelectionTests.test_heldout_source_never_enters_selection_or_reference_generation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Profile\ChatGPT\new project 2\tests\test_prepare_natural_development.py", line 55, in test_heldout_source_never_enters_selection_or_reference_generation
+    result=prepare(root/'tasks.jsonl',root/'selection')
+  File "D:\Profile\ChatGPT\new project 2\scripts\prepare_natural_development.py", line 21, in prepare
+    tasks=load_execution_tasks(tasks_path)
+  File "D:\Profile\ChatGPT\new project 2\intentlab\execution_data.py", line 48, in load_execution_tasks
+    return validate_tasks(tasks)
+  File "D:\Profile\ChatGPT\new project 2\intentlab\execution_data.py", line 42, in validate_tasks
+    validate_cases(cases)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\Profile\ChatGPT\new project 2\intentlab\formal_data.py", line 119, in validate_cases
+    raise ValueError("Normalized request duplicated across splits")
+ValueError: Normalized request duplicated across splits
+
+----------------------------------------------------------------------
+Ran 235 tests in 20.592s
+
+FAILED (errors=1, skipped=14)

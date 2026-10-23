@@ -1,0 +1,95 @@
+{
+  "kind": "legacy_real_9b_natural_programmatic_replay_not_new_procedural_data",
+  "batches": [
+    {
+      "kind": "programmatic_natural_development_intake",
+      "schema_version": 1,
+      "scope": "encoded_specifications_only_no_human_evaluation",
+      "raw_records_sha256": "68ef2494f99e888b2c6d097f8ca02827bf5b2c63b4fcf9b94863fdcc9d570642",
+      "execution_manifest_hash": "7d3a5e6d8bbbe1b3389fecac0a3bf12940f5f36bf461e60b9228b47a43fac274",
+      "tasks_sha256": "01b4ed2e5f67ace9a656c1b1cdd035f7bf2b393478d9ba8fa2986930f31e4121",
+      "references_sha256": "f3ab4d0a6a59d04358449a4f8130a85e4ef190e2319d91a5fc6ce6e8920bb59b",
+      "reference_check": {
+        "kind": "independent_encoded_spec_reference_check",
+        "tasks": 2,
+        "tasks_hash": "c3b1957d78d6b00a981a34e0a0317b06e79d60abb3e4ef155e10aac596da54de",
+        "references_hash": "1616ee579f1cbcd22ff1c7879c59f86feb2a194765e0bfc8f44a1a3cfc2e2e01",
+        "operations": [
+          "ascii_filter_project"
+        ],
+        "formal_proof": false
+      },
+      "labels_hash": "933d90db635d59bb981f6649b1d18e9b5a76eeaa5a2e5f469d7f475c7e8e2d37",
+      "raw_runs": 2,
+      "views": 4,
+      "source_task_groups": 2,
+      "splits": [
+        "train"
+      ],
+      "execution_status_counts": {
+        "finished": 2
+      },
+      "human_reviews_completed": 0,
+      "human_evaluation_claim": false,
+      "automatic_labels_exported": true,
+      "formal_protocol_frozen": false,
+      "export_manifest_hash": "d945defb9e6e60d9a0374c1b05bd133406f3479c30a5865fe90eede66131a8ac",
+      "warning": "Natural means recorded model attempts, including failures. Metadata does not authenticate the model or prove semantic independence. Two visibility views share each run and retain the original source/split. No online metrics or analyzer judgments are used as gold.",
+      "files_sha256": {
+        "cases.jsonl": "04c389425e7d5b43ca530ef0951bc5caa23207c3432df64c6a853692a0d0df58",
+        "provenance.jsonl": "c93936763cdf0075826c4a518f5ee927556a4c4f3524072237a0c2b9915da061",
+        "export/manifest.json": "84ad7c1ca154b0e75a5d2d26270bea6cbe3f3ac1596b07916f1b01193dde0ed2",
+        "export/programmatic-labels.jsonl": "8b8807a747aa10971af8966c27273fce1e675999b824e79a87940af34bddf7b5",
+        "export/train.jsonl": "716e2ca95d36e54969e32d23864ba4d4483e5b1b9178aff31bf58ba4a7c7c73b"
+      }
+    },
+    {
+      "kind": "programmatic_natural_development_intake",
+      "schema_version": 1,
+      "scope": "encoded_specifications_only_no_human_evaluation",
+      "raw_records_sha256": "d721b9ecd45097953c8ef2a38c95f6982316d4dcdaf1a9f05440de7bb754ccab",
+      "execution_manifest_hash": "b2a7757eb4cafb67948bef702d3125a61e2642ccd75a24ae429cace67bc64bb3",
+      "tasks_sha256": "4a8e96134074835ef9f04afc2e000bcedab0d5679c150d71dbdfdc7a10456ec4",
+      "references_sha256": "060dc736a254e894e95b8cb620b08358a75131c2a1759f654c8bba0b163656e8",
+      "reference_check": {
+        "kind": "independent_encoded_spec_reference_check",
+        "tasks": 10,
+        "tasks_hash": "d8add49d5111fb7fd44752f03bfd3d3cfe2a9a5b2dcbf53d249e1ad471712715",
+        "references_hash": "5deb8376bb21b8c94d576b316136c89ea5926ae0c218d94393da8f753f9b4a94",
+        "operations": [
+          "ascii_filter_project"
+        ],
+        "formal_proof": false
+      },
+      "labels_hash": "90711646c36f728af5454db401a7effbefab483f0a30355530663de0adb07a56",
+      "raw_runs": 10,
+      "views": 20,
+      "source_task_groups": 10,
+      "splits": [
+        "train"
+      ],
+      "execution_status_counts": {
+        "error": 2,
+        "finished": 8
+      },
+      "human_reviews_completed": 0,
+      "human_evaluation_claim": false,
+      "automatic_labels_exported": true,
+      "formal_protocol_frozen": false,
+      "export_manifest_hash": "f4a373ed42c71fceeb6e8f1fc63a0265d71cc30e919fb27f486c97fb45b6ca45",
+      "warning": "Natural means recorded model attempts, including failures. Metadata does not authenticate the model or prove semantic independence. Two visibility views share each run and retain the original source/split. No online metrics or analyzer judgments are used as gold.",
+      "files_sha256": {
+        "cases.jsonl": "bd90b82e6b183761b549eb2200e162a0cbb6de0b79b4cbe96786ce26d143a7d5",
+        "provenance.jsonl": "06a52ff2de75148d6f012cd4c7fbb5940a5c5740962d112b04f6357a874b56d5",
+        "export/manifest.json": "4d6d18b655e38109f9c3e08836f98db61a0fbb8e23f9ee687551f9f9f7dd9004",
+        "export/programmatic-labels.jsonl": "507e7690c8583e9e1cd294fbebbd404d3245f6cf0e095b7ea17503e16fa148f8",
+        "export/train.jsonl": "dae27ed55248b7cdd8396ce71ab86c8fb589f017be0c8dc0364221c0ff442825"
+      }
+    }
+  ],
+  "raw_runs": 12,
+  "views": 24,
+  "new_source_tasks": 0,
+  "new_model_calls": 0,
+  "formal_training_started": false
+}

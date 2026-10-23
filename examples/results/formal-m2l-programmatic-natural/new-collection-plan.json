@@ -1,0 +1,93 @@
+{
+  "actor": "Official original Qwen3.5-9B; revision c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "collection_started": false,
+  "collector_settings": {
+    "actor_envelope": "extract",
+    "analyzer_mode": "rule",
+    "context_limit": 13312,
+    "hard_guard_enabled": true,
+    "max_new_tokens": 1536,
+    "max_repairs": 0,
+    "max_tool_steps": 3,
+    "policies": [
+      "none"
+    ],
+    "token_budget": 24576
+  },
+  "expected_visibility_views": 64,
+  "families": [
+    "ascii_filter_project",
+    "date_format",
+    "decimal_round",
+    "half_open_interval",
+    "key_present",
+    "local_date_filter",
+    "stable_sort",
+    "unicode_nfc"
+  ],
+  "formal_training_started": false,
+  "gold_files_read": false,
+  "heldout_passed_to_model": false,
+  "kind": "natural_development_collection_plan",
+  "reference_check": {
+    "formal_proof": false,
+    "kind": "independent_encoded_spec_reference_check",
+    "operations": [
+      "ascii_filter_project",
+      "date_format",
+      "decimal_round",
+      "half_open_interval",
+      "key_present",
+      "local_date_filter",
+      "stable_sort",
+      "unicode_nfc"
+    ],
+    "references_hash": "ef7c358eca3db065a95020e3a8044867139d100074151ff56bd1b563fb5a69e7",
+    "tasks": 32,
+    "tasks_hash": "70aa435e92a91d4281f56a2ae59b2b5f8d4dcf7d16f5691a899d6523eaeeaaab"
+  },
+  "references_hash": "ef7c358eca3db065a95020e3a8044867139d100074151ff56bd1b563fb5a69e7",
+  "selected_ids": [
+    "proc-v1-d35fa3cafa29e14d9b145cd4",
+    "proc-v1-605fa157bce6ede098bd4180",
+    "proc-v1-2a1d49f4a287288378373af5",
+    "proc-v1-1cb9acf95544d02b43d1124c",
+    "proc-v1-3815a5e9db7cd4b39f5c86c5",
+    "proc-v1-e94bf1b11b374584982cc5ec",
+    "proc-v1-ee8e0370afd85d842ad222a9",
+    "proc-v1-40c1c9ca3b0da112067b68f3",
+    "proc-v1-d65b4f57c15d2429d420736e",
+    "proc-v1-b8a34d7839b1d9060bac59ef",
+    "proc-v1-60948fe3fde77648da4354ad",
+    "proc-v1-69a6395a05713c258e4ee162",
+    "proc-v1-935f138382770fd235ee47d7",
+    "proc-v1-ab0f845fe499f26c41cd3f3d",
+    "proc-v1-7ac1b47f9ff847adc618607a",
+    "proc-v1-f53dd91b5357dfa562fa4e03",
+    "proc-v1-1137b3d98dbb90b2f15debc6",
+    "proc-v1-fcf4b2db41de1ca44bc65e35",
+    "proc-v1-4b0a5aa08aefbe7de94a5b1f",
+    "proc-v1-72fcc3eeaeb2c39ae0921a01",
+    "proc-v1-8e1ad65ffc7469e2627352e8",
+    "proc-v1-23c16921cfbbab8e8ff47046",
+    "proc-v1-fb9d43fae2653db80bc926c2",
+    "proc-v1-d67b3fd6e7964c033f35626f",
+    "proc-v1-b08fa23e7501f110b12d70a0",
+    "proc-v1-c290a965b044eca0971b64d8",
+    "proc-v1-cfc04f06448a5cbe5fae6a17",
+    "proc-v1-f9607980364e58f2bed7f555",
+    "proc-v1-1af7dc93ae21a82d750dc813",
+    "proc-v1-fc1b78deeb935975ac1ae1bc",
+    "proc-v1-c3ac9c68f3aca4dea3355781",
+    "proc-v1-b7cf478d6ae396e95a702b7e"
+  ],
+  "selected_source_tasks": 32,
+  "selection_rule": "Minimum SHA256(task_id) within split/family/blocked status; one per cell before actor outcomes.",
+  "source_tasks_sha256": "f6376d8b119981fbb8fdd488290aa58a5becf9dd8d413f2b949be26920e4b8b0",
+  "splits": [
+    "train",
+    "validation"
+  ],
+  "tasks_hash": "70aa435e92a91d4281f56a2ae59b2b5f8d4dcf7d16f5691a899d6523eaeeaaab",
+  "warning": "Stratified failure-mode coverage, not representative natural-error prevalence. Source count is unchanged when adding views. Preserve interface failures and time/budget failures. No test/OOD selection or model calls."
+}
