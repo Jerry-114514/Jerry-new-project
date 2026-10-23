@@ -1,0 +1,16 @@
+{
+  "scope": "Observed POSIX mode bits; not process-role isolation or final sealing",
+  "candidate_directories": {
+    "procedural-candidates-v3-20261023": "700",
+    "procedural-matched-test-candidates-20261023": "700"
+  },
+  "seed_files": {
+    "procedural-candidates-v3-20261023/private-seeds.json": "600",
+    "procedural-matched-test-candidates-20261023/private-seed.json": "600"
+  },
+  "development_job_directories": {
+    "procedural-development-followup-20261023": "700",
+    "procedural-full-validation-benchmark-20261023": "700"
+  },
+  "formal_test_sealing_complete": false
+}
