@@ -1,0 +1,64 @@
+{
+  "candidate_source_tasks": 600,
+  "cases_hash": "eeb0f9a6d80fd2049737d1561b97344a0264ddc33ee852c6e6f02c711aad5ad6",
+  "cases_sha256": "8aa5c7d80e89d93084232e39f8e00fa56ec39d0df7511a891a2a3d2372836eb1",
+  "fewshot_measured": false,
+  "formal_budget_approved": false,
+  "formal_training_started": false,
+  "formats": {
+    "compact": {
+      "cannot_generate": {
+        "2048": 596,
+        "3072": 6,
+        "3328": 2,
+        "4096": 0,
+        "6144": 0,
+        "8192": 0
+      },
+      "cannot_reserve_512": {
+        "2048": 1612,
+        "3072": 109,
+        "3328": 31,
+        "4096": 1,
+        "6144": 0,
+        "8192": 0
+      },
+      "maximum": 3690,
+      "minimum": 1203,
+      "minimum_context_with_512": 4202,
+      "total_prompt_tokens": 4269644
+    },
+    "full": {
+      "cannot_generate": {
+        "2048": 2161,
+        "3072": 750,
+        "3328": 626,
+        "4096": 213,
+        "6144": 1,
+        "8192": 0
+      },
+      "cannot_reserve_512": {
+        "2048": 2400,
+        "3072": 1300,
+        "3328": 950,
+        "4096": 471,
+        "6144": 6,
+        "8192": 0
+      },
+      "maximum": 6653,
+      "minimum": 1742,
+      "minimum_context_with_512": 7165,
+      "total_prompt_tokens": 6871684
+    }
+  },
+  "generation_reservation": 512,
+  "gpu_used": false,
+  "human_labels_read": false,
+  "model_weights_loaded": false,
+  "prior_views_verified": 48,
+  "reviewed_SFT_targets_measured": false,
+  "scope": "unreviewed_single_template_train_zero_shot_lengths",
+  "training_memory_measured": false,
+  "views": 2400,
+  "warning": "Complete zero-shot input lengths only. A 512-token allowance is not a measured training target. Compact format preserves public data but can change predictions. No truncation, labels or formal approval."
+}
