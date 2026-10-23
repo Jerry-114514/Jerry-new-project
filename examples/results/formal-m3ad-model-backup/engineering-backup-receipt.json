@@ -1,0 +1,25 @@
+{
+  "kind": "observed_off_host_engineering_model_backup",
+  "scope": "engineering",
+  "source_job_scope": "two_update_long_history_engineering_pressure_only",
+  "source_archive_sha256": "4aa8cc37a683b945658c9e266c9ac6be2ead76f29ab3cdb8b1089a33ad81d6b6",
+  "index_hash": "8db79a3ecea50ea633c82cbe0102eafe22e9095bed4c5402c674de8f7d37bf2d",
+  "archive_bytes": 886435840,
+  "files": 10,
+  "source_bytes": 886409656,
+  "source_archive_creation_verified": true,
+  "local_archive_and_each_member_verified": true,
+  "source_storage": "AutoDL instance",
+  "destination_storage": "user local Windows workspace disk",
+  "transfer_completed_and_off_host_copy_observed": true,
+  "model_or_pickle_loaded_for_copy": false,
+  "official_base_weights_included": false,
+  "formal_endpoints_backed_up": 0,
+  "m8_complete": false,
+  "initial_server_backup_code_sha256": {
+    "intentlab/model_backup.py": "656720d45d054f709e55345b925bc1795b568efc00435ef475ae47a70201cb5c",
+    "tests/test_model_backup.py": "261c92f9ff5b89971632170bd790cb2cba1d193897aa581f12bb4e9df98d3df0"
+  },
+  "local_verifier_source_sha256": "d058ec4e798011da8df572feb4e20181fdfda3b3762c3db62625cdbf9b5acbaa",
+  "warning": "Existing two-update engineering adapter/checkpoint only. Generic hash verification cannot certify future storage durability."
+}

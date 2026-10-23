@@ -1,0 +1,28 @@
+{
+  "status": "completed",
+  "gpu_used": false,
+  "formal_training": false,
+  "source_job_scope": "two_update_long_history_engineering_pressure_only",
+  "source_file_sha256": {
+    "intentlab/model_backup.py": "656720d45d054f709e55345b925bc1795b568efc00435ef475ae47a70201cb5c",
+    "tests/test_model_backup.py": "261c92f9ff5b89971632170bd790cb2cba1d193897aa581f12bb4e9df98d3df0"
+  },
+  "test_exit_code": 0,
+  "archive_manifest": {
+    "status": "completed",
+    "scope": "engineering",
+    "source_root": "/root/autodl-tmp/history-pressure-20261023/train",
+    "index_hash": "8db79a3ecea50ea633c82cbe0102eafe22e9095bed4c5402c674de8f7d37bf2d",
+    "archive": "model.tar",
+    "verification": {
+      "kind": "model_backup_byte_verification",
+      "archive_sha256": "4aa8cc37a683b945658c9e266c9ac6be2ead76f29ab3cdb8b1089a33ad81d6b6",
+      "files": 10,
+      "source_bytes": 886409656,
+      "index_hash": "8db79a3ecea50ea633c82cbe0102eafe22e9095bed4c5402c674de8f7d37bf2d",
+      "external_archive_hash_checked": false,
+      "model_or_pickle_loaded": false,
+      "off_host_durability_claim": false
+    }
+  }
+}
