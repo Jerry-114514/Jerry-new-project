@@ -1,0 +1,52 @@
+{
+  "status": "running",
+  "pid": 173896,
+  "process_start_ticks": "866914819",
+  "source_commit": "d80be96feedd06daf0b2340bfedd24e900b23d7a",
+  "plan_commit": "c0c3ed44459ae7da9c828e0cdaa07ebe45cb9b9d",
+  "config_sha256": "fa5ba61c478be1d8fa2fb1f97e995ad130a1d867ffb9e40fbffe4d9a4d479813",
+  "driver_sha256": "0706dc32504809a573676fe5c42a33300238b3841d0c424383493b863ad8eece",
+  "formal_training": false,
+  "planned_runs": 450,
+  "started_unix": 1792754529.359346,
+  "validation_tasks_hash": "272bc9547fc19f3bb6d40cdab3922ce25b7b2ab0b36afa3c1842c1b02b8beb71",
+  "official_asset_verification": {
+    "model": "Qwen/Qwen3.5-9B",
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "verified_assets": [
+      "chat_template.jinja",
+      "config.json",
+      "merges.txt",
+      "model.safetensors-00001-of-00004.safetensors",
+      "model.safetensors-00002-of-00004.safetensors",
+      "model.safetensors-00003-of-00004.safetensors",
+      "model.safetensors-00004-of-00004.safetensors",
+      "model.safetensors.index.json",
+      "preprocessor_config.json",
+      "tokenizer.json",
+      "tokenizer_config.json",
+      "video_preprocessor_config.json",
+      "vocab.json"
+    ]
+  },
+  "child_pid": 173913,
+  "command": [
+    "/root/autodl-tmp/intentlab-venv/bin/python",
+    "-m",
+    "intentlab.controller_plan",
+    "--tasks",
+    "/root/autodl-tmp/fixed-k-development-20261023/tasks.jsonl",
+    "--references",
+    "/root/autodl-tmp/fixed-k-development-20261023/references.jsonl",
+    "--settings",
+    "/root/autodl-tmp/fixed-k-history-candidate-20261023.json",
+    "--actor-model",
+    "/root/autodl-tmp/models/Qwen3.5-9B",
+    "--analyzer-model",
+    "/root/autodl-tmp/models/Qwen3.5-9B",
+    "--out",
+    "/root/autodl-tmp/fixed-k-development-20261023/selection",
+    "--device",
+    "cuda"
+  ]
+}

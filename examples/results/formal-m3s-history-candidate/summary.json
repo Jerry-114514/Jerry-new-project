@@ -1,0 +1,52 @@
+{
+  "all_previous_export_rows_byte_identical_prefix": true,
+  "base_cases_hash": "f30ffbac7250a01596fe8c4b453767306f674800d36f1f8b4b8fcb1966f3c718",
+  "base_summary_sha256": "d712330e3c52add5bff6e0d7d7a8cc3ff641b09ae0a55dbb66689f943b30be8e",
+  "cases_hash": "ae263c6baa4fb4406098b73c16e67e61d932cc37810c8ec7c591368f3ef40db8",
+  "formal_candidate_selected": false,
+  "formal_protocol_frozen": false,
+  "heldout_model_outputs_read": false,
+  "history_plan": {
+    "new_independent_sources": 0,
+    "provenance": "injected_not_model_generated",
+    "repair_rounds": 3,
+    "schema_version": 1,
+    "selection": "minimum_sha256_task_id_per_split_family_blocked_stratum",
+    "selection_uses_model_outputs": false,
+    "validation_calls_per_round": 8,
+    "views": [
+      "repaired_final",
+      "protected_input_restored_early"
+    ]
+  },
+  "history_plan_hash": "cb16b8a60a9ee95e44e1fc090d63cb2f906e7669d854c7bab37a488f97d7846a",
+  "history_views_by_split": {
+    "ood": 8,
+    "test": 32,
+    "train": 32,
+    "validation": 32
+  },
+  "human_evaluation_claim": false,
+  "kind": "history_augmented_programmatic_natural_candidate",
+  "labels_hash": "891ebc83190c774308a13b9def20d1dfcc285ac3eaabf81f2d7129bf572d296d",
+  "new_independent_sources": 0,
+  "schema_version": 1,
+  "source_groups_by_split": {
+    "ood": 100,
+    "test": 200,
+    "train": 600,
+    "validation": 150
+  },
+  "tasks_hash": "67892c44b95f398810c0a6e04848e8072c00913faa08be1c2847bf9c6289cc0c",
+  "trajectory_views": {
+    "injected": 4304,
+    "natural": 64
+  },
+  "views_by_split": {
+    "ood": 408,
+    "test": 832,
+    "train": 2464,
+    "validation": 664
+  },
+  "warning": "All added repair histories are injected; natural records retain prior source/split. Source independence, near matches and distribution limits remain. Construction-side heldout references are used only for programmatic labels, not model tuning."
+}
