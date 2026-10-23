@@ -1,0 +1,41 @@
+.Failed to load CPU gemm_4bit_forward from kernels-community: No module named 'kernels'. Please make sure you already `pip install kernels` and the kernels >= 0.11.1
+
+
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 241.62it/s]
+Loading weights:   0%|          | 0/16 [00:00<?, ?it/s]Loading weights: 100%|██████████| 16/16 [00:00<00:00, 8810.41it/s]
+/root/autodl-tmp/intentlab-venv/lib/python3.12/site-packages/peft/tuners/lora/layer.py:2760: UserWarning: fan_in_fan_out is set to False but the target module is `Conv1D`. Setting fan_in_fan_out to True.
+  warnings.warn(
+Loading weights:   0%|          | 0/16 [00:00<?, ?it/s]Loading weights: 100%|██████████| 16/16 [00:00<00:00, 12893.15it/s]
+Loading weights:   0%|          | 0/16 [00:00<?, ?it/s]Loading weights: 100%|██████████| 16/16 [00:00<00:00, 9947.95it/s]
+Loading weights:   0%|          | 0/16 [00:00<?, ?it/s]Loading weights: 100%|██████████| 16/16 [00:00<00:00, 11479.45it/s]
+Loading weights:   0%|          | 0/16 [00:00<?, ?it/s]Loading weights: 100%|██████████| 16/16 [00:00<00:00, 11450.07it/s]
+Loading weights:   0%|          | 0/16 [00:00<?, ?it/s]Loading weights: 100%|██████████| 16/16 [00:00<00:00, 9051.64it/s]
+E
+======================================================================
+ERROR: test_real_adapter_alternation_matches_reload_and_restores_after_failure (test_shared_role_backend.SharedRoleIntegrationTests.test_real_adapter_alternation_matches_reload_and_restores_after_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/autodl-tmp/shared-role-cpu-v2-20261023/source/tests/test_shared_role_backend.py", line 143, in test_real_adapter_alternation_matches_reload_and_restores_after_failure
+    probe = run_probe(paths, root / "development.jsonl", root / "probe", device="cpu",
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/shared-role-cpu-v2-20261023/source/intentlab/residency_probe.py", line 118, in run_probe
+    reply = pool.complete(role, prompt)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/shared-role-cpu-v2-20261023/source/intentlab/model_pool.py", line 91, in complete
+    result = self.current.complete(prompt, role=role)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/shared-role-cpu-v2-20261023/source/intentlab/residency_probe.py", line 114, in observed
+    response = original_complete(backend, text, role=role)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/shared-role-cpu-v2-20261023/source/intentlab/model_backend.py", line 80, in complete
+    ticket, allowance = self.ledger.begin(role, len(ids), self.max_new_tokens, context, digest(prompt))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/shared-role-cpu-v2-20261023/source/intentlab/budget.py", line 38, in begin
+    raise BudgetExceeded("Prompt exceeds shared task budget or model context")
+intentlab.budget.BudgetExceeded: Prompt exceeds shared task budget or model context
+
+----------------------------------------------------------------------
+Ran 2 tests in 5.748s
+
+FAILED (errors=1)

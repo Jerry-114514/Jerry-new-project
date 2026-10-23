@@ -56,7 +56,7 @@ class SharedRoleIntegrationTests(unittest.TestCase):
             root = Path(name); base = root / "base"; adapter = root / "adapter"
             tok = tokenizer_for_tiny([{"prompt": "JSON: inspect evidence now", "completion": "satisfied violated unknown"}])
             torch.manual_seed(17)
-            model = GPT2LMHeadModel(GPT2Config(vocab_size=len(tok), n_positions=128, n_embd=24, n_layer=1,
+            model = GPT2LMHeadModel(GPT2Config(vocab_size=len(tok), n_positions=16384, n_embd=24, n_layer=1,
                                              n_head=2, eos_token_id=tok.eos_token_id, bos_token_id=tok.bos_token_id))
             model.save_pretrained(base); tok.save_pretrained(base)
             model = GPT2LMHeadModel.from_pretrained(base, local_files_only=True)
@@ -136,3 +136,24 @@ class SharedRoleIntegrationTests(unittest.TestCase):
             finally:
                 pool.close()
             self.assertIsNone(pool.current)
+            from intentlab.formal_data import write_jsonl
+            from intentlab.residency_probe import run_probe
+            from test_residency_probe import development_tasks
+            write_jsonl(root / "development.jsonl", development_tasks())
+            with self.assertRaises(BudgetExceeded):
+                run_probe(paths, root / "development.jsonl", root / "too-short-probe", device="cpu",
+                          max_new_tokens=2, context_limit=128)
+            failed = json.loads((root / "too-short-probe/status.json").read_text())
+            self.assertEqual(failed["status"], "failed")
+            self.assertTrue((root / "too-short-probe/failure-pool.json").exists())
+            probe = run_probe(paths, root / "development.jsonl", root / "probe", device="cpu",
+                              max_new_tokens=2, context_limit=16384)
+            self.assertEqual(probe["status"], "completed")
+            self.assertTrue(probe["exact_outputs_and_tokens_equal"])
+            self.assertTrue(probe["accounting_equal_except_time"])
+            self.assertTrue(probe["assets_unchanged"])
+            self.assertEqual(probe["modes"]["cold-task-reload"]["load_count"], 6)
+            self.assertEqual(probe["modes"]["shared-condition-resident"]["load_count"], 1)
+            with self.assertRaises(FileExistsError):
+                run_probe(paths, root / "development.jsonl", root / "probe", device="cpu",
+                          max_new_tokens=2, context_limit=16384)
