@@ -6,7 +6,7 @@ references. It does not use the public solver to certify its own answers.
 
 from collections import Counter, defaultdict
 
-from .core import digest
+from .core import canonical, digest
 from .execution_data import load_execution_tasks, load_references
 from .formal_data import validate_cases
 from .intensity import validate_intensity
@@ -48,7 +48,7 @@ def contract_identity(row, public):
                    "public": {key: public.get(key) for key in ("request", "inputs", "requirements", "execution_spec")}})
 
 
-def validate_execution_binding(execution, diagnostic_cases, audit_path):
+def validate_execution_binding(execution, diagnostic_cases, audit_path, programmatic=False):
     if not isinstance(execution, dict) or set(execution) != {"tasks", "references", "settings"}:
         raise ValueError("Execution binding requires tasks/references/settings")
     settings = validate_execution_settings(execution["settings"])
@@ -73,6 +73,15 @@ def validate_execution_binding(execution, diagnostic_cases, audit_path):
     import json
     from pathlib import Path
     audit = json.loads(Path(audit_path).read_text(encoding="utf-8"))
+    if programmatic:
+        from .spec_reference import verify_references
+        if canonical(audit) != canonical(verify_references(tasks, references)):
+            raise ValueError('Programmatic execution reference evidence differs from independent recomputation')
+        return {"tasks": len(tasks), "source_task_groups": len(groups), "contract_variants": len(expected),
+            "splits": dict(Counter(task["split"] for task in tasks)),
+            "tasks_hash": digest(tasks), "references_hash": digest(references),
+            "condition_map": execution_condition_map(settings),
+            "warning": "Encoded-spec reference recomputation; no human evaluation or formal proof."}
     if not isinstance(audit, dict) or set(audit) != {"schema_version", "tasks_hash", "references_hash", "reviews"} \
             or type(audit["schema_version"]) is not int or audit["schema_version"] != 1 \
             or audit["tasks_hash"] != digest(tasks) or audit["references_hash"] != digest(references):

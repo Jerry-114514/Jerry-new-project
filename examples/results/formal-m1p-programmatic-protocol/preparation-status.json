@@ -1,0 +1,8 @@
+{
+  "cases": 9600,
+  "formal_ready": false,
+  "human_evaluation_claim": false,
+  "reference_tasks": 600,
+  "status": "completed",
+  "warning": "Evidence preparation only; other formal gates remain."
+}

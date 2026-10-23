@@ -137,7 +137,7 @@ class ExecutionProtocolTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as name:
             spec = engineering_fixture(name)
             spec["scope"] = "formal"
-            self.assertIn("Formal protocols require schema_version=2 with an execution binding", check_spec(spec)["blockers"])
+            self.assertIn("Formal protocols require schema_version=2/3 with an execution binding", check_spec(spec)["blockers"])
 
     def test_formal_freezer_cannot_pin_a_different_implementation_checkout(self):
         with tempfile.TemporaryDirectory() as name:

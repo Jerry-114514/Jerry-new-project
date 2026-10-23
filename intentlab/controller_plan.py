@@ -182,21 +182,26 @@ def run_selection(tasks, references, paths, settings, budgets, out, device="cpu"
     return report
 
 
-def bind_plan(path, settings, cases, formal=False, budgets=None):
+def bind_plan(path, settings, cases, formal=False, budgets=None, programmatic=False):
     path = Path(path).resolve()
     plan_sha = file_hash(path)
     plan = json.loads(path.read_text(encoding="utf-8"))
-    if set(plan) != {"schema_version", "stage", "selection_report", "risk_controls", "lr_risk_feedback", "reviewers"} \
-            or type(plan["schema_version"]) is not int or plan["schema_version"] != 1 or plan["stage"] != "first_stage_execution_intensity" \
+    last_key = 'label_scope' if programmatic else 'reviewers'
+    if set(plan) != {"schema_version", "stage", "selection_report", "risk_controls", "lr_risk_feedback", last_key} \
+            or type(plan["schema_version"]) is not int or plan["schema_version"] != (2 if programmatic else 1) or plan["stage"] != "first_stage_execution_intensity" \
             or plan["risk_controls"] != ["remove_hard_weight", "remove_unknown_weight"] \
             or plan["lr_risk_feedback"] != "deferred_exploratory_requires_new_unseen_test":
         raise ValueError("Explicit first-stage intensity controls and deferred LR risk feedback required")
-    reviewers = plan["reviewers"]
-    if not isinstance(reviewers, list) or len(reviewers) != 2 or any(
+    if programmatic:
+        from .programmatic_protocol import SCOPE
+        if plan['label_scope'] != SCOPE:
+            raise ValueError('Programmatic controller claims scope mismatch')
+    reviewers = plan.get("reviewers")
+    if not programmatic and (not isinstance(reviewers, list) or len(reviewers) != 2 or any(
             set(row) != {"reviewer", "human_verified", "notes"} or row["human_verified"] is not True
             or not isinstance(row["reviewer"], str) or not row["reviewer"].strip()
             or not isinstance(row["notes"], str) or not row["notes"].strip() for row in reviewers) \
-            or reviewers[0]["reviewer"] == reviewers[1]["reviewer"]:
+            or reviewers[0]["reviewer"] == reviewers[1]["reviewer"]):
         raise ValueError("Two distinct controller review declarations required; identity authenticity is external")
     record = plan["selection_report"]
     if set(record) != {"path", "sha256"} or not Path(record["path"]).is_absolute() or file_hash(record["path"]) != record["sha256"]:

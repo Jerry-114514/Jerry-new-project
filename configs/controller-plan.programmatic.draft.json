@@ -1,0 +1,14 @@
+{
+  "schema_version": 2,
+  "stage": "first_stage_execution_intensity",
+  "selection_report": {
+    "path": "",
+    "sha256": ""
+  },
+  "risk_controls": [
+    "remove_hard_weight",
+    "remove_unknown_weight"
+  ],
+  "lr_risk_feedback": "deferred_exploratory_requires_new_unseen_test",
+  "label_scope": "encoded_specifications_only_no_human_evaluation"
+}

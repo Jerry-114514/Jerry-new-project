@@ -26,8 +26,8 @@ def export_snapshot(directory):
 
 def completed_matrix(protocol, matrix_root, engineering=False):
     verify(protocol, "training")
-    if protocol["spec"].get("schema_version") != 2:
-        raise ValueError("Execution models require a v2 training protocol")
+    if protocol["spec"].get("schema_version") not in {2, 3}:
+        raise ValueError("Execution models require a v2/v3 training protocol")
     if protocol["scope"] == "engineering" and not engineering:
         raise ValueError("Synthetic engineering protocols need explicit --engineering")
     root = Path(matrix_root).resolve()

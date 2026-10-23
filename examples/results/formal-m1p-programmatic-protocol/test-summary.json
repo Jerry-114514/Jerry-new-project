@@ -1,0 +1,28 @@
+[
+  {
+    "log_name": "protocol-v3-tests-local-final.log",
+    "sha256": "a3c0ef295680ae749bc29bcce74a2acfb36e64072bc5f5c1cfff62607d4362c7",
+    "tests_discovered": 219,
+    "skipped": 14,
+    "tail": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 219 tests in 14.098s",
+      "",
+      "OK (skipped=14)"
+    ]
+  },
+  {
+    "log_name": "protocol-v3-tests-remote.log",
+    "sha256": "67f5ed0dc0603ab5559f1b94b968b2e9860e96f65b85efa0f3d316be9c7628c2",
+    "tests_discovered": 219,
+    "skipped": 0,
+    "tail": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 219 tests in 131.579s",
+      "",
+      "OK"
+    ]
+  }
+]

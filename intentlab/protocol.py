@@ -111,15 +111,21 @@ def check_spec(spec):
                 "schedules", "minimum_tasks", "conditions", "statistics", "budgets", "evidence", "dependencies",
                 "few_shot_case_ids"}
     version = spec.get("schema_version") if isinstance(spec, dict) else None
-    if version == 2:
+    if version in {2, 3}:
         required.add("execution")
-    if not isinstance(spec, dict) or set(spec) != required or type(version) is not int or version not in {1, 2}:
-        return {"ready": False, "blockers": ["Protocol fields do not match schema_version=1/2"]}
+    if version == 3:
+        required.add('label_scope')
+    if not isinstance(spec, dict) or set(spec) != required or type(version) is not int or version not in {1, 2, 3}:
+        return {"ready": False, "blockers": ["Protocol fields do not match schema_version=1/2/3"]}
+    if version == 3:
+        from .programmatic_protocol import SCOPE
+        if spec['label_scope'] != SCOPE:
+            blockers.append('Programmatic protocol must restrict claims to encoded specifications, without human evaluation')
     if spec["scope"] not in {"formal", "engineering"}:
         blockers.append("scope must be formal or engineering")
-    if spec["scope"] == "formal" and version != 2:
-        blockers.append("Formal protocols require schema_version=2 with an execution binding")
-    if version == 2:
+    if spec["scope"] == "formal" and version not in {2, 3}:
+        blockers.append("Formal protocols require schema_version=2/3 with an execution binding")
+    if version in {2, 3}:
         execution = spec["execution"]
         if not isinstance(execution, dict) or set(execution) != {"tasks", "references", "settings"}:
             blockers.append("Execution requires tasks/references/settings")
@@ -175,7 +181,7 @@ def check_spec(spec):
     if not isinstance(budgets, dict) or set(budgets) != {"token_budget", "max_new_tokens", "max_repairs", "context_limit"} \
             or any(type(v) is not int or v < 1 for v in budgets.values()):
         blockers.append("Explicit positive token, output, repair and context budgets required")
-    for field in EVIDENCE:
+    for field in EVIDENCE + (('programmatic_validation',) if version == 3 else ()):
         value = spec["evidence"].get(field) if isinstance(spec["evidence"], dict) else None
         if not isinstance(value, str) or not Path(value).is_file():
             blockers.append(f"Missing reviewed evidence file: {field}")
@@ -209,13 +215,14 @@ def check_spec(spec):
             except importlib.metadata.PackageNotFoundError:
                 blockers.append(f"Dependency not installed: {name}")
     data = spec["dataset"]
-    if not isinstance(data, dict) or set(data) != {"cases", "reviews", "adjudications", "export"}:
-        blockers.append("Dataset requires cases/reviews/adjudications/export paths")
+    dataset_keys = {'cases', 'labels', 'tasks', 'references', 'export'} if version == 3 else {"cases", "reviews", "adjudications", "export"}
+    if not isinstance(data, dict) or set(data) != dataset_keys:
+        blockers.append('Dataset requires explicit paths: ' + ','.join(sorted(dataset_keys)))
     else:
-        for key in ("cases", "reviews"):
+        for key in (('cases', 'labels', 'tasks', 'references') if version == 3 else ("cases", "reviews")):
             if not isinstance(data[key], str) or not Path(data[key]).is_file():
                 blockers.append(f"Missing annotation input: {key}")
-        if data["adjudications"] is not None and (not isinstance(data["adjudications"], str) or not Path(data["adjudications"]).is_file()):
+        if version != 3 and data["adjudications"] is not None and (not isinstance(data["adjudications"], str) or not Path(data["adjudications"]).is_file()):
             blockers.append("Missing adjudications file")
         if not isinstance(data["export"], str) or not (Path(data["export"]) / "manifest.json").is_file():
             blockers.append("Missing reviewed data export")
@@ -224,12 +231,17 @@ def check_spec(spec):
     try:
         cases = read_jsonl(data["cases"])
         audit = validate_cases(cases)
-        if spec["scope"] == "formal":
-            validate_semantic_review(cases, read_json(spec["evidence"]["semantic_dedup_review"]))
-        selected, _ = resolve_reviews(cases, read_jsonl(data["reviews"]),
-            read_jsonl(data["adjudications"]) if data["adjudications"] else [])
-        if version == 2:
-            validate_execution_binding(spec["execution"], cases, spec["evidence"]["execution_and_oracle_audit"])
+        if version == 3:
+            from .programmatic_protocol import resolve_dataset, validate_source_record
+            validate_source_record(cases, read_json(spec['evidence']['semantic_dedup_review']))
+            selected = resolve_dataset(data, spec['evidence']['programmatic_validation'], formal=spec['scope'] == 'formal')
+        else:
+            if spec["scope"] == "formal":
+                validate_semantic_review(cases, read_json(spec["evidence"]["semantic_dedup_review"]))
+            selected, _ = resolve_reviews(cases, read_jsonl(data["reviews"]),
+                read_jsonl(data["adjudications"]) if data["adjudications"] else [])
+        if version in {2, 3}:
+            validate_execution_binding(spec["execution"], cases, spec["evidence"]["execution_and_oracle_audit"], programmatic=version == 3)
             controller_binding(spec, cases)
         by_id = {case["case_id"]: case for case in cases}
         if any(cid not in by_id or by_id[cid]["split"] not in {"train", "validation"} for cid in examples):
@@ -242,10 +254,11 @@ def check_spec(spec):
             if audit["source_task_groups"].get(split, 0) < count:
                 blockers.append(f"Insufficient reviewed source-task groups: {split}")
         manifest = read_json(Path(data["export"]) / "manifest.json")
-        expected_hashes = {"cases_hash": digest(cases), "reviews_hash": digest(read_jsonl(data["reviews"])),
-            "adjudications_hash": digest(read_jsonl(data["adjudications"]) if data["adjudications"] else [])}
-        if manifest.get("kind") != "human_reviewed_diagnostics" or any(manifest.get(k) != v for k, v in expected_hashes.items()):
-            raise ValueError("Reviewed export does not match annotation inputs")
+        if version != 3:
+            expected_hashes = {"cases_hash": digest(cases), "reviews_hash": digest(read_jsonl(data["reviews"])),
+                "adjudications_hash": digest(read_jsonl(data["adjudications"]) if data["adjudications"] else [])}
+            if manifest.get("kind") != "human_reviewed_diagnostics" or any(manifest.get(k) != v for k, v in expected_hashes.items()):
+                raise ValueError("Reviewed export does not match annotation inputs")
         # Validate actual exported content against the reviewed cases; a forged
         # manifest must not silently replace labels, public prompts or task IDs.
         for split in ("train", "validation"):
@@ -287,7 +300,7 @@ def controller_binding(spec, cases):
         if spec["scope"] == "formal":
             raise ValueError("Formal controller evidence needs a structured development selection and ablation plan")
         return None
-    return bind_plan(path, spec["execution"]["settings"], cases, formal=spec["scope"] == "formal", budgets=spec["budgets"])
+    return bind_plan(path, spec["execution"]["settings"], cases, formal=spec["scope"] == "formal", budgets=spec["budgets"], programmatic=spec['schema_version'] == 3)
 
 
 def semantic_review_binding(spec, lock):
@@ -297,7 +310,11 @@ def semantic_review_binding(spec, lock):
     if before["cases_sha256"] != lock["annotation_inputs"]["cases"]["sha256"] \
             or before["evidence_sha256"] != lock["evidence"]["semantic_dedup_review"]["sha256"]:
         raise ValueError("Semantic review/cases changed during freeze")
-    summary = validate_semantic_review(read_jsonl(cases_path), read_json(review_path))
+    if spec.get('schema_version') == 3:
+        from .programmatic_protocol import validate_source_record
+        summary = validate_source_record(read_jsonl(cases_path), read_json(review_path))
+    else:
+        summary = validate_semantic_review(read_jsonl(cases_path), read_json(review_path))
     if before != {"cases_sha256": file_hash(cases_path), "evidence_sha256": file_hash(review_path)}:
         raise ValueError("Semantic review/cases changed during coordinator verification")
     return {**before, "summary": summary}
@@ -310,6 +327,11 @@ def validate_semantic_lock_binding(lock):
             or binding["evidence_sha256"] != lock["evidence"]["semantic_dedup_review"]["sha256"]:
         raise ValueError("Formal semantic source review binding missing or changed")
     summary = binding["summary"]
+    if lock.get('spec', {}).get('schema_version') == 3:
+        from .programmatic_protocol import SCOPE
+        if set(summary) != {'kind', 'schema_version', 'cases_hash', 'source_groups', 'case_count', 'record_hash', 'claims_scope', 'human_evaluation_claim'} or summary['kind'] != 'validated_programmatic_source_isolation' or summary['schema_version'] != 1 or summary['claims_scope'] != SCOPE or summary['human_evaluation_claim'] is not False or type(summary['source_groups']) is not int or summary['source_groups'] < 1 or type(summary['case_count']) is not int or summary['case_count'] < summary['source_groups'] or any(not isinstance(summary[k], str) or len(summary[k]) != 64 for k in ('cases_hash', 'record_hash')):
+            raise ValueError('Formal programmatic source-isolation summary incomplete')
+        return True
     expected_keys = {"kind", "schema_version", "cases_hash", "triage_summary_hash", "source_groups_reviewed", "flagged_pairs_reviewed", "case_count", "reviewer", "human_verified", "warning"}
     if not isinstance(summary, dict) or set(summary) != expected_keys \
             or summary["kind"] != "validated_semantic_source_review" or type(summary["schema_version"]) is not int or summary["schema_version"] != 1 \
@@ -334,7 +356,7 @@ def freeze(spec, out):
             spec["dataset"][key] = str(Path(path).resolve())
     spec["models"] = {role: str(Path(path).resolve()) for role, path in spec["models"].items()}
     spec["evidence"] = {name: str(Path(path).resolve()) for name, path in spec["evidence"].items()}
-    if spec["schema_version"] == 2:
+    if spec["schema_version"] in {2, 3}:
         for name in ("tasks", "references"):
             spec["execution"][name] = str(Path(spec["execution"][name]).resolve())
     out = Path(out)
@@ -367,13 +389,13 @@ def freeze(spec, out):
             name: importlib.metadata.version(name) for name in spec["dependencies"]}},
         "readiness": audit,
         "warning": "Content freeze is not an external preregistration timestamp, identity proof or scientific quality guarantee."}
-    if spec["schema_version"] == 2:
+    if spec["schema_version"] in {2, 3}:
         paths = {name: spec["execution"][name] for name in ("tasks", "references")}
         paths["audit"] = spec["evidence"]["execution_and_oracle_audit"]
         before = {name: file_hash(path) for name, path in paths.items()}
         if before["audit"] != bundle["evidence"]["execution_and_oracle_audit"]["sha256"]:
             raise ValueError("Execution audit changed while freezing")
-        summary = validate_execution_binding(spec["execution"], read_jsonl(data["cases"]), paths["audit"])
+        summary = validate_execution_binding(spec["execution"], read_jsonl(data["cases"]), paths["audit"], programmatic=spec['schema_version'] == 3)
         if before != {name: file_hash(path) for name, path in paths.items()}:
             raise ValueError("Execution inputs changed while freezing")
         bundle["execution_binding"] = {"files": {name: {"path": path, "sha256": before[name]} for name, path in paths.items()},
@@ -383,6 +405,20 @@ def freeze(spec, out):
             bundle["controller_binding"] = controller
     if spec["scope"] == "formal":
         bundle["semantic_review_binding"] = semantic_review_binding(spec, bundle)
+    if spec['schema_version'] == 3:
+        # Recheck after hashes are captured: a modified label, reference or SFT
+        # file between preflight and capture must not become a valid lock.
+        second = check_spec(spec)
+        if not second['ready']:
+            raise ValueError('Programmatic inputs changed during freeze: ' + '; '.join(second['blockers']))
+        records = list(bundle['annotation_inputs'].values()) + list(bundle['evidence'].values())
+        if any(file_hash(r['path']) != r['sha256'] for r in records) or any(file_hash(export/name) != sha for name, sha in dataset_files.items()):
+            raise ValueError('Programmatic files changed during freeze')
+        bundle['programmatic_binding'] = {
+            'claims_scope': spec['label_scope'],
+            'cases_sha256': bundle['annotation_inputs']['cases']['sha256'],
+            'labels_sha256': bundle['annotation_inputs']['labels']['sha256'],
+            'validation_sha256': bundle['evidence']['programmatic_validation']['sha256']}
     bundle["lock_hash"] = digest(bundle)
     out.parent.mkdir(parents=True, exist_ok=True)
     # Exclusive creation prevents a concurrent invocation replacing a freeze.
@@ -399,13 +435,21 @@ def verify(lock, phase="training"):
     if lock.get("kind") != "experiment_protocol_lock" or digest(payload) != lock.get("lock_hash"):
         raise ValueError("Protocol lock content changed")
     spec = lock["spec"]
-    if lock["scope"] == "formal" and spec.get("schema_version") != 2:
+    if spec.get('schema_version') == 3:
+        from .programmatic_protocol import SCOPE
+        binding = lock.get('programmatic_binding')
+        expected = {'claims_scope': SCOPE, 'cases_sha256': lock['annotation_inputs']['cases']['sha256'],
+            'labels_sha256': lock['annotation_inputs']['labels']['sha256'],
+            'validation_sha256': lock['evidence']['programmatic_validation']['sha256']}
+        if binding != expected or spec.get('label_scope') != SCOPE:
+            raise ValueError('Frozen programmatic label/evidence binding missing or changed')
+    if lock["scope"] == "formal" and spec.get("schema_version") not in {2, 3}:
         raise ValueError("Formal execution binding missing; legacy protocols are engineering only")
     if lock["scope"] == "formal" and "controller_binding" not in lock:
         raise ValueError("Formal controller selection/ablation binding missing")
     if lock["scope"] == "formal":
         validate_semantic_lock_binding(lock)
-    if spec.get("schema_version") == 2:
+    if spec.get("schema_version") in {2, 3}:
         binding = lock.get("execution_binding")
         if not isinstance(binding, dict) or set(binding) != {"files", "summary"} \
                 or binding["summary"]["condition_map"] != execution_condition_map(spec["execution"]["settings"]):
@@ -445,12 +489,12 @@ def verify(lock, phase="training"):
                 raise ValueError("Evidence or annotation input changed after freeze")
         if lock["scope"] == "formal" and semantic_review_binding(spec, lock) != lock["semantic_review_binding"]:
             raise ValueError("Frozen semantic source review differs from coordinator inputs")
-        if spec.get("schema_version") == 2:
+        if spec.get("schema_version") in {2, 3}:
             for record in lock["execution_binding"]["files"].values():
                 if file_hash(record["path"]) != record["sha256"]:
                     raise ValueError("Execution input changed after freeze")
             summary = validate_execution_binding(spec["execution"], read_jsonl(spec["dataset"]["cases"]),
-                                                 spec["evidence"]["execution_and_oracle_audit"])
+                                                 spec["evidence"]["execution_and_oracle_audit"], programmatic=spec['schema_version'] == 3)
             if summary != lock["execution_binding"]["summary"]:
                 raise ValueError("Frozen execution binding differs from the reviewed inputs")
             if "controller_binding" in lock:

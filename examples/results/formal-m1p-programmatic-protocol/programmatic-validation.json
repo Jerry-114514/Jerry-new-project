@@ -1,0 +1,90 @@
+{
+  "blocked_development_tasks_not_fault_tested": [],
+  "cases_hash": "43fb0060cecfe3530d1c7c237c14376aae5743b9d63ed907484bc718ba4da584",
+  "claims_scope": "encoded_specifications_only_no_human_evaluation",
+  "fault_audit": {
+    "cases": 7200,
+    "formal_proof": false,
+    "human_evaluation_claim": false,
+    "mutants_detected": 6,
+    "mutants_total": 6,
+    "mutations": {
+      "claim-hidden-order-safe": {
+        "changed_cases": 600,
+        "changed_requirement_items": 600,
+        "detected": true,
+        "mutant_sha256": "8f1e2ac9cda5cbc0be0cf082224411bfb33dc01413a6afb0f4f3e71ffcb0441e"
+      },
+      "claim-reports-correct": {
+        "changed_cases": 3000,
+        "changed_requirement_items": 3000,
+        "detected": true,
+        "mutant_sha256": "f75259a6229ef2f9d7ee50f05a2b00e5f96f807eab8f1dd860b84e9001d93376"
+      },
+      "ignore-extra-artifacts": {
+        "changed_cases": 600,
+        "changed_requirement_items": 600,
+        "detected": true,
+        "mutant_sha256": "56fe37ae48862d64cab664ba6967ad1a2bf1c67f3bbc1932a5596283f7d883f2"
+      },
+      "ignore-restored-writes": {
+        "changed_cases": 1200,
+        "changed_requirement_items": 1200,
+        "detected": true,
+        "mutant_sha256": "f947d190006efc5e6908dcafce82404c6b3bd685d113693da928325fe9b38abe"
+      },
+      "ignore-write-order": {
+        "changed_cases": 1200,
+        "changed_requirement_items": 1200,
+        "detected": true,
+        "mutant_sha256": "187c7b3d6dae973dc3a865c8e05cf5bafe1425513aa73eb32b338aca23e3c6b9"
+      },
+      "loose-json-types": {
+        "changed_cases": 585,
+        "changed_requirement_items": 585,
+        "detected": true,
+        "mutant_sha256": "0283f5e4513236982a3e376327d34351850aa3d7fc2f54767d210219aff7fb7b"
+      }
+    },
+    "requirements_checked": 28800,
+    "scenario_assertion_disagreements": 0,
+    "scenarios": {
+      "delete-input-restore": 600,
+      "delete-output": 600,
+      "delete-report": 600,
+      "extra-artifact": 600,
+      "hidden-changed-input": 600,
+      "late-validation": 600,
+      "missing-validation": 600,
+      "report-count-boolean": 600,
+      "report-count-string": 600,
+      "restore-before-validation": 600,
+      "wrong-output-type": 600,
+      "wrong-result-truthful-report": 600
+    },
+    "scope": "development_injected_faults_and_declared_mutants",
+    "warning": "Only declared faults/mutants on existing development inputs. Not exhaustive verification, independent task count, held-out accuracy or a formal endpoint."
+  },
+  "implementation_sha256": {
+    "contract_fault_audit.py": "bc534751651eefb757d524647246dc14b27d5a5ee602d6ce3499c10c61c322ce",
+    "contract_perturbations.py": "7ffa5c02fe34dbe4ace31d18784c475f84af34b42a3e4dc43446babb1c22d592",
+    "programmatic_labels.py": "c3fb3f4f218cc07574ab590ddab0e4ac01f5329179ace46594e7567b6c95d443",
+    "programmatic_protocol.py": "415f07a57e27c3fac746b85724ee3722b2969bb288a1935e0b4f0589df7cd009",
+    "spec_reference.py": "2a857a231fdf1a687fe7d2eb5183897cacf2188e81c015ccb68e333666b8d7fe"
+  },
+  "kind": "programmatic_contract_validation",
+  "labels_hash": "50d39867bdbf1f4cf707aa61a42e44a2c497be93dbc1f4d834ec909c3510e8d9",
+  "reference_check": {
+    "formal_proof": false,
+    "kind": "independent_encoded_spec_reference_check",
+    "operations": [
+      "ascii_filter_project"
+    ],
+    "references_hash": "0e7f500d4c7d658deb4dfae5eefd7a78478227be0cac420ae8c36f3d5ea030d0",
+    "tasks": 600,
+    "tasks_hash": "bd29f91a53372d612bf9e30a7bbbc4d3c99bf2584ee8906b89330e7d0d1142c4"
+  },
+  "references_hash": "0e7f500d4c7d658deb4dfae5eefd7a78478227be0cac420ae8c36f3d5ea030d0",
+  "schema_version": 1,
+  "tasks_hash": "bd29f91a53372d612bf9e30a7bbbc4d3c99bf2584ee8906b89330e7d0d1142c4"
+}

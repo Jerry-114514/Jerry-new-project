@@ -1,0 +1,8 @@
+{
+  "cases_hash": "43fb0060cecfe3530d1c7c237c14376aae5743b9d63ed907484bc718ba4da584",
+  "human_evaluation_claim": false,
+  "kind": "programmatic_source_isolation",
+  "record_hash": "4aaedbfc6a272f2d61cf1ea7262cc1bf89c93e3c89eceec45e0f8888adb493bf",
+  "semantic_independence_proven": false,
+  "source_groups": 600
+}

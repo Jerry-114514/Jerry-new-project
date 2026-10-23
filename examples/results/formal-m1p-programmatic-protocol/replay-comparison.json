@@ -1,0 +1,8 @@
+{
+  "candidate_contracts": 600,
+  "candidate_views": 9600,
+  "formal_protocol_frozen": false,
+  "formal_training_started": false,
+  "local_and_autodl_source_isolation_equal": true,
+  "local_and_autodl_validation_equal": true
+}

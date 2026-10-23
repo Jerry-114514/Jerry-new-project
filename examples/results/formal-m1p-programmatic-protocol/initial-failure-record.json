@@ -1,0 +1,13 @@
+{
+  "scope": "initial_legacy_regression_preflight",
+  "tests_discovered": 208,
+  "failures": 1,
+  "errors": 1,
+  "skipped": 13,
+  "log_sha256": "54a4fbdfed7c067086663ba6d65c87cb0b8c9db7e8c5347aacc70820863b21f0",
+  "issues": [
+    "legacy minimal spec helper omitted schema_version",
+    "old test expected v2-only rejection text"
+  ],
+  "fixed": true
+}
