@@ -1,0 +1,18 @@
+{
+  "dependency_identity": {
+    "argv": [
+      "/root/autodl-tmp/intentlab-venv/bin/python",
+      "/root/autodl-tmp/develop_fewshot.py",
+      "infer"
+    ],
+    "pid": 154730,
+    "start_ticks": "864880322"
+  },
+  "dependency_pid": 154730,
+  "formal_training": false,
+  "phase": "waiting_for_baseline",
+  "pid": 164126,
+  "restarts_allowed": false,
+  "started_unix": 1792746416.8370836,
+  "status": "running"
+}
