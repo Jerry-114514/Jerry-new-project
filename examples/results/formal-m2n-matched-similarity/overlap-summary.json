@@ -1,0 +1,34 @@
+{
+  "exact_pairs_by_family": {
+    "ascii_filter_project": 1,
+    "key_present": 3,
+    "unicode_nfc": 2
+  },
+  "exact_train_overlap_test_sources": 5,
+  "formal_test_candidate_selected": false,
+  "near_any_development_overlap_test_sources": 74,
+  "near_train_overlap_test_sources": 74,
+  "near_train_pairs_by_family": {
+    "ascii_filter_project": 43,
+    "half_open_interval": 9,
+    "key_present": 38,
+    "stable_sort": 51,
+    "unicode_nfc": 24
+  },
+  "no_model_outputs_or_gold_read": true,
+  "no_task_removed_or_regenerated": true,
+  "private_strata_sha256": "072795865c875c205e6872f3e2f73fe131b969c3651b516d0f7d33b5184b4f98",
+  "scope": "pre_evaluation_descriptive_overlap_strata_not_data_selection",
+  "stratum_source_counts": {
+    "all_test": 200,
+    "no_normalized_exact_train_overlap": 195,
+    "no_within_25pct_development_overlap": 126,
+    "normalized_exact_train_overlap": 5,
+    "within_25pct_train_overlap": 74
+  },
+  "test_sources": 200,
+  "test_train_exact_pairs": 6,
+  "test_train_near_pairs": 165,
+  "test_validation_near_pairs": 1,
+  "warning": "Normalized collisions omit random identity values and layout details. They are not identical full inputs or demonstrated answer leakage. Strata are descriptive candidates, not registered primary/sensitivity analyses. Keep all 200 tasks if selecting this candidate and finalize analysis before test model evaluation."
+}

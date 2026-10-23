@@ -1,0 +1,40 @@
+{
+  "cross_split_pairs": {
+    "test / train": {
+      "normalized_exact_pairs": 6,
+      "same_operation_parameter_pairs": 10236,
+      "within_25_percent_row_edits": 165
+    },
+    "test / validation": {
+      "normalized_exact_pairs": 0,
+      "same_operation_parameter_pairs": 2560,
+      "within_25_percent_row_edits": 1
+    },
+    "train / validation": {
+      "normalized_exact_pairs": 0,
+      "same_operation_parameter_pairs": 7687,
+      "within_25_percent_row_edits": 2
+    }
+  },
+  "driver_sha256": "18511b4563a33141078f16887dae48d6f4d3b4a6706bbc4ee6abad50e7a0bcd7",
+  "gold_read": false,
+  "input_tasks_sha256": "3adb95d02a0224b4b4078f237813c5f47d808e5055a637d2b7ce3a706c8c4c24",
+  "limitations": [
+    "Conditional on shared operation parameters; no cross-family semantic matching.",
+    "Shared specification templates and generator logic remain even without duplicate row sequences.",
+    "Distinct split row counts can prevent exact matches by construction; zero exact matches does not establish independence.",
+    "All views of a source remain together; view count must not be treated as independent sample count.",
+    "Heldout public source contracts inspected only for data construction/isolation; no heldout gold or model scores accessed."
+  ],
+  "model_outputs_read": false,
+  "no_candidate_removed_or_reassigned": true,
+  "normalization": "Remove identity values, tag values, file boundaries and paths; rename operation fields by role. Preserve typed operation values, operation parameters, concatenated row order and missing-required counts.",
+  "scope": "descriptive_structural_normalization_not_semantic_independence_proof",
+  "source_tasks": 1050,
+  "sources_with_flagged_cross_split_neighbor": 194,
+  "task_content_used_for_model_selection": false,
+  "threshold": {
+    "normalized_levenshtein_row_distance": 0.25,
+    "purpose": "descriptive flags only; not an acceptance gate or estimated leakage probability"
+  }
+}
