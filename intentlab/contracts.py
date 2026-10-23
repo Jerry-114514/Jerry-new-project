@@ -8,12 +8,16 @@ import unicodedata
 
 
 OPERATIONS = {"decimal_round", "local_date_filter", "unicode_nfc", "stable_sort",
-              "key_present", "half_open_interval", "literal_copy", "copy", "ascii_filter_project"}
+              "key_present", "half_open_interval", "literal_copy", "copy", "ascii_filter_project",
+              "date_format", "stable_unique", "conditional_group_sum"}
 PARAMETERS = {"decimal_round": {"name", "field", "places", "rounding"},
               "local_date_filter": {"name", "field", "day", "offset_minutes"},
               "half_open_interval": {"name", "field", "lower", "upper"},
-              "copy": {"name"}, "ascii_filter_project": {"name", "where_field", "equals", "fields"}, **{name: {"name", "field"} for name in
-                  ("unicode_nfc", "stable_sort", "key_present", "literal_copy")}}
+              "copy": {"name"}, "ascii_filter_project": {"name", "where_field", "equals", "fields"},
+              "date_format": {"name", "field", "input_format", "output_format"},
+              "conditional_group_sum": {"name", "group_field", "value_field", "minimum"},
+              **{name: {"name", "field"} for name in
+                  ("unicode_nfc", "stable_sort", "key_present", "literal_copy", "stable_unique")}}
 RULES = {"preserve_inputs", "validate_before_write", "exact_outputs", "report_counts"}
 
 
@@ -44,6 +48,12 @@ def validate_operation(operation):
         raise ValueError("Unexpected or missing public operation parameters")
     if "field" in operation and (not isinstance(operation["field"], str) or not operation["field"]):
         raise ValueError("Nonempty operation field required")
+    if operation['name'] == 'date_format':
+        if operation['input_format'] not in ('%Y-%m-%d', '%d/%m/%Y', '%Y%m%d') or operation['output_format'] not in ('%Y-%m-%d', '%d.%m.%Y', '%Y%m%d'):
+            raise ValueError('Unsupported explicit calendar date format')
+    if operation['name'] == 'conditional_group_sum':
+        if any(not isinstance(operation[k], str) or not operation[k] for k in ('group_field', 'value_field')) or operation['group_field'] == operation['value_field'] or type(operation['minimum']) is not int or not -(2**31) <= operation['minimum'] < 2**31:
+            raise ValueError('Distinct group/value fields and signed-32-bit integer threshold required')
     if operation["name"] == "ascii_filter_project":
         fields, value, where = operation["fields"], operation["equals"], operation["where_field"]
         if not isinstance(where, str) or not where or not isinstance(value, str) or any(not 32 <= ord(c) <= 126 for c in value) \
@@ -77,11 +87,43 @@ def transform(rows, operation):
                or any(not 32 <= ord(c) <= 126 for c in row[where]) for row in rows):
             raise ValueError("Projection fields and printable ASCII predicate values required")
         return [{field: row[field] for field in fields} for row in rows if row[where].lower() == operation["equals"].lower()]
+    if name == 'conditional_group_sum':
+        group, value, minimum = operation['group_field'], operation['value_field'], operation['minimum']
+        if len(rows) > 10000 or any(group not in row or value not in row or not isinstance(row[group], str) or type(row[value]) is not int or not -(2**31) <= row[value] < 2**31 for row in rows):
+            raise ValueError('At most 10000 rows with string groups and signed-32-bit integer values required')
+        totals = {}
+        for row in rows:
+            if row[value] >= minimum:
+                totals[row[group]] = totals.get(row[group], 0) + row[value]
+        return [{'group': key, 'total': amount} for key, amount in totals.items()]
     field = operation["field"]
     if name == "key_present":
         return [row for row in rows if field in row]
     if any(field not in row for row in rows):
         raise ValueError("Operation field missing")
+    if name == 'date_format':
+        for row in rows:
+            if not isinstance(row[field], str):
+                raise ValueError('Calendar date string required')
+            # Explicit fixed-width formats, rejecting permissive strptime input.
+            parsed = datetime.strptime(row[field], operation['input_format'])
+            forms = {'%Y-%m-%d': f'{parsed.year:04d}-{parsed.month:02d}-{parsed.day:02d}',
+                     '%d/%m/%Y': f'{parsed.day:02d}/{parsed.month:02d}/{parsed.year:04d}',
+                     '%Y%m%d': f'{parsed.year:04d}{parsed.month:02d}{parsed.day:02d}'}
+            if forms[operation['input_format']] != row[field]:
+                raise ValueError('Calendar date must match the exact input format')
+            forms['%d.%m.%Y'] = f'{parsed.day:02d}.{parsed.month:02d}.{parsed.year:04d}'
+            row[field] = forms[operation['output_format']]
+        return rows
+    if name == 'stable_unique':
+        from .core import canonical
+        seen, selected = set(), []
+        for row in rows:
+            key = canonical(row[field])
+            if key not in seen:
+                seen.add(key)
+                selected.append(row)
+        return selected
     if name == "decimal_round":
         places = operation["places"]
         if type(places) is not int or not 0 <= places <= 8 or operation["rounding"] != "half_up":

@@ -1,0 +1,19 @@
+{
+  "formal_proof": false,
+  "kind": "independent_encoded_spec_reference_check",
+  "operations": [
+    "ascii_filter_project",
+    "conditional_group_sum",
+    "date_format",
+    "decimal_round",
+    "half_open_interval",
+    "key_present",
+    "local_date_filter",
+    "stable_sort",
+    "stable_unique",
+    "unicode_nfc"
+  ],
+  "references_hash": "ab905f51ebed45eb05fc505204974269883e275812d214d0561a584a802e306d",
+  "tasks": 300,
+  "tasks_hash": "ea8ed457dc22880c9573df5cabe5f6b9a9e5949218f6741f27f83196f4ed296d"
+}

@@ -4,6 +4,7 @@ No imports of the online solver/analyzer. Standard-library numerical/Unicode
 primitives remain shared dependencies, not independent formal proofs.
 """
 from copy import deepcopy
+from contextlib import closing
 from datetime import date, datetime, timedelta, timezone
 from fractions import Fraction
 import math
@@ -31,7 +32,7 @@ def reference_files(task):
             raise ValueError('Predicate/projection fields missing')
         # SQLite NOCASE is ASCII-only. Restrict inputs explicitly to the same
         # printable domain; use independently parameterized SQL, not str.lower.
-        with sqlite3.connect(':memory:') as db:
+        with closing(sqlite3.connect(':memory:')) as db:
             db.execute('CREATE TABLE data (position INTEGER, value TEXT, payload TEXT)')
             for i, row in enumerate(rows):
                 value = row[op['where_field']]
@@ -93,6 +94,49 @@ def reference_files(task):
     elif name == 'literal_copy':
         if any(not isinstance(row[field], str) for row in rows):
             raise ValueError('Literal strings required')
+    elif name == 'date_format':
+        formats = {'%Y-%m-%d': ('-', (0, 1, 2)), '%d/%m/%Y': ('/', (2, 1, 0)), '%Y%m%d': (None, None)}
+        separator, order = formats[op['input_format']]
+        for row in rows:
+            text = row[field]
+            if not isinstance(text, str):
+                raise ValueError('Calendar date string required')
+            parts = text.split(separator) if separator else [text[:4], text[4:6], text[6:]]
+            if order:
+                parts = [parts[i] for i in order]
+            if len(parts) != 3 or list(map(len, parts)) != [4, 2, 2] or any(not p.isascii() or not p.isdigit() for p in parts):
+                raise ValueError('Exact-width calendar date required')
+            year, month, day = map(int, parts)
+            date(year, month, day)
+            if op['output_format'] == '%Y%m%d':
+                row[field] = f'{year:04d}{month:02d}{day:02d}'
+            elif op['output_format'] == '%d.%m.%Y':
+                row[field] = f'{day:02d}.{month:02d}.{year:04d}'
+            elif op['output_format'] == '%Y-%m-%d':
+                row[field] = f'{year:04d}-{month:02d}-{day:02d}'
+            else:
+                raise ValueError('Unsupported output date format')
+    elif name == 'stable_unique':
+        def equal(a, b):
+            if type(a) is not type(b): return False
+            if isinstance(a, list): return len(a) == len(b) and all(equal(x, y) for x, y in zip(a, b))
+            if isinstance(a, dict): return set(a) == set(b) and all(equal(a[k], b[k]) for k in a)
+            if isinstance(a, float): return repr(a) == repr(b)
+            return a == b
+        chosen = []
+        for row in rows:
+            if not any(equal(row[field], prior[field]) for prior in chosen):
+                chosen.append(row)
+        rows = chosen
+    elif name == 'conditional_group_sum':
+        group, value = op['group_field'], op['value_field']
+        if len(rows) > 10000 or any(not isinstance(r[group], str) or type(r[value]) is not int or not -(2**31) <= r[value] < 2**31 for r in rows):
+            raise ValueError('Bounded integer grouped-sum domain required')
+        with closing(sqlite3.connect(':memory:')) as db:
+            db.execute('CREATE TABLE amounts (position INTEGER, group_name TEXT, amount INTEGER)')
+            db.executemany('INSERT INTO amounts VALUES (?, ?, ?)', [(i, r[group], r[value]) for i, r in enumerate(rows)])
+            found = db.execute('SELECT group_name, SUM(amount) FROM amounts WHERE amount >= ? GROUP BY group_name ORDER BY MIN(position)', (op['minimum'],)).fetchall()
+        rows = [{'group': group_name, 'total': amount} for group_name, amount in found]
     elif name != 'copy':
         raise ValueError('Independent reference operation not implemented')
     return {task['output_path']: rows, task['report_path']: dict(report, status='ok', output_rows=len(rows))}

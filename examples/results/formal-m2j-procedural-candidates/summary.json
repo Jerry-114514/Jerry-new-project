@@ -1,0 +1,76 @@
+{
+  "blocked_tasks_by_split": {
+    "ood": 10,
+    "test": 16,
+    "train": 56,
+    "validation": 8
+  },
+  "cases_hash": "9697c71bb24ac6beff965535e99f2c299ae963a46848d21fce5137d24d032f31",
+  "families_by_split": {
+    "ood": [
+      "conditional_group_sum",
+      "stable_unique"
+    ],
+    "test": [
+      "ascii_filter_project",
+      "date_format",
+      "decimal_round",
+      "half_open_interval",
+      "key_present",
+      "local_date_filter",
+      "stable_sort",
+      "unicode_nfc"
+    ],
+    "train": [
+      "ascii_filter_project",
+      "date_format",
+      "decimal_round",
+      "half_open_interval",
+      "key_present",
+      "local_date_filter",
+      "stable_sort",
+      "unicode_nfc"
+    ],
+    "validation": [
+      "ascii_filter_project",
+      "date_format",
+      "decimal_round",
+      "half_open_interval",
+      "key_present",
+      "local_date_filter",
+      "stable_sort",
+      "unicode_nfc"
+    ]
+  },
+  "formal_protocol_frozen": false,
+  "human_evaluation_claim": false,
+  "kind": "private_procedural_candidate_dataset",
+  "labels_hash": "feee60f871b3725393d2035eab7986206325e69459fc09343bf849416b26ca04",
+  "model_calls": 0,
+  "plan_hash": "04da60cbe1560e1c019572ea6cb66912cf21f3c766176413c1f7174937531ee2",
+  "references_hash": "958892b432c007a56de421aab7310d51bce871c657ca3d395833273dd55b6951",
+  "schema_version": 1,
+  "seed_commitments": {
+    "ood": "7fabaf48d69f76b02a01e78705d4e69fdc9aeae0509d666ad9e6001d894de4b8",
+    "test": "17f485cbdb15c967b334d530272dc6d4b99bb55be05b6e1cdbc99298d2ef4767",
+    "train": "0e04102b14a11c7ee8c3eaf655401b33cc596fd5acae33a217c52a25c4cee110",
+    "validation": "229ae5fc59c4055d1b8d48209ba78d7b6993e346cf53b143f37162b74d1ce7ce"
+  },
+  "source_independence_proven": false,
+  "tasks_by_split": {
+    "ood": 100,
+    "test": 200,
+    "train": 600,
+    "validation": 150
+  },
+  "tasks_hash": "ee0b8d9ecb0c55a2bb39f36adc62f1c7ca77297f361bf379b1b7c91fdf38ff1d",
+  "templates": 26,
+  "view_policy": "semantic-single-fault-v2",
+  "views_by_split": {
+    "ood": 400,
+    "test": 800,
+    "train": 2400,
+    "validation": 600
+  },
+  "warning": "Procedural source draws conditional on fixed template families, not independently human-authored tasks. No test model evaluation; secret seeds and all raw heldout data must remain private."
+}

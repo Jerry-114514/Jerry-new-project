@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "generator_version": "procedural-contracts-v1",
+  "view_policy": "semantic-single-fault-v2",
+  "counts": {"train": 600, "validation": 150, "test": 200, "ood": 100},
+  "train_families": ["decimal_round", "local_date_filter", "unicode_nfc", "stable_sort", "key_present", "half_open_interval", "ascii_filter_project", "date_format"],
+  "ood_families": ["stable_unique", "conditional_group_sum"],
+  "layouts": {
+    "train": {"input_files": 1, "field": "value", "tag_fields": []},
+    "validation": {"input_files": 2, "field": "item_value", "tag_fields": ["batch_tag"]},
+    "test": {"input_files": 3, "field": "record_value", "tag_fields": ["batch_tag", "record_tag"]},
+    "ood": {"input_files": 2, "field": "probe_value", "tag_fields": ["probe_tag"]}
+  },
+  "blocked_every": 10,
+  "blocked_offset": 9,
+  "views_per_task": 4,
+  "claims_scope": "encoded_specifications_only_no_human_evaluation"
+}

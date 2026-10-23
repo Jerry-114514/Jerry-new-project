@@ -1,0 +1,28 @@
+[
+  {
+    "log_name": "procedural-tests-local-final.log",
+    "sha256": "6e425eb300c8c321744526418597fdd5e076111624a8131ca1a95edbee27fe52",
+    "skipped": 14,
+    "tail": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 226 tests in 21.942s",
+      "",
+      "OK (skipped=14)"
+    ],
+    "tests_discovered": 226
+  },
+  {
+    "log_name": "procedural-tests-remote.log",
+    "sha256": "b30f1ce5071bd638075ab1ad1cdc2a77858d9220416e6b0ced688cfe5083e7b7",
+    "skipped": 0,
+    "tail": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 226 tests in 132.131s",
+      "",
+      "OK"
+    ],
+    "tests_discovered": 226
+  }
+]

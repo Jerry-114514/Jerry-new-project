@@ -32,6 +32,7 @@ python -m intentlab train-baseline --data runs/data/diagnostic_views.jsonl --out
 - [标注负担修订提案](docs/annotation-workload-revision-proposal.md)：保留两路线选择历史；用户现已选择完全程序标签，不再安排每人9600项或320项审计。
 - [程序标签实施指南](docs/programmatic-label-guide.md)：用户已选择完全程序标签，idea更新2.0；程序导出和v3协议已接入，完整新数据、覆盖及正式冻结仍待完成，不声称人工验证。
 - [程序标签协议v3](docs/programmatic-protocol-v3.md)：程序证据冻结、独立参考复算和训练/测试隔离已接入，不再要求人工声明；正式数据与预算仍未就绪。
+- [多模板程序候选数据](docs/procedural-candidate-dataset.md)：新建600/150/200/100源抽样、4200视图和26模板；私有种子、测试材料不公开，已见族test另有结构移位，尚非严格IID或正式冻结。
 - [顺序违规与程序标签对抗检查](docs/contract-fault-coverage.md)：600份原train合同新增7200故障视图，补齐1800顺序违规；六类声明的检查器变异均被识别，仍是单模板开发候选池。
 - [监督位置logits显存优化](docs/supervised-logits-memory.md)：保持因果损失和输入完整，5090上4608/512合成序列两更新通过，reserved约17.99GiB；非正式训练。
 - [压缩提示的真实模型开发对照](docs/compact-prompt-development-report.md)：208次调用完成，格式通过99/104与103/104、计费token减少31.68%；有40项状态分歧，无人工真值，不报告准确率。

@@ -14,7 +14,10 @@ def perturbations(tasks, references):
     cases, expectations = [], []
     for task in tasks:
         if any(key not in row for rows in task['inputs'].values() for row in rows for key in task['spec']['required_fields']):
-            raise ValueError('This fault matrix requires complete required fields; blocked-input matrix is separate')
+            blocked_cases, blocked_expectations = blocked_perturbations(task, references[task['id']])
+            cases.extend(blocked_cases)
+            expectations.extend(blocked_expectations)
+            continue
         output, report = task['output_path'], task['report_path']
         protected = next(iter(task['inputs']))
         original = task['inputs'][protected]
@@ -65,6 +68,41 @@ def perturbations(tasks, references):
                 'expected_statuses': {req['id']: by_rule[task['spec']['requirement_rules'][req['id']]] for req in task['requirements']}})
     validate_cases(cases)
     return cases, expectations
+
+
+def blocked_perturbations(task, reference):
+    """Missing fields permit only a truthful report after failed validation."""
+    S, V, U = 'satisfied', 'violated', 'unknown'
+    path, output, report = next(iter(task['inputs'])), task['output_path'], task['report_path']
+    original = task['inputs'][path]
+    good_report = deepcopy(reference['files'][report])
+    validate = [{'op': 'validate', 'ok': False}]
+    write = [{'op': 'write', 'path': report, 'value': good_report}]
+    bad_report = dict(good_report, input_rows=str(good_report['input_rows']))
+    matrix = [
+        ('blocked-complete', validate + write, True, (S, S, S, S)),
+        ('blocked-late-validation', write + validate, True, (S, V, S, S)),
+        ('blocked-missing-validation', write, True, (S, V, S, S)),
+        ('blocked-forbidden-output', validate + write + [{'op': 'write', 'path': output, 'value': []}], True, (S, V, V, S)),
+        ('blocked-input-restore', validate + write + [{'op': 'delete', 'path': path}, {'op': 'write', 'path': path, 'value': original}], True, (V, V, S, S)),
+        ('blocked-report-count-string', validate + [{'op': 'write', 'path': report, 'value': bad_report}], True, (S, S, S, V)),
+        ('blocked-hidden-history', validate + write, False, (U, U, S, S)),
+        ('blocked-no-report', validate, True, (S, S, S, V)),
+    ]
+    cases, expected = [], []
+    rules = ('preserve_inputs', 'validate_before_write', 'exact_outputs', 'report_counts')
+    for name, actions, visible, statuses in matrix:
+        state = initial_state(task)
+        state.apply(actions)
+        cid = task['id'] + '-fault-v1-' + name
+        public = {'request': task['request'], 'inputs': deepcopy(task['inputs']), 'requirements': deepcopy(task['requirements']),
+            'execution_spec': deepcopy(task['spec']), 'observation': {'files': deepcopy(state.files), 'events': deepcopy(state.events) if visible else None}}
+        cases.append({'case_id': cid, **{k: task[k] for k in ('source_task_id', 'split', 'family', 'template_id')},
+            'source': {**deepcopy(task['source']), 'trajectory': 'injected'}, 'public': public})
+        by_rule = dict(zip(rules, statuses))
+        expected.append({'case_id': cid, 'scenario': name, 'public_hash': digest(public),
+            'expected_statuses': {r['id']: by_rule[task['spec']['requirement_rules'][r['id']]] for r in task['requirements']}})
+    return cases, expected
 
 
 def verify_expectations(labels, expectations):
