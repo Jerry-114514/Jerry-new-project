@@ -8,6 +8,8 @@
 
 ## 里程碑状态
 
+2026-10-23新增[M2k相似度检查](procedural-source-similarity.md)：去除随机标识/布局后复算跨集合行序列，train/validation有两对近邻，未删除或调整样本；当前test非严格IID的缺口保留。强基线[M3h开发搜索](../examples/results/formal-m3h-fewshot-development/README.md)已启动，全部600验证视图×A/B3/B4计划1800调用；统一13312上下文/512输出，尚未完成或评分，正式冻结及六组训练仍未启动。
+
 2026-10-23新增[M3g真实监督长度与短跑](procedural-length-budget.md)：train2400/validation600完整生产编码已逐条测量，最大总长4419/6628；7168上下文的真实中位/最长训练及验证两步短跑退出0，峰值reserved约17.52 GiB、墙钟51.67秒。仅开发资源检查，正式训练仍0/6；少样本B、全量验证成本及预算冻结未完成。本轮开始有新批次开发模型调用，未打开heldout材料。下条M2j的“无新批次模型调用”描述其构建时点。
 
 2026-10-23新增[M2j多模板程序候选](procedural-candidate-dataset.md)：train600/validation150/test200/OOD100，4200视图、26模板、10操作族，其中两族保留OOD。新数据及种子保持私有，无新批次模型调用。64个开发blocked源纳入8类故障检查，全部1050固定参考复算；本地/AutoDL重建一致。test存在文件布局移位，不能称严格IID；近重复、自然轨迹、强B、功效/资源及正式冻结仍缺。
