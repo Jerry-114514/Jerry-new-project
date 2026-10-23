@@ -225,6 +225,8 @@ def train_neural(config, out, stop_after=None, resume=None):
         model = get_peft_model(model, LoraConfig(r=config["rank"], lora_alpha=config["alpha"],
             lora_dropout=0.0, target_modules="all-linear", task_type="CAUSAL_LM",
             fan_in_fan_out=model.config.model_type == "gpt2"))
+    from .checkpoint_selection import tensor_hash
+    initial_trainable_sha256 = tensor_hash(trainable_state(model))
     if device == 'cuda':
         torch.cuda.reset_peak_memory_stats()
         torch.cuda.synchronize()
@@ -242,6 +244,12 @@ def train_neural(config, out, stop_after=None, resume=None):
         saved = torch.load(resume, map_location="cpu", weights_only=True)
         if saved["config"] != config or saved["data_hash"] != fingerprint or saved["base_identity"] != identity:
             raise ValueError("Resume requires identical configuration and dataset")
+        recorded_initial = saved.get("initial_trainable_sha256")
+        if recorded_initial is not None and recorded_initial != initial_trainable_sha256:
+            raise ValueError("Resume initial trainable tensors differ from checkpoint initialization")
+        # Historical checkpoints lack an observed initial tensor identity. Do
+        # not upgrade a regenerated initialization into evidence about the past.
+        initial_trainable_sha256 = recorded_initial
         restore_trainable(model, saved["weights"])
         optimizer.load_state_dict(saved["optimizer"])
         scheduler = Plateau(**saved["scheduler"])
@@ -313,6 +321,7 @@ def train_neural(config, out, stop_after=None, resume=None):
             print(json.dumps({'step': step + 1, 'validation_loss': validation['loss'],
                               'lr': lr, 'elapsed_seconds': time.perf_counter() - started}), flush=True)
         checkpoint = {"config": config, "data_hash": fingerprint, "base_identity": identity, "step": step + 1,
+            "initial_trainable_sha256": initial_trainable_sha256,
             "weights": trainable_state(model), "optimizer": optimizer.state_dict(), "scheduler": asdict(scheduler),
             "history": history, "best_loss": best_loss, "best_weights": best_weights, "used_tokens": used_tokens,
             "used_supervised_tokens": used_supervised_tokens, "sample_exposures": exposures,
@@ -325,6 +334,7 @@ def train_neural(config, out, stop_after=None, resume=None):
         torch.save(checkpoint, temporary)
         temporary.replace(out / "latest.pt")
     result = {"kind": "causal_lm_sft", "completed": end == config["steps"], "config": config,
+        "initial_trainable_sha256": initial_trainable_sha256,
         "data_hash": fingerprint, "base_identity": identity, "step": end, "history": history, "train_tokens": used_tokens,
         "supervised_tokens": used_supervised_tokens, "examples_seen": sum(exposures),
         "sample_exposures": [{"index": index, "task_id": row["task_id"], "case_id": row.get("case_id"),

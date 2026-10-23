@@ -93,13 +93,17 @@ def configurations(lock):
         schedule=schedule, seed=seed)) for seed in spec["seeds"] for schedule in spec["schedules"]]
 
 
-def validate_result(result, config):
+def validate_result(result, config, require_initialization=False):
     if result.get("config") != config or not result.get("completed") or result.get("test_deferred") is not True or "test" in result:
         raise ValueError("Completed training must match frozen config and contain no test evaluation")
     if result.get("examples_seen") != config["steps"] * config["batch_size"] * config["accumulation"]:
         raise ValueError("Actual example exposure differs from frozen update budget")
     if not isinstance(result.get("supervised_tokens"), int) or result["supervised_tokens"] < 1:
         raise ValueError("Missing supervised-token accounting")
+    initial = result.get('initial_trainable_sha256')
+    if (require_initialization or initial is not None) and (not isinstance(initial,str)
+            or len(initial)!=64 or any(c not in '0123456789abcdef' for c in initial)):
+        raise ValueError('Formal paired training requires an observed initial trainable tensor SHA256')
 
 
 def training_artifacts(directory):
@@ -110,13 +114,13 @@ def training_artifacts(directory):
     return {path.relative_to(directory).as_posix(): file_hash(path) for path in files if path.is_file()}
 
 
-def paired_training_audit(jobs, out):
+def paired_training_audit(jobs, out, require_initialization=False):
     grouped = {}
     for job in jobs:
         if job["status"] != "completed":
             raise ValueError("Paired audit requires all six completed jobs")
         result = read_json(Path(out) / job["name"] / "result.json")
-        validate_result(result, job["config"])
+        validate_result(result, job["config"], require_initialization)
         if file_hash(Path(out) / job["name"] / "result.json") != job["result_sha256"]:
             raise ValueError("Result changed after job completion")
         if training_artifacts(Path(out) / job["name"]) != job["artifacts_sha256"]:
@@ -128,8 +132,12 @@ def paired_training_audit(jobs, out):
         for field in ("data_hash", "base_identity", "train_tokens", "supervised_tokens", "sample_exposures"):
             if a[field] != b[field]:
                 raise ValueError(f"Seed {seed} paired training differs in {field}")
+        if a.get('initial_trainable_sha256') != b.get('initial_trainable_sha256'):
+            raise ValueError(f'Seed {seed} paired training differs in initial trainable tensors')
         audit.append({"seed": seed, "paired_exposure_equal": True, "supervised_tokens": a["supervised_tokens"],
                       "examples_seen": a["examples_seen"]})
+        if a.get('initial_trainable_sha256') is not None:
+            audit[-1].update(initial_trainable_sha256=a['initial_trainable_sha256'],paired_initialization_equal=True)
     return audit
 
 
@@ -164,7 +172,7 @@ def run_matrix(lock, out, resume=False, engineering=False, stop_after_updates=No
             previous_status = job["status"]
             if job["status"] == "completed":
                 result_path = directory / "result.json"
-                validate_result(read_json(result_path), job["config"])
+                validate_result(read_json(result_path), job["config"], require_initialization=lock['scope']=='formal')
                 if file_hash(result_path) != job["result_sha256"]:
                     raise ValueError("Completed result changed; do not silently skip it")
                 if training_artifacts(directory) != job["artifacts_sha256"]:
@@ -230,12 +238,12 @@ def run_matrix(lock, out, resume=False, engineering=False, stop_after_updates=No
                 job["attempts"][-1]["status"] = "interrupted"
                 atomic_json(state_path, state)
                 return state
-            validate_result(result, job["config"])
+            validate_result(result, job["config"], require_initialization=lock['scope']=='formal')
             job.update(status="completed", result_sha256=file_hash(directory / "result.json"))
             job["artifacts_sha256"] = training_artifacts(directory)
             job["attempts"][-1].update(status="completed", result_sha256=job["result_sha256"])
             atomic_json(state_path, state)
-        state.update(status="completed", paired_audit=paired_training_audit(state["jobs"], out))
+        state.update(status="completed", paired_audit=paired_training_audit(state["jobs"], out, require_initialization=lock['scope']=='formal'))
         atomic_json(state_path, state)
         return state
 

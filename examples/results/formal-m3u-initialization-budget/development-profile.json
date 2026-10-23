@@ -1,0 +1,71 @@
+{
+  "gpu_used": false,
+  "heldout_files_read": false,
+  "official_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "scope": "complete_history_augmented_train_validation",
+  "source_commit": "71a361d5437d59294696f40ee015c599441df4ec",
+  "splits": {
+    "train": {
+      "file_sha256": "380a74890664fe2c61eef0f3ff0dff0902c694ef7ff5582378830d8b7089cfc1",
+      "over_training_context_12288": 0,
+      "sequence_tokens": {
+        "count": 2464,
+        "maximum": 9086,
+        "minimum": 1202,
+        "p50": 2398,
+        "p95": 3760,
+        "sum": 6255711
+      },
+      "source_groups": 600,
+      "supervised_tokens": {
+        "count": 2464,
+        "maximum": 513,
+        "minimum": 84,
+        "p50": 157,
+        "p95": 189,
+        "sum": 384544
+      }
+    },
+    "validation": {
+      "B3_over_17408_with_1536_reserve": 0,
+      "B3_prompt_tokens": {
+        "count": 664,
+        "maximum": 15490,
+        "minimum": 5666,
+        "p50": 7734,
+        "p95": 9568,
+        "sum": 5198731
+      },
+      "file_sha256": "d86b878e18d0875decef13ae1217b794632bcf40a0ad3679e65cb92497a2ba24",
+      "over_training_context_12288": 0,
+      "sequence_tokens": {
+        "count": 664,
+        "maximum": 12150,
+        "minimum": 1879,
+        "p50": 4033,
+        "p95": 5888,
+        "sum": 2746805
+      },
+      "source_groups": 150,
+      "supervised_tokens": {
+        "count": 664,
+        "maximum": 553,
+        "minimum": 100,
+        "p50": 197,
+        "p95": 229,
+        "sum": 133026
+      }
+    }
+  },
+  "tokenizer_assets_sha256": {
+    "chat_template.jinja": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+    "config.json": "d0883072e01861ed0b2d47be3c16c36a8e81c224c7ffaa310c6558fb3f932b05",
+    "merges.txt": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d",
+    "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+    "tokenizer_config.json": "316230d6a809701f4db5ea8f8fc862bc3a6f3229c937c174e674ff3ca0a64ac8",
+    "vocab.json": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003"
+  },
+  "training_source_sha256": "708ba4c873bf5449d4c39e3263bb2cb3da77e923cb81a10c446b9e8694b471e6",
+  "truncation": false,
+  "weights_loaded": false
+}

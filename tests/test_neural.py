@@ -91,12 +91,35 @@ class NeuralIntegrationTests(unittest.TestCase):
                 self.assertEqual(full["sample_exposures"], resumed["sample_exposures"])
                 self.assertEqual(full["supervised_tokens"], resumed["supervised_tokens"])
                 self.assertEqual(full["examples_seen"], config["steps"] * config["batch_size"] * config["accumulation"])
+                self.assertEqual(full['initial_trainable_sha256'],resumed['initial_trainable_sha256'])
                 full_state = torch.load(root / (schedule + "-full") / "latest.pt", weights_only=True)
                 resumed_state = torch.load(interrupted / "latest.pt", weights_only=True)
                 self.assertTrue(all(torch.equal(t, resumed_state["weights"][k]) for k, t in full_state["weights"].items()))
                 changed = dict(config, lr=0.002)
                 with self.assertRaises(ValueError):
                     train_neural(changed, interrupted, resume=interrupted / "latest.pt")
+
+    def test_actual_lora_initialization_is_paired_and_legacy_resume_stays_unknown(self):
+        import torch
+        from intentlab.neural import train_neural
+        with tempfile.TemporaryDirectory() as name:
+            root=Path(name);export_sft(build_tasks(),root/'data')
+            config=dict(configuration(root/'data',mode='lora'),steps=2,eval_every=1,defer_test=True)
+            cosine=train_neural(config,root/'cosine')
+            plateau=train_neural(dict(config,schedule='plateau'),root/'plateau')
+            other=train_neural(dict(config,seed=config['seed']+1),root/'other')
+            self.assertEqual(cosine['initial_trainable_sha256'],plateau['initial_trainable_sha256'])
+            self.assertNotEqual(cosine['initial_trainable_sha256'],other['initial_trainable_sha256'])
+            partial=train_neural(config,root/'partial',stop_after=1)
+            checkpoint=root/'partial/latest.pt'
+            saved=torch.load(checkpoint,weights_only=True)
+            self.assertEqual(saved['initial_trainable_sha256'],partial['initial_trainable_sha256'])
+            saved['initial_trainable_sha256']='0'*64;torch.save(saved,checkpoint)
+            with self.assertRaisesRegex(ValueError,'initial trainable tensors differ'):
+                train_neural(config,root/'partial',resume=checkpoint)
+            del saved['initial_trainable_sha256'];torch.save(saved,checkpoint)
+            resumed=train_neural(config,root/'partial',resume=checkpoint)
+            self.assertIsNone(resumed['initial_trainable_sha256'])
 
     def test_lora_trains_and_saved_adapter_generates_with_budget(self):
         from intentlab.model_backend import BudgetExceeded, LocalBackend

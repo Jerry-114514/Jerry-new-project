@@ -38,7 +38,7 @@ def completed_matrix(protocol, matrix_root, engineering=False):
         raise ValueError("All six paired jobs must finish under this protocol without held-out evaluation")
     if [(job["name"], job["config"]) for job in matrix["jobs"]] != configurations(protocol):
         raise ValueError("Completed matrix differs from the exact frozen six-job plan")
-    pairs = paired_training_audit(matrix["jobs"], root)
+    pairs = paired_training_audit(matrix["jobs"], root, require_initialization=protocol['scope']=='formal')
     if canonical(pairs) != canonical(matrix.get("paired_audit")):
         raise ValueError("Paired training audit changed")
     return matrix
