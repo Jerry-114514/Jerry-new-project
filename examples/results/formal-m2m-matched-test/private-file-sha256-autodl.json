@@ -1,0 +1,20 @@
+{
+  "cases.jsonl": "187be5eb3a877c67f97fb73f8851a944443420b25b6f4e784c1bf15f3e31bd69",
+  "execution-references.jsonl": "c8b9d3cb8c3f3121c4e2c99430b48b14253234f1a570a6d9007a5885416a38aa",
+  "execution-tasks.jsonl": "e3acee9c6761baa1ca4dee52a3aadc7901288a4befcaecc04724283ad1181a9d",
+  "export/heldout/ood/cases.jsonl": "9c633e86ac3cf7ce23075c5373232d1c5952abaf511e5af48b6915753e04f864",
+  "export/heldout/ood/gold.jsonl": "5bc7ffcf4bad649e3976e73fc6d83219964b68076a1a8ff5b3f25b653b281cbd",
+  "export/heldout/test/cases.jsonl": "264a2d3ff4b6c992d88c2fdd761390cf3effb755824a7685fca69e03b258f05b",
+  "export/heldout/test/gold.jsonl": "95ed7cf4cccd55ce2c0677427cf8983eb60da1dd74fc9c86e6a49aeade0b4d6f",
+  "export/manifest.json": "e2ea79cb866eca14972e8a0d9e95b6c5589665d2b9fd52084054568495fc4640",
+  "export/programmatic-labels.jsonl": "7408894078d9065bb421bb1efd0f0b9f3ab9422b650e536d4484aa357c9d6de2",
+  "export/train.jsonl": "94d66bd95ce9443f2bfc38071bee2cb3ae005a16002aaf8cd37f2d453f0102b7",
+  "export/validation.jsonl": "43881e276f7a3e87aff3f501981a2350a1955dc10210b597f796a42babea512b",
+  "matched-test-ledger.jsonl": "90c2cb5855c4635f7ffa5735f93dce97a1ddbeb8a737b2e43ce82ae42911a26f",
+  "private-seed.json": "1fd5b8f8701c8d6fbe71729c06e83cceeefc3404b59e6bf26d878eae040ff234",
+  "programmatic-validation.json": "035b1d7e9146d8f3e90d873e04b6e23ec680b914b73b665fa34dbe4b7dda01f8",
+  "references.jsonl": "5e1a71bfa23bc957e9f572d7313c960eb9a591e5eeb3cff31169a7ec4548925f",
+  "source-isolation.json": "1892f2858460ebbb7131798315adbe76dea8853bd1f03bb42dde548dafd0000d",
+  "summary.json": "f20891097088a1b11820e2638b7fef02f59b413f69be8a9666403138d24558fc",
+  "tasks.jsonl": "3adb95d02a0224b4b4078f237813c5f47d808e5055a637d2b7ce3a706c8c4c24"
+}

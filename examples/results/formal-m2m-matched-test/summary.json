@@ -1,0 +1,144 @@
+{
+  "archived_structural_test_retained": true,
+  "base_cases_hash": "9697c71bb24ac6beff965535e99f2c299ae963a46848d21fce5137d24d032f31",
+  "cases_hash": "75bbaac91e859f90eb1822ee0b5bc91de6c4c9641aea9768dbef185ea5d41839",
+  "development_exports_byte_identical": true,
+  "formal_protocol_frozen": false,
+  "human_evaluation_claim": false,
+  "independent_reference_check": {
+    "formal_proof": false,
+    "kind": "independent_encoded_spec_reference_check",
+    "operations": [
+      "ascii_filter_project",
+      "conditional_group_sum",
+      "date_format",
+      "decimal_round",
+      "half_open_interval",
+      "key_present",
+      "local_date_filter",
+      "stable_sort",
+      "stable_unique",
+      "unicode_nfc"
+    ],
+    "references_hash": "ef6217e1f88d09b121565bfc85289f3917eb70f2b2b5aee640500fe52c89f3c7",
+    "tasks": 1050,
+    "tasks_hash": "67892c44b95f398810c0a6e04848e8072c00913faa08be1c2847bf9c6289cc0c"
+  },
+  "kind": "input_layout_matched_wording_heldout_candidates",
+  "labels_hash": "20dc2ceaddd7a1d54806bec9bbaa417e19fd66ae224f49fe538b507794ef823d",
+  "limitations": [
+    "Operation-family and generated input layout/scale match train; requirement wording is held out.",
+    "Finite family counts and deterministic blocked cadence need explicit stratified reporting; no strict IID guarantee.",
+    "Generator logic and fault-view policy remain shared, not independent human-authored tasks.",
+    "Validation retains two-file structural shift. No new empirical power or natural trajectories are supplied.",
+    "No test scores, model output inspection or test-dependent tuning. Candidate not yet selected or frozen."
+  ],
+  "matched_test_source_tasks": 200,
+  "matched_test_views": 800,
+  "profile": {
+    "ood": {
+      "blocked_tasks": 10,
+      "families": {
+        "conditional_group_sum": 50,
+        "stable_unique": 50
+      },
+      "input_file_counts": {
+        "2": 100
+      },
+      "required_field_counts": {
+        "3": 50,
+        "4": 50
+      },
+      "source_tasks": 100,
+      "total_input_rows": {
+        "10": 29,
+        "6": 34,
+        "8": 37
+      }
+    },
+    "test": {
+      "blocked_tasks": 16,
+      "families": {
+        "ascii_filter_project": 25,
+        "date_format": 25,
+        "decimal_round": 25,
+        "half_open_interval": 25,
+        "key_present": 25,
+        "local_date_filter": 25,
+        "stable_sort": 25,
+        "unicode_nfc": 25
+      },
+      "input_file_counts": {
+        "1": 200
+      },
+      "required_field_counts": {
+        "1": 25,
+        "2": 175
+      },
+      "source_tasks": 200,
+      "total_input_rows": {
+        "3": 67,
+        "4": 64,
+        "5": 69
+      }
+    },
+    "train": {
+      "blocked_tasks": 56,
+      "families": {
+        "ascii_filter_project": 75,
+        "date_format": 75,
+        "decimal_round": 75,
+        "half_open_interval": 75,
+        "key_present": 75,
+        "local_date_filter": 75,
+        "stable_sort": 75,
+        "unicode_nfc": 75
+      },
+      "input_file_counts": {
+        "1": 600
+      },
+      "required_field_counts": {
+        "1": 75,
+        "2": 525
+      },
+      "source_tasks": 600,
+      "total_input_rows": {
+        "3": 178,
+        "4": 220,
+        "5": 202
+      }
+    },
+    "validation": {
+      "blocked_tasks": 8,
+      "families": {
+        "ascii_filter_project": 18,
+        "date_format": 18,
+        "decimal_round": 19,
+        "half_open_interval": 19,
+        "key_present": 19,
+        "local_date_filter": 19,
+        "stable_sort": 19,
+        "unicode_nfc": 19
+      },
+      "input_file_counts": {
+        "2": 150
+      },
+      "required_field_counts": {
+        "2": 19,
+        "3": 131
+      },
+      "source_tasks": 150,
+      "total_input_rows": {
+        "10": 48,
+        "6": 44,
+        "8": 58
+      }
+    }
+  },
+  "schema_version": 1,
+  "seed_commitment": "839ef72033d876c2c5b794f79d644286677981934b491835818ae267ee9227d8",
+  "source_independence_proven": false,
+  "strict_iid_claim": false,
+  "tasks_hash": "67892c44b95f398810c0a6e04848e8072c00913faa08be1c2847bf9c6289cc0c",
+  "test_model_calls": 0
+}
