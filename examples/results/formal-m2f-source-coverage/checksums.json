@@ -1,0 +1,12 @@
+{
+  "README.md": "4cf1f639a1372ec473b5a3388b40a83d90d471d69587028150d931591b2907f3",
+  "audit.py": "324987b48cc0ee92527a152799d0709b7d39556bc3956c0bfd615139d750b92f",
+  "candidate-pairs.jsonl": "24f880c7813f88f07e2309824c9a58806e7edf3f619c24f3cae22c17f0ecb6a8",
+  "contracts-index.jsonl": "62e8beb3f73c285959cff5efe8b7bc00a80c9940ebda94dd0922d69d1c513ca5",
+  "coordinator-package.json": "3c6452d1131e62c925b579fc3d06f8f333442826e78fa88cb732d571b231dd40",
+  "prior-public-inventory.json": "413e414253fc45db7debc2cbf5f57dab6ad427bedd018bc084be1a6e3def4a5a",
+  "private-replay-verification.json": "5ad21d184349eb31ee5d20ffcc66419842c0caae62bf715ed68d94b3261a84c3",
+  "semantic-review-template.json": "b8d0fc78cd4f2e1d832e15343888291df874ed4cb536ca52c236be3a283b6e41",
+  "summary.json": "79639fb6ae810d6d84c0e32ca86455e4d47c1bfa61ce44de7260c57c1b437a13",
+  "verification.json": "fc55d9fa31c087377db96ef8b2fa90d79222538ae42ca6ff14cd2cb771d0c4d7"
+}

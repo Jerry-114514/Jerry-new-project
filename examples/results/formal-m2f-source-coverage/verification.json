@@ -1,0 +1,13 @@
+{
+  "scope": "unreviewed_combined_source_risk_inventory",
+  "views": 104,
+  "contracts": 32,
+  "declared_sources": 24,
+  "flagged_pairs": 78,
+  "cross_split_flagged_pairs": 12,
+  "raw_private_inputs_replayed": false,
+  "human_reviews_completed": 0,
+  "semantic_review_complete": false,
+  "formal_readiness_evidence": false,
+  "warning": "Source IDs and views are not certified independent samples; risk pairs are not proven duplicates. Prior Git asset inventory is not content review."
+}

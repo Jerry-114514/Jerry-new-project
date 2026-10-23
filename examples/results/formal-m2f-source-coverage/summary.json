@@ -1,0 +1,32 @@
+{
+  "batch_case_hashes": {
+    "legacy-development": "86534a5e72341869a9dd0535b232febcfa1015e65807e4c4f5b4b9af5fb8b4f5",
+    "wikisql-injected": "35971119913346340925df6ba87e27d746cf0b85b0fa314a5e2000df5775148d",
+    "wikisql-natural": "93b23597b56aa3766614551cc4b08327b5299011a39a0011f3d40df7dec6bdcb"
+  },
+  "declared_source_ids": 24,
+  "flagged_contract_pairs": 78,
+  "flagged_cross_split_pairs": 12,
+  "formal_readiness_evidence": false,
+  "human_reviews_completed": 0,
+  "input_memberships": 104,
+  "inventory_hash": "d072428094c00432493e741fa075ab173b815dd280d8fcfe0ea0005a0e40951b",
+  "kind": "unreviewed_public_source_triage",
+  "policy": {
+    "name": "public_contract_and_lexical_risk_triage_v1",
+    "word_jaccard_threshold": 0.8
+  },
+  "queue_hash": "bc1cf32018c5103882a603cbeca01401c5c0d031b135badd2613a8c2f6145a7b",
+  "reason_counts": {
+    "operation_text_lexical_overlap": 59,
+    "shared_coded_operation_risk_only": 78,
+    "shared_declared_template": 66
+  },
+  "schema_version": 1,
+  "scope": "private_coordinator",
+  "semantic_dedup_review_complete": false,
+  "unique_case_ids": 104,
+  "unique_public_contracts": 32,
+  "warning": "Candidate triage only. Shared operation or lexical overlap is not proof of duplication; different operations or low overlap is not proof of independence. Declared source IDs and view counts are not certified sample size. Human source/template and semantic review, including unflagged cases, is required. No labels or model scores are read.",
+  "within_declared_source_variant_pairs_skipped": 12
+}

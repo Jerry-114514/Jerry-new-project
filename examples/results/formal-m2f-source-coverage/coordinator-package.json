@@ -1,0 +1,19 @@
+{
+  "kind": "private_unreviewed_source_coordinator_package",
+  "human_reviews_completed": 0,
+  "distributed": false,
+  "sha256": "87140a916245a1a91369b329a96e05df3f13d8b99a95d51c5550c8feae02153f",
+  "files_sha256": {
+    "candidate-pairs.jsonl": "24f880c7813f88f07e2309824c9a58806e7edf3f619c24f3cae22c17f0ecb6a8",
+    "contracts.jsonl": "d4ab6ce73939362158848423a2f18a9c3e373e3681914fd4b3c6e2629389e06d",
+    "coordinator-cases.jsonl": "4aea8bd2cf1f99779f78a6424e74859276ef3be83e902411ee1573c22fc7327d",
+    "pair-review-template.jsonl": "c5a59242a47124815cf35f82366b8716b51decfb4fb95193ee9a03739026bef7",
+    "prior-public-inventory.json": "413e414253fc45db7debc2cbf5f57dab6ad427bedd018bc084be1a6e3def4a5a",
+    "semantic-review-template.json": "b8d0fc78cd4f2e1d832e15343888291df874ed4cb536ca52c236be3a283b6e41",
+    "summary.json": "79639fb6ae810d6d84c0e32ca86455e4d47c1bfa61ce44de7260c57c1b437a13",
+    "\u534f\u8c03\u4eba\u8bf4\u660e.md": "d6543452ec64f607bbb6af08c026859dec5a6e3514e1ac49fe2559bc3520140f"
+  },
+  "source_groups_to_review": 24,
+  "flagged_pairs_to_review": 78,
+  "formal_readiness_evidence": false
+}

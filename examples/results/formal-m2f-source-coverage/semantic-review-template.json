@@ -1,0 +1,744 @@
+{
+  "cases_hash": "29d8f9c4e8896f5958dceaea4933676b12417ad24c77e182c311ab0f9b084d2d",
+  "human_verified": false,
+  "kind": "semantic_source_review",
+  "limitations": "",
+  "pair_reviews": [
+    {
+      "decision": "",
+      "pair_id": "1aa6d583792ed01febe8f7cb1ac4c6247691eae6bec8885b9ffef99ba126a4ba",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "f4452e2fdaeb2a53ca33258ef50751a9a450f80925be1345ca08c0ca5648160f",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "2f73e9eed68e70ac29e81b0d2f7c7fbd37bf056adcf64c76810d48d7e94bfb71",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "282dae69ca5508daea110c7cbd20715b7571fc7dea980e49e9f480d715385cb6",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "8cebaa3a213e714743651092b687478d027cb9af98dc12052435de3fb9fe519b",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "dc04d8efc2c087e860cdbfd6af97aa8ec9194d1ca2eb403c63deeb2b10b91844",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "f26d8b0f07ee309bea42f75431b46e2ec5b62a5505443af50433a9186f0ed2f7",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "619bbfd81b3a786a2a28b4d16ce5fae187ff048dc4b19a71dbc0ce0ae25a0d2e",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "0bd87e5557065557d988946e52319a90997bcf0071fe9b59f0aeeaabd2bb15ef",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "fb025dae42a284e4913d32ddd01b560061b54b37b171b13d5cd2f3abc82c37ca",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "31639fd65450ac90ab3cb86f4acccf996e19eb3bba40f83d3778df7e7fa5ae28",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "2120e455966ad58f712773c20018df4c9f14b9fa8071a977623af7b1fd7930a2",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "6d66ff5c3f5e0850f4b96831914ac49888cf7444b9b7323b8485e1a34160399f",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "4adefeaebe3c79cb44648f40632891b47c73e8375601645fd6825ac4c4127e19",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "56d6cf5fb38f7ca4d75b0d7f9958ae9010a66eafb99e7a457aa5516286441f24",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "1727531d63651b8dbc5f348922b5f2ecc504c6312b04a66ef196628dadbd7e7b",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "651f690ecb0d67e5c615496c2b60bcdab2a28fb90d5947e9bb2a8382fa425dba",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "96257b2172cac5a8ffae3f0abb26291e0d95675592c693ed91dee69c35d69ac5",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "aa4c83957801451774c58eabd53ef137213b8a8a1e19f5fa631f27cf13298970",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "d224f39f5833db4d12774bd7814876d47e40a3a5a7a49b860c2e4b2920c664b2",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "1cac170ea44757ee456cc3043585cbf52a3a0bf2a133ade75f25d45355eeca12",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "f05e3285a3c409ac0035968699f913f7e08858a2ea0bdad8a76b5ff6b6136081",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "8faf2c2443411144702fffc0af3d12e4e0c08e35e96558219ce584dd2ccac9f1",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "22e79c5e20bce9acbf9fc4e61ef49b5fda2d4b945568bef137e86676216dd3b4",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "0d0d88497081eb835e8e4267e8c06651bc7557e6cc61cb572c19b53e1edde4fd",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "893d723aff2bd6fdba416b440038cb47d83c25efd7db8cd2f1713752c2da5171",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "b7b512fbacbcf6b9aac96038aedb5e13a5d593aefe417c4155db510ce92105c0",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "ba35d958a2bdbc9cbb9f3c6bb0239cee9f7b8444f85bc959bf51f12c3de3a7d5",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "f1f979d5e28adcbf463ccf84a6e74ea435f558baf7a72b54961ae8dc5dc39702",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "982e0fcec6d551622f88a51673853619f6841cb1ebb2207ee89fae28568036f4",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "76d9bd697184b63ffdc6ff5c91f3744580667da623179fc0d188cfc86b71aba8",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "7dc49ce9bb37001cf601406f0613477d757cdc5e08b3cfc2d68f42ee4a05da21",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "f55eb2c459bdc564ee582d90c9711e9b5256fc349eaad2a1be090f300f4dcb29",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "2ba54bcb60dda2e4c7540c8e8f34649fb36cce7d4860c4ae52e4de23e3ff7b0c",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "0d72fed14c9ebcec3bac56da76a7ec32c46e854ac88bc458bd480c4772468167",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "e8cd0970cbb67152eb972094a035dbf0d0a053917b22786335eb5707fbdc231e",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "ac73ca278d4f6b3e74a51d0d666ca45a3377c5a0e928473f12224f4a5dd61860",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "797e508c4383567114833fc296727124739156b5a39c8fcdf5a501333f65a9bf",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "64912079bc885cec4aad97ab0355f669a40f36a3ad73deb6919e64704963b8f9",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "dcc69347109d3434cf4bf151870101ce221b1a9493d98e4d4aa913ade671ae5d",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "e5c1af0f123697222c170c2e4a89e49b8c1233ba3c5a4d036e9f234b9fea7b54",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "a2550c4087e5898e11628fc7c9e071b1aeaf93498ab74df6ea8580eff0fcaf47",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "832f0e41d56c781c10d1e8173547ea4a027de3e2c7cf3ffd7b1ad956c298cdc1",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "bf3426cfed3426bec10a1d1f0b7d7318bccb1acf7ab2433cd7f88f7381293d05",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "3d778fbd8d09ebe81f9adcbb5a589bd7bc07ac6755e5fb8744f571866298882a",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "359f83102edacef27b076cf70928abd559548213d0786881379ae49980fc4e92",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "ef85d1be247d82a78a490cd4bbdfbebd88e01e8e0ede94f43c4605b3bbe03a1c",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "f4a14aa8c9a0c72a049615dc72fec305055761e63a68630aba68c419bb231730",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "bab9e1e1b486e803c76dc72cf40e63e4619ddb2bc2f617b8ebbd2250eed54f2c",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "682e2ca0bdda284f17fdda355807f9a4f231f5f8400a35c256e1f19b6fb81694",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "c91257aad0c253b9e64f09325b03b97994dbbf8e919611280330dbb5962f8809",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "447ba54035806953ef9100141b60a4dfabe795bddf27cb043e67f6448bd722ca",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "ffd348e0cac7624d089cb90cecb815711cc2f5651831e6051c7e45aa06cda4b1",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "da684f6ba016fb5fe9277eb9b05025bd5377d72897c7e1ca4ca6fcf6b747ce0d",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "4d200364239ac3aadfd554d250cf05d659f85872de02ee1687bbdd70c9834e96",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "2a74b2b6c45467b5a78b73577aab739a308acba0595893c21b3fa24eb49e1792",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "f10b308f5cfef601d2082d6174dab628feb34530e4606f7abb4a4874c901ba61",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "935028f570c9ba57d5c8191c753ee5e3b3b284087cac84217e4eada2d9b3b690",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "426f5e04ed924bf35f55adac1ca690371a5423875042c8f80189ea4ddddbd331",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "9d3dc7cc9a123aa405a24fd7c28a7769ffc66d0c2aca50245cef1ddf75b6acf9",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "75e901d8c70fda3925fe0afde3d9ab4f14bd8c6bcf2fdb68ac650d6351cca658",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "64fb1ab0a36b3e78cd5de2f6b2161373cf8d480510c20c571400c78c34d76149",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "908d204f2452e26e37fc0dad74d2a82d3a56936ac8a7e51b3c0bdda0b2d3db23",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "e5662897e0ed721f1bafa47dff17e074554e1ba8036fea64531958f94241aaaa",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "a6fee9acb94f6d6629d199b888cabc5d0c4feb1cef9ec9bea677606aacf5a7b7",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "66032c5cc47bd63d8bc1588ca23884033a1696f26cec79ab6d022d26d4c2e83d",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "b7daf1b7e99ca479474e08f2fba77e7ea9bd42ed5abd3c79f1ac6d6a7159e18c",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "e8d47ad421883f9d1db106994ef945de91edf032c2fea85eac189561f1a5b6b4",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "a6f05f0be82e7c1feaa3cd0ac031969c95aeb167dc6143bebde2c2026e372673",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "ef42488b2587962ff47fff5d83a0583ecf79402a005269bc6b91de7a5b9f6dc4",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "19a3a62b35c162b45263dbda1df30fb18b7de7850341377a6ebff38116992abb",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "289ad866e8ef8eb6edca6209aa7229a82e384f7e56d3984d96b3a14298ca8724",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "4cb1d7d26dd3901342e30cc353660e38a38eaaceadfd6452e6eefc0eec4c9218",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "5f7857669f3ca88a84ea386197b18667af99e14b0401d8c3ef7b782b20c1988c",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "99144255030cef792d51624c7aeb4bdf4ec35254326ad7836788f68021f7fe66",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "38e2b4a5eb59073ade821d570218ce7dff555cf1db7653ec79936d5279f7d2be",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "d7f9fb49cb31fcd1b776daf663e7f8bd212334ba05da650f59f1d2da6e616771",
+      "rationale": ""
+    },
+    {
+      "decision": "",
+      "pair_id": "8e72fc4c09ec3f001b2edcc07d89753a59eb33a6b946d7b9bd5ad6c2b80febc0",
+      "rationale": ""
+    }
+  ],
+  "prior_public_inventory_reference": "",
+  "prior_public_inventory_reviewed": false,
+  "provenance_reviewed": false,
+  "reviewer": "",
+  "schema_version": 1,
+  "semantic_reviewed": false,
+  "source_groups": [
+    {
+      "families": [
+        "decimal-rounding"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "dev-decimal-rounding",
+      "splits": [
+        "validation"
+      ],
+      "template_ids": [
+        "dev-execution-template-decimal-rounding"
+      ]
+    },
+    {
+      "families": [
+        "history-restoration"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "dev-history-restoration",
+      "splits": [
+        "validation"
+      ],
+      "template_ids": [
+        "dev-execution-template-history-restoration"
+      ]
+    },
+    {
+      "families": [
+        "interval-endpoint"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "dev-interval-endpoint",
+      "splits": [
+        "validation"
+      ],
+      "template_ids": [
+        "dev-execution-template-interval-endpoint"
+      ]
+    },
+    {
+      "families": [
+        "literal-identifiers"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "dev-literal-identifiers",
+      "splits": [
+        "validation"
+      ],
+      "template_ids": [
+        "dev-execution-template-literal-identifiers"
+      ]
+    },
+    {
+      "families": [
+        "missing-vs-null"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "dev-missing-vs-null",
+      "splits": [
+        "validation"
+      ],
+      "template_ids": [
+        "dev-execution-template-missing-vs-null"
+      ]
+    },
+    {
+      "families": [
+        "stable-ordering"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "dev-stable-ordering",
+      "splits": [
+        "validation"
+      ],
+      "template_ids": [
+        "dev-execution-template-stable-ordering"
+      ]
+    },
+    {
+      "families": [
+        "timezone-boundary"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "dev-timezone-boundary",
+      "splits": [
+        "validation"
+      ],
+      "template_ids": [
+        "dev-execution-template-timezone-boundary"
+      ]
+    },
+    {
+      "families": [
+        "unicode-normalization"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "dev-unicode-normalization",
+      "splits": [
+        "validation"
+      ],
+      "template_ids": [
+        "dev-execution-template-unicode-normalization"
+      ]
+    },
+    {
+      "families": [
+        "training-decimal_round"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "train-candidate-cluster-decimal_round",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "training-operation-template-decimal_round"
+      ]
+    },
+    {
+      "families": [
+        "training-key_present"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "train-candidate-cluster-key_present",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "training-operation-template-key_present"
+      ]
+    },
+    {
+      "families": [
+        "training-stable_sort"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "train-candidate-cluster-stable_sort",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "training-operation-template-stable_sort"
+      ]
+    },
+    {
+      "families": [
+        "training-unicode_nfc"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "train-candidate-cluster-unicode_nfc",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "training-operation-template-unicode_nfc"
+      ]
+    },
+    {
+      "families": [
+        "adapted-ascii-filter-projection"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "wikisql-page-03a77fae7a4d9f79f991",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "ascii-filter-projection-v1"
+      ]
+    },
+    {
+      "families": [
+        "adapted-ascii-filter-projection"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "wikisql-page-5b7819065f71c173a665",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "ascii-filter-projection-v1"
+      ]
+    },
+    {
+      "families": [
+        "adapted-ascii-filter-projection"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "ascii-filter-projection-v1"
+      ]
+    },
+    {
+      "families": [
+        "adapted-ascii-filter-projection"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "wikisql-page-9245bc081e6e096c6df8",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "ascii-filter-projection-v1"
+      ]
+    },
+    {
+      "families": [
+        "adapted-ascii-filter-projection"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "wikisql-page-953313362984970dff33",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "ascii-filter-projection-v1"
+      ]
+    },
+    {
+      "families": [
+        "adapted-ascii-filter-projection"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "ascii-filter-projection-v1"
+      ]
+    },
+    {
+      "families": [
+        "adapted-ascii-filter-projection"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "wikisql-page-a384ce91f5c966901456",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "ascii-filter-projection-v1"
+      ]
+    },
+    {
+      "families": [
+        "adapted-ascii-filter-projection"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "wikisql-page-aaaed51dfb7c83604f65",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "ascii-filter-projection-v1"
+      ]
+    },
+    {
+      "families": [
+        "adapted-ascii-filter-projection"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "wikisql-page-bcad335dd883cd0d2619",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "ascii-filter-projection-v1"
+      ]
+    },
+    {
+      "families": [
+        "adapted-ascii-filter-projection"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "ascii-filter-projection-v1"
+      ]
+    },
+    {
+      "families": [
+        "adapted-ascii-filter-projection"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "wikisql-page-c743090a61cfde53f8a9",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "ascii-filter-projection-v1"
+      ]
+    },
+    {
+      "families": [
+        "adapted-ascii-filter-projection"
+      ],
+      "independence_rationale": "",
+      "provenance_evidence": "",
+      "source_task_id": "wikisql-page-d4b7622727afc6d36c2c",
+      "splits": [
+        "train"
+      ],
+      "template_ids": [
+        "ascii-filter-projection-v1"
+      ]
+    }
+  ],
+  "split_isolation_reviewed": false,
+  "triage_summary_hash": "67dcb95b51ac7ec4042030bec2576f62ab9ac744824ef8ce8b3f49a541fb2a75"
+}

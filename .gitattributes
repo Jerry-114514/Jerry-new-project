@@ -16,3 +16,4 @@ examples/results/formal-m3b-schema-baseline/** text eol=lf
 examples/results/formal-m2c-wikisql-source-intake/** text eol=lf
 examples/results/formal-m2d-wikisql-adaptation/** text eol=lf
 examples/results/formal-m2e-wikisql-natural/** text eol=lf
+examples/results/formal-m2f-source-coverage/** text eol=lf
