@@ -1,0 +1,8 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "gpu_used": false,
+  "production_files_unchanged_since_full_286": true,
+  "test_source_sha256": "7dfb0c2b93a0777ac4c55bd95db9bf049ca6ca00fd11ee9b1e8d4d208b59afff",
+  "additional_coverage": "M7 separate reveal and scoring receipt verification; no production code changes"
+}

@@ -1,0 +1,19 @@
+{
+  "status": "completed",
+  "gpu_used": false,
+  "cuda_visible_devices": "",
+  "formal_training": false,
+  "archive_sha256": "e6a44eeab9ec76f02f8680ccd55091f9760bfddf398b4b4678bd9c7b2ea71301",
+  "changed_source_sha256": {
+    "intentlab/execution_protocol.py": "b47774f7218f8c006dd5a81642e3a2e92a2c1018f97fc2659e98a0d81bc24b6d",
+    "intentlab/frozen_execution.py": "b785cc86eebf92b0671a2ef28984473eb53fec104798f5b0fc00c85705d6cd82",
+    "intentlab/model_pool.py": "7e8b151f8063eeef3259d31f8cde8b463c5e2728510d0d51f0c7248cb16c6158",
+    "tests/test_residency_execution.py": "455463143ced669e7d5141fdf8546caaac417e58d0ae2161954f965ebb7d4890"
+  },
+  "active_gpu_source_commit": "bb168cd0f75f1077de20a3991b7d5a1de88d97de",
+  "active_gpu_source_clean": true,
+  "exit_code": 0,
+  "seconds": 141.0840641837567,
+  "active_gpu_source_unchanged": true,
+  "active_rerun_incident_file_present": false
+}

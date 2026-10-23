@@ -17,8 +17,11 @@ SETTING_KEYS = {"analyzer_condition", "analyzer_seed", "checkpoint_selection", "
 
 
 def validate_execution_settings(settings):
-    if not isinstance(settings, dict) or set(settings) != SETTING_KEYS:
+    if not isinstance(settings, dict) or set(settings) not in (SETTING_KEYS, SETTING_KEYS | {"model_residency"}):
         raise ValueError("Execution settings must explicitly bind all runtime/controller choices")
+    residency = settings.get("model_residency", "cold-task-v1")
+    if not isinstance(residency, str) or residency not in {"cold-task-v1", "shared-condition-v1"}:
+        raise ValueError("Unknown registered model residency policy")
     if settings["analyzer_condition"] not in {"D", "E"} or type(settings["analyzer_seed"]) is not int or settings["analyzer_seed"] not in {0, 1, 2}:
         raise ValueError("Predeclare a trained D/E analyzer and one of the paired seeds")
     if settings["checkpoint_selection"] != "best_validation_loss":

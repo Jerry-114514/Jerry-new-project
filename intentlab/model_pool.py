@@ -49,6 +49,7 @@ class LocalModelPool:
     def reset(self):
         self.ledger.reset()
         self.generations, self.loads = [], []
+        self.resident_at_task_start = self.current is not None
         if self.current is not None:
             self.current.reset()
 
@@ -100,4 +101,5 @@ class LocalModelPool:
                 "context_limit": self.context_limit,
                 "model_loads": list(self.loads), "generations": list(self.generations),
                 "resident_model_limit": 1,
+                "resident_at_task_start": self.resident_at_task_start,
                 "residency_strategy": "shared-base-adapter" if self.shared_residency else "reload-by-path"}

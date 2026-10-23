@@ -3,6 +3,7 @@
 import argparse
 from copy import deepcopy
 import json
+import math
 from pathlib import Path
 import time
 
@@ -61,13 +62,18 @@ def interact(protocol, binding, predictions, diagnostic_reveal, out, engineering
         raise ValueError("Injected execution pools are forbidden in formal runs")
     receipt, tasks = preflight(protocol, binding, predictions, diagnostic_reveal, engineering)
     conditions, upstream = runtime_plan(protocol, binding, predictions, diagnostic_reveal, engineering, _ablation_context)
+    settings, budgets = protocol["spec"]["execution"]["settings"], protocol["spec"]["budgets"]
+    shared = settings.get("model_residency", "cold-task-v1") == "shared-condition-v1"
+    if shared and pool_factory is None:
+        from .shared_role_backend import compatible_base_adapter
+        if not compatible_base_adapter(paths_for(binding)):
+            raise ValueError("Registered shared residency requires matching base/LoRA; no silent fallback")
     prefix = "ablation" if _ablation_context is not None else "execution"
     out = Path(out)
     if out.exists():
         raise ValueError("Choose a fresh frozen execution directory")
     attempt = claim(protocol, prefix + "-interactions", out)
     out.mkdir(parents=True, exist_ok=False)
-    settings, budgets = protocol["spec"]["execution"]["settings"], protocol["spec"]["budgets"]
     manifest = {"kind": "frozen_" + prefix + "_interactions", "schema_version": 1, "scope": protocol["scope"], "upstream": upstream,
         "status": "running", "protocol_hash": protocol["lock_hash"], "model_binding_hash": binding["binding_hash"],
         "diagnostic_receipt_hash": receipt["receipt_hash"], "settings_hash": digest(settings), "conditions": conditions,
@@ -75,13 +81,20 @@ def interact(protocol, binding, predictions, diagnostic_reveal, out, engineering
         "offline_references_opened": False, "injected_pool": pool_factory is not None, "claim": attempt,
         "budget_unit": "shared actor/analyzer token ledger per condition/task; all starts cold",
         "warning": "Sealed interactions are not offline task success or formal-data certification."}
+    if shared:
+        manifest.update(schema_version=2, model_residency="shared-condition-v1", condition_timings={},
+            budget_unit="shared actor/analyzer token ledger per condition/task; cold weights per condition; no cross-task KV cache")
     save_json(out / "manifest.json", manifest)
     pool, started = None, time.perf_counter()
     try:
+        kwargs = {"share_base_adapter": True} if shared else {}
         pool = (pool_factory or LocalModelPool)(paths_for(binding), device=protocol["spec"]["training"]["device"],
-            max_new_tokens=budgets["max_new_tokens"], token_budget=budgets["token_budget"], context_limit=budgets["context_limit"])
+            max_new_tokens=budgets["max_new_tokens"], token_budget=budgets["token_budget"], context_limit=budgets["context_limit"], **kwargs)
         with (out / "interactions.jsonl").open("x", encoding="utf-8", newline="\n") as stream:
             for condition, config in conditions.items():
+                condition_started = time.perf_counter()
+                if shared:
+                    pool.close()
                 for task in tasks:
                     manifest.update(active_condition=condition, active_task=task["id"])
                     save_json(out / "manifest.json", manifest)
@@ -109,9 +122,15 @@ def interact(protocol, binding, predictions, diagnostic_reveal, out, engineering
                         from .gpu_lease import reject_interfered_trial
                         reject_interfered_trial(row)
                     finally:
-                        # Equal cold starts avoid condition-dependent residency
-                        # hiding model reload cost. No simultaneous role models.
-                        pool.close()
+                        # Legacy task-cold policy remains the default. The
+                        # registered shared policy releases at condition end.
+                        if not shared:
+                            pool.close()
+                if shared:
+                    pool.close()
+                    manifest["condition_timings"][condition] = {"seconds_including_loading_and_release":
+                        time.perf_counter() - condition_started}
+                    save_json(out / "manifest.json", manifest)
         again, current = preflight(protocol, binding, predictions, diagnostic_reveal, engineering)
         final_conditions, final_upstream = runtime_plan(protocol, binding, predictions, diagnostic_reveal, engineering, _ablation_context)
         if digest(current) != manifest["task_hash"] or again["receipt_hash"] != manifest["diagnostic_receipt_hash"]:
@@ -135,10 +154,11 @@ def verify_interactions(protocol, binding, predictions, diagnostic_reveal, direc
     receipt, tasks = preflight(protocol, binding, predictions, diagnostic_reveal, engineering)
     settings, budgets = protocol["spec"]["execution"]["settings"], protocol["spec"]["budgets"]
     conditions, upstream = runtime_plan(protocol, binding, predictions, diagnostic_reveal, engineering, _ablation_context)
+    shared = settings.get("model_residency", "cold-task-v1") == "shared-condition-v1"
     prefix = "ablation" if _ablation_context is not None else "execution"
     directory = Path(directory)
     manifest = read_json(directory / "manifest.json")
-    if manifest.get("kind") != "frozen_" + prefix + "_interactions" or manifest.get("schema_version") != 1 \
+    if manifest.get("kind") != "frozen_" + prefix + "_interactions" or manifest.get("schema_version") != (2 if shared else 1) \
             or manifest.get("upstream", {}) != upstream \
             or manifest.get("status") != "sealed" or manifest.get("scope") != protocol["scope"] \
             or manifest.get("protocol_hash") != protocol["lock_hash"] or manifest.get("model_binding_hash") != binding["binding_hash"] \
@@ -155,9 +175,13 @@ def verify_interactions(protocol, binding, predictions, diagnostic_reveal, direc
     expected = [(condition, task["id"]) for condition in conditions for task in tasks]
     if [(row["condition"], row["task_id"]) for row in records] != expected:
         raise ValueError("All registered conditions must contain exactly all tasks in frozen order")
+    if shared:
+        audit_shared_residency(manifest, records, conditions)
     by_id = {task["id"]: task for task in tasks}
     for row in records:
         task, config = by_id[row["task_id"]], conditions[row["condition"]]
+        from .gpu_lease import reject_interfered_trial
+        reject_interfered_trial(row)
         if row["policy"] != config["policy"] or row["hard_guard_enabled"] != config["hard_guard"] \
                 or row["analyzer_mode"] != settings["analyzer_mode"] or row["max_tool_steps"] != settings["max_tool_steps"] \
                 or row["source_task_id"] != task["source_task_id"] or row["split"] != task["split"] \
@@ -177,6 +201,49 @@ def verify_interactions(protocol, binding, predictions, diagnostic_reveal, direc
         if canonical(replay_events(task, events).files) != canonical(row["final_state"]["files"]):
             raise ValueError("Committed tool replay differs from sealed files")
     return manifest, tasks, records
+
+
+def audit_shared_residency(manifest, records, conditions):
+    if manifest.get("model_residency") != "shared-condition-v1":
+        raise ValueError("Shared residency policy differs from registered settings")
+    timings = manifest.get("condition_timings", {})
+    if not isinstance(timings, dict) or set(timings) != set(conditions):
+        raise ValueError("Every condition needs loading-and-release timing")
+    seconds = []
+    for condition in conditions:
+        timing = timings[condition]
+        if not isinstance(timing, dict) or set(timing) != {"seconds_including_loading_and_release"}:
+            raise ValueError("Invalid condition timing record")
+        value = timing["seconds_including_loading_and_release"]
+        if type(value) not in (int, float) or not math.isfinite(value) or value < 0:
+            raise ValueError("Finite nonnegative condition timing required")
+        seconds.append(value)
+        resident = False
+        loading_seconds = 0.0
+        for row in (r for r in records if r["condition"] == condition):
+            pool = row["model_pool"]
+            if pool.get("residency_strategy") != "shared-base-adapter" \
+                    or pool.get("resident_at_task_start") is not resident:
+                raise ValueError("Model residency leaked across conditions or changed within a condition")
+            loads = pool.get("model_loads")
+            if not isinstance(loads, list):
+                raise ValueError("Actual loading records required")
+            for load in loads:
+                elapsed = load.get("seconds")
+                if resident or load.get("status") not in {"loaded", "error"} \
+                        or load.get("role") not in pool["models"] \
+                        or load.get("path") != pool["models"][load["role"]] \
+                        or type(elapsed) not in (int, float) or not math.isfinite(elapsed) or elapsed < 0:
+                    raise ValueError("Unregistered reload or invalid load identity/timing")
+                resident = load["status"] == "loaded"
+                loading_seconds += elapsed
+            if pool["shared_token_ledger"]["calls"] and not loads and not resident:
+                raise ValueError("Model calls without any resident or loaded weights")
+        if value < loading_seconds:
+            raise ValueError("Condition timing omits actual model loading")
+    total = manifest.get("seconds_including_loading")
+    if type(total) not in (int, float) or not math.isfinite(total) or total < sum(seconds):
+        raise ValueError("Overall timing omits condition loading or release cost")
 
 
 def score_records(tasks, references, records, candidate_metrics=False):
