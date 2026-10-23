@@ -1,0 +1,17 @@
+{
+  "kind": "private_blank_natural_trajectory_packet",
+  "views": 24,
+  "records_per_reviewer": 24,
+  "judgments_per_reviewer": 96,
+  "initial_reviewers_required": 2,
+  "human_reviews_completed": 0,
+  "distributed": false,
+  "source_fidelity_and_release_review_complete": false,
+  "sha256": "80f0087b75ad03a6ef68a16b0e665f3d2de0507027ca94d9e9ea9f3bd4db58e5",
+  "files_sha256": {
+    "cases.jsonl": "dc0f394012f7564966e63717f3095552e1a6c85c0a3481012a1f825a9dd53a44",
+    "review-template.jsonl": "0c5af50c900ade0f5c2bac9a92ee20436c436971467b3cabfc0ff21031e3815e",
+    "README.md": "f097af0234bf23e9036fca85be78cce27510d84d2e7c5f2489d6e4abd673b0e7",
+    "本批标注说明.md": "1b0721bf4141c47d3be28c086c8efde3bb40dab072ce8107dd2bc62390df93df"
+  }
+}

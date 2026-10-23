@@ -1,0 +1,40 @@
+Loading weights:   0%|          | 0/427 [00:00<?, ?it/s]Loading weights: 100%|██████████| 427/427 [00:00<00:00, 7844.28it/s]
+{
+  "summary": {
+    "none": {
+      "runs": 10,
+      "compliant_success_rate": 0.6,
+      "task_completion_rate": 0.6,
+      "hard_violation_run_rate": 0.2,
+      "errors": 2,
+      "actor_calls": 17,
+      "checks": 8,
+      "rejected_candidates": 0,
+      "verification_calls": 0,
+      "hard_guard_rejections": 0,
+      "tool_step_limit_hits": 0,
+      "strict_actor_response_valid_calls": 0,
+      "actor_envelopes_projected": 15,
+      "actor_response_call_denominator": 17,
+      "timed_runs": 10,
+      "mean_elapsed_seconds": 19.693886177428066,
+      "budgeted_runs": 10,
+      "charged_model_tokens": 33119,
+      "known_prompt_tokens": 26799,
+      "known_completion_tokens": 6320,
+      "failed_generation_reservations": 0,
+      "denied_model_calls": 0,
+      "token_accounting": "Charged totals include conservative reservations on failed generation"
+    }
+  },
+  "strata": {
+    "none": {
+      "all_runs": 10,
+      "feasible_runs": 10,
+      "initially_irreversible_runs": 0,
+      "feasible_compliant_success_rate": 0.6,
+      "repair_introduced_hard_violation_runs": 0,
+      "warning": "Development source groups are declared, not independently certified tasks."
+    }
+  }
+}

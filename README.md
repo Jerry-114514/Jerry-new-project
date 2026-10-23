@@ -27,6 +27,7 @@ python -m intentlab train-baseline --data runs/data/diagnostic_views.jsonl --out
 
 ## 研究文档
 
+- [外部来源合同的自然轨迹采集](docs/wikisql-natural-collection.md)：保留旧两题、补采十题，共 12 次真实执行、24 个未标注视图；候选参考下合规 7/12，含两次接口失败，逐调用回放通过。
 - [WikiSQL 显式合同开发适配](docs/wikisql-equality-adaptation.md)：12 份私有候选合同、48 个注入视图及两题真实 9B 冒烟验证；尚无人工审核，不代表原题求解或正式方法收益。
 - [WikiSQL 外部来源候选池](docs/wikisql-source-intake.md)：固定上游 train、600 条待适配来源及可重算索引；不计入正式任务或人工标签，不用作新隔离测试。
 - [新自然轨迹上的 A/C 基线开发检查](docs/schema-baseline-development.md)：原始 9B 的实际 Schema 输出、公开规则对照和可重算 token 账本；不含人工准确率或微调结论。

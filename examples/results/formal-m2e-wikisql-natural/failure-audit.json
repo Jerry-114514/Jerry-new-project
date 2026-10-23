@@ -1,0 +1,9 @@
+{
+  "schema_error_runs": 1,
+  "json_parse_error_runs": 1,
+  "error_status_runs": 2,
+  "hard_violation_runs": 2,
+  "all_runs_included_in_denominator": true,
+  "scope": "runner_caught_model_interface_failures_not_process_crashes",
+  "human_reviews_completed": 0
+}

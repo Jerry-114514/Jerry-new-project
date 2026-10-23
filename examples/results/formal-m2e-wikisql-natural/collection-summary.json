@@ -1,0 +1,15 @@
+{
+  "scope": "unreviewed_train_initial_attempts",
+  "previous_runs": 2,
+  "new_runs": 10,
+  "runs": 12,
+  "natural_views": 24,
+  "shared_templates": 1,
+  "candidate_reference_compliant_runs": 7,
+  "program_exceptions": 2,
+  "actor_calls": 21,
+  "human_accuracy": null,
+  "formal_M6_complete": false,
+  "human_reviews_completed": 0,
+  "warning": "Unreviewed explicit-contract adaptation; one shared template, not original WikiSQL NL-to-SQL accuracy or independent human benchmark. No repair or formal treatment comparison."
+}

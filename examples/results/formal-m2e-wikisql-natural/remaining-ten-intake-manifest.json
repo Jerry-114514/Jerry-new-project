@@ -1,0 +1,28 @@
+{
+  "automatic_labels_exported": false,
+  "declared_source_clusters": 10,
+  "execution_manifest_hash": "b2a7757eb4cafb67948bef702d3125a61e2642ccd75a24ae429cace67bc64bb3",
+  "files_sha256": {
+    "coordinator-cases.jsonl": "bd90b82e6b183761b549eb2200e162a0cbb6de0b79b4cbe96786ce26d143a7d5",
+    "coordinator-provenance.jsonl": "06a52ff2de75148d6f012cd4c7fbb5940a5c5740962d112b04f6357a874b56d5",
+    "reviewer-packet/README.md": "f097af0234bf23e9036fca85be78cce27510d84d2e7c5f2489d6e4abd673b0e7",
+    "reviewer-packet/cases.jsonl": "f740c11f3f717f6336ea71c2a20661dd419a79aafbeac9b69b2d9ba266d7f954",
+    "reviewer-packet/review-template.jsonl": "0036c081def131d65892eb39d9beac397f8cc64d73c3cb01cbefb672c4a19ffc"
+  },
+  "formal_training_started": false,
+  "human_reviews_completed": 0,
+  "kind": "unreviewed_natural_training_intake",
+  "protocol_frozen": false,
+  "raw_records_sha256": "d721b9ecd45097953c8ef2a38c95f6982316d4dcdaf1a9f05440de7bb754ccab",
+  "raw_runs": 10,
+  "requirement_judgments_per_reviewer": 80,
+  "schema_version": 1,
+  "scope": "development",
+  "splits": [
+    "train"
+  ],
+  "tasks_sha256": "4a8e96134074835ef9f04afc2e000bcedab0d5679c150d71dbdfdc7a10456ec4",
+  "templates": 1,
+  "views": 20,
+  "warning": "Natural refers to recorded actor attempts, including failures, not human-authored tasks or proven independent sources. Two views share each raw run. No oracle, metrics, analyzer findings, method identity or raw model answer is in reviewer packets. Semantic dedup/provenance/release and independent human review remain required."
+}

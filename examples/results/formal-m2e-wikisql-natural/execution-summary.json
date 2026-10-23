@@ -1,0 +1,27 @@
+{
+  "none": {
+    "runs": 12,
+    "compliant_success_rate": 0.5833333333333334,
+    "task_completion_rate": 0.5833333333333334,
+    "hard_violation_run_rate": 0.16666666666666666,
+    "errors": 2,
+    "actor_calls": 21,
+    "checks": 10,
+    "rejected_candidates": 0,
+    "verification_calls": 0,
+    "hard_guard_rejections": 0,
+    "tool_step_limit_hits": 0,
+    "strict_actor_response_valid_calls": 0,
+    "actor_envelopes_projected": 19,
+    "actor_response_call_denominator": 21,
+    "timed_runs": 12,
+    "mean_elapsed_seconds": 19.715416833913576,
+    "budgeted_runs": 12,
+    "charged_model_tokens": 40461,
+    "known_prompt_tokens": 33185,
+    "known_completion_tokens": 7276,
+    "failed_generation_reservations": 0,
+    "denied_model_calls": 0,
+    "token_accounting": "Charged totals include conservative reservations on failed generation"
+  }
+}

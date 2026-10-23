@@ -1,0 +1,13 @@
+{
+  "scope": "unreviewed_train_natural_trajectory_collection",
+  "runs": 12,
+  "natural_views": 24,
+  "shared_templates": 1,
+  "source_rebuilt": false,
+  "recorded_actor_calls_replayed": null,
+  "fresh_inference_performed": false,
+  "human_reviews_completed": 0,
+  "formal_training_started": false,
+  "formal_M6_complete": false,
+  "warning": "Metadata only by default. Natural means recorded actor attempts, not human-authored tasks or independence; references unreviewed. This is not original WikiSQL accuracy or a formal method comparison."
+}
