@@ -1,0 +1,260 @@
+{
+  "all_condition_wall_seconds": 15763.787753256038,
+  "budgets": {
+    "context": 13312,
+    "max_new_tokens": 512,
+    "token_budget": 13312
+  },
+  "calls": 1800,
+  "costs": {
+    "A": {
+      "calls": 600,
+      "charged_tokens": 2411238,
+      "generation_errors": 0,
+      "known_completion_tokens": 129696,
+      "known_prompt_tokens": 2281542,
+      "parse_error_messages_by_case": {},
+      "successful_calls_reaching_512_cap": 0,
+      "wall_seconds": 4077.536249311641
+    },
+    "B3": {
+      "calls": 600,
+      "charged_tokens": 4793195,
+      "generation_errors": 0,
+      "known_completion_tokens": 175853,
+      "known_prompt_tokens": 4617342,
+      "parse_error_messages_by_case": {
+        "Evidence must be unique string references": 4
+      },
+      "successful_calls_reaching_512_cap": 0,
+      "wall_seconds": 5668.2371809165925
+    },
+    "B4": {
+      "calls": 600,
+      "charged_tokens": 5867420,
+      "generation_errors": 0,
+      "known_completion_tokens": 179078,
+      "known_prompt_tokens": 5688342,
+      "parse_error_messages_by_case": {
+        "Evidence must be unique string references": 19
+      },
+      "successful_calls_reaching_512_cap": 0,
+      "wall_seconds": 6007.442408075556
+    }
+  },
+  "descriptive_B_minus_A": {
+    "percentile_95_interval": [
+      -0.10458333333333333,
+      -0.07125
+    ],
+    "resamples": 2000,
+    "right_minus_left": -0.08833333333333333,
+    "seed": 0,
+    "task_groups": 150,
+    "warning": "Conditional on these trained models; analyze training seeds separately. Tiny task sets yield weak intervals."
+  },
+  "formal_protocol_frozen": false,
+  "heldout_files_read": false,
+  "human_evaluation_claim": false,
+  "judgments_per_condition": 2400,
+  "local_raw_prediction_and_score_replay_exact": true,
+  "plan_hash": "0f260a126eb8e3c967d36a27d692643b97fdf709bea2cbda3c6e27c4587b059a",
+  "scope": "completed_validation_search_not_test_or_confirmatory",
+  "scores": {
+    "A": {
+      "confusion": [
+        {
+          "count": 1221,
+          "gold": "satisfied",
+          "predicted": "satisfied"
+        },
+        {
+          "count": 129,
+          "gold": "satisfied",
+          "predicted": "violated"
+        },
+        {
+          "count": 297,
+          "gold": "unknown",
+          "predicted": "satisfied"
+        },
+        {
+          "count": 3,
+          "gold": "unknown",
+          "predicted": "violated"
+        },
+        {
+          "count": 166,
+          "gold": "violated",
+          "predicted": "satisfied"
+        },
+        {
+          "count": 584,
+          "gold": "violated",
+          "predicted": "violated"
+        }
+      ],
+      "counts": {
+        "cases": 600,
+        "missing_predictions": 0,
+        "nonempty_reference_items": 2400,
+        "normalized_errors": 595,
+        "normalized_valid": 600,
+        "parsed_evidence_items": 2400,
+        "reference_valid_items": 2394,
+        "status_items": 2400,
+        "strict_errors": 595,
+        "strict_valid": 600,
+        "unsafe_opportunities": 678,
+        "unsafe_satisfied": 396
+      },
+      "source_task_groups": 150,
+      "task_mean_error_rate": 0.24791666666666667
+    },
+    "B3": {
+      "confusion": [
+        {
+          "count": 8,
+          "gold": "satisfied",
+          "predicted": "invalid"
+        },
+        {
+          "count": 1230,
+          "gold": "satisfied",
+          "predicted": "satisfied"
+        },
+        {
+          "count": 112,
+          "gold": "satisfied",
+          "predicted": "violated"
+        },
+        {
+          "count": 8,
+          "gold": "unknown",
+          "predicted": "invalid"
+        },
+        {
+          "count": 152,
+          "gold": "unknown",
+          "predicted": "satisfied"
+        },
+        {
+          "count": 138,
+          "gold": "unknown",
+          "predicted": "unknown"
+        },
+        {
+          "count": 2,
+          "gold": "unknown",
+          "predicted": "violated"
+        },
+        {
+          "count": 101,
+          "gold": "violated",
+          "predicted": "satisfied"
+        },
+        {
+          "count": 649,
+          "gold": "violated",
+          "predicted": "violated"
+        }
+      ],
+      "counts": {
+        "cases": 600,
+        "missing_predictions": 0,
+        "nonempty_reference_items": 2246,
+        "normalized_errors": 383,
+        "normalized_valid": 596,
+        "parsed_evidence_items": 2384,
+        "reference_valid_items": 2376,
+        "status_items": 2400,
+        "strict_errors": 383,
+        "strict_valid": 596,
+        "unsafe_opportunities": 678,
+        "unsafe_satisfied": 220
+      },
+      "source_task_groups": 150,
+      "task_mean_error_rate": 0.15958333333333333
+    },
+    "B4": {
+      "confusion": [
+        {
+          "count": 41,
+          "gold": "satisfied",
+          "predicted": "invalid"
+        },
+        {
+          "count": 1192,
+          "gold": "satisfied",
+          "predicted": "satisfied"
+        },
+        {
+          "count": 117,
+          "gold": "satisfied",
+          "predicted": "violated"
+        },
+        {
+          "count": 32,
+          "gold": "unknown",
+          "predicted": "invalid"
+        },
+        {
+          "count": 138,
+          "gold": "unknown",
+          "predicted": "satisfied"
+        },
+        {
+          "count": 117,
+          "gold": "unknown",
+          "predicted": "unknown"
+        },
+        {
+          "count": 13,
+          "gold": "unknown",
+          "predicted": "violated"
+        },
+        {
+          "count": 3,
+          "gold": "violated",
+          "predicted": "invalid"
+        },
+        {
+          "count": 130,
+          "gold": "violated",
+          "predicted": "satisfied"
+        },
+        {
+          "count": 617,
+          "gold": "violated",
+          "predicted": "violated"
+        }
+      ],
+      "counts": {
+        "cases": 600,
+        "missing_predictions": 0,
+        "nonempty_reference_items": 2207,
+        "normalized_errors": 474,
+        "normalized_valid": 581,
+        "parsed_evidence_items": 2324,
+        "reference_valid_items": 2313,
+        "status_items": 2400,
+        "strict_errors": 474,
+        "strict_valid": 581,
+        "unsafe_opportunities": 678,
+        "unsafe_satisfied": 221
+      },
+      "source_task_groups": 150,
+      "task_mean_error_rate": 0.1975
+    }
+  },
+  "selected_B": "B3",
+  "selected_example_ids": [
+    "proc-v1-87f333a8f0c75a8b25d068f4-complete",
+    "proc-v1-c30036316779161a44d8671b-combined-fault",
+    "proc-v1-7f18d54c2ceb160b9b385f3b-hidden-history"
+  ],
+  "source_commit": "b4a757afc7c01332734fb6e4c2f08f3f7fcceef9",
+  "source_groups_per_condition": 150,
+  "views_per_condition": 600,
+  "warning": "Same validation data chose B3: comparison and bootstrap interval are selection-biased/descriptive. Existing two-candidate plan kept, no test scores or partial outcomes used to change it. Four-example negative outcome and malformed predictions retained."
+}
