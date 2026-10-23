@@ -1,0 +1,12 @@
+{
+  "scope": "context_and_synthetic_hardware_evidence_only",
+  "views": 104,
+  "actual_tokenizer_and_private_prompts_replayed": false,
+  "original_max_prompt_tokens": 4691,
+  "proposed_compact_max_prompt_tokens": 2710,
+  "passed_synthetic_length": 3328,
+  "failed_synthetic_length": 4096,
+  "formal_budget_approved": false,
+  "formal_training_started": false,
+  "warning": "New prompt proposal has not been used for inference or training. Synthetic probes do not establish real-label fit, few-shot behavior, universal memory boundaries or 48/80GB fit."
+}

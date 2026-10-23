@@ -1,0 +1,7 @@
+{
+  "omitted_public_path": "train-3328/model/tokenizer.json",
+  "sha256": "a5cd9732badce41de57e6efce8302930ded1c1188c5f81feb2bd6c24c4a1941f",
+  "bytes": 19989339,
+  "retained_on_AutoDL_and_ignored_local_runs": true,
+  "reason": "Duplicate exported tokenizer; reproduce using pinned official model assets rather than publishing a large additional tokenizer copy."
+}

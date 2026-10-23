@@ -1,0 +1,15 @@
+{
+  "scope": "two_synthetic_length_probes_only",
+  "failed_sequence_tokens": 4096,
+  "failure": "RuntimeError: Triton Error [CUDA]: out of memory",
+  "failed_wall_seconds": 41.644172890111804,
+  "passed_sequence_tokens": 3328,
+  "successful_updates": 2,
+  "peak_allocated_bytes": 26177844224,
+  "peak_reserved_bytes": 28347203584,
+  "successful_wall_seconds": 48.43853247910738,
+  "formal_training": false,
+  "human_task_targets": false,
+  "fits_all_formal_targets_or_fewshot": false,
+  "warning": "Two synthetic updates in one configuration do not establish a universal memory threshold or formal training runtime. Failed first attempt retained; no 48/80GB hardware tested."
+}

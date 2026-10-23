@@ -1,0 +1,55 @@
+{
+  "batches": {
+    "legacy-development": {
+      "cannot_reserve_512_by_context": {
+        "2048": 1,
+        "3072": 0,
+        "4096": 0
+      },
+      "maximum_prompt_tokens": 1538,
+      "minimum_prompt_tokens": 727,
+      "views": 32
+    },
+    "wikisql-injected": {
+      "cannot_reserve_512_by_context": {
+        "2048": 48,
+        "3072": 24,
+        "4096": 6
+      },
+      "maximum_prompt_tokens": 4691,
+      "minimum_prompt_tokens": 1792,
+      "views": 48
+    },
+    "wikisql-natural": {
+      "cannot_reserve_512_by_context": {
+        "2048": 24,
+        "3072": 7,
+        "4096": 0
+      },
+      "maximum_prompt_tokens": 3057,
+      "minimum_prompt_tokens": 1831,
+      "views": 24
+    }
+  },
+  "cannot_generate_by_context": {
+    "2048": 56,
+    "3072": 13,
+    "4096": 3
+  },
+  "cannot_reserve_512_by_context": {
+    "2048": 73,
+    "3072": 31,
+    "4096": 6
+  },
+  "fewshot_audited": false,
+  "formal_budget_approved": false,
+  "formal_training_started": false,
+  "human_labels_read": false,
+  "maximum_prompt_tokens": 4691,
+  "minimum_prompt_tokens": 727,
+  "reviewed_SFT_target_lengths_audited": false,
+  "scope": "development_zero_shot_prompt_lengths_only",
+  "training_memory_measured": false,
+  "views": 104,
+  "warning": "Prompt plus 512 generation allowance is an inference feasibility measurement, not a guarantee of SFT target fit, few-shot context, training memory or formal budget approval. No prompt truncation."
+}

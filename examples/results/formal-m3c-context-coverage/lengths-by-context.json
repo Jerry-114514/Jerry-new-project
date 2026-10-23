@@ -1,0 +1,2552 @@
+{
+  "2048": {
+    "cannot_generate": 56,
+    "cannot_reserve_full_generation": 73,
+    "cases_hash": "d37d1951c1d070d246315d507a968877586b069e1ae388d81b100579afdf4329",
+    "context_limit": 2048,
+    "fewshot_audited": false,
+    "formal_length_compute_review_complete": false,
+    "max_new_tokens": 512,
+    "max_prompt_tokens": 4691,
+    "min_prompt_tokens": 727,
+    "prompt_only": true,
+    "reviewed_training_target_lengths_audited": false,
+    "rows": [
+      {
+        "case_id": "exec-dev-decimal-rounding-trace-834f9552395cd8fd",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "f24d71f259b0f0df3b78a4cbe5c4e5f52650e630f2b6777be9134b218d67970c",
+        "prompt_tokens": 1339,
+        "source_task_id": "dev-decimal-rounding"
+      },
+      {
+        "case_id": "exec-dev-history-restoration-trace-74c1e2cfba910f22",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "c387cfdfbd75c6f86aa8c776959c4bcdb21767f2ccb645103cad756b3ccb9bb4",
+        "prompt_tokens": 789,
+        "source_task_id": "dev-history-restoration"
+      },
+      {
+        "case_id": "exec-dev-interval-endpoint-trace-4d7247690fcaa72d",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "464ec29a5e666406a8a8368f32866fb842572a96f5c61a3114c0528dac93c112",
+        "prompt_tokens": 1253,
+        "source_task_id": "dev-interval-endpoint"
+      },
+      {
+        "case_id": "exec-dev-literal-identifiers-trace-97e9ace4b12c74ff",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "eb9aee7ce389ffe2af60978a05baa9746b280e8b41dc6dbcaa3bdadcb90867b0",
+        "prompt_tokens": 810,
+        "source_task_id": "dev-literal-identifiers"
+      },
+      {
+        "case_id": "exec-dev-missing-vs-null-trace-d771b529e0b959d4",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "d0bd07e777cf1ad152995f19cace92e2cd4fd98239b2592e7b2ae3ac47afe295",
+        "prompt_tokens": 862,
+        "source_task_id": "dev-missing-vs-null"
+      },
+      {
+        "case_id": "exec-dev-stable-ordering-trace-e7c11854d233f5ce",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "8e95bf93ccb8ca9a376a6eeb6a56dce42f51db8113ef8eef7213b136b4047d95",
+        "prompt_tokens": 833,
+        "source_task_id": "dev-stable-ordering"
+      },
+      {
+        "case_id": "exec-dev-timezone-boundary-trace-5a376c7827bfa1e2",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 510,
+        "prompt_hash": "2c4ff6e18f4c363e53b8fadf6b4e8dd645c996395f8ff644a820f6665f405a3d",
+        "prompt_tokens": 1538,
+        "source_task_id": "dev-timezone-boundary"
+      },
+      {
+        "case_id": "exec-dev-unicode-normalization-trace-70898244faee2922",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "dab76b77562eb8f8550b5d3f23240bd94a9de0fe0515deba3721364927778c19",
+        "prompt_tokens": 769,
+        "source_task_id": "dev-unicode-normalization"
+      },
+      {
+        "case_id": "natural-08c7bcf78c84951a941fd026",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "229edd3810d773b8a96aa003966a8f41d5e714d8c5ad5e6f8bad32ffa24055f8",
+        "prompt_tokens": 950,
+        "source_task_id": "train-candidate-cluster-stable_sort"
+      },
+      {
+        "case_id": "natural-0f9e32128793b1406fce8f4f",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "c6dc40264964f50d9279deece6cb2f50d757dc17ea2bba3b6012cfcaf8b9b5b7",
+        "prompt_tokens": 1411,
+        "source_task_id": "train-candidate-cluster-stable_sort"
+      },
+      {
+        "case_id": "natural-2d3cc473b012e075491d9fa6",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "ff7b938cde670171ae28240000454b5549b12d723dc5463f3ab95332d1cd5209",
+        "prompt_tokens": 913,
+        "source_task_id": "train-candidate-cluster-decimal_round"
+      },
+      {
+        "case_id": "natural-36e4dc84091b5cc4d28bb307",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "c4401d6221e11e386da71558017758f4a0fb3861e0bf4cdaba488335e43e1d79",
+        "prompt_tokens": 1386,
+        "source_task_id": "train-candidate-cluster-stable_sort"
+      },
+      {
+        "case_id": "natural-3db1fa40f94280a6ae288da4",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "c19e0374c4b38e9db0b8e71c3e1d187eea2ab2b9c0d02cae04acc759b1a6b5cf",
+        "prompt_tokens": 923,
+        "source_task_id": "train-candidate-cluster-decimal_round"
+      },
+      {
+        "case_id": "natural-5b200f7e3f60ee2ba1120ac1",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "bb7ab486bc9174283b1b2e228f8b70132092b330ea497ab7e633350a2d5b0378",
+        "prompt_tokens": 884,
+        "source_task_id": "train-candidate-cluster-key_present"
+      },
+      {
+        "case_id": "natural-64a0540d181a457471bd9c4e",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "d2d04a42943824f3299a04d25c456732becaa6c49f515e7e84eb03f91d031aef",
+        "prompt_tokens": 946,
+        "source_task_id": "train-candidate-cluster-stable_sort"
+      },
+      {
+        "case_id": "natural-67d0c5a257b605448a72093d",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "0111c0d98ca0ba89bb76984ba0fe9578080f94aad5beaead56db2b352b703d63",
+        "prompt_tokens": 1046,
+        "source_task_id": "train-candidate-cluster-key_present"
+      },
+      {
+        "case_id": "natural-67d435ee06b446260af61152",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "f91ebe80b6b0a9333cc4e444c2a691c8a876b764cd60beb09dad5b19360bd6c1",
+        "prompt_tokens": 728,
+        "source_task_id": "train-candidate-cluster-unicode_nfc"
+      },
+      {
+        "case_id": "natural-6f7932aa3601be49cacb2a4e",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "03b7bdefc5b61454d90836a60ae5197123d1ede6070be9e0d08be6c9fb62bba7",
+        "prompt_tokens": 815,
+        "source_task_id": "train-candidate-cluster-key_present"
+      },
+      {
+        "case_id": "natural-83a635d6b8be5203ac39fcdc",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "5092b344eafd33338b0d6d5b3b063603522b4592dbd8d3ccc673c6ce68faac9a",
+        "prompt_tokens": 1031,
+        "source_task_id": "train-candidate-cluster-key_present"
+      },
+      {
+        "case_id": "natural-8a579ff69e00f31ec81f8c7a",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "72b4a713578bbf37aa31ee26990127a9fd979e04ca5ee897aa8b7f43659f1913",
+        "prompt_tokens": 764,
+        "source_task_id": "train-candidate-cluster-unicode_nfc"
+      },
+      {
+        "case_id": "natural-8ace3593d869e50da1c3e13a",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "04e783be32097136b83bfa3c114e26970b0080f3148562f24cbcf2c4f35964a5",
+        "prompt_tokens": 929,
+        "source_task_id": "train-candidate-cluster-decimal_round"
+      },
+      {
+        "case_id": "natural-9263c7e93b85e43f4500aca6",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "57c7dbae30db5a118356699815d8fcadf35120e2c5712d76559f8465f2694654",
+        "prompt_tokens": 1379,
+        "source_task_id": "train-candidate-cluster-decimal_round"
+      },
+      {
+        "case_id": "natural-ac612770e8ca018cf12e0306",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "d19586d9e83342af9cb4291278e79fbef977dbbda9bb317b5a27cdb19067a415",
+        "prompt_tokens": 765,
+        "source_task_id": "train-candidate-cluster-unicode_nfc"
+      },
+      {
+        "case_id": "natural-ad907af5b03cb586ed043e48",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "333fde9f0e110a1a5ced36aeceee497668e468a8ad8d04bae225cff0f11cd072",
+        "prompt_tokens": 1365,
+        "source_task_id": "train-candidate-cluster-decimal_round"
+      },
+      {
+        "case_id": "natural-b40377fb0b95792132d77561",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "3a099033eaf17802199e8923ae2bd63795ee4399e6600c133d4ac95b87313053",
+        "prompt_tokens": 777,
+        "source_task_id": "train-candidate-cluster-unicode_nfc"
+      },
+      {
+        "case_id": "natural-c6e1addb90cf379273c497ce",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "f1041a02334655feb7f04209d6736e29462b5b6a703b1511f935b94d719af9b3",
+        "prompt_tokens": 1324,
+        "source_task_id": "train-candidate-cluster-key_present"
+      },
+      {
+        "case_id": "natural-c8b215d069baf653f41f266c",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "97bc0de46b4d01bc874658b746c62b1432bf1edb8d5c9e8ff9dbc9242bf9481a",
+        "prompt_tokens": 740,
+        "source_task_id": "train-candidate-cluster-unicode_nfc"
+      },
+      {
+        "case_id": "natural-db099b073a47b749c633e8cd",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "8974df4d80accbe362c89814fa71ae2eeb9b6fe1ca735f0592a360dcaa3589d7",
+        "prompt_tokens": 1420,
+        "source_task_id": "train-candidate-cluster-stable_sort"
+      },
+      {
+        "case_id": "natural-f13bd1065283b2f49f1b8007",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "35c11291d3f704bc59e1a863130751af48592b6584f6bf3d4fb4e708c772abfd",
+        "prompt_tokens": 830,
+        "source_task_id": "train-candidate-cluster-key_present"
+      },
+      {
+        "case_id": "natural-f1d58cac339d4839495c2893",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "a10114e3dd1ea42ffb18a711463d01d40ef2c70cf77e73723e2bcfe7d9ac304d",
+        "prompt_tokens": 928,
+        "source_task_id": "train-candidate-cluster-stable_sort"
+      },
+      {
+        "case_id": "natural-fbd045f81e88d0b76e3d39ad",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "b4c1f41a8b065427ee3d4e5b624574a64ccd438a45e6bb0c6551a5eee5196892",
+        "prompt_tokens": 727,
+        "source_task_id": "train-candidate-cluster-unicode_nfc"
+      },
+      {
+        "case_id": "natural-ff14b618ff6d0e39b65ed684",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "51bc036056c696466d01cb2e72bbefef671ef132090034d684f503fd7c53c2ab",
+        "prompt_tokens": 1373,
+        "source_task_id": "train-candidate-cluster-decimal_round"
+      },
+      {
+        "case_id": "adapt-view-99222fefb4572ab0f7c5c9f4",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "b2d6f7f5f1da145f21708ed0a76e185317dd2df5014c176683556131675b89de",
+        "prompt_tokens": 2671,
+        "source_task_id": "wikisql-page-aaaed51dfb7c83604f65"
+      },
+      {
+        "case_id": "adapt-view-d2319452e46433401c975761",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "3f255ee198a4a9d8000c2a0c868b49f7ebc5c65fe3147b2819c4a859f45a6c6c",
+        "prompt_tokens": 2206,
+        "source_task_id": "wikisql-page-aaaed51dfb7c83604f65"
+      },
+      {
+        "case_id": "adapt-view-b1a3de4a994e06339d959bb5",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "d094403df7e66fb2e5b0896e4e6509b626b14184096281136d2cf8637ea02e4d",
+        "prompt_tokens": 3815,
+        "source_task_id": "wikisql-page-aaaed51dfb7c83604f65"
+      },
+      {
+        "case_id": "adapt-view-bd0706d6c59a5cbaa5cd2ccc",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "ebea2acbd97ccc3deb033e1458de0927e338c105e9f31d0f492c1515db9753fa",
+        "prompt_tokens": 2247,
+        "source_task_id": "wikisql-page-aaaed51dfb7c83604f65"
+      },
+      {
+        "case_id": "adapt-view-fb01c20d23c4147b6a8bac8a",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "202073f1c225e50013d9d3599e3adf335443c4f2c9d54c3926e4c0f062beb428",
+        "prompt_tokens": 2579,
+        "source_task_id": "wikisql-page-9245bc081e6e096c6df8"
+      },
+      {
+        "case_id": "adapt-view-0a6511f2a50884976179055c",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "87da23dc54523cbc0f1333904063a434617f08223d6ede03a4d17146920ac941",
+        "prompt_tokens": 2110,
+        "source_task_id": "wikisql-page-9245bc081e6e096c6df8"
+      },
+      {
+        "case_id": "adapt-view-4fe2853f435f3c58e313ffaf",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "a5a53094c039e66801c6125f714e49b4a08db75a729ba62b56104577737bd81d",
+        "prompt_tokens": 3663,
+        "source_task_id": "wikisql-page-9245bc081e6e096c6df8"
+      },
+      {
+        "case_id": "adapt-view-abc7b578f17897c35850e839",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "52eb0d2270048831a1564f512f877b8af478ec7db1c9aa74d40c5b23f0a2461b",
+        "prompt_tokens": 2157,
+        "source_task_id": "wikisql-page-9245bc081e6e096c6df8"
+      },
+      {
+        "case_id": "adapt-view-0b8b703a1067f0f1ef95daef",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "fee123bb9d374272e72c30500e19fe7929922a8587e75546b3f35633c97aa4dd",
+        "prompt_tokens": 3045,
+        "source_task_id": "wikisql-page-5b7819065f71c173a665"
+      },
+      {
+        "case_id": "adapt-view-5735ed351ecf57539856de1c",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "e76bb9625a1c4eaf6febf006c3b653751839073597328679f177522e05dfe454",
+        "prompt_tokens": 2574,
+        "source_task_id": "wikisql-page-5b7819065f71c173a665"
+      },
+      {
+        "case_id": "adapt-view-c7e9c59303c7b20965ef310b",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "fc7c99dfe0d9562768684dc99cc7dc3df8eff2568faa3abc024235889757feb4",
+        "prompt_tokens": 4377,
+        "source_task_id": "wikisql-page-5b7819065f71c173a665"
+      },
+      {
+        "case_id": "adapt-view-60bb6203e0abf4919d424db5",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "2836c198935c5cd70e217f0bf1e03222010b66ca8aaee9f0b7f3264bb1502e9c",
+        "prompt_tokens": 2623,
+        "source_task_id": "wikisql-page-5b7819065f71c173a665"
+      },
+      {
+        "case_id": "adapt-view-9bb66625674ddf669c858d1a",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "5b28687d7a9d2e4eab0466e76c04882ad314359f9aeb366bf8e09e99385aca8c",
+        "prompt_tokens": 2239,
+        "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6"
+      },
+      {
+        "case_id": "adapt-view-efc10d03d680718ccdd4f2ef",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 256,
+        "prompt_hash": "2cb88f7bf715a777e3e05dc618c36ddc60a6d1d0db3a25ac22e035797ce65e25",
+        "prompt_tokens": 1792,
+        "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6"
+      },
+      {
+        "case_id": "adapt-view-1bcdf27bb0885a2dd56cec19",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "2311c0180d8220941ddcfa755d4b5f317f324c237bc87339e7b0cc707aba202c",
+        "prompt_tokens": 3161,
+        "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6"
+      },
+      {
+        "case_id": "adapt-view-e1a236a3a50ac6938fc550d9",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 217,
+        "prompt_hash": "e69b9aea6d437d71c516c085f1735db67b720baedf9659b35b5b734799f3a447",
+        "prompt_tokens": 1831,
+        "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6"
+      },
+      {
+        "case_id": "adapt-view-25b50eeb63048b3fb7771a45",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "1a49d31144068426af45a702486081bb742d6d927b2269fe451ff820bb05847e",
+        "prompt_tokens": 3257,
+        "source_task_id": "wikisql-page-953313362984970dff33"
+      },
+      {
+        "case_id": "adapt-view-bfb9d92fb54d33e246b366e5",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "e5740fc9b363c791428b971279534ff68d2f2537b2fd5d5281c3cbb327eb92da",
+        "prompt_tokens": 2812,
+        "source_task_id": "wikisql-page-953313362984970dff33"
+      },
+      {
+        "case_id": "adapt-view-1dafcbe615f464e70b241f54",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "0ed43add93254f69ceb543a957c7b59ec65bd58e2c55b065b6442d76d5dcd5cd",
+        "prompt_tokens": 4691,
+        "source_task_id": "wikisql-page-953313362984970dff33"
+      },
+      {
+        "case_id": "adapt-view-fe6947507bd49d70e9972272",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "b6740c5772cfa7c95ed97491d5a6af8107d54e5e098f321fbf129b89b606edfc",
+        "prompt_tokens": 2851,
+        "source_task_id": "wikisql-page-953313362984970dff33"
+      },
+      {
+        "case_id": "adapt-view-8c15fadda0953a8437bf3e84",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "362483a93f3292ac690563f0e6d34793495885fa068dab06733308ddadf6831f",
+        "prompt_tokens": 2629,
+        "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff"
+      },
+      {
+        "case_id": "adapt-view-b5feabf8c00f2f9717944a16",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "7d357840a5e398e6362b2d4cb3a03223a8df10c36062b9a1c92258d6046ed588",
+        "prompt_tokens": 2180,
+        "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff"
+      },
+      {
+        "case_id": "adapt-view-ac19f73f40735bc9e0550e3b",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "bc710252e6a7acd5be71ee9547da85e95f423d871f7b7141e010a3d934bcdb19",
+        "prompt_tokens": 3765,
+        "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff"
+      },
+      {
+        "case_id": "adapt-view-caaa974f09ae1a9a8bee962b",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "b470c937cdd9d36d78ef7610be1f0696a6c9eded80b3f2be74f62673f9959695",
+        "prompt_tokens": 2215,
+        "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff"
+      },
+      {
+        "case_id": "adapt-view-16913f1a86d76ef63ab238fe",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "ae0ab53d4b81d13f07aa4f124458b11ca4d67166eb5848e654206f52d9fdf13b",
+        "prompt_tokens": 2387,
+        "source_task_id": "wikisql-page-c743090a61cfde53f8a9"
+      },
+      {
+        "case_id": "adapt-view-f0e53543de06006e33a55fdb",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 100,
+        "prompt_hash": "420a7733427c0e42049b077728992b916d6d7dda0423342053ecf37871767395",
+        "prompt_tokens": 1948,
+        "source_task_id": "wikisql-page-c743090a61cfde53f8a9"
+      },
+      {
+        "case_id": "adapt-view-8502ef665190dcabfc854d3c",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "dee67cf0b68d95fdb14eaa019f647fafc5736e2c330118f0d4fa316394eb0eb9",
+        "prompt_tokens": 3421,
+        "source_task_id": "wikisql-page-c743090a61cfde53f8a9"
+      },
+      {
+        "case_id": "adapt-view-54c37d774bb9a9adc554c39a",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 63,
+        "prompt_hash": "c445af148f67bcd4ca280008447c2c6a4aaa1fbdb32ac908d61e5fc07ca9c9c1",
+        "prompt_tokens": 1985,
+        "source_task_id": "wikisql-page-c743090a61cfde53f8a9"
+      },
+      {
+        "case_id": "adapt-view-c4accf41faa82b8cf269f9e3",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "d3216d76570e5ad53078f6ca8c066aab61ab6a4f57fc7296a431752affbdc81d",
+        "prompt_tokens": 2435,
+        "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f"
+      },
+      {
+        "case_id": "adapt-view-5d3007960e56ac16e00272ee",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 96,
+        "prompt_hash": "b0149c2ab44c7a1cbf8ea2c7e35066d7fb04147b62013b1ecc72a1c52917fe73",
+        "prompt_tokens": 1952,
+        "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f"
+      },
+      {
+        "case_id": "adapt-view-1cfce032ed5292091725b3a1",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "5fecbcaa92fe30156d796f353710c109e2ad1a8f786e956e1f3ca42bc133c0fc",
+        "prompt_tokens": 3427,
+        "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f"
+      },
+      {
+        "case_id": "adapt-view-cf4232311c221d4a61412e16",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 41,
+        "prompt_hash": "99d136a1ce8c48a0960019415214a595aa58350aa835a906e13cfeecf4b5e78c",
+        "prompt_tokens": 2007,
+        "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f"
+      },
+      {
+        "case_id": "adapt-view-5f533274d94a737831df795f",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "62dbabdd89f74282bec0b2c829d1ff51994e6f5279445925ea5b2d8846a6eb1e",
+        "prompt_tokens": 3057,
+        "source_task_id": "wikisql-page-d4b7622727afc6d36c2c"
+      },
+      {
+        "case_id": "adapt-view-6d1344155465d044d2581405",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "30648eb2d6ff530f2b786cc2bd101c33b7b3dc54fd9e150043bb1337bdb9c010",
+        "prompt_tokens": 2590,
+        "source_task_id": "wikisql-page-d4b7622727afc6d36c2c"
+      },
+      {
+        "case_id": "adapt-view-58f9cb5f732ebc6739f69c02",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "951db7c136c6473f083b428df1c1b9cab3d27a3e421aa6d8984b7081ddcb9b01",
+        "prompt_tokens": 4363,
+        "source_task_id": "wikisql-page-d4b7622727afc6d36c2c"
+      },
+      {
+        "case_id": "adapt-view-0a88d7b76922fc2766ac1e89",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "a5d2d975ab7efead8232e882b6d96a7097438755112cf7c707bf5738bf9fed1f",
+        "prompt_tokens": 2637,
+        "source_task_id": "wikisql-page-d4b7622727afc6d36c2c"
+      },
+      {
+        "case_id": "adapt-view-f103193073228497eb087d3a",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "39a06e9224416e999d9d46b300c42ab5ea4d8442be036227b33817579ad60d26",
+        "prompt_tokens": 2497,
+        "source_task_id": "wikisql-page-03a77fae7a4d9f79f991"
+      },
+      {
+        "case_id": "adapt-view-84460fce11c8ed15ac4a4550",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 22,
+        "prompt_hash": "9547bce8392e6c94c22e45c29d64d4fe80f62e14cb6ffc37412b3f7b694bc766",
+        "prompt_tokens": 2026,
+        "source_task_id": "wikisql-page-03a77fae7a4d9f79f991"
+      },
+      {
+        "case_id": "adapt-view-ba5c7ff4fd01014647db99b9",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "4745f067bcc180712d6c2f88304283cd035498f0120469ac1c557d173d345786",
+        "prompt_tokens": 3507,
+        "source_task_id": "wikisql-page-03a77fae7a4d9f79f991"
+      },
+      {
+        "case_id": "adapt-view-3aece108766e640719ebda99",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "27ee43d0502a9d7f9503356e1ba514e37615481f723bd94b7c809419c84869d0",
+        "prompt_tokens": 2067,
+        "source_task_id": "wikisql-page-03a77fae7a4d9f79f991"
+      },
+      {
+        "case_id": "adapt-view-2b414ee83a7d655a32ecdfbb",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "1300cdd44f2098d00a704cf6fd22eea74352954ff7ac396c1394f0d6238d4be0",
+        "prompt_tokens": 2333,
+        "source_task_id": "wikisql-page-bcad335dd883cd0d2619"
+      },
+      {
+        "case_id": "adapt-view-3562025760eb88e9d300b588",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 168,
+        "prompt_hash": "555cb7f1bab367477c360cb1ef6365da916f99da7e1941b74219561a662a4197",
+        "prompt_tokens": 1880,
+        "source_task_id": "wikisql-page-bcad335dd883cd0d2619"
+      },
+      {
+        "case_id": "adapt-view-a425f3f0d99de3fd57d1293f",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "66f179ca2c22c721c8772d9bb5f26434bae4ed5563c71eb75959a814d23ba0f2",
+        "prompt_tokens": 3267,
+        "source_task_id": "wikisql-page-bcad335dd883cd0d2619"
+      },
+      {
+        "case_id": "adapt-view-b38cf3dbfff185783e4dac13",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 129,
+        "prompt_hash": "221d13294cadb315ba5d05041cdbbc030a99525446f103b78e46644d6bc5630c",
+        "prompt_tokens": 1919,
+        "source_task_id": "wikisql-page-bcad335dd883cd0d2619"
+      },
+      {
+        "case_id": "adapt-view-82e043ed30f70a3be3191095",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "e9686640fffe86a074ddaf9fafc460eebf6b821d655e3d289286456f49631df0",
+        "prompt_tokens": 2317,
+        "source_task_id": "wikisql-page-a384ce91f5c966901456"
+      },
+      {
+        "case_id": "adapt-view-7d389bcb1df90ef0482c08ed",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 182,
+        "prompt_hash": "b01103ebeed15641de78938d4dc14a441c6bd7167749ac88d021bfa16e862391",
+        "prompt_tokens": 1866,
+        "source_task_id": "wikisql-page-a384ce91f5c966901456"
+      },
+      {
+        "case_id": "adapt-view-83605622f4fc4c31396c7c65",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "60057fe80370291c4e7dce3010b053338dd891c8276ae3cdd57a3562e13c75f0",
+        "prompt_tokens": 3303,
+        "source_task_id": "wikisql-page-a384ce91f5c966901456"
+      },
+      {
+        "case_id": "adapt-view-fa01d58642c23195cbf3a234",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 147,
+        "prompt_hash": "7535e9cf64b1f2097e397564d75a89f0f9dd3cab13f66673d711163e98ec5881",
+        "prompt_tokens": 1901,
+        "source_task_id": "wikisql-page-a384ce91f5c966901456"
+      },
+      {
+        "case_id": "natural-b6ac6d53a25c77f11a861b05",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "b2d6f7f5f1da145f21708ed0a76e185317dd2df5014c176683556131675b89de",
+        "prompt_tokens": 2671,
+        "source_task_id": "wikisql-page-aaaed51dfb7c83604f65"
+      },
+      {
+        "case_id": "natural-35ae808ce1cc23a05fa07cb2",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "ebea2acbd97ccc3deb033e1458de0927e338c105e9f31d0f492c1515db9753fa",
+        "prompt_tokens": 2247,
+        "source_task_id": "wikisql-page-aaaed51dfb7c83604f65"
+      },
+      {
+        "case_id": "natural-daf2480f81fe83e9cbf00c49",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "08097e762d3a21623c8b2e1bb0ac9548e379977f66b196029f3cbaae0cfa4c14",
+        "prompt_tokens": 2663,
+        "source_task_id": "wikisql-page-9245bc081e6e096c6df8"
+      },
+      {
+        "case_id": "natural-05b92c351fd9a8d77ae5cdeb",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "a0190474c9fe0b0c2d70eab3367b63fde77e6ada39b0df31cb0dc4d3e79ce57a",
+        "prompt_tokens": 2205,
+        "source_task_id": "wikisql-page-9245bc081e6e096c6df8"
+      },
+      {
+        "case_id": "natural-583825220bdb5af2ea042b1a",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "6bbfbada2205205a7001a1e0681e6849505c1089fe1cfc4ca125b645b255e4d3",
+        "prompt_tokens": 2536,
+        "source_task_id": "wikisql-page-5b7819065f71c173a665"
+      },
+      {
+        "case_id": "natural-0cd8f6fec9be8efc1088b145",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "febedccc8fe9470881a8c32acd408d52fef1b71dcc3f989fe64451b7b41f9a3a",
+        "prompt_tokens": 2537,
+        "source_task_id": "wikisql-page-5b7819065f71c173a665"
+      },
+      {
+        "case_id": "natural-f17035ed02706212a1e51205",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "5b28687d7a9d2e4eab0466e76c04882ad314359f9aeb366bf8e09e99385aca8c",
+        "prompt_tokens": 2239,
+        "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6"
+      },
+      {
+        "case_id": "natural-09aea4ea0de4c0572b67a498",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 217,
+        "prompt_hash": "e69b9aea6d437d71c516c085f1735db67b720baedf9659b35b5b734799f3a447",
+        "prompt_tokens": 1831,
+        "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6"
+      },
+      {
+        "case_id": "natural-64584bb7e3102f7fc7227c4a",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "3e47c919491f4248a857d6cedc1e686d44e6abb8eb37c1e3f63bacb3aede700c",
+        "prompt_tokens": 2774,
+        "source_task_id": "wikisql-page-953313362984970dff33"
+      },
+      {
+        "case_id": "natural-74e164819222c8b46c193743",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "767fca348c6306643f3df318d5a7dd68e9db6be8aa1709825e13ab8b01ea2358",
+        "prompt_tokens": 2775,
+        "source_task_id": "wikisql-page-953313362984970dff33"
+      },
+      {
+        "case_id": "natural-f3446afe2b7fb60c4f298a26",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "e6d6213c871a8c5288cb88f561a3fbc3150a260fb731eef1cd3ecb84482170ae",
+        "prompt_tokens": 2629,
+        "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff"
+      },
+      {
+        "case_id": "natural-41ad9710146236bb90755e38",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "b470c937cdd9d36d78ef7610be1f0696a6c9eded80b3f2be74f62673f9959695",
+        "prompt_tokens": 2215,
+        "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff"
+      },
+      {
+        "case_id": "natural-30769a77d8123342f970f424",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "7972933bd018597b15f427a92367e39505dec3cc18d0f4c1a6c590355b30f54f",
+        "prompt_tokens": 2387,
+        "source_task_id": "wikisql-page-c743090a61cfde53f8a9"
+      },
+      {
+        "case_id": "natural-11af22081d38594cdc1f5f96",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 63,
+        "prompt_hash": "f245fee6907f7c0d9654ff4552ce544009f55b115c26eaaa9314a7fb8be98e6a",
+        "prompt_tokens": 1985,
+        "source_task_id": "wikisql-page-c743090a61cfde53f8a9"
+      },
+      {
+        "case_id": "natural-7403a2ddf948f9c8657ea125",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "d3216d76570e5ad53078f6ca8c066aab61ab6a4f57fc7296a431752affbdc81d",
+        "prompt_tokens": 2435,
+        "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f"
+      },
+      {
+        "case_id": "natural-62b040b5f253d8df3b32fc14",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 41,
+        "prompt_hash": "99d136a1ce8c48a0960019415214a595aa58350aa835a906e13cfeecf4b5e78c",
+        "prompt_tokens": 2007,
+        "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f"
+      },
+      {
+        "case_id": "natural-22de4e05e3f8418e4398d6a0",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "e69db12478b62fe88290e59e7b171cd3547c831b91dae4d24ececfbe9b8db96a",
+        "prompt_tokens": 3057,
+        "source_task_id": "wikisql-page-d4b7622727afc6d36c2c"
+      },
+      {
+        "case_id": "natural-b3f59bb166b15ec08b950a24",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "a5d2d975ab7efead8232e882b6d96a7097438755112cf7c707bf5738bf9fed1f",
+        "prompt_tokens": 2637,
+        "source_task_id": "wikisql-page-d4b7622727afc6d36c2c"
+      },
+      {
+        "case_id": "natural-ac40e69241e8d234fdd025c9",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "ab1e15c0b71c415bc28afc248e6bd95c6e74d93d22d34f732779db051b0e5211",
+        "prompt_tokens": 2489,
+        "source_task_id": "wikisql-page-03a77fae7a4d9f79f991"
+      },
+      {
+        "case_id": "natural-94259b7f327029350a1b5c51",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "64031a2d45fee3ab5f2e8e210db7b2dfa40304d893a29f0a3419d20e11df8d17",
+        "prompt_tokens": 2067,
+        "source_task_id": "wikisql-page-03a77fae7a4d9f79f991"
+      },
+      {
+        "case_id": "natural-b381f7d9b3cbfcaf4bc805d8",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "1300cdd44f2098d00a704cf6fd22eea74352954ff7ac396c1394f0d6238d4be0",
+        "prompt_tokens": 2333,
+        "source_task_id": "wikisql-page-bcad335dd883cd0d2619"
+      },
+      {
+        "case_id": "natural-2388fb0237b94f67187288b2",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 129,
+        "prompt_hash": "221d13294cadb315ba5d05041cdbbc030a99525446f103b78e46644d6bc5630c",
+        "prompt_tokens": 1919,
+        "source_task_id": "wikisql-page-bcad335dd883cd0d2619"
+      },
+      {
+        "case_id": "natural-3b4e51c7f4b2caba699fc6ac",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "a18ea54028ebba85fd1525b98af27f0264807dfe1ca99b241219deb801abd489",
+        "prompt_tokens": 2317,
+        "source_task_id": "wikisql-page-a384ce91f5c966901456"
+      },
+      {
+        "case_id": "natural-58a16a3fc630021a17da8135",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 147,
+        "prompt_hash": "7535e9cf64b1f2097e397564d75a89f0f9dd3cab13f66673d711163e98ec5881",
+        "prompt_tokens": 1901,
+        "source_task_id": "wikisql-page-a384ce91f5c966901456"
+      }
+    ],
+    "scope": "development",
+    "token_budget": 8192,
+    "warning": "Zero-shot public prompt lengths only. No gold, human labels, few-shot targets, training memory or formal budget approval are inferred."
+  },
+  "3072": {
+    "cannot_generate": 13,
+    "cannot_reserve_full_generation": 31,
+    "cases_hash": "d37d1951c1d070d246315d507a968877586b069e1ae388d81b100579afdf4329",
+    "context_limit": 3072,
+    "fewshot_audited": false,
+    "formal_length_compute_review_complete": false,
+    "max_new_tokens": 512,
+    "max_prompt_tokens": 4691,
+    "min_prompt_tokens": 727,
+    "prompt_only": true,
+    "reviewed_training_target_lengths_audited": false,
+    "rows": [
+      {
+        "case_id": "exec-dev-decimal-rounding-trace-834f9552395cd8fd",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "f24d71f259b0f0df3b78a4cbe5c4e5f52650e630f2b6777be9134b218d67970c",
+        "prompt_tokens": 1339,
+        "source_task_id": "dev-decimal-rounding"
+      },
+      {
+        "case_id": "exec-dev-history-restoration-trace-74c1e2cfba910f22",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "c387cfdfbd75c6f86aa8c776959c4bcdb21767f2ccb645103cad756b3ccb9bb4",
+        "prompt_tokens": 789,
+        "source_task_id": "dev-history-restoration"
+      },
+      {
+        "case_id": "exec-dev-interval-endpoint-trace-4d7247690fcaa72d",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "464ec29a5e666406a8a8368f32866fb842572a96f5c61a3114c0528dac93c112",
+        "prompt_tokens": 1253,
+        "source_task_id": "dev-interval-endpoint"
+      },
+      {
+        "case_id": "exec-dev-literal-identifiers-trace-97e9ace4b12c74ff",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "eb9aee7ce389ffe2af60978a05baa9746b280e8b41dc6dbcaa3bdadcb90867b0",
+        "prompt_tokens": 810,
+        "source_task_id": "dev-literal-identifiers"
+      },
+      {
+        "case_id": "exec-dev-missing-vs-null-trace-d771b529e0b959d4",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "d0bd07e777cf1ad152995f19cace92e2cd4fd98239b2592e7b2ae3ac47afe295",
+        "prompt_tokens": 862,
+        "source_task_id": "dev-missing-vs-null"
+      },
+      {
+        "case_id": "exec-dev-stable-ordering-trace-e7c11854d233f5ce",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "8e95bf93ccb8ca9a376a6eeb6a56dce42f51db8113ef8eef7213b136b4047d95",
+        "prompt_tokens": 833,
+        "source_task_id": "dev-stable-ordering"
+      },
+      {
+        "case_id": "exec-dev-timezone-boundary-trace-5a376c7827bfa1e2",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "2c4ff6e18f4c363e53b8fadf6b4e8dd645c996395f8ff644a820f6665f405a3d",
+        "prompt_tokens": 1538,
+        "source_task_id": "dev-timezone-boundary"
+      },
+      {
+        "case_id": "exec-dev-unicode-normalization-trace-70898244faee2922",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "dab76b77562eb8f8550b5d3f23240bd94a9de0fe0515deba3721364927778c19",
+        "prompt_tokens": 769,
+        "source_task_id": "dev-unicode-normalization"
+      },
+      {
+        "case_id": "natural-08c7bcf78c84951a941fd026",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "229edd3810d773b8a96aa003966a8f41d5e714d8c5ad5e6f8bad32ffa24055f8",
+        "prompt_tokens": 950,
+        "source_task_id": "train-candidate-cluster-stable_sort"
+      },
+      {
+        "case_id": "natural-0f9e32128793b1406fce8f4f",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "c6dc40264964f50d9279deece6cb2f50d757dc17ea2bba3b6012cfcaf8b9b5b7",
+        "prompt_tokens": 1411,
+        "source_task_id": "train-candidate-cluster-stable_sort"
+      },
+      {
+        "case_id": "natural-2d3cc473b012e075491d9fa6",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "ff7b938cde670171ae28240000454b5549b12d723dc5463f3ab95332d1cd5209",
+        "prompt_tokens": 913,
+        "source_task_id": "train-candidate-cluster-decimal_round"
+      },
+      {
+        "case_id": "natural-36e4dc84091b5cc4d28bb307",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "c4401d6221e11e386da71558017758f4a0fb3861e0bf4cdaba488335e43e1d79",
+        "prompt_tokens": 1386,
+        "source_task_id": "train-candidate-cluster-stable_sort"
+      },
+      {
+        "case_id": "natural-3db1fa40f94280a6ae288da4",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "c19e0374c4b38e9db0b8e71c3e1d187eea2ab2b9c0d02cae04acc759b1a6b5cf",
+        "prompt_tokens": 923,
+        "source_task_id": "train-candidate-cluster-decimal_round"
+      },
+      {
+        "case_id": "natural-5b200f7e3f60ee2ba1120ac1",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "bb7ab486bc9174283b1b2e228f8b70132092b330ea497ab7e633350a2d5b0378",
+        "prompt_tokens": 884,
+        "source_task_id": "train-candidate-cluster-key_present"
+      },
+      {
+        "case_id": "natural-64a0540d181a457471bd9c4e",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "d2d04a42943824f3299a04d25c456732becaa6c49f515e7e84eb03f91d031aef",
+        "prompt_tokens": 946,
+        "source_task_id": "train-candidate-cluster-stable_sort"
+      },
+      {
+        "case_id": "natural-67d0c5a257b605448a72093d",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "0111c0d98ca0ba89bb76984ba0fe9578080f94aad5beaead56db2b352b703d63",
+        "prompt_tokens": 1046,
+        "source_task_id": "train-candidate-cluster-key_present"
+      },
+      {
+        "case_id": "natural-67d435ee06b446260af61152",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "f91ebe80b6b0a9333cc4e444c2a691c8a876b764cd60beb09dad5b19360bd6c1",
+        "prompt_tokens": 728,
+        "source_task_id": "train-candidate-cluster-unicode_nfc"
+      },
+      {
+        "case_id": "natural-6f7932aa3601be49cacb2a4e",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "03b7bdefc5b61454d90836a60ae5197123d1ede6070be9e0d08be6c9fb62bba7",
+        "prompt_tokens": 815,
+        "source_task_id": "train-candidate-cluster-key_present"
+      },
+      {
+        "case_id": "natural-83a635d6b8be5203ac39fcdc",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "5092b344eafd33338b0d6d5b3b063603522b4592dbd8d3ccc673c6ce68faac9a",
+        "prompt_tokens": 1031,
+        "source_task_id": "train-candidate-cluster-key_present"
+      },
+      {
+        "case_id": "natural-8a579ff69e00f31ec81f8c7a",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "72b4a713578bbf37aa31ee26990127a9fd979e04ca5ee897aa8b7f43659f1913",
+        "prompt_tokens": 764,
+        "source_task_id": "train-candidate-cluster-unicode_nfc"
+      },
+      {
+        "case_id": "natural-8ace3593d869e50da1c3e13a",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "04e783be32097136b83bfa3c114e26970b0080f3148562f24cbcf2c4f35964a5",
+        "prompt_tokens": 929,
+        "source_task_id": "train-candidate-cluster-decimal_round"
+      },
+      {
+        "case_id": "natural-9263c7e93b85e43f4500aca6",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "57c7dbae30db5a118356699815d8fcadf35120e2c5712d76559f8465f2694654",
+        "prompt_tokens": 1379,
+        "source_task_id": "train-candidate-cluster-decimal_round"
+      },
+      {
+        "case_id": "natural-ac612770e8ca018cf12e0306",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "d19586d9e83342af9cb4291278e79fbef977dbbda9bb317b5a27cdb19067a415",
+        "prompt_tokens": 765,
+        "source_task_id": "train-candidate-cluster-unicode_nfc"
+      },
+      {
+        "case_id": "natural-ad907af5b03cb586ed043e48",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "333fde9f0e110a1a5ced36aeceee497668e468a8ad8d04bae225cff0f11cd072",
+        "prompt_tokens": 1365,
+        "source_task_id": "train-candidate-cluster-decimal_round"
+      },
+      {
+        "case_id": "natural-b40377fb0b95792132d77561",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "3a099033eaf17802199e8923ae2bd63795ee4399e6600c133d4ac95b87313053",
+        "prompt_tokens": 777,
+        "source_task_id": "train-candidate-cluster-unicode_nfc"
+      },
+      {
+        "case_id": "natural-c6e1addb90cf379273c497ce",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "f1041a02334655feb7f04209d6736e29462b5b6a703b1511f935b94d719af9b3",
+        "prompt_tokens": 1324,
+        "source_task_id": "train-candidate-cluster-key_present"
+      },
+      {
+        "case_id": "natural-c8b215d069baf653f41f266c",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "97bc0de46b4d01bc874658b746c62b1432bf1edb8d5c9e8ff9dbc9242bf9481a",
+        "prompt_tokens": 740,
+        "source_task_id": "train-candidate-cluster-unicode_nfc"
+      },
+      {
+        "case_id": "natural-db099b073a47b749c633e8cd",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "8974df4d80accbe362c89814fa71ae2eeb9b6fe1ca735f0592a360dcaa3589d7",
+        "prompt_tokens": 1420,
+        "source_task_id": "train-candidate-cluster-stable_sort"
+      },
+      {
+        "case_id": "natural-f13bd1065283b2f49f1b8007",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "35c11291d3f704bc59e1a863130751af48592b6584f6bf3d4fb4e708c772abfd",
+        "prompt_tokens": 830,
+        "source_task_id": "train-candidate-cluster-key_present"
+      },
+      {
+        "case_id": "natural-f1d58cac339d4839495c2893",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "a10114e3dd1ea42ffb18a711463d01d40ef2c70cf77e73723e2bcfe7d9ac304d",
+        "prompt_tokens": 928,
+        "source_task_id": "train-candidate-cluster-stable_sort"
+      },
+      {
+        "case_id": "natural-fbd045f81e88d0b76e3d39ad",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "b4c1f41a8b065427ee3d4e5b624574a64ccd438a45e6bb0c6551a5eee5196892",
+        "prompt_tokens": 727,
+        "source_task_id": "train-candidate-cluster-unicode_nfc"
+      },
+      {
+        "case_id": "natural-ff14b618ff6d0e39b65ed684",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "51bc036056c696466d01cb2e72bbefef671ef132090034d684f503fd7c53c2ab",
+        "prompt_tokens": 1373,
+        "source_task_id": "train-candidate-cluster-decimal_round"
+      },
+      {
+        "case_id": "adapt-view-99222fefb4572ab0f7c5c9f4",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 401,
+        "prompt_hash": "b2d6f7f5f1da145f21708ed0a76e185317dd2df5014c176683556131675b89de",
+        "prompt_tokens": 2671,
+        "source_task_id": "wikisql-page-aaaed51dfb7c83604f65"
+      },
+      {
+        "case_id": "adapt-view-d2319452e46433401c975761",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "3f255ee198a4a9d8000c2a0c868b49f7ebc5c65fe3147b2819c4a859f45a6c6c",
+        "prompt_tokens": 2206,
+        "source_task_id": "wikisql-page-aaaed51dfb7c83604f65"
+      },
+      {
+        "case_id": "adapt-view-b1a3de4a994e06339d959bb5",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "d094403df7e66fb2e5b0896e4e6509b626b14184096281136d2cf8637ea02e4d",
+        "prompt_tokens": 3815,
+        "source_task_id": "wikisql-page-aaaed51dfb7c83604f65"
+      },
+      {
+        "case_id": "adapt-view-bd0706d6c59a5cbaa5cd2ccc",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "ebea2acbd97ccc3deb033e1458de0927e338c105e9f31d0f492c1515db9753fa",
+        "prompt_tokens": 2247,
+        "source_task_id": "wikisql-page-aaaed51dfb7c83604f65"
+      },
+      {
+        "case_id": "adapt-view-fb01c20d23c4147b6a8bac8a",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 493,
+        "prompt_hash": "202073f1c225e50013d9d3599e3adf335443c4f2c9d54c3926e4c0f062beb428",
+        "prompt_tokens": 2579,
+        "source_task_id": "wikisql-page-9245bc081e6e096c6df8"
+      },
+      {
+        "case_id": "adapt-view-0a6511f2a50884976179055c",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "87da23dc54523cbc0f1333904063a434617f08223d6ede03a4d17146920ac941",
+        "prompt_tokens": 2110,
+        "source_task_id": "wikisql-page-9245bc081e6e096c6df8"
+      },
+      {
+        "case_id": "adapt-view-4fe2853f435f3c58e313ffaf",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "a5a53094c039e66801c6125f714e49b4a08db75a729ba62b56104577737bd81d",
+        "prompt_tokens": 3663,
+        "source_task_id": "wikisql-page-9245bc081e6e096c6df8"
+      },
+      {
+        "case_id": "adapt-view-abc7b578f17897c35850e839",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "52eb0d2270048831a1564f512f877b8af478ec7db1c9aa74d40c5b23f0a2461b",
+        "prompt_tokens": 2157,
+        "source_task_id": "wikisql-page-9245bc081e6e096c6df8"
+      },
+      {
+        "case_id": "adapt-view-0b8b703a1067f0f1ef95daef",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 27,
+        "prompt_hash": "fee123bb9d374272e72c30500e19fe7929922a8587e75546b3f35633c97aa4dd",
+        "prompt_tokens": 3045,
+        "source_task_id": "wikisql-page-5b7819065f71c173a665"
+      },
+      {
+        "case_id": "adapt-view-5735ed351ecf57539856de1c",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 498,
+        "prompt_hash": "e76bb9625a1c4eaf6febf006c3b653751839073597328679f177522e05dfe454",
+        "prompt_tokens": 2574,
+        "source_task_id": "wikisql-page-5b7819065f71c173a665"
+      },
+      {
+        "case_id": "adapt-view-c7e9c59303c7b20965ef310b",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "fc7c99dfe0d9562768684dc99cc7dc3df8eff2568faa3abc024235889757feb4",
+        "prompt_tokens": 4377,
+        "source_task_id": "wikisql-page-5b7819065f71c173a665"
+      },
+      {
+        "case_id": "adapt-view-60bb6203e0abf4919d424db5",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 449,
+        "prompt_hash": "2836c198935c5cd70e217f0bf1e03222010b66ca8aaee9f0b7f3264bb1502e9c",
+        "prompt_tokens": 2623,
+        "source_task_id": "wikisql-page-5b7819065f71c173a665"
+      },
+      {
+        "case_id": "adapt-view-9bb66625674ddf669c858d1a",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "5b28687d7a9d2e4eab0466e76c04882ad314359f9aeb366bf8e09e99385aca8c",
+        "prompt_tokens": 2239,
+        "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6"
+      },
+      {
+        "case_id": "adapt-view-efc10d03d680718ccdd4f2ef",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "2cb88f7bf715a777e3e05dc618c36ddc60a6d1d0db3a25ac22e035797ce65e25",
+        "prompt_tokens": 1792,
+        "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6"
+      },
+      {
+        "case_id": "adapt-view-1bcdf27bb0885a2dd56cec19",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "2311c0180d8220941ddcfa755d4b5f317f324c237bc87339e7b0cc707aba202c",
+        "prompt_tokens": 3161,
+        "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6"
+      },
+      {
+        "case_id": "adapt-view-e1a236a3a50ac6938fc550d9",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "e69b9aea6d437d71c516c085f1735db67b720baedf9659b35b5b734799f3a447",
+        "prompt_tokens": 1831,
+        "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6"
+      },
+      {
+        "case_id": "adapt-view-25b50eeb63048b3fb7771a45",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "1a49d31144068426af45a702486081bb742d6d927b2269fe451ff820bb05847e",
+        "prompt_tokens": 3257,
+        "source_task_id": "wikisql-page-953313362984970dff33"
+      },
+      {
+        "case_id": "adapt-view-bfb9d92fb54d33e246b366e5",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 260,
+        "prompt_hash": "e5740fc9b363c791428b971279534ff68d2f2537b2fd5d5281c3cbb327eb92da",
+        "prompt_tokens": 2812,
+        "source_task_id": "wikisql-page-953313362984970dff33"
+      },
+      {
+        "case_id": "adapt-view-1dafcbe615f464e70b241f54",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "0ed43add93254f69ceb543a957c7b59ec65bd58e2c55b065b6442d76d5dcd5cd",
+        "prompt_tokens": 4691,
+        "source_task_id": "wikisql-page-953313362984970dff33"
+      },
+      {
+        "case_id": "adapt-view-fe6947507bd49d70e9972272",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 221,
+        "prompt_hash": "b6740c5772cfa7c95ed97491d5a6af8107d54e5e098f321fbf129b89b606edfc",
+        "prompt_tokens": 2851,
+        "source_task_id": "wikisql-page-953313362984970dff33"
+      },
+      {
+        "case_id": "adapt-view-8c15fadda0953a8437bf3e84",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 443,
+        "prompt_hash": "362483a93f3292ac690563f0e6d34793495885fa068dab06733308ddadf6831f",
+        "prompt_tokens": 2629,
+        "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff"
+      },
+      {
+        "case_id": "adapt-view-b5feabf8c00f2f9717944a16",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "7d357840a5e398e6362b2d4cb3a03223a8df10c36062b9a1c92258d6046ed588",
+        "prompt_tokens": 2180,
+        "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff"
+      },
+      {
+        "case_id": "adapt-view-ac19f73f40735bc9e0550e3b",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "bc710252e6a7acd5be71ee9547da85e95f423d871f7b7141e010a3d934bcdb19",
+        "prompt_tokens": 3765,
+        "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff"
+      },
+      {
+        "case_id": "adapt-view-caaa974f09ae1a9a8bee962b",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "b470c937cdd9d36d78ef7610be1f0696a6c9eded80b3f2be74f62673f9959695",
+        "prompt_tokens": 2215,
+        "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff"
+      },
+      {
+        "case_id": "adapt-view-16913f1a86d76ef63ab238fe",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "ae0ab53d4b81d13f07aa4f124458b11ca4d67166eb5848e654206f52d9fdf13b",
+        "prompt_tokens": 2387,
+        "source_task_id": "wikisql-page-c743090a61cfde53f8a9"
+      },
+      {
+        "case_id": "adapt-view-f0e53543de06006e33a55fdb",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "420a7733427c0e42049b077728992b916d6d7dda0423342053ecf37871767395",
+        "prompt_tokens": 1948,
+        "source_task_id": "wikisql-page-c743090a61cfde53f8a9"
+      },
+      {
+        "case_id": "adapt-view-8502ef665190dcabfc854d3c",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "dee67cf0b68d95fdb14eaa019f647fafc5736e2c330118f0d4fa316394eb0eb9",
+        "prompt_tokens": 3421,
+        "source_task_id": "wikisql-page-c743090a61cfde53f8a9"
+      },
+      {
+        "case_id": "adapt-view-54c37d774bb9a9adc554c39a",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "c445af148f67bcd4ca280008447c2c6a4aaa1fbdb32ac908d61e5fc07ca9c9c1",
+        "prompt_tokens": 1985,
+        "source_task_id": "wikisql-page-c743090a61cfde53f8a9"
+      },
+      {
+        "case_id": "adapt-view-c4accf41faa82b8cf269f9e3",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "d3216d76570e5ad53078f6ca8c066aab61ab6a4f57fc7296a431752affbdc81d",
+        "prompt_tokens": 2435,
+        "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f"
+      },
+      {
+        "case_id": "adapt-view-5d3007960e56ac16e00272ee",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "b0149c2ab44c7a1cbf8ea2c7e35066d7fb04147b62013b1ecc72a1c52917fe73",
+        "prompt_tokens": 1952,
+        "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f"
+      },
+      {
+        "case_id": "adapt-view-1cfce032ed5292091725b3a1",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "5fecbcaa92fe30156d796f353710c109e2ad1a8f786e956e1f3ca42bc133c0fc",
+        "prompt_tokens": 3427,
+        "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f"
+      },
+      {
+        "case_id": "adapt-view-cf4232311c221d4a61412e16",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "99d136a1ce8c48a0960019415214a595aa58350aa835a906e13cfeecf4b5e78c",
+        "prompt_tokens": 2007,
+        "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f"
+      },
+      {
+        "case_id": "adapt-view-5f533274d94a737831df795f",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 15,
+        "prompt_hash": "62dbabdd89f74282bec0b2c829d1ff51994e6f5279445925ea5b2d8846a6eb1e",
+        "prompt_tokens": 3057,
+        "source_task_id": "wikisql-page-d4b7622727afc6d36c2c"
+      },
+      {
+        "case_id": "adapt-view-6d1344155465d044d2581405",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 482,
+        "prompt_hash": "30648eb2d6ff530f2b786cc2bd101c33b7b3dc54fd9e150043bb1337bdb9c010",
+        "prompt_tokens": 2590,
+        "source_task_id": "wikisql-page-d4b7622727afc6d36c2c"
+      },
+      {
+        "case_id": "adapt-view-58f9cb5f732ebc6739f69c02",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "951db7c136c6473f083b428df1c1b9cab3d27a3e421aa6d8984b7081ddcb9b01",
+        "prompt_tokens": 4363,
+        "source_task_id": "wikisql-page-d4b7622727afc6d36c2c"
+      },
+      {
+        "case_id": "adapt-view-0a88d7b76922fc2766ac1e89",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 435,
+        "prompt_hash": "a5d2d975ab7efead8232e882b6d96a7097438755112cf7c707bf5738bf9fed1f",
+        "prompt_tokens": 2637,
+        "source_task_id": "wikisql-page-d4b7622727afc6d36c2c"
+      },
+      {
+        "case_id": "adapt-view-f103193073228497eb087d3a",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "39a06e9224416e999d9d46b300c42ab5ea4d8442be036227b33817579ad60d26",
+        "prompt_tokens": 2497,
+        "source_task_id": "wikisql-page-03a77fae7a4d9f79f991"
+      },
+      {
+        "case_id": "adapt-view-84460fce11c8ed15ac4a4550",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "9547bce8392e6c94c22e45c29d64d4fe80f62e14cb6ffc37412b3f7b694bc766",
+        "prompt_tokens": 2026,
+        "source_task_id": "wikisql-page-03a77fae7a4d9f79f991"
+      },
+      {
+        "case_id": "adapt-view-ba5c7ff4fd01014647db99b9",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "4745f067bcc180712d6c2f88304283cd035498f0120469ac1c557d173d345786",
+        "prompt_tokens": 3507,
+        "source_task_id": "wikisql-page-03a77fae7a4d9f79f991"
+      },
+      {
+        "case_id": "adapt-view-3aece108766e640719ebda99",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "27ee43d0502a9d7f9503356e1ba514e37615481f723bd94b7c809419c84869d0",
+        "prompt_tokens": 2067,
+        "source_task_id": "wikisql-page-03a77fae7a4d9f79f991"
+      },
+      {
+        "case_id": "adapt-view-2b414ee83a7d655a32ecdfbb",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "1300cdd44f2098d00a704cf6fd22eea74352954ff7ac396c1394f0d6238d4be0",
+        "prompt_tokens": 2333,
+        "source_task_id": "wikisql-page-bcad335dd883cd0d2619"
+      },
+      {
+        "case_id": "adapt-view-3562025760eb88e9d300b588",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "555cb7f1bab367477c360cb1ef6365da916f99da7e1941b74219561a662a4197",
+        "prompt_tokens": 1880,
+        "source_task_id": "wikisql-page-bcad335dd883cd0d2619"
+      },
+      {
+        "case_id": "adapt-view-a425f3f0d99de3fd57d1293f",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "66f179ca2c22c721c8772d9bb5f26434bae4ed5563c71eb75959a814d23ba0f2",
+        "prompt_tokens": 3267,
+        "source_task_id": "wikisql-page-bcad335dd883cd0d2619"
+      },
+      {
+        "case_id": "adapt-view-b38cf3dbfff185783e4dac13",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "221d13294cadb315ba5d05041cdbbc030a99525446f103b78e46644d6bc5630c",
+        "prompt_tokens": 1919,
+        "source_task_id": "wikisql-page-bcad335dd883cd0d2619"
+      },
+      {
+        "case_id": "adapt-view-82e043ed30f70a3be3191095",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "e9686640fffe86a074ddaf9fafc460eebf6b821d655e3d289286456f49631df0",
+        "prompt_tokens": 2317,
+        "source_task_id": "wikisql-page-a384ce91f5c966901456"
+      },
+      {
+        "case_id": "adapt-view-7d389bcb1df90ef0482c08ed",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "b01103ebeed15641de78938d4dc14a441c6bd7167749ac88d021bfa16e862391",
+        "prompt_tokens": 1866,
+        "source_task_id": "wikisql-page-a384ce91f5c966901456"
+      },
+      {
+        "case_id": "adapt-view-83605622f4fc4c31396c7c65",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "60057fe80370291c4e7dce3010b053338dd891c8276ae3cdd57a3562e13c75f0",
+        "prompt_tokens": 3303,
+        "source_task_id": "wikisql-page-a384ce91f5c966901456"
+      },
+      {
+        "case_id": "adapt-view-fa01d58642c23195cbf3a234",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "7535e9cf64b1f2097e397564d75a89f0f9dd3cab13f66673d711163e98ec5881",
+        "prompt_tokens": 1901,
+        "source_task_id": "wikisql-page-a384ce91f5c966901456"
+      },
+      {
+        "case_id": "natural-b6ac6d53a25c77f11a861b05",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 401,
+        "prompt_hash": "b2d6f7f5f1da145f21708ed0a76e185317dd2df5014c176683556131675b89de",
+        "prompt_tokens": 2671,
+        "source_task_id": "wikisql-page-aaaed51dfb7c83604f65"
+      },
+      {
+        "case_id": "natural-35ae808ce1cc23a05fa07cb2",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "ebea2acbd97ccc3deb033e1458de0927e338c105e9f31d0f492c1515db9753fa",
+        "prompt_tokens": 2247,
+        "source_task_id": "wikisql-page-aaaed51dfb7c83604f65"
+      },
+      {
+        "case_id": "natural-daf2480f81fe83e9cbf00c49",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 409,
+        "prompt_hash": "08097e762d3a21623c8b2e1bb0ac9548e379977f66b196029f3cbaae0cfa4c14",
+        "prompt_tokens": 2663,
+        "source_task_id": "wikisql-page-9245bc081e6e096c6df8"
+      },
+      {
+        "case_id": "natural-05b92c351fd9a8d77ae5cdeb",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "a0190474c9fe0b0c2d70eab3367b63fde77e6ada39b0df31cb0dc4d3e79ce57a",
+        "prompt_tokens": 2205,
+        "source_task_id": "wikisql-page-9245bc081e6e096c6df8"
+      },
+      {
+        "case_id": "natural-583825220bdb5af2ea042b1a",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "6bbfbada2205205a7001a1e0681e6849505c1089fe1cfc4ca125b645b255e4d3",
+        "prompt_tokens": 2536,
+        "source_task_id": "wikisql-page-5b7819065f71c173a665"
+      },
+      {
+        "case_id": "natural-0cd8f6fec9be8efc1088b145",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "febedccc8fe9470881a8c32acd408d52fef1b71dcc3f989fe64451b7b41f9a3a",
+        "prompt_tokens": 2537,
+        "source_task_id": "wikisql-page-5b7819065f71c173a665"
+      },
+      {
+        "case_id": "natural-f17035ed02706212a1e51205",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "5b28687d7a9d2e4eab0466e76c04882ad314359f9aeb366bf8e09e99385aca8c",
+        "prompt_tokens": 2239,
+        "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6"
+      },
+      {
+        "case_id": "natural-09aea4ea0de4c0572b67a498",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "e69b9aea6d437d71c516c085f1735db67b720baedf9659b35b5b734799f3a447",
+        "prompt_tokens": 1831,
+        "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6"
+      },
+      {
+        "case_id": "natural-64584bb7e3102f7fc7227c4a",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 298,
+        "prompt_hash": "3e47c919491f4248a857d6cedc1e686d44e6abb8eb37c1e3f63bacb3aede700c",
+        "prompt_tokens": 2774,
+        "source_task_id": "wikisql-page-953313362984970dff33"
+      },
+      {
+        "case_id": "natural-74e164819222c8b46c193743",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 297,
+        "prompt_hash": "767fca348c6306643f3df318d5a7dd68e9db6be8aa1709825e13ab8b01ea2358",
+        "prompt_tokens": 2775,
+        "source_task_id": "wikisql-page-953313362984970dff33"
+      },
+      {
+        "case_id": "natural-f3446afe2b7fb60c4f298a26",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 443,
+        "prompt_hash": "e6d6213c871a8c5288cb88f561a3fbc3150a260fb731eef1cd3ecb84482170ae",
+        "prompt_tokens": 2629,
+        "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff"
+      },
+      {
+        "case_id": "natural-41ad9710146236bb90755e38",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "b470c937cdd9d36d78ef7610be1f0696a6c9eded80b3f2be74f62673f9959695",
+        "prompt_tokens": 2215,
+        "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff"
+      },
+      {
+        "case_id": "natural-30769a77d8123342f970f424",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "7972933bd018597b15f427a92367e39505dec3cc18d0f4c1a6c590355b30f54f",
+        "prompt_tokens": 2387,
+        "source_task_id": "wikisql-page-c743090a61cfde53f8a9"
+      },
+      {
+        "case_id": "natural-11af22081d38594cdc1f5f96",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "f245fee6907f7c0d9654ff4552ce544009f55b115c26eaaa9314a7fb8be98e6a",
+        "prompt_tokens": 1985,
+        "source_task_id": "wikisql-page-c743090a61cfde53f8a9"
+      },
+      {
+        "case_id": "natural-7403a2ddf948f9c8657ea125",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "d3216d76570e5ad53078f6ca8c066aab61ab6a4f57fc7296a431752affbdc81d",
+        "prompt_tokens": 2435,
+        "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f"
+      },
+      {
+        "case_id": "natural-62b040b5f253d8df3b32fc14",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "99d136a1ce8c48a0960019415214a595aa58350aa835a906e13cfeecf4b5e78c",
+        "prompt_tokens": 2007,
+        "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f"
+      },
+      {
+        "case_id": "natural-22de4e05e3f8418e4398d6a0",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 15,
+        "prompt_hash": "e69db12478b62fe88290e59e7b171cd3547c831b91dae4d24ececfbe9b8db96a",
+        "prompt_tokens": 3057,
+        "source_task_id": "wikisql-page-d4b7622727afc6d36c2c"
+      },
+      {
+        "case_id": "natural-b3f59bb166b15ec08b950a24",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 435,
+        "prompt_hash": "a5d2d975ab7efead8232e882b6d96a7097438755112cf7c707bf5738bf9fed1f",
+        "prompt_tokens": 2637,
+        "source_task_id": "wikisql-page-d4b7622727afc6d36c2c"
+      },
+      {
+        "case_id": "natural-ac40e69241e8d234fdd025c9",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "ab1e15c0b71c415bc28afc248e6bd95c6e74d93d22d34f732779db051b0e5211",
+        "prompt_tokens": 2489,
+        "source_task_id": "wikisql-page-03a77fae7a4d9f79f991"
+      },
+      {
+        "case_id": "natural-94259b7f327029350a1b5c51",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "64031a2d45fee3ab5f2e8e210db7b2dfa40304d893a29f0a3419d20e11df8d17",
+        "prompt_tokens": 2067,
+        "source_task_id": "wikisql-page-03a77fae7a4d9f79f991"
+      },
+      {
+        "case_id": "natural-b381f7d9b3cbfcaf4bc805d8",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "1300cdd44f2098d00a704cf6fd22eea74352954ff7ac396c1394f0d6238d4be0",
+        "prompt_tokens": 2333,
+        "source_task_id": "wikisql-page-bcad335dd883cd0d2619"
+      },
+      {
+        "case_id": "natural-2388fb0237b94f67187288b2",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "221d13294cadb315ba5d05041cdbbc030a99525446f103b78e46644d6bc5630c",
+        "prompt_tokens": 1919,
+        "source_task_id": "wikisql-page-bcad335dd883cd0d2619"
+      },
+      {
+        "case_id": "natural-3b4e51c7f4b2caba699fc6ac",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "a18ea54028ebba85fd1525b98af27f0264807dfe1ca99b241219deb801abd489",
+        "prompt_tokens": 2317,
+        "source_task_id": "wikisql-page-a384ce91f5c966901456"
+      },
+      {
+        "case_id": "natural-58a16a3fc630021a17da8135",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "7535e9cf64b1f2097e397564d75a89f0f9dd3cab13f66673d711163e98ec5881",
+        "prompt_tokens": 1901,
+        "source_task_id": "wikisql-page-a384ce91f5c966901456"
+      }
+    ],
+    "scope": "development",
+    "token_budget": 8192,
+    "warning": "Zero-shot public prompt lengths only. No gold, human labels, few-shot targets, training memory or formal budget approval are inferred."
+  },
+  "4096": {
+    "cannot_generate": 3,
+    "cannot_reserve_full_generation": 6,
+    "cases_hash": "d37d1951c1d070d246315d507a968877586b069e1ae388d81b100579afdf4329",
+    "context_limit": 4096,
+    "fewshot_audited": false,
+    "formal_length_compute_review_complete": false,
+    "max_new_tokens": 512,
+    "max_prompt_tokens": 4691,
+    "min_prompt_tokens": 727,
+    "prompt_only": true,
+    "reviewed_training_target_lengths_audited": false,
+    "rows": [
+      {
+        "case_id": "exec-dev-decimal-rounding-trace-834f9552395cd8fd",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "f24d71f259b0f0df3b78a4cbe5c4e5f52650e630f2b6777be9134b218d67970c",
+        "prompt_tokens": 1339,
+        "source_task_id": "dev-decimal-rounding"
+      },
+      {
+        "case_id": "exec-dev-history-restoration-trace-74c1e2cfba910f22",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "c387cfdfbd75c6f86aa8c776959c4bcdb21767f2ccb645103cad756b3ccb9bb4",
+        "prompt_tokens": 789,
+        "source_task_id": "dev-history-restoration"
+      },
+      {
+        "case_id": "exec-dev-interval-endpoint-trace-4d7247690fcaa72d",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "464ec29a5e666406a8a8368f32866fb842572a96f5c61a3114c0528dac93c112",
+        "prompt_tokens": 1253,
+        "source_task_id": "dev-interval-endpoint"
+      },
+      {
+        "case_id": "exec-dev-literal-identifiers-trace-97e9ace4b12c74ff",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "eb9aee7ce389ffe2af60978a05baa9746b280e8b41dc6dbcaa3bdadcb90867b0",
+        "prompt_tokens": 810,
+        "source_task_id": "dev-literal-identifiers"
+      },
+      {
+        "case_id": "exec-dev-missing-vs-null-trace-d771b529e0b959d4",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "d0bd07e777cf1ad152995f19cace92e2cd4fd98239b2592e7b2ae3ac47afe295",
+        "prompt_tokens": 862,
+        "source_task_id": "dev-missing-vs-null"
+      },
+      {
+        "case_id": "exec-dev-stable-ordering-trace-e7c11854d233f5ce",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "8e95bf93ccb8ca9a376a6eeb6a56dce42f51db8113ef8eef7213b136b4047d95",
+        "prompt_tokens": 833,
+        "source_task_id": "dev-stable-ordering"
+      },
+      {
+        "case_id": "exec-dev-timezone-boundary-trace-5a376c7827bfa1e2",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "2c4ff6e18f4c363e53b8fadf6b4e8dd645c996395f8ff644a820f6665f405a3d",
+        "prompt_tokens": 1538,
+        "source_task_id": "dev-timezone-boundary"
+      },
+      {
+        "case_id": "exec-dev-unicode-normalization-trace-70898244faee2922",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "dab76b77562eb8f8550b5d3f23240bd94a9de0fe0515deba3721364927778c19",
+        "prompt_tokens": 769,
+        "source_task_id": "dev-unicode-normalization"
+      },
+      {
+        "case_id": "natural-08c7bcf78c84951a941fd026",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "229edd3810d773b8a96aa003966a8f41d5e714d8c5ad5e6f8bad32ffa24055f8",
+        "prompt_tokens": 950,
+        "source_task_id": "train-candidate-cluster-stable_sort"
+      },
+      {
+        "case_id": "natural-0f9e32128793b1406fce8f4f",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "c6dc40264964f50d9279deece6cb2f50d757dc17ea2bba3b6012cfcaf8b9b5b7",
+        "prompt_tokens": 1411,
+        "source_task_id": "train-candidate-cluster-stable_sort"
+      },
+      {
+        "case_id": "natural-2d3cc473b012e075491d9fa6",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "ff7b938cde670171ae28240000454b5549b12d723dc5463f3ab95332d1cd5209",
+        "prompt_tokens": 913,
+        "source_task_id": "train-candidate-cluster-decimal_round"
+      },
+      {
+        "case_id": "natural-36e4dc84091b5cc4d28bb307",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "c4401d6221e11e386da71558017758f4a0fb3861e0bf4cdaba488335e43e1d79",
+        "prompt_tokens": 1386,
+        "source_task_id": "train-candidate-cluster-stable_sort"
+      },
+      {
+        "case_id": "natural-3db1fa40f94280a6ae288da4",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "c19e0374c4b38e9db0b8e71c3e1d187eea2ab2b9c0d02cae04acc759b1a6b5cf",
+        "prompt_tokens": 923,
+        "source_task_id": "train-candidate-cluster-decimal_round"
+      },
+      {
+        "case_id": "natural-5b200f7e3f60ee2ba1120ac1",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "bb7ab486bc9174283b1b2e228f8b70132092b330ea497ab7e633350a2d5b0378",
+        "prompt_tokens": 884,
+        "source_task_id": "train-candidate-cluster-key_present"
+      },
+      {
+        "case_id": "natural-64a0540d181a457471bd9c4e",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "d2d04a42943824f3299a04d25c456732becaa6c49f515e7e84eb03f91d031aef",
+        "prompt_tokens": 946,
+        "source_task_id": "train-candidate-cluster-stable_sort"
+      },
+      {
+        "case_id": "natural-67d0c5a257b605448a72093d",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "0111c0d98ca0ba89bb76984ba0fe9578080f94aad5beaead56db2b352b703d63",
+        "prompt_tokens": 1046,
+        "source_task_id": "train-candidate-cluster-key_present"
+      },
+      {
+        "case_id": "natural-67d435ee06b446260af61152",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "f91ebe80b6b0a9333cc4e444c2a691c8a876b764cd60beb09dad5b19360bd6c1",
+        "prompt_tokens": 728,
+        "source_task_id": "train-candidate-cluster-unicode_nfc"
+      },
+      {
+        "case_id": "natural-6f7932aa3601be49cacb2a4e",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "03b7bdefc5b61454d90836a60ae5197123d1ede6070be9e0d08be6c9fb62bba7",
+        "prompt_tokens": 815,
+        "source_task_id": "train-candidate-cluster-key_present"
+      },
+      {
+        "case_id": "natural-83a635d6b8be5203ac39fcdc",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "5092b344eafd33338b0d6d5b3b063603522b4592dbd8d3ccc673c6ce68faac9a",
+        "prompt_tokens": 1031,
+        "source_task_id": "train-candidate-cluster-key_present"
+      },
+      {
+        "case_id": "natural-8a579ff69e00f31ec81f8c7a",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "72b4a713578bbf37aa31ee26990127a9fd979e04ca5ee897aa8b7f43659f1913",
+        "prompt_tokens": 764,
+        "source_task_id": "train-candidate-cluster-unicode_nfc"
+      },
+      {
+        "case_id": "natural-8ace3593d869e50da1c3e13a",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "04e783be32097136b83bfa3c114e26970b0080f3148562f24cbcf2c4f35964a5",
+        "prompt_tokens": 929,
+        "source_task_id": "train-candidate-cluster-decimal_round"
+      },
+      {
+        "case_id": "natural-9263c7e93b85e43f4500aca6",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "57c7dbae30db5a118356699815d8fcadf35120e2c5712d76559f8465f2694654",
+        "prompt_tokens": 1379,
+        "source_task_id": "train-candidate-cluster-decimal_round"
+      },
+      {
+        "case_id": "natural-ac612770e8ca018cf12e0306",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "d19586d9e83342af9cb4291278e79fbef977dbbda9bb317b5a27cdb19067a415",
+        "prompt_tokens": 765,
+        "source_task_id": "train-candidate-cluster-unicode_nfc"
+      },
+      {
+        "case_id": "natural-ad907af5b03cb586ed043e48",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "333fde9f0e110a1a5ced36aeceee497668e468a8ad8d04bae225cff0f11cd072",
+        "prompt_tokens": 1365,
+        "source_task_id": "train-candidate-cluster-decimal_round"
+      },
+      {
+        "case_id": "natural-b40377fb0b95792132d77561",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "3a099033eaf17802199e8923ae2bd63795ee4399e6600c133d4ac95b87313053",
+        "prompt_tokens": 777,
+        "source_task_id": "train-candidate-cluster-unicode_nfc"
+      },
+      {
+        "case_id": "natural-c6e1addb90cf379273c497ce",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "f1041a02334655feb7f04209d6736e29462b5b6a703b1511f935b94d719af9b3",
+        "prompt_tokens": 1324,
+        "source_task_id": "train-candidate-cluster-key_present"
+      },
+      {
+        "case_id": "natural-c8b215d069baf653f41f266c",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "97bc0de46b4d01bc874658b746c62b1432bf1edb8d5c9e8ff9dbc9242bf9481a",
+        "prompt_tokens": 740,
+        "source_task_id": "train-candidate-cluster-unicode_nfc"
+      },
+      {
+        "case_id": "natural-db099b073a47b749c633e8cd",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "8974df4d80accbe362c89814fa71ae2eeb9b6fe1ca735f0592a360dcaa3589d7",
+        "prompt_tokens": 1420,
+        "source_task_id": "train-candidate-cluster-stable_sort"
+      },
+      {
+        "case_id": "natural-f13bd1065283b2f49f1b8007",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "35c11291d3f704bc59e1a863130751af48592b6584f6bf3d4fb4e708c772abfd",
+        "prompt_tokens": 830,
+        "source_task_id": "train-candidate-cluster-key_present"
+      },
+      {
+        "case_id": "natural-f1d58cac339d4839495c2893",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "a10114e3dd1ea42ffb18a711463d01d40ef2c70cf77e73723e2bcfe7d9ac304d",
+        "prompt_tokens": 928,
+        "source_task_id": "train-candidate-cluster-stable_sort"
+      },
+      {
+        "case_id": "natural-fbd045f81e88d0b76e3d39ad",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "b4c1f41a8b065427ee3d4e5b624574a64ccd438a45e6bb0c6551a5eee5196892",
+        "prompt_tokens": 727,
+        "source_task_id": "train-candidate-cluster-unicode_nfc"
+      },
+      {
+        "case_id": "natural-ff14b618ff6d0e39b65ed684",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "51bc036056c696466d01cb2e72bbefef671ef132090034d684f503fd7c53c2ab",
+        "prompt_tokens": 1373,
+        "source_task_id": "train-candidate-cluster-decimal_round"
+      },
+      {
+        "case_id": "adapt-view-99222fefb4572ab0f7c5c9f4",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "b2d6f7f5f1da145f21708ed0a76e185317dd2df5014c176683556131675b89de",
+        "prompt_tokens": 2671,
+        "source_task_id": "wikisql-page-aaaed51dfb7c83604f65"
+      },
+      {
+        "case_id": "adapt-view-d2319452e46433401c975761",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "3f255ee198a4a9d8000c2a0c868b49f7ebc5c65fe3147b2819c4a859f45a6c6c",
+        "prompt_tokens": 2206,
+        "source_task_id": "wikisql-page-aaaed51dfb7c83604f65"
+      },
+      {
+        "case_id": "adapt-view-b1a3de4a994e06339d959bb5",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 281,
+        "prompt_hash": "d094403df7e66fb2e5b0896e4e6509b626b14184096281136d2cf8637ea02e4d",
+        "prompt_tokens": 3815,
+        "source_task_id": "wikisql-page-aaaed51dfb7c83604f65"
+      },
+      {
+        "case_id": "adapt-view-bd0706d6c59a5cbaa5cd2ccc",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "ebea2acbd97ccc3deb033e1458de0927e338c105e9f31d0f492c1515db9753fa",
+        "prompt_tokens": 2247,
+        "source_task_id": "wikisql-page-aaaed51dfb7c83604f65"
+      },
+      {
+        "case_id": "adapt-view-fb01c20d23c4147b6a8bac8a",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "202073f1c225e50013d9d3599e3adf335443c4f2c9d54c3926e4c0f062beb428",
+        "prompt_tokens": 2579,
+        "source_task_id": "wikisql-page-9245bc081e6e096c6df8"
+      },
+      {
+        "case_id": "adapt-view-0a6511f2a50884976179055c",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "87da23dc54523cbc0f1333904063a434617f08223d6ede03a4d17146920ac941",
+        "prompt_tokens": 2110,
+        "source_task_id": "wikisql-page-9245bc081e6e096c6df8"
+      },
+      {
+        "case_id": "adapt-view-4fe2853f435f3c58e313ffaf",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 433,
+        "prompt_hash": "a5a53094c039e66801c6125f714e49b4a08db75a729ba62b56104577737bd81d",
+        "prompt_tokens": 3663,
+        "source_task_id": "wikisql-page-9245bc081e6e096c6df8"
+      },
+      {
+        "case_id": "adapt-view-abc7b578f17897c35850e839",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "52eb0d2270048831a1564f512f877b8af478ec7db1c9aa74d40c5b23f0a2461b",
+        "prompt_tokens": 2157,
+        "source_task_id": "wikisql-page-9245bc081e6e096c6df8"
+      },
+      {
+        "case_id": "adapt-view-0b8b703a1067f0f1ef95daef",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "fee123bb9d374272e72c30500e19fe7929922a8587e75546b3f35633c97aa4dd",
+        "prompt_tokens": 3045,
+        "source_task_id": "wikisql-page-5b7819065f71c173a665"
+      },
+      {
+        "case_id": "adapt-view-5735ed351ecf57539856de1c",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "e76bb9625a1c4eaf6febf006c3b653751839073597328679f177522e05dfe454",
+        "prompt_tokens": 2574,
+        "source_task_id": "wikisql-page-5b7819065f71c173a665"
+      },
+      {
+        "case_id": "adapt-view-c7e9c59303c7b20965ef310b",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "fc7c99dfe0d9562768684dc99cc7dc3df8eff2568faa3abc024235889757feb4",
+        "prompt_tokens": 4377,
+        "source_task_id": "wikisql-page-5b7819065f71c173a665"
+      },
+      {
+        "case_id": "adapt-view-60bb6203e0abf4919d424db5",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "2836c198935c5cd70e217f0bf1e03222010b66ca8aaee9f0b7f3264bb1502e9c",
+        "prompt_tokens": 2623,
+        "source_task_id": "wikisql-page-5b7819065f71c173a665"
+      },
+      {
+        "case_id": "adapt-view-9bb66625674ddf669c858d1a",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "5b28687d7a9d2e4eab0466e76c04882ad314359f9aeb366bf8e09e99385aca8c",
+        "prompt_tokens": 2239,
+        "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6"
+      },
+      {
+        "case_id": "adapt-view-efc10d03d680718ccdd4f2ef",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "2cb88f7bf715a777e3e05dc618c36ddc60a6d1d0db3a25ac22e035797ce65e25",
+        "prompt_tokens": 1792,
+        "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6"
+      },
+      {
+        "case_id": "adapt-view-1bcdf27bb0885a2dd56cec19",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "2311c0180d8220941ddcfa755d4b5f317f324c237bc87339e7b0cc707aba202c",
+        "prompt_tokens": 3161,
+        "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6"
+      },
+      {
+        "case_id": "adapt-view-e1a236a3a50ac6938fc550d9",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "e69b9aea6d437d71c516c085f1735db67b720baedf9659b35b5b734799f3a447",
+        "prompt_tokens": 1831,
+        "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6"
+      },
+      {
+        "case_id": "adapt-view-25b50eeb63048b3fb7771a45",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "1a49d31144068426af45a702486081bb742d6d927b2269fe451ff820bb05847e",
+        "prompt_tokens": 3257,
+        "source_task_id": "wikisql-page-953313362984970dff33"
+      },
+      {
+        "case_id": "adapt-view-bfb9d92fb54d33e246b366e5",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "e5740fc9b363c791428b971279534ff68d2f2537b2fd5d5281c3cbb327eb92da",
+        "prompt_tokens": 2812,
+        "source_task_id": "wikisql-page-953313362984970dff33"
+      },
+      {
+        "case_id": "adapt-view-1dafcbe615f464e70b241f54",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "0ed43add93254f69ceb543a957c7b59ec65bd58e2c55b065b6442d76d5dcd5cd",
+        "prompt_tokens": 4691,
+        "source_task_id": "wikisql-page-953313362984970dff33"
+      },
+      {
+        "case_id": "adapt-view-fe6947507bd49d70e9972272",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "b6740c5772cfa7c95ed97491d5a6af8107d54e5e098f321fbf129b89b606edfc",
+        "prompt_tokens": 2851,
+        "source_task_id": "wikisql-page-953313362984970dff33"
+      },
+      {
+        "case_id": "adapt-view-8c15fadda0953a8437bf3e84",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "362483a93f3292ac690563f0e6d34793495885fa068dab06733308ddadf6831f",
+        "prompt_tokens": 2629,
+        "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff"
+      },
+      {
+        "case_id": "adapt-view-b5feabf8c00f2f9717944a16",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "7d357840a5e398e6362b2d4cb3a03223a8df10c36062b9a1c92258d6046ed588",
+        "prompt_tokens": 2180,
+        "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff"
+      },
+      {
+        "case_id": "adapt-view-ac19f73f40735bc9e0550e3b",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 331,
+        "prompt_hash": "bc710252e6a7acd5be71ee9547da85e95f423d871f7b7141e010a3d934bcdb19",
+        "prompt_tokens": 3765,
+        "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff"
+      },
+      {
+        "case_id": "adapt-view-caaa974f09ae1a9a8bee962b",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "b470c937cdd9d36d78ef7610be1f0696a6c9eded80b3f2be74f62673f9959695",
+        "prompt_tokens": 2215,
+        "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff"
+      },
+      {
+        "case_id": "adapt-view-16913f1a86d76ef63ab238fe",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "ae0ab53d4b81d13f07aa4f124458b11ca4d67166eb5848e654206f52d9fdf13b",
+        "prompt_tokens": 2387,
+        "source_task_id": "wikisql-page-c743090a61cfde53f8a9"
+      },
+      {
+        "case_id": "adapt-view-f0e53543de06006e33a55fdb",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "420a7733427c0e42049b077728992b916d6d7dda0423342053ecf37871767395",
+        "prompt_tokens": 1948,
+        "source_task_id": "wikisql-page-c743090a61cfde53f8a9"
+      },
+      {
+        "case_id": "adapt-view-8502ef665190dcabfc854d3c",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "dee67cf0b68d95fdb14eaa019f647fafc5736e2c330118f0d4fa316394eb0eb9",
+        "prompt_tokens": 3421,
+        "source_task_id": "wikisql-page-c743090a61cfde53f8a9"
+      },
+      {
+        "case_id": "adapt-view-54c37d774bb9a9adc554c39a",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "c445af148f67bcd4ca280008447c2c6a4aaa1fbdb32ac908d61e5fc07ca9c9c1",
+        "prompt_tokens": 1985,
+        "source_task_id": "wikisql-page-c743090a61cfde53f8a9"
+      },
+      {
+        "case_id": "adapt-view-c4accf41faa82b8cf269f9e3",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "d3216d76570e5ad53078f6ca8c066aab61ab6a4f57fc7296a431752affbdc81d",
+        "prompt_tokens": 2435,
+        "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f"
+      },
+      {
+        "case_id": "adapt-view-5d3007960e56ac16e00272ee",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "b0149c2ab44c7a1cbf8ea2c7e35066d7fb04147b62013b1ecc72a1c52917fe73",
+        "prompt_tokens": 1952,
+        "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f"
+      },
+      {
+        "case_id": "adapt-view-1cfce032ed5292091725b3a1",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "5fecbcaa92fe30156d796f353710c109e2ad1a8f786e956e1f3ca42bc133c0fc",
+        "prompt_tokens": 3427,
+        "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f"
+      },
+      {
+        "case_id": "adapt-view-cf4232311c221d4a61412e16",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "99d136a1ce8c48a0960019415214a595aa58350aa835a906e13cfeecf4b5e78c",
+        "prompt_tokens": 2007,
+        "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f"
+      },
+      {
+        "case_id": "adapt-view-5f533274d94a737831df795f",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "62dbabdd89f74282bec0b2c829d1ff51994e6f5279445925ea5b2d8846a6eb1e",
+        "prompt_tokens": 3057,
+        "source_task_id": "wikisql-page-d4b7622727afc6d36c2c"
+      },
+      {
+        "case_id": "adapt-view-6d1344155465d044d2581405",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "30648eb2d6ff530f2b786cc2bd101c33b7b3dc54fd9e150043bb1337bdb9c010",
+        "prompt_tokens": 2590,
+        "source_task_id": "wikisql-page-d4b7622727afc6d36c2c"
+      },
+      {
+        "case_id": "adapt-view-58f9cb5f732ebc6739f69c02",
+        "full_generation_reservation_fits": false,
+        "generation_allowance": 0,
+        "prompt_hash": "951db7c136c6473f083b428df1c1b9cab3d27a3e421aa6d8984b7081ddcb9b01",
+        "prompt_tokens": 4363,
+        "source_task_id": "wikisql-page-d4b7622727afc6d36c2c"
+      },
+      {
+        "case_id": "adapt-view-0a88d7b76922fc2766ac1e89",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "a5d2d975ab7efead8232e882b6d96a7097438755112cf7c707bf5738bf9fed1f",
+        "prompt_tokens": 2637,
+        "source_task_id": "wikisql-page-d4b7622727afc6d36c2c"
+      },
+      {
+        "case_id": "adapt-view-f103193073228497eb087d3a",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "39a06e9224416e999d9d46b300c42ab5ea4d8442be036227b33817579ad60d26",
+        "prompt_tokens": 2497,
+        "source_task_id": "wikisql-page-03a77fae7a4d9f79f991"
+      },
+      {
+        "case_id": "adapt-view-84460fce11c8ed15ac4a4550",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "9547bce8392e6c94c22e45c29d64d4fe80f62e14cb6ffc37412b3f7b694bc766",
+        "prompt_tokens": 2026,
+        "source_task_id": "wikisql-page-03a77fae7a4d9f79f991"
+      },
+      {
+        "case_id": "adapt-view-ba5c7ff4fd01014647db99b9",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "4745f067bcc180712d6c2f88304283cd035498f0120469ac1c557d173d345786",
+        "prompt_tokens": 3507,
+        "source_task_id": "wikisql-page-03a77fae7a4d9f79f991"
+      },
+      {
+        "case_id": "adapt-view-3aece108766e640719ebda99",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "27ee43d0502a9d7f9503356e1ba514e37615481f723bd94b7c809419c84869d0",
+        "prompt_tokens": 2067,
+        "source_task_id": "wikisql-page-03a77fae7a4d9f79f991"
+      },
+      {
+        "case_id": "adapt-view-2b414ee83a7d655a32ecdfbb",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "1300cdd44f2098d00a704cf6fd22eea74352954ff7ac396c1394f0d6238d4be0",
+        "prompt_tokens": 2333,
+        "source_task_id": "wikisql-page-bcad335dd883cd0d2619"
+      },
+      {
+        "case_id": "adapt-view-3562025760eb88e9d300b588",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "555cb7f1bab367477c360cb1ef6365da916f99da7e1941b74219561a662a4197",
+        "prompt_tokens": 1880,
+        "source_task_id": "wikisql-page-bcad335dd883cd0d2619"
+      },
+      {
+        "case_id": "adapt-view-a425f3f0d99de3fd57d1293f",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "66f179ca2c22c721c8772d9bb5f26434bae4ed5563c71eb75959a814d23ba0f2",
+        "prompt_tokens": 3267,
+        "source_task_id": "wikisql-page-bcad335dd883cd0d2619"
+      },
+      {
+        "case_id": "adapt-view-b38cf3dbfff185783e4dac13",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "221d13294cadb315ba5d05041cdbbc030a99525446f103b78e46644d6bc5630c",
+        "prompt_tokens": 1919,
+        "source_task_id": "wikisql-page-bcad335dd883cd0d2619"
+      },
+      {
+        "case_id": "adapt-view-82e043ed30f70a3be3191095",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "e9686640fffe86a074ddaf9fafc460eebf6b821d655e3d289286456f49631df0",
+        "prompt_tokens": 2317,
+        "source_task_id": "wikisql-page-a384ce91f5c966901456"
+      },
+      {
+        "case_id": "adapt-view-7d389bcb1df90ef0482c08ed",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "b01103ebeed15641de78938d4dc14a441c6bd7167749ac88d021bfa16e862391",
+        "prompt_tokens": 1866,
+        "source_task_id": "wikisql-page-a384ce91f5c966901456"
+      },
+      {
+        "case_id": "adapt-view-83605622f4fc4c31396c7c65",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "60057fe80370291c4e7dce3010b053338dd891c8276ae3cdd57a3562e13c75f0",
+        "prompt_tokens": 3303,
+        "source_task_id": "wikisql-page-a384ce91f5c966901456"
+      },
+      {
+        "case_id": "adapt-view-fa01d58642c23195cbf3a234",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "7535e9cf64b1f2097e397564d75a89f0f9dd3cab13f66673d711163e98ec5881",
+        "prompt_tokens": 1901,
+        "source_task_id": "wikisql-page-a384ce91f5c966901456"
+      },
+      {
+        "case_id": "natural-b6ac6d53a25c77f11a861b05",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "b2d6f7f5f1da145f21708ed0a76e185317dd2df5014c176683556131675b89de",
+        "prompt_tokens": 2671,
+        "source_task_id": "wikisql-page-aaaed51dfb7c83604f65"
+      },
+      {
+        "case_id": "natural-35ae808ce1cc23a05fa07cb2",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "ebea2acbd97ccc3deb033e1458de0927e338c105e9f31d0f492c1515db9753fa",
+        "prompt_tokens": 2247,
+        "source_task_id": "wikisql-page-aaaed51dfb7c83604f65"
+      },
+      {
+        "case_id": "natural-daf2480f81fe83e9cbf00c49",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "08097e762d3a21623c8b2e1bb0ac9548e379977f66b196029f3cbaae0cfa4c14",
+        "prompt_tokens": 2663,
+        "source_task_id": "wikisql-page-9245bc081e6e096c6df8"
+      },
+      {
+        "case_id": "natural-05b92c351fd9a8d77ae5cdeb",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "a0190474c9fe0b0c2d70eab3367b63fde77e6ada39b0df31cb0dc4d3e79ce57a",
+        "prompt_tokens": 2205,
+        "source_task_id": "wikisql-page-9245bc081e6e096c6df8"
+      },
+      {
+        "case_id": "natural-583825220bdb5af2ea042b1a",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "6bbfbada2205205a7001a1e0681e6849505c1089fe1cfc4ca125b645b255e4d3",
+        "prompt_tokens": 2536,
+        "source_task_id": "wikisql-page-5b7819065f71c173a665"
+      },
+      {
+        "case_id": "natural-0cd8f6fec9be8efc1088b145",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "febedccc8fe9470881a8c32acd408d52fef1b71dcc3f989fe64451b7b41f9a3a",
+        "prompt_tokens": 2537,
+        "source_task_id": "wikisql-page-5b7819065f71c173a665"
+      },
+      {
+        "case_id": "natural-f17035ed02706212a1e51205",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "5b28687d7a9d2e4eab0466e76c04882ad314359f9aeb366bf8e09e99385aca8c",
+        "prompt_tokens": 2239,
+        "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6"
+      },
+      {
+        "case_id": "natural-09aea4ea0de4c0572b67a498",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "e69b9aea6d437d71c516c085f1735db67b720baedf9659b35b5b734799f3a447",
+        "prompt_tokens": 1831,
+        "source_task_id": "wikisql-page-c28867a2fbbe5ffc48d6"
+      },
+      {
+        "case_id": "natural-64584bb7e3102f7fc7227c4a",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "3e47c919491f4248a857d6cedc1e686d44e6abb8eb37c1e3f63bacb3aede700c",
+        "prompt_tokens": 2774,
+        "source_task_id": "wikisql-page-953313362984970dff33"
+      },
+      {
+        "case_id": "natural-74e164819222c8b46c193743",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "767fca348c6306643f3df318d5a7dd68e9db6be8aa1709825e13ab8b01ea2358",
+        "prompt_tokens": 2775,
+        "source_task_id": "wikisql-page-953313362984970dff33"
+      },
+      {
+        "case_id": "natural-f3446afe2b7fb60c4f298a26",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "e6d6213c871a8c5288cb88f561a3fbc3150a260fb731eef1cd3ecb84482170ae",
+        "prompt_tokens": 2629,
+        "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff"
+      },
+      {
+        "case_id": "natural-41ad9710146236bb90755e38",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "b470c937cdd9d36d78ef7610be1f0696a6c9eded80b3f2be74f62673f9959695",
+        "prompt_tokens": 2215,
+        "source_task_id": "wikisql-page-a0b98a6ac73c5eb912ff"
+      },
+      {
+        "case_id": "natural-30769a77d8123342f970f424",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "7972933bd018597b15f427a92367e39505dec3cc18d0f4c1a6c590355b30f54f",
+        "prompt_tokens": 2387,
+        "source_task_id": "wikisql-page-c743090a61cfde53f8a9"
+      },
+      {
+        "case_id": "natural-11af22081d38594cdc1f5f96",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "f245fee6907f7c0d9654ff4552ce544009f55b115c26eaaa9314a7fb8be98e6a",
+        "prompt_tokens": 1985,
+        "source_task_id": "wikisql-page-c743090a61cfde53f8a9"
+      },
+      {
+        "case_id": "natural-7403a2ddf948f9c8657ea125",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "d3216d76570e5ad53078f6ca8c066aab61ab6a4f57fc7296a431752affbdc81d",
+        "prompt_tokens": 2435,
+        "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f"
+      },
+      {
+        "case_id": "natural-62b040b5f253d8df3b32fc14",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "99d136a1ce8c48a0960019415214a595aa58350aa835a906e13cfeecf4b5e78c",
+        "prompt_tokens": 2007,
+        "source_task_id": "wikisql-page-7e6927d1eb6f4da4347f"
+      },
+      {
+        "case_id": "natural-22de4e05e3f8418e4398d6a0",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "e69db12478b62fe88290e59e7b171cd3547c831b91dae4d24ececfbe9b8db96a",
+        "prompt_tokens": 3057,
+        "source_task_id": "wikisql-page-d4b7622727afc6d36c2c"
+      },
+      {
+        "case_id": "natural-b3f59bb166b15ec08b950a24",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "a5d2d975ab7efead8232e882b6d96a7097438755112cf7c707bf5738bf9fed1f",
+        "prompt_tokens": 2637,
+        "source_task_id": "wikisql-page-d4b7622727afc6d36c2c"
+      },
+      {
+        "case_id": "natural-ac40e69241e8d234fdd025c9",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "ab1e15c0b71c415bc28afc248e6bd95c6e74d93d22d34f732779db051b0e5211",
+        "prompt_tokens": 2489,
+        "source_task_id": "wikisql-page-03a77fae7a4d9f79f991"
+      },
+      {
+        "case_id": "natural-94259b7f327029350a1b5c51",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "64031a2d45fee3ab5f2e8e210db7b2dfa40304d893a29f0a3419d20e11df8d17",
+        "prompt_tokens": 2067,
+        "source_task_id": "wikisql-page-03a77fae7a4d9f79f991"
+      },
+      {
+        "case_id": "natural-b381f7d9b3cbfcaf4bc805d8",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "1300cdd44f2098d00a704cf6fd22eea74352954ff7ac396c1394f0d6238d4be0",
+        "prompt_tokens": 2333,
+        "source_task_id": "wikisql-page-bcad335dd883cd0d2619"
+      },
+      {
+        "case_id": "natural-2388fb0237b94f67187288b2",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "221d13294cadb315ba5d05041cdbbc030a99525446f103b78e46644d6bc5630c",
+        "prompt_tokens": 1919,
+        "source_task_id": "wikisql-page-bcad335dd883cd0d2619"
+      },
+      {
+        "case_id": "natural-3b4e51c7f4b2caba699fc6ac",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "a18ea54028ebba85fd1525b98af27f0264807dfe1ca99b241219deb801abd489",
+        "prompt_tokens": 2317,
+        "source_task_id": "wikisql-page-a384ce91f5c966901456"
+      },
+      {
+        "case_id": "natural-58a16a3fc630021a17da8135",
+        "full_generation_reservation_fits": true,
+        "generation_allowance": 512,
+        "prompt_hash": "7535e9cf64b1f2097e397564d75a89f0f9dd3cab13f66673d711163e98ec5881",
+        "prompt_tokens": 1901,
+        "source_task_id": "wikisql-page-a384ce91f5c966901456"
+      }
+    ],
+    "scope": "development",
+    "token_budget": 8192,
+    "warning": "Zero-shot public prompt lengths only. No gold, human labels, few-shot targets, training memory or formal budget approval are inferred."
+  }
+}

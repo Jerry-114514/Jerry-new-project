@@ -1,0 +1,14 @@
+{
+  "actual_sequence_tokens": 4096,
+  "files_sha256": {
+    "test.jsonl": "37d68f37456e6450e119d6885b14809fa32d6a1e217937c32a5d3b83fd1a306e",
+    "train.jsonl": "25a520cfe108f9b7362fe09db0d73cfb6327e46fdf8246786c0c4571796a6046",
+    "validation.jsonl": "bd17f4f82ece536cacec398c4b13b130a704702e10b143b68ce52f067f684057"
+  },
+  "formal_training": false,
+  "human_task_labels": false,
+  "scope": "synthetic_hardware_stress_only",
+  "target_tokens_per_example": 11,
+  "test_file_is_deliberately_invalid": true,
+  "warning": "Targets are unrelated synthetic strings. Finite losses or selected exports have no research-quality meaning. Use --defer-test; do not use adapters as experimental endpoints."
+}
