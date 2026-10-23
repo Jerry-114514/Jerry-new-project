@@ -1,0 +1,81 @@
+{
+  "commit": "c8eb676a6c43c5cf84bf81a354442398e49ecf40",
+  "committed_data_and_seed_bindings_verified": true,
+  "declared_provenance": {
+    "procedural-candidates-v3-20261023": {
+      "declared_data_licenses": {
+        "Private research data; public data license not assigned; no third-party source records": 1050
+      },
+      "origins": {
+        "program_generated": 1050
+      }
+    },
+    "procedural-matched-test-candidates-20261023": {
+      "declared_data_licenses": {
+        "Private research data; public data license not assigned; no third-party source records": 1050
+      },
+      "origins": {
+        "program_generated": 1050
+      }
+    }
+  },
+  "formal_protocol_frozen": false,
+  "heldout_input_identity_count": 3980,
+  "heldout_source_count": 500,
+  "human_review_claim": false,
+  "kind": "observed_private_release_boundary_audit",
+  "known_literal_marker_hits": {
+    "heldout_input_identity": {},
+    "heldout_source_id": {},
+    "private_seed": {}
+  },
+  "legal_license_review_claim": false,
+  "limitations": [
+    "Literal known markers only; not a proof against encoded, fragmented or unidentified content exposure.",
+    "Declared generated origin is cross-checked with task metadata, not independent legal certification.",
+    "A public code snapshot audit does not prove access isolation of private filesystem files.",
+    "No new code/data/weight license is granted by this report. No model endpoint is approved."
+  ],
+  "no_known_private_marker_exposure": true,
+  "no_unreviewed_weight_suffix_paths": true,
+  "private_gold_files_read": false,
+  "private_model_outputs_read": false,
+  "private_root_paths_tracked": [],
+  "private_seed_count": 5,
+  "private_task_file_sha256": {
+    "procedural-candidates-v3-20261023": "f6376d8b119981fbb8fdd488290aa58a5becf9dd8d413f2b949be26920e4b8b0",
+    "procedural-matched-test-candidates-20261023": "3adb95d02a0224b4b4078f237813c5f47d808e5055a637d2b7ce3a706c8c4c24"
+  },
+  "public_git_blobs_scanned_as_bytes": true,
+  "root_license_file_present": false,
+  "tracked_bytes_scanned": 16980019,
+  "tracked_files": 1799,
+  "weight_review": [
+    {
+      "model_type": "gpt2",
+      "n_embd": 48,
+      "n_layer": 2,
+      "path": "examples/results/neural-smoke/cosine/model/model.safetensors",
+      "reviewed_tiny_fixture": true
+    },
+    {
+      "model_type": "gpt2",
+      "n_embd": 48,
+      "n_layer": 2,
+      "path": "examples/results/neural-smoke/lora/model/adapter_model.safetensors",
+      "reviewed_tiny_fixture": true
+    },
+    {
+      "model_type": "gpt2",
+      "n_embd": 48,
+      "n_layer": 2,
+      "path": "examples/results/neural-smoke/plateau/model/model.safetensors",
+      "reviewed_tiny_fixture": true
+    }
+  ],
+  "weight_suffix_paths_tracked": [
+    "examples/results/neural-smoke/cosine/model/model.safetensors",
+    "examples/results/neural-smoke/lora/model/adapter_model.safetensors",
+    "examples/results/neural-smoke/plateau/model/model.safetensors"
+  ]
+}

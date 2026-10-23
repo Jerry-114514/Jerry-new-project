@@ -1,0 +1,12 @@
+{
+  "deep_readiness_checks_completed": false,
+  "formal_protocol_frozen": false,
+  "heldout_model_outputs_read": false,
+  "preliminary_blockers": [
+    "Missing reviewed evidence file: length_and_compute_budget",
+    "Missing reviewed evidence file: test_sealing",
+    "Missing reviewed evidence file: controller_ablation_audit"
+  ],
+  "status": "prepared_not_frozen",
+  "warning": "check_spec returns early on missing files; this does not establish that these are the only remaining gates."
+}

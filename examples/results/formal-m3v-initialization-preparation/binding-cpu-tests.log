@@ -1,0 +1,124 @@
+
+
+
+{"step": 1, "validation_loss": 6.47598671913147, "lr": 0.001, "elapsed_seconds": 0.18705954775214195}
+{"step": 2, "validation_loss": 6.322148084640503, "lr": 0.001, "elapsed_seconds": 0.3332120571285486}
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 461.12it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 14652.59it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10305.42it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 14221.42it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12719.65it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 9697.81it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10510.16it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11462.08it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10606.02it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11811.38it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 13327.34it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11706.59it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 9565.12it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10814.04it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11271.76it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11872.27it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11282.59it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 9650.00it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11106.54it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11584.19it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11583.05it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12942.53it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12331.01it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10122.44it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 9894.73it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 9515.52it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 15010.29it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12337.48it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10009.42it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10717.33it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11599.06it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 13057.65it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12104.77it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11335.96it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10631.95it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 10976.77it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 11585.33it/s]
+
+Loading weights:   0%|          | 0/28 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 28/28 [00:00<00:00, 12383.01it/s]
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 46.925s
+
+OK
