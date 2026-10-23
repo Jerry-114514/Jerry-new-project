@@ -1,0 +1,46 @@
+{
+  "kind": "resource_interfered_development_audit",
+  "original_report_hash": "793faf210a97a2b6257dac87d19ba1c748abcc6cae88e234307bc85ab10e5f50",
+  "original_source_commit": "d80be96feedd06daf0b2340bfedd24e900b23d7a",
+  "all_450_traces_and_metrics_replayed": true,
+  "rejected_for_selection": true,
+  "formal_training": false,
+  "arms": [
+    {
+      "k": 1,
+      "runs": 150,
+      "replay": {
+        "replayed": 150,
+        "committed_tools_and_final_metrics_verified": true
+      },
+      "errors": {
+        "Language model did not return a valid JSON action proposal": 3,
+        "Other CUDA compute processes are active (PIDs 175499); stop this launch before loading/generating": 87
+      }
+    },
+    {
+      "k": 2,
+      "runs": 150,
+      "replay": {
+        "replayed": 150,
+        "committed_tools_and_final_metrics_verified": true
+      },
+      "errors": {
+        "Language model did not return a valid JSON action proposal": 5,
+        "Language model JSON is missing actions": 3
+      }
+    },
+    {
+      "k": 3,
+      "runs": 150,
+      "replay": {
+        "replayed": 150,
+        "committed_tools_and_final_metrics_verified": true
+      },
+      "errors": {
+        "Language model did not return a valid JSON action proposal": 4,
+        "Language model JSON is missing actions": 4
+      }
+    }
+  ]
+}

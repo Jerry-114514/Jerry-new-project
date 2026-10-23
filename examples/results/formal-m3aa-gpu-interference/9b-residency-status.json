@@ -1,0 +1,51 @@
+{
+  "kind": "development_residency_probe",
+  "status": "completed",
+  "device": "cuda",
+  "formal_evaluation": false,
+  "references_read": false,
+  "heldout_read": false,
+  "source": {
+    "commit": "b60e320508bfbe680bcd7b7906f22f1de41bf684",
+    "clean": true
+  },
+  "paths": {
+    "actor": "/root/autodl-tmp/models/Qwen3.5-9B",
+    "analyzer": "/root/autodl-tmp/history-pressure-20261023/train/model"
+  },
+  "task_file_sha256": "7632f9a68ea27601364e7effe1516ec621e4e7b07e9cee91f92448cfe581963e",
+  "selected_tasks": [
+    {
+      "task_id": "proc-v1-0041ddc8ef2a118dcd83df69",
+      "split": "validation"
+    },
+    {
+      "task_id": "proc-v1-035b72c0108546a5ce8ee774",
+      "split": "validation"
+    }
+  ],
+  "prompt_hash": "b397ffe32ecaff4edf2eb1180b9547847374a916cefc6b551258d8ec774303e6",
+  "max_new_tokens": 128,
+  "token_budget": 49152,
+  "context_limit": 17408,
+  "modes": {
+    "cold-task-reload": {
+      "seconds_including_loading": 69.34952232427895,
+      "load_count": 6,
+      "loading_seconds": 37.68905356712639,
+      "peak_allocated_bytes": 18652941824,
+      "peak_reserved_bytes": 18775801856
+    },
+    "shared-condition-resident": {
+      "seconds_including_loading": 38.39867601543665,
+      "load_count": 1,
+      "loading_seconds": 8.09802782908082,
+      "peak_allocated_bytes": 18651663872,
+      "peak_reserved_bytes": 19115540480
+    }
+  },
+  "warning": "Bounded engineering check, not universal equivalence or efficacy.",
+  "exact_outputs_and_tokens_equal": true,
+  "accounting_equal_except_time": true,
+  "assets_unchanged": true
+}

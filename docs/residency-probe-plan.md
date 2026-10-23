@@ -21,7 +21,7 @@
 
 本地279项检查包含16项可选ML跳过，其余通过；独立服务器CPU环境全部279项通过、无跳过，测试日志140.729秒，驱动总计142.299秒，未用GPU。见[原始证据](../examples/results/formal-m3z-residency-probe/README.md)。
 
-9B核验尚未完成。即使通过，也只支持在预冻结阶段考虑采用新的统一常驻政策，不能直接改动已冻结结果或据两条任务外推全阶段一定省多少小时。正式M6/M7入口目前仍逐任务冷启动，共享选项默认关闭；最终政策、预算可行性及协议冻结待实测后处理，正式训练0/6。
+更新：实际9B核验已在干净b60e3205检出退出0，原始tokens/输出、除时间外的账本及资产一致；冷启动总69.35秒/6次加载，共享常驻38.40秒/1次加载。两模式按既定次序先冷后共享，磁盘缓存及两条短输出输入限制仍须保留，不能外推全阶段固定节省比例。原始状态见[M3aa](../examples/results/formal-m3aa-gpu-interference/README.md)。该结果只支持在预冻结阶段考虑统一常驻政策；正式M6/M7仍逐任务冷启动，共享选项默认关闭。此前450次固定k开发比较另发现资源事故，不能直接采用其选择；见[事故补救](gpu-interference-incident.md)。正式训练0/6。
 
 ```bash
 python -m intentlab.residency_probe --actor /local/official/base --analyzer /local/engineering/adapter --tasks /private/development-tasks.jsonl --out /private/new-probe-directory --device cuda --max-new-tokens 128

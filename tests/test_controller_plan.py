@@ -38,6 +38,29 @@ def prepare_controller_plan(spec, root, pool_factory=None):
 
 
 class ControllerPlanTests(unittest.TestCase):
+    def test_gpu_refusal_is_preserved_then_aborts_selection_without_ranking(self):
+        from intentlab.gpu_lease import GpuBusy
+        class BusyPool(FakePool):
+            def role(self, role):
+                class BusyRole:
+                    def complete(self, prompt):
+                        raise GpuBusy("Other CUDA compute processes are active (PIDs 123)")
+                return BusyRole()
+        with tempfile.TemporaryDirectory() as name:
+            root = Path(name)
+            spec = fixture(root / "fixture")
+            with self.assertRaises(GpuBusy):
+                prepare_controller_plan(spec, root, BusyPool)
+            report = json.loads((root / "controller-development/selection.json").read_text())
+            self.assertEqual(report["status"], "failed")
+            self.assertNotIn("selection", report)
+            arm = root / "controller-development/fixed-k-1"
+            self.assertEqual(json.loads((arm / "manifest.json").read_text())["status"], "failed")
+            rows = read_jsonl(arm / "runs.jsonl")
+            self.assertEqual(len(rows), 1)
+            self.assertEqual(rows[0]["history"][-1]["error_type"], "GpuBusy")
+            self.assertFalse((root / "controller-development/fixed-k-2").exists())
+
     def test_rank_weights_source_tasks_equally_then_tokens_then_k(self):
         self.assertTrue(absolute_record_path("/root/model"))
         self.assertTrue(absolute_record_path("D:/model"))

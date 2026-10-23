@@ -1,0 +1,77 @@
+{
+  "kind": "full_development_rerun_after_resource_incident",
+  "schema_version": 1,
+  "original_report_hash": "793faf210a97a2b6257dac87d19ba1c748abcc6cae88e234307bc85ab10e5f50",
+  "original_archive_sha256": "68680c2f5fb7399a63069ab5331cbe3c4132af4485d8cdb98982c584c20599f8",
+  "original_selection_usable": false,
+  "preserve_original_all_450_records": true,
+  "patch_only_87_or_mix_old_new_results": false,
+  "validation_sources": 150,
+  "planned_runs": 450,
+  "fixed_k_values": [
+    1,
+    2,
+    3
+  ],
+  "arm_order": [
+    1,
+    2,
+    3
+  ],
+  "settings": {
+    "analyzer_condition": "D",
+    "analyzer_seed": 0,
+    "checkpoint_selection": "best_validation_loss",
+    "analyzer_mode": "model",
+    "dynamic_policy": "dynamic-k",
+    "intensity": {
+      "schema_version": 1,
+      "fixed_k": 1,
+      "max_k": 3,
+      "thresholds": [
+        0.25,
+        0.5
+      ],
+      "hard_weight": 2.0,
+      "unknown_weight": 0.5
+    },
+    "fixed_k_values": [
+      1,
+      2,
+      3
+    ],
+    "max_tool_steps": 3,
+    "actor_envelope": "extract",
+    "redact_events": false
+  },
+  "budgets": {
+    "token_budget": 49152,
+    "max_new_tokens": 1536,
+    "max_repairs": 3,
+    "context_limit": 17408
+  },
+  "model_roles": {
+    "actor": "official_original_Qwen3.5-9B",
+    "analyzer": "official_original_base_proxy_not_trained_D"
+  },
+  "official_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "unchanged_config_sha256": "fa5ba61c478be1d8fa2fb1f97e995ad130a1d867ffb9e40fbffe4d9a4d479813",
+  "input_file_sha256": {
+    "tasks.jsonl": "7632f9a68ea27601364e7effe1516ec621e4e7b07e9cee91f92448cfe581963e",
+    "references.jsonl": "f2d8e87a7951c76a3c8c8d04c2dc98a13143282ea29ee32174dcc3aa9f48a784"
+  },
+  "source_policy": "clean_commit_containing_this_plan_and_resource_failure_fix_pinned_before_launch",
+  "selection_rule": "validation_task_mean_success_then_charged_tokens_then_smaller_k",
+  "resource_admission_failure": "persist_trial_and_process_identity_then_fail_experiment_without_ranking",
+  "automatic_retries": false,
+  "discard_model_json_or_budget_failures": false,
+  "formal_training": false,
+  "test_or_ood_model_calls": false,
+  "formal_protocol_frozen": false,
+  "planning_hours": [
+    4,
+    6
+  ],
+  "hours_guaranteed": false,
+  "warning": "Development base-model proxy selection only. No learned-analyzer or confirmatory efficacy claim."
+}

@@ -122,7 +122,7 @@ def run_task(task, actor, policy="dynamic", max_repairs=3, redact_events=False, 
         if active_repair is not None:
             active_repair["reason"] = "proposal_error:" + type(exc).__name__
             counters["rejected"] += 1
-        history.append({"phase": "error", "message": str(exc)})
+        history.append({"phase": "error", "message": str(exc), "error_type": type(exc).__name__})
     interaction_seconds = time.perf_counter() - started
     judge = evaluator or evaluate
     # Both evaluations happen only after the model/repair loop. Offline truth

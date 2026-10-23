@@ -113,6 +113,8 @@ def run_execution(tasks, references, out, pool=None, policies=("fixed-full", "dy
                     results.append(result)
                     stream.write(canonical(result) + "\n")
                     stream.flush()
+                    from .gpu_lease import reject_interfered_trial
+                    reject_interfered_trial(result)
         manifest["status"] = "completed"
         summary = save_experiment(results, out, manifest)
         # Report all-task rates as well as the subset that remained historically
@@ -128,6 +130,10 @@ def run_execution(tasks, references, out, pool=None, policies=("fixed-full", "dy
                 "warning": "Development source groups are declared, not independently certified tasks."}
         save_json(out / "strata.json", strata)
         return {"summary": summary, "strata": strata, "manifest": manifest}
+    except Exception as exc:
+        manifest.update(status="failed", error_type=type(exc).__name__, error=str(exc), completed_records=len(results))
+        save_json(out / "manifest.json", manifest)
+        raise
     finally:
         if pool:
             pool.close()

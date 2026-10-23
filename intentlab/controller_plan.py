@@ -51,6 +51,8 @@ def rank_fixed_arms(arms):
     for arm in arms:
         groups = defaultdict(list)
         for row in arm["records"]:
+            from .gpu_lease import reject_interfered_trial
+            reject_interfered_trial(row)
             groups[row["source_task_id"]].append((int(row["metrics"]["compliant_success"]),
                 row["model_pool"]["shared_token_ledger"]["charged_tokens"]))
         if not groups:
@@ -116,6 +118,8 @@ def validate_selection(report, settings, cases=None, formal=False):
         if manifest["max_repairs"] != report["budgets"]["max_repairs"]:
             raise ValueError("Selection repair cap differs from declared development budget")
         for row in arm["records"]:
+            from .gpu_lease import reject_interfered_trial
+            reject_interfered_trial(row)
             if row["split"] != "validation" or row["policy"] != "fixed-k" or row["hard_guard_enabled"] is not True:
                 raise ValueError("Non-validation or unguarded fixed-k record")
             for role, path in row["model_pool"]["models"].items():

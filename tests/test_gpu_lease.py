@@ -7,10 +7,36 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from intentlab.gpu_lease import GpuBusy, GpuLease, compute_processes
+from intentlab.gpu_lease import GpuBusy, GpuLease, compute_processes, reject_interfered_trial
 
 
 class GpuLeaseTests(unittest.TestCase):
+    def test_busy_probe_saves_bounded_process_identity_before_refusing(self):
+        with tempfile.TemporaryDirectory() as name:
+            log = Path(name) / "interference.jsonl"
+            foreign = os.getpid() + 1000000
+            with patch.dict(os.environ, {"INTENTLAB_CUDA_AUDIT_LOG": str(log)}):
+                with self.assertRaises(GpuBusy):
+                    GpuLease(Path(name) / "gpu.lease", probe=lambda: {foreign}).acquire()
+            rows = [json.loads(line) for line in log.read_text().splitlines()]
+            self.assertEqual(len(rows), 1)
+            self.assertEqual(rows[0]["foreign"][0]["pid"], foreign)
+            self.assertEqual(rows[0]["observer"]["pid"], os.getpid())
+            self.assertNotIn("cmdline", rows[0]["observer"])
+            self.assertNotIn("environment", rows[0]["observer"])
+
+    def test_resource_refusal_is_not_a_model_failure_including_old_artifacts(self):
+        for event in ({"error_type": "GpuBusy", "message": "occupied"},
+                      {"message": "Other CUDA compute processes are active (PIDs 123)"},
+                      {"message": "Another managed CUDA experiment owns the GPU lease"},
+                      {"message": "Cannot verify CUDA occupancy with nvidia-smi"}):
+            with self.assertRaises(GpuBusy):
+                reject_interfered_trial({"history": [{"phase": "error", **event}]})
+        reject_interfered_trial({"history": [{"phase": "error", "error_type": "ValueError",
+                                             "message": "Language model JSON is missing actions"}]})
+        reject_interfered_trial({"history": [{"phase": "error", "error_type": "BudgetExceeded",
+                                             "message": "Prompt exceeds shared task budget or model context"}]})
+
     def test_competing_process_refused_and_crash_releases_kernel_lock(self):
         with tempfile.TemporaryDirectory() as name:
             path = Path(name) / "gpu.lease"

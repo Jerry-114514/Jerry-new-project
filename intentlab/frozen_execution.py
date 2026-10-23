@@ -106,6 +106,8 @@ def interact(protocol, binding, predictions, diagnostic_reveal, out, engineering
                             row["analyzer_decisions"] = deepcopy(analyzer.decisions)
                         stream.write(canonical(row) + "\n")
                         stream.flush()
+                        from .gpu_lease import reject_interfered_trial
+                        reject_interfered_trial(row)
                     finally:
                         # Equal cold starts avoid condition-dependent residency
                         # hiding model reload cost. No simultaneous role models.
