@@ -1,0 +1,18 @@
+{
+  "candidate_contracts": 600,
+  "existing_candidate_contracts_included": 12,
+  "existing_injected_views_included": 48,
+  "formal_minimum_tasks_satisfied": false,
+  "formal_training_started": false,
+  "human_reviews_completed": 0,
+  "injected_views": 2400,
+  "new_candidate_contracts": 588,
+  "new_injected_views": 2352,
+  "new_model_calls": 0,
+  "pairwise_semantic_review_performed": false,
+  "scope": "single_template_train_development_only",
+  "shared_project_templates": 1,
+  "shared_template_pairs_formula_only": 179700,
+  "source_pool": 3000,
+  "warning": "No automatic scientific promotion: provisional page/payload dedup, one shared template, injected views, no new sealed test/OOD. Existing twelve contracts and their views are included, not additional samples."
+}

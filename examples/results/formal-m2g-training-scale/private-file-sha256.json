@@ -1,0 +1,13 @@
+{
+  "adapted/candidate-references.jsonl": "4546ef06441b4d257edb0190174f643e02ac173995d3510e51828278f98ffdc1",
+  "adapted/cases.jsonl": "8aa5c7d80e89d93084232e39f8e00fa56ec39d0df7511a891a2a3d2372836eb1",
+  "adapted/coordinator-lineage.jsonl": "45c92010f95170aa0459fe66f221b1bdefdcdf4af6e6aa78cc2a8791452633d1",
+  "adapted/manifest.json": "b6f72a5de195ad2b14752f742fcd88329dba71fc33635b8a81871c51cf749590",
+  "adapted/reviewer-packet/README.md": "f097af0234bf23e9036fca85be78cce27510d84d2e7c5f2489d6e4abd673b0e7",
+  "adapted/reviewer-packet/cases.jsonl": "021c61d33a3f2ddb6c8c5a74463fc00b2c0472811a03c36ca10c586039433ba9",
+  "adapted/reviewer-packet/review-template.jsonl": "5130993c285e41ffcc74efe1e141910a7e9d6a7e4897f72436605f3d7cfa7231",
+  "adapted/tasks.jsonl": "a68b53cc86359027a619ace6743c7c8f770c1ff2ff76a9f21ebbb5830661d092",
+  "pool/coordinator-pool.jsonl": "4e85dbdbebe03bf95590f346727121eacaa62b9f1f0161065ce12d7e4062c699",
+  "pool/manifest.json": "622ce1202a84347dc3d3a3afa4d20b93c2a9e8dfafba8e0b6c0cb68008854a56",
+  "pool/public-index.jsonl": "c862747e0a55df9fd074192f1b01f804075ed129b1951d9686949fe3d949cc43"
+}

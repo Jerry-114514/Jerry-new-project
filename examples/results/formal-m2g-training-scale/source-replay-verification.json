@@ -1,0 +1,15 @@
+{
+  "scope": "unreviewed_single_template_train_candidate_scale",
+  "source_pool": 3000,
+  "candidate_contracts": 600,
+  "new_candidate_contracts": 588,
+  "injected_views": 2400,
+  "shared_templates": 1,
+  "private_files_and_program_references_checked": true,
+  "archive_rebuilt": true,
+  "human_reviews_completed": 0,
+  "new_model_calls": 0,
+  "formal_minimum_tasks_satisfied": false,
+  "formal_training_started": false,
+  "warning": "Six hundred provisional page groups are not independently reviewed tasks. One shared template, injected views only; no sealed test/OOD, real labels or formal budget completion."
+}

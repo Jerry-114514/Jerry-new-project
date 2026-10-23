@@ -1,0 +1,10 @@
+{
+  "distinct_exact_table_payloads": 2988,
+  "distinct_supplied_page_id_values": 1947,
+  "distinct_table_ids": 3000,
+  "duplicate_supplied_page_id_groups": 219,
+  "human_verified_sources": 0,
+  "missing_page_id_candidates": 634,
+  "parent_page_or_worker_independence_audited": false,
+  "selected_candidates": 3000
+}

@@ -1,0 +1,5 @@
+{
+  "contracts_checked": 600,
+  "human_truth_claim": false,
+  "public_program_matches_separate_sqlite_candidate_reference": true
+}

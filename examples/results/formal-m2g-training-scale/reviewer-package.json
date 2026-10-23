@@ -1,0 +1,17 @@
+{
+  "distributed": false,
+  "files_sha256": {
+    "README.md": "f097af0234bf23e9036fca85be78cce27510d84d2e7c5f2489d6e4abd673b0e7",
+    "cases.jsonl": "021c61d33a3f2ddb6c8c5a74463fc00b2c0472811a03c36ca10c586039433ba9",
+    "review-template.jsonl": "5130993c285e41ffcc74efe1e141910a7e9d6a7e4897f72436605f3d7cfa7231",
+    "\u672c\u6279\u6807\u6ce8\u8bf4\u660e.md": "4017def44ed7575075ddb414c187d868a7338de19d4b4555fb1817b92d1a3426"
+  },
+  "human_reviews_completed": 0,
+  "initial_reviewers_required": 2,
+  "judgments_per_reviewer": 9600,
+  "records_per_reviewer": 2400,
+  "scope": "private_blank_single_template_training_candidates",
+  "sha256": "1db0a287c6a02cccbcbb030142ef78aa03ba9645f4ca436f35ac796efa5a6475",
+  "source_fidelity_and_release_review_complete": false,
+  "views": 2400
+}

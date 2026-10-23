@@ -1,0 +1,8 @@
+{
+  "after_page_and_exact_payload_dedup": 724,
+  "eligible_equality_records": 851,
+  "excluded_by_selected_group_or_payload_overlap": 127,
+  "human_reviews_completed": 0,
+  "requested_training_candidate_contracts": 600,
+  "source_candidates": 3000
+}
