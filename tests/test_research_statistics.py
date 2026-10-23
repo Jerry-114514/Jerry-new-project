@@ -3,7 +3,7 @@
 from copy import deepcopy
 import unittest
 
-from intentlab.research_statistics import (ANALYSIS_PLAN, analyze_records, comparison_registry, holm_adjust,
+from intentlab.research_statistics import (ANALYSIS_PLAN, STRATIFIED_ANALYSIS_PLAN, analyze_records, comparison_registry, holm_adjust,
     paired_cluster_statistics, sign_flip_test, validate_analysis_plan)
 from intentlab.controller_plan import condition_map
 from test_execution_protocol import fixture
@@ -53,6 +53,62 @@ def inputs():
 
 
 class ResearchStatisticsTests(unittest.TestCase):
+    def test_strata_preserve_fixed_family_counts_without_changing_effect(self):
+        left={'a1':[0],'a2':[0],'b1':[1],'b2':[1]}
+        right={'a1':[1],'a2':[1],'b1':[0],'b2':[0]}
+        strata={'a1':'A','a2':'A','b1':'B','b2':'B'}
+        ordinary=paired_cluster_statistics(left,right)
+        fixed=paired_cluster_statistics(left,right,strata=strata)
+        self.assertEqual(ordinary['right_minus_left'],fixed['right_minus_left'])
+        self.assertEqual(ordinary['percentile_95_interval'],[-1,1])
+        self.assertEqual(fixed['percentile_95_interval'],[0,0])
+        self.assertEqual(fixed['bootstrap_stratification']['source_groups_per_stratum'],{'A':2,'B':2})
+        self.assertEqual(fixed['hypothesis_test']['p_value'],1)
+
+    def test_stratified_token_ratio_preserves_fixed_seed_vectors(self):
+        ids=['a1','a2','b1','b2']
+        weights={'a1':1,'a2':1,'b1':9,'b2':9}
+        left={key:[0,0,0] for key in ids}
+        right={key:[weights[key]*value for value in [1,2,3]] for key in ids}
+        result=paired_cluster_statistics(left,right,weights=weights,strata={key:key[0] for key in ids})
+        self.assertEqual(result['right_minus_left'],2)
+        self.assertEqual(result['percentile_95_interval'],[2,2])
+        self.assertEqual(result['source_task_groups'],4)
+        self.assertEqual(result['fixed_training_seeds'],3)
+        self.assertEqual(result['seed_effect_sample_sd'],1)
+
+    def test_singleton_stratum_and_invalid_labels_do_not_claim_inference(self):
+        left={'a':[0],'b':[0],'c':[0]}
+        right={'a':[1],'b':[1],'c':[1]}
+        result=paired_cluster_statistics(left,right,strata={'a':'A','b':'A','c':'B'})
+        self.assertIsNone(result['percentile_95_interval'])
+        self.assertIsNone(result['hypothesis_test']['p_value'])
+        self.assertEqual(result['hypothesis_test']['mode'],'insufficient_stratum_clusters')
+        for bad in [{'a':'A'}, {'a':'A','b':'A','c':''}, {'a':'A','b':'A','c':False}]:
+            with self.assertRaises(ValueError):
+                paired_cluster_statistics(left,right,strata=bad)
+
+    def test_explicit_v2_plan_runs_full_registered_family_without_seed_inflation(self):
+        args=list(inputs())
+        args[0]['spec']['statistics']['analysis_plan']=deepcopy(STRATIFIED_ANALYSIS_PLAN)
+        self.assertEqual(validate_analysis_plan(args[0]['spec']['statistics'],formal=True),STRATIFIED_ANALYSIS_PLAN)
+        result=analyze_records(*args)
+        self.assertEqual(result['schema_version'],3)
+        self.assertEqual(result['secondary_family_size'],17)
+        self.assertAlmostEqual(result['comparisons']['RQ1/test']['right_minus_left'],-1/3)
+        self.assertEqual(result['comparisons']['RQ1/test']['bootstrap_stratification']['source_groups_per_stratum'],{'arithmetic':2})
+        args[0]['spec']['statistics']['analysis_plan']['bootstrap_stratification']='posthoc_unknown_choice'
+        with self.assertRaises(ValueError): analyze_records(*args)
+
+    def test_mixed_family_variants_require_explicit_design_instead_of_silent_assignment(self):
+        args=list(inputs())
+        args[0]['spec']['statistics']['analysis_plan']=deepcopy(STRATIFIED_ANALYSIS_PLAN)
+        for row in args[3]+args[4]:
+            if row['task_id'].endswith('-a-0'):
+                row['family']='different-family'
+        with self.assertRaisesRegex(ValueError,'Source operation family changed'):
+            analyze_records(*args)
+
     def test_fixed_seeds_stay_inside_clusters_and_insufficient_groups_are_explicit(self):
         result = paired_cluster_statistics({"one": [0, 0, 0]}, {"one": [0, 1, 2]}, bootstrap_samples=100)
         self.assertEqual(result["source_task_groups"], 1)

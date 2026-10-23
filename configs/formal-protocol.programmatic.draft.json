@@ -97,7 +97,7 @@
     "bootstrap_seed": 20261022,
     "confidence_level": 0.95,
     "analysis_plan": {
-      "schema_version": 1,
+      "schema_version": 2,
       "primary_split": "test",
       "ood_role": "secondary",
       "seed_aggregation": "mean_of_three_paired_seed_effects",
@@ -111,7 +111,10 @@
       "max_exact_nonzero_clusters": 16,
       "minimum_inference_clusters": 2,
       "secondary_family": "rq2_rq3_rq4_both_splits_plus_rq1_ood_plus_all_m7_controls",
-      "undefined_p_values": "retain_family_size_and_return_null"
+      "undefined_p_values": "retain_family_size_and_return_null",
+      "bootstrap_stratification": "operation_family_fixed_source_counts",
+      "minimum_inference_stratum_clusters": 2,
+      "other_generator_quotas": "not_conditioned_on_by_resampling"
     }
   },
   "budgets": {

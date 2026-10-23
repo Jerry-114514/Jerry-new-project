@@ -1,0 +1,116 @@
+{
+  "current_statistics_sha256": "31b3ddc9083edbfe7f2b59d09b8878e69eae883ceca609ac11dca9eeb333b7a8",
+  "fixed_quota_arithmetic_case": {
+    "bootstrap_samples": 2000,
+    "bootstrap_seed": 0,
+    "bootstrap_stratification": {
+      "minimum_clusters_per_stratum": 2,
+      "source_groups_per_stratum": {
+        "A": 2,
+        "B": 2
+      },
+      "unit": "source_task_id",
+      "warning": "Fixed operation-family counts only. Missing-field and fault-cadence quotas are not conditioned on. This does not prove sampling independence or sign-flip exchangeability.",
+      "within_stratum_inference_defined": true
+    },
+    "estimand": "mean_source_task_difference",
+    "fixed_training_seeds": 1,
+    "hypothesis_test": {
+      "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+      "method": "two_sided_cluster_sign_flip",
+      "mode": "exact_sign_assignments",
+      "nonzero_clusters": 4,
+      "p_value": 1.0,
+      "permutations": 16,
+      "task_groups": 4
+    },
+    "left": 0.5,
+    "per_seed": [
+      {
+        "left": 0.5,
+        "right": 0.5,
+        "right_minus_left": 0.0,
+        "seed_index": 0
+      }
+    ],
+    "percentile_95_interval": [
+      0.0,
+      0.0
+    ],
+    "right": 0.5,
+    "right_minus_left": 0.0,
+    "seed_effect_sample_sd": null,
+    "source_task_groups": 4,
+    "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures."
+  },
+  "formal_protocol_frozen": false,
+  "full_v2_fixture": {
+    "report_schema_version": 3,
+    "rq1_effect": -0.33333333333333337,
+    "rq1_family_counts": {
+      "arithmetic": 2
+    },
+    "rq1_seed_sd": 0.28867513459481287,
+    "secondary_family_size": 17
+  },
+  "heldout_data_read": false,
+  "kind": "arithmetic_only_fixed_quota_statistics_demo",
+  "legacy_source_commit": "0b84448a3d586b27581015b95e57b0bcb45b8882",
+  "legacy_source_sha256": "cecd8c365f3656c49af5be2da1549b463d70afe36e4192b34301f0264705b4f8",
+  "legacy_v1_report_exactly_reproduced": true,
+  "model_calls": 0,
+  "ordinary_arithmetic_case": {
+    "bootstrap_samples": 2000,
+    "bootstrap_seed": 0,
+    "estimand": "mean_source_task_difference",
+    "fixed_training_seeds": 1,
+    "hypothesis_test": {
+      "assumption": "Independent source clusters; paired effects jointly exchangeable under sign reversal. Not a generic test of equal means without that assumption.",
+      "method": "two_sided_cluster_sign_flip",
+      "mode": "exact_sign_assignments",
+      "nonzero_clusters": 4,
+      "p_value": 1.0,
+      "permutations": 16,
+      "task_groups": 4
+    },
+    "left": 0.5,
+    "per_seed": [
+      {
+        "left": 0.5,
+        "right": 0.5,
+        "right_minus_left": 0.0,
+        "seed_index": 0
+      }
+    ],
+    "percentile_95_interval": [
+      -1.0,
+      1.0
+    ],
+    "right": 0.5,
+    "right_minus_left": 0.0,
+    "seed_effect_sample_sd": null,
+    "source_task_groups": 4,
+    "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures."
+  },
+  "plan": {
+    "bootstrap_interval": "percentile_floor_indices",
+    "bootstrap_stratification": "operation_family_fixed_source_counts",
+    "bootstrap_unit": "source_task_id",
+    "hypothesis_test": "two_sided_cluster_sign_flip",
+    "loss_estimand": "target_token_weighted_ratio",
+    "max_exact_nonzero_clusters": 16,
+    "minimum_inference_clusters": 2,
+    "minimum_inference_stratum_clusters": 2,
+    "null_assumption": "independent_source_clusters_with_paired_exchangeability",
+    "ood_role": "secondary",
+    "other_generator_quotas": "not_conditioned_on_by_resampling",
+    "permutation_samples": 10000,
+    "primary_split": "test",
+    "schema_version": 2,
+    "secondary_family": "rq2_rq3_rq4_both_splits_plus_rq1_ood_plus_all_m7_controls",
+    "seed_aggregation": "mean_of_three_paired_seed_effects",
+    "seed_uncertainty": "descriptive_sample_sd_only",
+    "undefined_p_values": "retain_family_size_and_return_null"
+  },
+  "warning": "Arithmetic fixtures only. Fixed quota changes the resampling design, not observed point effects or experimental success. Conditional inferential assumptions remain unverified."
+}

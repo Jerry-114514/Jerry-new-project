@@ -32,12 +32,17 @@ ANALYSIS_PLAN = {
     "undefined_p_values": "retain_family_size_and_return_null",
 }
 
+STRATIFIED_ANALYSIS_PLAN = dict(deepcopy(ANALYSIS_PLAN), schema_version=2,
+    bootstrap_stratification='operation_family_fixed_source_counts',
+    minimum_inference_stratum_clusters=2,
+    other_generator_quotas='not_conditioned_on_by_resampling')
+
 
 def validate_analysis_plan(statistics, formal=False):
     plan = statistics.get("analysis_plan")
     if plan is None and not formal:
         return deepcopy(ANALYSIS_PLAN)
-    if plan != ANALYSIS_PLAN or type(plan.get("schema_version")) is not int:
+    if plan not in (ANALYSIS_PLAN, STRATIFIED_ANALYSIS_PLAN) or type(plan.get("schema_version")) is not int:
         raise ValueError("Freeze the complete registered cluster/seed/test/multiplicity analysis plan")
     return deepcopy(plan)
 
@@ -75,12 +80,19 @@ def sign_flip_test(contributions, seed=0, samples=10000, exact_limit=16, minimum
 
 
 def paired_cluster_statistics(left, right, weights=None, seed=0, bootstrap_samples=2000,
-                              permutation_samples=10000, exact_limit=16, minimum_clusters=2):
+                              permutation_samples=10000, exact_limit=16, minimum_clusters=2, strata=None):
     if not left or set(left) != set(right) or any(not isinstance(key, str) or not key for key in left):
         raise ValueError("Identical nonempty named source-task sets required")
     if type(bootstrap_samples) is not int or bootstrap_samples < 100:
         raise ValueError("At least 100 bootstrap replicates required")
     ids = sorted(left)
+    pools = {'all': ids}
+    if strata is not None:
+        if not isinstance(strata, dict) or set(strata) != set(ids) \
+                or any(not isinstance(value, str) or not value for value in strata.values()):
+            raise ValueError('Exactly one nonempty design stratum per source required')
+        pools = {label: [key for key in ids if strata[key] == label] for label in sorted(set(strata.values()))}
+    strata_sufficient = all(len(pool) >= minimum_clusters for pool in pools.values())
     sizes = set()
     for key in ids:
         for vector in (left[key], right[key]):
@@ -106,14 +118,14 @@ def paired_cluster_statistics(left, right, weights=None, seed=0, bootstrap_sampl
     contributions = {key: math.fsum(right[key][index] - left[key][index] for index in range(seeds)) / seeds for key in ids}
     estimate = math.fsum(contributions.values()) / total_weight
     interval = None
-    if len(ids) >= minimum_clusters:
+    if len(ids) >= minimum_clusters and strata_sufficient:
         rng, replicates = random.Random(seed), []
         for _ in range(bootstrap_samples):
-            sampled = [rng.choice(ids) for _ in ids]
+            sampled = [rng.choice(pool) for pool in pools.values() for _ in pool]
             replicates.append(math.fsum(contributions[key] for key in sampled) / math.fsum(denominator[key] for key in sampled))
         replicates.sort()
         interval = [replicates[int(0.025 * (bootstrap_samples - 1))], replicates[int(0.975 * (bootstrap_samples - 1))]]
-    return {"right_minus_left": estimate, "left": mean(row["left"] for row in per_seed),
+    result = {"right_minus_left": estimate, "left": mean(row["left"] for row in per_seed),
         "right": mean(row["right"] for row in per_seed), "per_seed": per_seed,
         "seed_effect_sample_sd": stdev(row["right_minus_left"] for row in per_seed) if seeds > 1 else None,
         "fixed_training_seeds": seeds, "source_task_groups": len(ids),
@@ -121,6 +133,15 @@ def paired_cluster_statistics(left, right, weights=None, seed=0, bootstrap_sampl
         "percentile_95_interval": interval, "bootstrap_samples": bootstrap_samples, "bootstrap_seed": seed,
         "hypothesis_test": sign_flip_test(list(contributions.values()), seed, permutation_samples, exact_limit, minimum_clusters),
         "warning": "Task-conditional inference for these fixed trained models; no training-seed population CI. Fewer than two source clusters yields no CI/p-value. Degenerate bootstrap intervals do not establish absence of rare failures."}
+    if strata is not None:
+        result['bootstrap_stratification'] = {'unit':'source_task_id',
+            'source_groups_per_stratum':{key:len(pool) for key,pool in pools.items()},
+            'minimum_clusters_per_stratum':minimum_clusters,
+            'within_stratum_inference_defined':strata_sufficient,
+            'warning':'Fixed operation-family counts only. Missing-field and fault-cadence quotas are not conditioned on. This does not prove sampling independence or sign-flip exchangeability.'}
+        if not strata_sufficient:
+            result['hypothesis_test'].update(mode='insufficient_stratum_clusters',p_value=None,permutations=0)
+    return result
 
 
 def holm_adjust(p_values):
@@ -214,6 +235,14 @@ def analyze_records(protocol, diagnostic_scores, loss_records, execution_records
 
     execution, execution_description = aggregate_execution(execution_records, ("P1", "P2", "P3", "P4"))
     ablation, ablation_description = aggregate_execution(ablation_records, ablation_conditions)
+    family_strata = {}
+    if plan['schema_version'] == 2:
+        for row in itertools.chain(execution_records, ablation_records):
+            key = (row['split'], row['source_task_id'])
+            family = row['family']
+            if not isinstance(family, str) or not family or (key in family_strata and family_strata[key] != family):
+                raise ValueError('Source operation family changed between conditions or variants')
+            family_strata[key] = family
     expected_loss_conditions = {f"{name}-seed-{seed}" for name in ("D", "E") for seed in (0, 1, 2)}
     if set(loss_records) != expected_loss_conditions:
         raise ValueError("All six selected-checkpoint loss populations required")
@@ -270,14 +299,15 @@ def analyze_records(protocol, diagnostic_scores, loss_records, execution_records
             right = {tid: [table[(b, split)][tid][metric]] for tid in ids}
         derived_seed = int(digest({"seed": statistics["bootstrap_seed"], "comparison": comparison["id"]})[:16], 16)
         estimate = paired_cluster_statistics(left, right, weights, derived_seed, statistics["bootstrap_samples"],
-            plan["permutation_samples"], plan["max_exact_nonzero_clusters"], plan["minimum_inference_clusters"])
+            plan["permutation_samples"], plan["max_exact_nonzero_clusters"], plan["minimum_inference_clusters"],
+            strata={tid:family_strata[(split,tid)] for tid in ids} if plan['schema_version'] == 2 else None)
         comparisons[comparison["id"]] = dict(estimate, definition=comparison, interpretation=direction)
     secondary = {key: row["hypothesis_test"]["p_value"] for key, row in comparisons.items() if row["definition"]["family"] == "secondary"}
     adjusted = holm_adjust(secondary)
     for key, row in comparisons.items():
         row["holm_adjusted_p_value"] = adjusted.get(key)
         row["secondary_family_size"] = len(secondary) if key in secondary else None
-    report = {"kind": "source_task_research_statistics", "schema_version": 2 if include_auxiliary else 1, "scope": protocol["scope"],
+    report = {"kind": "source_task_research_statistics", "schema_version": 3 if plan['schema_version'] == 2 else (2 if include_auxiliary else 1), "scope": protocol["scope"],
         "protocol_hash": protocol["lock_hash"], "analysis_plan": plan,
         "legacy_engineering_plan_inferred": "analysis_plan" not in statistics,
         "input_hashes": {"diagnostic_scores": digest(diagnostic_scores), "loss_records": digest(loss_records),

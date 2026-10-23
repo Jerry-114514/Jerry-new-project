@@ -10,6 +10,7 @@ from unittest.mock import patch
 from intentlab.core import digest
 from intentlab.frozen_ablation import interact, reveal
 from intentlab.frozen_statistics import run, verify
+from intentlab.research_statistics import STRATIFIED_ANALYSIS_PLAN
 from test_frozen_ablation import prepare, arguments
 from test_frozen_execution import FakePool
 
@@ -29,6 +30,18 @@ def setup(root):
 
 @patch("intentlab.diagnostic_protocol.verify_execution_models", return_value={"verified": True})
 class FrozenStatisticsTests(unittest.TestCase):
+    def test_v2_receipt_replays_after_gold_and_reference_removal(self, unused):
+        with tempfile.TemporaryDirectory() as name:
+            root=Path(name)
+            with patch('test_protocol.ANALYSIS_PLAN',STRATIFIED_ANALYSIS_PLAN):
+                common=setup(root)
+            manifest=run(*common,root/'v2-statistics',True)
+            report=json.loads((root/'v2-statistics/report.json').read_text())
+            self.assertEqual(report['schema_version'],3)
+            self.assertEqual(report['analysis_plan']['schema_version'],2)
+            self.assertFalse(manifest['gold_or_references_reopened'])
+            self.assertFalse(verify(*common,root/'v2-statistics',True)['m8_complete'])
+
     def test_no_gold_or_reference_access_and_identical_report_reproduction(self, unused):
         with tempfile.TemporaryDirectory() as name:
             root = Path(name)
