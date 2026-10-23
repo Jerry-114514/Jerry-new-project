@@ -1,0 +1,603 @@
+{
+  "alpha_two_sided": 0.05,
+  "data_files_read": false,
+  "desired_power": 0.8,
+  "distribution_free_sufficient_bound": {
+    "assumptions": "Independent bounded source-task draws conditional on fixed fitted models and generator families. Does not establish this assumption for the dataset.",
+    "is_final_analysis_procedure": false,
+    "is_necessary_sample_size": false,
+    "minimum_effect_at_n": {
+      "100": 0.451032560947534,
+      "150": 0.36826654390073776,
+      "200": 0.3189281823819361,
+      "300": 0.26040377047634505,
+      "500": 0.20170789326890062
+    },
+    "paired_difference_range": [
+      -1,
+      1
+    ],
+    "source": "https://www.tandfonline.com/doi/abs/10.1080/01621459.1963.10500830",
+    "sufficient_n_by_effect": {
+      "0.025": 32549,
+      "0.05": 8138,
+      "0.1": 2035,
+      "0.15": 905
+    }
+  },
+  "formal_budget_approved": false,
+  "kind": "paired_source_design_sensitivity_not_empirical_power",
+  "limitations": [
+    "Normal grid assumes task-difference SD; none is estimated or asserted here.",
+    "Gaussian planning approximation is not calibrated power for the final clustered bootstrap/sign-flip analysis.",
+    "A conservative sufficient bound failing to certify power does not prove the experiment is underpowered.",
+    "Finite generator families, near-neighbors, and shared templates can invalidate an independence interpretation.",
+    "No empirical D-versus-B effect or seed variation exists yet. Do not infer a probability of experimental success.",
+    "No sample size or test set is changed by this calculation. Power evidence gate remains incomplete."
+  ],
+  "model_outputs_read": false,
+  "normal_approximation_grid": [
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 0.7054180011138004,
+      "normal_approx_sufficient_n": 126,
+      "source_groups": 100
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 0.9988172507035045,
+      "normal_approx_sufficient_n": 32,
+      "source_groups": 100
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 0.9999999999999996,
+      "normal_approx_sufficient_n": 8,
+      "source_groups": 100
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 1.0,
+      "normal_approx_sufficient_n": 4,
+      "source_groups": 100
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 0.2395269932185003,
+      "normal_approx_sufficient_n": 503,
+      "source_groups": 100
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 0.7054180011138004,
+      "normal_approx_sufficient_n": 126,
+      "source_groups": 100
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 0.9988172507035045,
+      "normal_approx_sufficient_n": 32,
+      "source_groups": 100
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 0.9999999848795277,
+      "normal_approx_sufficient_n": 14,
+      "source_groups": 100
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.13255802275731404,
+      "normal_approx_sufficient_n": 1131,
+      "source_groups": 100
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.3847910235713458,
+      "normal_approx_sufficient_n": 283,
+      "source_groups": 100
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.9151812833018267,
+      "normal_approx_sufficient_n": 71,
+      "source_groups": 100
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.9988172507035045,
+      "normal_approx_sufficient_n": 32,
+      "source_groups": 100
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.07909753416059662,
+      "normal_approx_sufficient_n": 3140,
+      "source_groups": 100
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.17007504575308763,
+      "normal_approx_sufficient_n": 785,
+      "source_groups": 100
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.516005273976175,
+      "normal_approx_sufficient_n": 197,
+      "source_groups": 100
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.8508387683270563,
+      "normal_approx_sufficient_n": 88,
+      "source_groups": 100
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 0.8647472889769411,
+      "normal_approx_sufficient_n": 126,
+      "source_groups": 150
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 0.9999843475669002,
+      "normal_approx_sufficient_n": 32,
+      "source_groups": 150
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 1.0,
+      "normal_approx_sufficient_n": 8,
+      "source_groups": 150
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 1.0,
+      "normal_approx_sufficient_n": 4,
+      "source_groups": 150
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 0.33419034545896553,
+      "normal_approx_sufficient_n": 503,
+      "source_groups": 150
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 0.8647472889769411,
+      "normal_approx_sufficient_n": 126,
+      "source_groups": 150
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 0.9999843475669002,
+      "normal_approx_sufficient_n": 32,
+      "source_groups": 150
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 0.9999999999997506,
+      "normal_approx_sufficient_n": 14,
+      "source_groups": 150
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.17521576097505334,
+      "normal_approx_sufficient_n": 1131,
+      "source_groups": 150
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.5324208639051091,
+      "normal_approx_sufficient_n": 283,
+      "source_groups": 150
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.9831029079631798,
+      "normal_approx_sufficient_n": 71,
+      "source_groups": 150
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.9999843475669002,
+      "normal_approx_sufficient_n": 32,
+      "source_groups": 150
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.09394562910255978,
+      "normal_approx_sufficient_n": 3140,
+      "source_groups": 150
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.23182752880768415,
+      "normal_approx_sufficient_n": 785,
+      "source_groups": 150
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.6877704200764013,
+      "normal_approx_sufficient_n": 197,
+      "source_groups": 150
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.9567604915118313,
+      "normal_approx_sufficient_n": 88,
+      "source_groups": 150
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 0.9424375431875085,
+      "normal_approx_sufficient_n": 126,
+      "source_groups": 200
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 0.9999998398590553,
+      "normal_approx_sufficient_n": 32,
+      "source_groups": 200
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 1.0,
+      "normal_approx_sufficient_n": 8,
+      "source_groups": 200
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 1.0,
+      "normal_approx_sufficient_n": 4,
+      "source_groups": 200
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 0.42389054125442555,
+      "normal_approx_sufficient_n": 503,
+      "source_groups": 200
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 0.9424375431875085,
+      "normal_approx_sufficient_n": 126,
+      "source_groups": 200
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 0.9999998398590553,
+      "normal_approx_sufficient_n": 32,
+      "source_groups": 200
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 1.0,
+      "normal_approx_sufficient_n": 14,
+      "source_groups": 200
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.21811729435295799,
+      "normal_approx_sufficient_n": 1131,
+      "source_groups": 200
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.654345791737225,
+      "normal_approx_sufficient_n": 283,
+      "source_groups": 200
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.9970571420464205,
+      "normal_approx_sufficient_n": 71,
+      "source_groups": 200
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.9999998398590553,
+      "normal_approx_sufficient_n": 32,
+      "source_groups": 200
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.10895461755061561,
+      "normal_approx_sufficient_n": 3140,
+      "source_groups": 200
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.29298893644798746,
+      "normal_approx_sufficient_n": 785,
+      "source_groups": 200
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.8074304194325572,
+      "normal_approx_sufficient_n": 197,
+      "source_groups": 200
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.9887752907277906,
+      "normal_approx_sufficient_n": 88,
+      "source_groups": 200
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 0.991109878656371,
+      "normal_approx_sufficient_n": 126,
+      "source_groups": 300
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 0.9999999999895997,
+      "normal_approx_sufficient_n": 32,
+      "source_groups": 300
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 1.0,
+      "normal_approx_sufficient_n": 8,
+      "source_groups": 300
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 1.0,
+      "normal_approx_sufficient_n": 4,
+      "source_groups": 300
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 0.5812713507225716,
+      "normal_approx_sufficient_n": 503,
+      "source_groups": 300
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 0.991109878656371,
+      "normal_approx_sufficient_n": 126,
+      "source_groups": 300
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 0.9999999999895997,
+      "normal_approx_sufficient_n": 32,
+      "source_groups": 300
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 1.0,
+      "normal_approx_sufficient_n": 14,
+      "source_groups": 300
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.3030546257383406,
+      "normal_approx_sufficient_n": 1131,
+      "source_groups": 300
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.8229821534848883,
+      "normal_approx_sufficient_n": 283,
+      "source_groups": 300
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.9999315044708436,
+      "normal_approx_sufficient_n": 71,
+      "source_groups": 300
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.9999999999895997,
+      "normal_approx_sufficient_n": 32,
+      "source_groups": 300
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.13934769950951068,
+      "normal_approx_sufficient_n": 3140,
+      "source_groups": 300
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.4099681115375945,
+      "normal_approx_sufficient_n": 785,
+      "source_groups": 300
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.9337270627356236,
+      "normal_approx_sufficient_n": 197,
+      "source_groups": 300
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.9993943130672849,
+      "normal_approx_sufficient_n": 88,
+      "source_groups": 300
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 0.9998584024221593,
+      "normal_approx_sufficient_n": 126,
+      "source_groups": 500
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 1.0,
+      "normal_approx_sufficient_n": 32,
+      "source_groups": 500
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 1.0,
+      "normal_approx_sufficient_n": 8,
+      "source_groups": 500
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.1,
+      "normal_approx_power": 1.0,
+      "normal_approx_sufficient_n": 4,
+      "source_groups": 500
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 0.7981761964601347,
+      "normal_approx_sufficient_n": 503,
+      "source_groups": 500
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 0.9998584024221593,
+      "normal_approx_sufficient_n": 126,
+      "source_groups": 500
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 1.0,
+      "normal_approx_sufficient_n": 32,
+      "source_groups": 500
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.2,
+      "normal_approx_power": 1.0,
+      "normal_approx_sufficient_n": 14,
+      "source_groups": 500
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.46159817545872417,
+      "normal_approx_sufficient_n": 1131,
+      "source_groups": 500
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.961370480498245,
+      "normal_approx_sufficient_n": 283,
+      "source_groups": 500
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 0.9999999803084503,
+      "normal_approx_sufficient_n": 71,
+      "source_groups": 500
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.3,
+      "normal_approx_power": 1.0,
+      "normal_approx_sufficient_n": 32,
+      "source_groups": 500
+    },
+    {
+      "absolute_error_rate_effect": 0.025,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.20095555123041628,
+      "normal_approx_sufficient_n": 3140,
+      "source_groups": 500
+    },
+    {
+      "absolute_error_rate_effect": 0.05,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.6087794846454568,
+      "normal_approx_sufficient_n": 785,
+      "source_groups": 500
+    },
+    {
+      "absolute_error_rate_effect": 0.1,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.9940004700489501,
+      "normal_approx_sufficient_n": 197,
+      "source_groups": 500
+    },
+    {
+      "absolute_error_rate_effect": 0.15,
+      "assumed_paired_task_sd": 0.5,
+      "normal_approx_power": 0.9999989740274609,
+      "normal_approx_sufficient_n": 88,
+      "source_groups": 500
+    }
+  ],
+  "primary_unit": "Source-task mean status error, aggregating all its evidence views; paired model difference in [-1,1].",
+  "training_seeds": "Three fixed trained models do not multiply independent task sample size. Task inference is conditional on fitted models; seed variability is separate."
+}
