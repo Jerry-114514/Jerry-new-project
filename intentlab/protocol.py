@@ -235,6 +235,9 @@ def check_spec(spec):
             from .programmatic_protocol import resolve_dataset, validate_source_record
             validate_source_record(cases, read_json(spec['evidence']['semantic_dedup_review']))
             selected = resolve_dataset(data, spec['evidence']['programmatic_validation'], formal=spec['scope'] == 'formal')
+            if spec['scope']=='formal':
+                from .test_material_seal import validate_test_seal
+                validate_test_seal(spec,cases)
         else:
             if spec["scope"] == "formal":
                 validate_semantic_review(cases, read_json(spec["evidence"]["semantic_dedup_review"]))
@@ -406,6 +409,9 @@ def freeze(spec, out):
     if spec["scope"] == "formal":
         bundle["semantic_review_binding"] = semantic_review_binding(spec, bundle)
     if spec['schema_version'] == 3:
+        if spec['scope']=='formal':
+            from .test_material_seal import validate_test_seal
+            bundle['test_seal_binding']=validate_test_seal(spec,read_jsonl(data['cases']))
         # Recheck after hashes are captured: a modified label, reference or SFT
         # file between preflight and capture must not become a valid lock.
         second = check_spec(spec)
@@ -449,6 +455,9 @@ def verify(lock, phase="training"):
         raise ValueError("Formal controller selection/ablation binding missing")
     if lock["scope"] == "formal":
         validate_semantic_lock_binding(lock)
+        if spec.get('schema_version')==3:
+            from .test_material_seal import validate_test_seal_binding
+            validate_test_seal_binding(lock)
     if spec.get("schema_version") in {2, 3}:
         binding = lock.get("execution_binding")
         if not isinstance(binding, dict) or set(binding) != {"files", "summary"} \
@@ -481,6 +490,10 @@ def verify(lock, phase="training"):
         if file_hash(root / name) != dataset_files[name]:
             raise ValueError("Dataset content changed after freeze: " + name)
     if phase == "all":
+        if lock['scope']=='formal' and spec.get('schema_version')==3:
+            from .test_material_seal import validate_test_seal
+            if validate_test_seal(spec,read_jsonl(spec['dataset']['cases']))!=lock['test_seal_binding']:
+                raise ValueError('Frozen test seal differs from coordinator materials')
         actual_files = {path.relative_to(root).as_posix() for path in root.rglob("*.jsonl")} | {"manifest.json"}
         if actual_files != set(dataset_files):
             raise ValueError("Frozen dataset file coverage changed")
