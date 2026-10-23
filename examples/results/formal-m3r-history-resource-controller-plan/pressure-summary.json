@@ -1,0 +1,66 @@
+{
+  "kind": "causal_lm_sft",
+  "completed": true,
+  "config": {
+    "data": "/root/autodl-tmp/history-pressure-20261023/data",
+    "model": "/root/autodl-tmp/models/Qwen3.5-9B",
+    "revision": null,
+    "mode": "qlora",
+    "device": "cuda",
+    "schedule": "cosine",
+    "steps": 2,
+    "eval_every": 2,
+    "batch_size": 1,
+    "accumulation": 2,
+    "max_length": 12288,
+    "lr": 5e-05,
+    "minimum_lr": 5e-06,
+    "rank": 16,
+    "alpha": 32,
+    "seed": 0,
+    "limit": 0,
+    "threads": 2,
+    "defer_test": true
+  },
+  "data_hash": "2d3150a410e38d851f90eb03bee78f8b934e70e06642594d87f20652ae47179d",
+  "base_identity": "457bf3ae902e56e0a24588f4a691ae1aa611de4c8f7cb7429d8b5d100b7ca1ef",
+  "step": 2,
+  "history": [
+    {
+      "step": 2,
+      "train_loss": 0.06435926708794013,
+      "validation": {
+        "loss": 0.06047300921641897,
+        "target_tokens": 553
+      },
+      "lr_used": 5e-05,
+      "gradient_norm": 0.813036322593689,
+      "scheduler": null
+    }
+  ],
+  "train_tokens": 36344,
+  "supervised_tokens": 2052,
+  "examples_seen": 4,
+  "parameters": 5537829376,
+  "trainable_parameters": 43278336,
+  "seconds_this_invocation": 51.34526573121548,
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.20.2"
+  },
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "peak_allocated_bytes": 22121961984,
+  "peak_reserved_bytes": 23571988480,
+  "test_deferred": true,
+  "selection": {
+    "rule": "minimum_validation_loss_first_tie",
+    "step": 2,
+    "validation_loss": 0.06047300921641897,
+    "validation_target_tokens": 553,
+    "trainable_tensor_sha256": "71f5129d9b4f514fbcf028b94769a26c050c6d87d0597ec6b4b8e82fe6c52ee1",
+    "trainable_tensor_count": 496,
+    "export_files_sha256": {
+      "adapter_model.safetensors": "c9348515cc0d2700e7be27d502456f17bdc7913c4664384c951ac6b8840612f5"
+    }
+  }
+}

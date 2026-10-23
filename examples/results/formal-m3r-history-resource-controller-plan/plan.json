@@ -1,0 +1,54 @@
+{
+  "kind": "fixed_k_development_plan_not_formal_protocol",
+  "source_commit": "d80be96feedd06daf0b2340bfedd24e900b23d7a",
+  "validation_source_tasks": 150,
+  "fixed_k_values": [
+    1,
+    2,
+    3
+  ],
+  "planned_runs": 450,
+  "budgets": {
+    "token_budget": 49152,
+    "max_new_tokens": 1536,
+    "max_repairs": 3,
+    "context_limit": 17408
+  },
+  "settings": {
+    "analyzer_condition": "D",
+    "analyzer_seed": 0,
+    "checkpoint_selection": "best_validation_loss",
+    "analyzer_mode": "model",
+    "dynamic_policy": "dynamic-k",
+    "intensity": {
+      "schema_version": 1,
+      "fixed_k": 1,
+      "max_k": 3,
+      "thresholds": [
+        0.25,
+        0.5
+      ],
+      "hard_weight": 2.0,
+      "unknown_weight": 0.5
+    },
+    "fixed_k_values": [
+      1,
+      2,
+      3
+    ],
+    "max_tool_steps": 3,
+    "actor_envelope": "extract",
+    "redact_events": false
+  },
+  "model_roles": {
+    "actor": "official_original_Qwen3.5-9B",
+    "analyzer": "official_original_Qwen3.5-9B_base_proxy_not_trained_D"
+  },
+  "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "selection_rule": "validation_task_mean_success_then_charged_tokens_then_smaller_k",
+  "total_charged_token_upper_bound": 22118400,
+  "test_or_ood_used": false,
+  "discard_failed_runs": false,
+  "formal_protocol_frozen": false,
+  "warning": "Original-base development selection is not a trained-analyzer efficacy result. All fixed k arms remain in formal M7. Context/token limits are explicit bounds; exhaustion is retained as failure."
+}
