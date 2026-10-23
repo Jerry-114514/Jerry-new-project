@@ -1,0 +1,27 @@
+{
+  "kind": "programmatic_explicit_spec_diagnostics",
+  "schema_version": 1,
+  "label_source": "programmatic_explicit_spec_v1",
+  "cases_hash": "43fb0060cecfe3530d1c7c237c14376aae5743b9d63ed907484bc718ba4da584",
+  "tasks_hash": "bd29f91a53372d612bf9e30a7bbbc4d3c99bf2584ee8906b89330e7d0d1142c4",
+  "references_hash": "0e7f500d4c7d658deb4dfae5eefd7a78478227be0cac420ae8c36f3d5ea030d0",
+  "labels_hash": "50d39867bdbf1f4cf707aa61a42e44a2c497be93dbc1f4d834ec909c3510e8d9",
+  "generator_sha256": "c3fb3f4f218cc07574ab590ddab0e4ac01f5329179ace46594e7567b6c95d443",
+  "human_reviews_completed": 0,
+  "human_evaluation_claim": false,
+  "audit": {
+    "cases": {
+      "train": 9600
+    },
+    "source_task_groups": {
+      "train": 600
+    },
+    "scope": "structural_checks_only_not_proven_source_independence"
+  },
+  "files_sha256": {
+    "programmatic-labels.jsonl": "fb18a2c8753b9358819b330fccd4f64ae511b553b47a0d60561528a3bf29ac5c",
+    "train.jsonl": "ef611c1caf94fc84b1e389f4ea1d380118c9bfa450fb4606d864f112482fe104"
+  },
+  "protocol_frozen": false,
+  "warning": "Explicit encoded specifications only. References, provenance, independence, adversarial coverage and formal protocol remain separate gates."
+}

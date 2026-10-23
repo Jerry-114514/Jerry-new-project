@@ -31,3 +31,5 @@ python -m intentlab.programmatic_labels --cases /private/cases.jsonl --tasks /pr
 算法生成的合同应明确记录program_generated来源，不宣称human_authored。对公开改编来源继续核验授权和适配范围；不把仓库的许可标签自动解释为全部原始内容可发布。没有人工验证不等于忽略来源、参考和规格之间的风险。
 
 当前已对现有600份单模板训练候选、2400视图生成9600项程序标签并重算通过，与在线规则的状态比较无分歧；这只是实现一致性。分布检查发现R_ORDER只有1800 satisfied/600 unknown，尚无violated，须补充先写后验等轨迹。该批仅train，无新的封存test/OOD，不能直接启动正式训练。公开元数据见[M2h](../examples/results/formal-m2h-programmatic-labels/README.md)。
+
+后续[M2i](contract-fault-coverage.md)保留该批不变，另生成7200个故障视图，扩充候选池中的顺序违规已有1800；六种声明的标签器变异均有反例。新增视图不增加独立源任务，仍需补齐模板/划分/blocked分支和正式程序协议，最终训练视图选择尚未冻结。

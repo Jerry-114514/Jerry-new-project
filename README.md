@@ -31,6 +31,7 @@ python -m intentlab train-baseline --data runs/data/diagnostic_views.jsonl --out
 - [2400视图完整输入长度](docs/training-length-budget.md)：压缩候选在3328上下文仍有31例不能预留512输出，最长需4202；不能外推旧104视图的长度覆盖。
 - [标注负担修订提案](docs/annotation-workload-revision-proposal.md)：保留两路线选择历史；用户现已选择完全程序标签，不再安排每人9600项或320项审计。
 - [程序标签实施指南](docs/programmatic-label-guide.md)：用户已选择完全程序标签，idea更新2.0；2400训练视图已导出，正式协议工程迁移、对抗覆盖和新划分仍待完成，不声称人工验证。
+- [顺序违规与程序标签对抗检查](docs/contract-fault-coverage.md)：600份原train合同新增7200故障视图，补齐1800顺序违规；六类声明的检查器变异均被识别，仍是单模板开发候选池。
 - [监督位置logits显存优化](docs/supervised-logits-memory.md)：保持因果损失和输入完整，5090上4608/512合成序列两更新通过，reserved约17.99GiB；非正式训练。
 - [压缩提示的真实模型开发对照](docs/compact-prompt-development-report.md)：208次调用完成，格式通过99/104与103/104、计费token减少31.68%；有40项状态分歧，无人工真值，不报告准确率。
 - [新来源提示与显存预算](docs/context-coverage-budget.md)：104 个实际提示暴露 2048 草案缺口；4096 合成压力显存不足、3328 通过，另有保留全部公开数据的离线提示压缩提案，尚未用于模型实验。

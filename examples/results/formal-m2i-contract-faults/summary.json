@@ -1,0 +1,36 @@
+{
+  "scope": "expanded_development_fault_candidate_pool",
+  "base_views": 2400,
+  "new_fault_views": 7200,
+  "total_candidate_views": 9600,
+  "source_contracts": 600,
+  "new_source_contracts": 0,
+  "new_source_tasks": 0,
+  "status_counts": {
+    "R_INPUT": {
+      "satisfied": 6600,
+      "violated": 2400,
+      "unknown": 600
+    },
+    "R_ORDER": {
+      "satisfied": 6600,
+      "unknown": 1200,
+      "violated": 1800
+    },
+    "R_RESULT": {
+      "satisfied": 6600,
+      "violated": 3000
+    },
+    "R_REPORT": {
+      "satisfied": 6000,
+      "violated": 3600
+    }
+  },
+  "base_prefix_hash": "eeb0f9a6d80fd2049737d1561b97344a0264ddc33ee852c6e6f02c711aad5ad6",
+  "base_cases_hash": "eeb0f9a6d80fd2049737d1561b97344a0264ddc33ee852c6e6f02c711aad5ad6",
+  "export_labels_hash": "50d39867bdbf1f4cf707aa61a42e44a2c497be93dbc1f4d834ec909c3510e8d9",
+  "formal_training": false,
+  "human_evaluation_claim": false,
+  "final_training_view_selection_frozen": false,
+  "warning": "Candidate pool only. Extra faults add views, not independent tasks. No new templates, test/OOD, formal view selection or budget approval."
+}

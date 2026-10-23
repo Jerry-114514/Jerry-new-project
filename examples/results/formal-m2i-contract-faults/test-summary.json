@@ -1,0 +1,41 @@
+[
+  {
+    "log_name": "contract-fault-tests-local.log",
+    "sha256": "828415404118489b40e638fc3c5693e1903483e95c42f69872b4d909b3230687",
+    "tests_discovered": 208,
+    "skipped": 13,
+    "tail": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 208 tests in 12.755s",
+      "",
+      "OK (skipped=13)"
+    ]
+  },
+  {
+    "log_name": "contract-faults-tests-remote.log",
+    "sha256": "d50febab40e91b47379dd3dafb6c0651500f849e93d1d933251f947d4bbe103c",
+    "tests_discovered": 208,
+    "skipped": 0,
+    "tail": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 208 tests in 94.030s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "log_name": "contract-faults-targeted-remote.log",
+    "sha256": "4fd9466475c3a7e8dc5a3186fd05edd12c807329df843c052bf3485de0851e86",
+    "tests_discovered": 4,
+    "skipped": 0,
+    "tail": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 4 tests in 0.342s",
+      "",
+      "OK"
+    ]
+  }
+]

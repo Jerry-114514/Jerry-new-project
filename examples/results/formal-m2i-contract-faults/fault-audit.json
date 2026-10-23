@@ -1,0 +1,63 @@
+{
+  "scope": "development_injected_faults_and_declared_mutants",
+  "cases": 7200,
+  "requirements_checked": 28800,
+  "scenarios": {
+    "late-validation": 600,
+    "missing-validation": 600,
+    "wrong-output-type": 600,
+    "report-count-string": 600,
+    "report-count-boolean": 600,
+    "delete-input-restore": 600,
+    "restore-before-validation": 600,
+    "wrong-result-truthful-report": 600,
+    "extra-artifact": 600,
+    "delete-output": 600,
+    "delete-report": 600,
+    "hidden-changed-input": 600
+  },
+  "scenario_assertion_disagreements": 0,
+  "mutations": {
+    "ignore-restored-writes": {
+      "detected": true,
+      "changed_cases": 1200,
+      "changed_requirement_items": 1200,
+      "mutant_sha256": "f947d190006efc5e6908dcafce82404c6b3bd685d113693da928325fe9b38abe"
+    },
+    "ignore-write-order": {
+      "detected": true,
+      "changed_cases": 1200,
+      "changed_requirement_items": 1200,
+      "mutant_sha256": "187c7b3d6dae973dc3a865c8e05cf5bafe1425513aa73eb32b338aca23e3c6b9"
+    },
+    "claim-hidden-order-safe": {
+      "detected": true,
+      "changed_cases": 600,
+      "changed_requirement_items": 600,
+      "mutant_sha256": "8f1e2ac9cda5cbc0be0cf082224411bfb33dc01413a6afb0f4f3e71ffcb0441e"
+    },
+    "ignore-extra-artifacts": {
+      "detected": true,
+      "changed_cases": 600,
+      "changed_requirement_items": 600,
+      "mutant_sha256": "56fe37ae48862d64cab664ba6967ad1a2bf1c67f3bbc1932a5596283f7d883f2"
+    },
+    "claim-reports-correct": {
+      "detected": true,
+      "changed_cases": 3000,
+      "changed_requirement_items": 3000,
+      "mutant_sha256": "f75259a6229ef2f9d7ee50f05a2b00e5f96f807eab8f1dd860b84e9001d93376"
+    },
+    "loose-json-types": {
+      "detected": true,
+      "changed_cases": 585,
+      "changed_requirement_items": 585,
+      "mutant_sha256": "0283f5e4513236982a3e376327d34351850aa3d7fc2f54767d210219aff7fb7b"
+    }
+  },
+  "mutants_detected": 6,
+  "mutants_total": 6,
+  "human_evaluation_claim": false,
+  "formal_proof": false,
+  "warning": "Only declared faults/mutants on existing development inputs. Not exhaustive verification, independent task count, held-out accuracy or a formal endpoint."
+}
