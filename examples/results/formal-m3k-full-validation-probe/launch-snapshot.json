@@ -1,0 +1,37 @@
+{
+  "dependency_identity": {
+    "argv": [
+      "/root/autodl-tmp/intentlab-venv/bin/python",
+      "/root/autodl-tmp/run_procedural_followup.py",
+      "--source",
+      "/root/autodl-tmp/Jerry-formal-v2-20261022",
+      "--baseline",
+      "/root/autodl-tmp/procedural-fewshot-development-20261023",
+      "--selection",
+      "/root/autodl-tmp/procedural-natural-selection-20261023",
+      "--out",
+      "/root/autodl-tmp/procedural-development-followup-20261023",
+      "--scorer",
+      "/root/autodl-tmp/score_fewshot_development.py",
+      "--intake-module",
+      "/root/autodl-tmp/followup_trajectory_intake.py",
+      "--dependency-pid",
+      "154730",
+      "--selection-sha256",
+      "e69f42c62eac9578d8ee678d9a94dfab91e9e42a262a7f92b459d4f6e74250ae",
+      "--scorer-sha256",
+      "aedb70c2bdeb51ed9cc3a503ea2967bcc5ec6b2756bf0e3199f1b7cee890e143",
+      "--intake-sha256",
+      "7c7d883c190ce774b62bba3455520b4ec2e678235fb66d3a2c262c3c7cdcc939"
+    ],
+    "pid": 164126,
+    "start_ticks": "866103577"
+  },
+  "dependency_pid": 164126,
+  "formal_training": false,
+  "heldout_files_read": false,
+  "phase": "waiting_for_natural_intake",
+  "scope": "development_resource_probe_not_formal_training",
+  "started_unix": 1792747544.4809406,
+  "status": "running"
+}
