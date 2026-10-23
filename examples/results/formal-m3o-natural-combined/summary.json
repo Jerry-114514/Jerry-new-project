@@ -1,0 +1,44 @@
+{
+  "base_cases_hash": "75bbaac91e859f90eb1822ee0b5bc91de6c4c9641aea9768dbef185ea5d41839",
+  "cases_hash": "f30ffbac7250a01596fe8c4b453767306f674800d36f1f8b4b8fcb1966f3c718",
+  "formal_candidate_selected": false,
+  "formal_protocol_frozen": false,
+  "heldout_cases_and_gold_byte_identical": true,
+  "heldout_model_outputs_read": false,
+  "human_evaluation_claim": false,
+  "kind": "combined_programmatic_and_natural_candidate",
+  "labels_hash": "2f9e80a5c572e02a831104f9290b08432208561d117b6621c88758a7febf73e9",
+  "natural_compliant_runs": 11,
+  "natural_execution_status_counts": {
+    "error": 3,
+    "finished": 29
+  },
+  "natural_replay": {
+    "committed_tools_and_final_metrics_verified": true,
+    "replayed": 32
+  },
+  "natural_runs": 32,
+  "natural_source_groups": 32,
+  "natural_views": 64,
+  "new_independent_source_tasks": 0,
+  "raw_natural_sha256": "4129f438be0e98cdc65de3b48d38533e26ecc60e2826b5a9d9972975d5dd252c",
+  "schema_version": 1,
+  "source_groups_by_split": {
+    "ood": 100,
+    "test": 200,
+    "train": 600,
+    "validation": 150
+  },
+  "tasks_hash": "67892c44b95f398810c0a6e04848e8072c00913faa08be1c2847bf9c6289cc0c",
+  "trajectory_views": {
+    "injected": 4200,
+    "natural": 64
+  },
+  "views_by_split": {
+    "ood": 400,
+    "test": 800,
+    "train": 2432,
+    "validation": 632
+  },
+  "warning": "Natural views retain existing source/split; all recorded failures survive. Gold is regenerated offline from explicit contracts/static references, not copied from online judgments. No test model tuning or current protocol switch. Long-history/multi-repair coverage and remaining scientific/budget gates need separate review."
+}

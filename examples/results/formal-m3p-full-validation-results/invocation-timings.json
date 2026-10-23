@@ -1,0 +1,12 @@
+[
+  {
+    "exit_code": 0,
+    "phase": "first_two_updates",
+    "wall_seconds": 361.10365639440715
+  },
+  {
+    "exit_code": 0,
+    "phase": "resume_to_four_updates",
+    "wall_seconds": 363.2704215273261
+  }
+]

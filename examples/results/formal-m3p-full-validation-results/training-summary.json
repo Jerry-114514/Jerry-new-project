@@ -1,0 +1,75 @@
+{
+  "base_identity": "457bf3ae902e56e0a24588f4a691ae1aa611de4c8f7cb7429d8b5d100b7ca1ef",
+  "config": {
+    "accumulation": 2,
+    "alpha": 32,
+    "batch_size": 1,
+    "data": "/root/autodl-tmp/procedural-full-validation-benchmark-20261023/data",
+    "defer_test": true,
+    "device": "cuda",
+    "eval_every": 2,
+    "limit": 0,
+    "lr": 5e-05,
+    "max_length": 7168,
+    "minimum_lr": 5e-06,
+    "mode": "qlora",
+    "model": "/root/autodl-tmp/models/Qwen3.5-9B",
+    "rank": 16,
+    "revision": null,
+    "schedule": "cosine",
+    "seed": 0,
+    "steps": 4,
+    "threads": 2
+  },
+  "data_and_base_identity_unchanged": true,
+  "data_hash": "73473ad6d8095c5fe9ef502194c4058a5ab7c130d74c19cd7429e94be74ca223",
+  "examples_seen": 8,
+  "formal_training": false,
+  "history": [
+    {
+      "gradient_norm": 1.715744972229004,
+      "lr_used": 5e-05,
+      "scheduler": null,
+      "step": 2,
+      "train_loss": 0.2074576702314554,
+      "validation": {
+        "loss": 0.1623169585199412,
+        "target_tokens": 116962
+      }
+    },
+    {
+      "gradient_norm": 1.023089051246643,
+      "lr_used": 5e-06,
+      "scheduler": null,
+      "step": 4,
+      "train_loss": 0.0918282823464305,
+      "validation": {
+        "loss": 0.14041691403209514,
+        "target_tokens": 116962
+      }
+    }
+  ],
+  "history_prefix_unchanged": true,
+  "invocation_loop_seconds": [
+    329.3369548097253,
+    329.8409823141992
+  ],
+  "peak_allocated_bytes": 17299102208,
+  "peak_reserved_bytes": 18807259136,
+  "selection": {
+    "export_files_sha256": {
+      "adapter_model.safetensors": "cd969b26dc857756e936148480668cbed3d47f4a8aade6f3a971922422f84a92"
+    },
+    "rule": "minimum_validation_loss_first_tie",
+    "step": 4,
+    "trainable_tensor_count": 496,
+    "trainable_tensor_sha256": "e5d7302e5a70046c5801e4d3de77c3a2ec28842342b08b2b788a6994b9855988",
+    "validation_loss": 0.14041691403209514,
+    "validation_target_tokens": 116962
+  },
+  "source_commit": "b4a757afc7c01332734fb6e4c2f08f3f7fcceef9",
+  "step": 4,
+  "supervised_tokens": 1164,
+  "test_deferred": true,
+  "warning": "Two pressure training examples, four updates, two full development validations. Not formal training, quality evidence, or bitwise continuous/resume equivalence."
+}

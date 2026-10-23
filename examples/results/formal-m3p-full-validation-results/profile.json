@@ -1,0 +1,76 @@
+{
+  "aggregates": {
+    "train": {
+      "sequence_tokens": {
+        "count": 2432,
+        "maximum": 4419,
+        "minimum": 1202,
+        "p50": 2385,
+        "p95": 3693,
+        "sum": 6062949
+      },
+      "source_groups": 600,
+      "supervised_tokens": {
+        "count": 2432,
+        "maximum": 189,
+        "minimum": 84,
+        "p50": 157,
+        "p95": 189,
+        "sum": 369760
+      }
+    },
+    "validation": {
+      "sequence_tokens": {
+        "count": 632,
+        "maximum": 6628,
+        "minimum": 1879,
+        "p50": 3939,
+        "p95": 5644,
+        "sum": 2499011
+      },
+      "source_groups": 150,
+      "supervised_tokens": {
+        "count": 632,
+        "maximum": 229,
+        "minimum": 100,
+        "p50": 197,
+        "p95": 229,
+        "sum": 116962
+      }
+    }
+  },
+  "file_bindings": {
+    "train": {
+      "natural_sha256": "61a577d63663400ead2de975a21f7c4567e19f328644ca7409f21071ca9dafbf",
+      "original_sha256": "94d66bd95ce9443f2bfc38071bee2cb3ae005a16002aaf8cd37f2d453f0102b7"
+    },
+    "validation": {
+      "natural_sha256": "97d8cc7cc1a034096085b3cf126e17c5bed98e4cc1649e590f58d7e28238d7ef",
+      "original_sha256": "43881e276f7a3e87aff3f501981a2350a1955dc10210b597f796a42babea512b"
+    }
+  },
+  "formal_budget_approved": false,
+  "heldout_files_read": false,
+  "maximum_required_sequence_length": 6628,
+  "official_assets": {
+    "model": "Qwen/Qwen3.5-9B",
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "verified_assets": [
+      "chat_template.jinja",
+      "config.json",
+      "merges.txt",
+      "model.safetensors-00001-of-00004.safetensors",
+      "model.safetensors-00002-of-00004.safetensors",
+      "model.safetensors-00003-of-00004.safetensors",
+      "model.safetensors-00004-of-00004.safetensors",
+      "model.safetensors.index.json",
+      "preprocessor_config.json",
+      "tokenizer.json",
+      "tokenizer_config.json",
+      "video_preprocessor_config.json",
+      "vocab.json"
+    ]
+  },
+  "proposed_probe_max_length": 7168,
+  "scope": "complete_original_and_natural_development_SFT"
+}

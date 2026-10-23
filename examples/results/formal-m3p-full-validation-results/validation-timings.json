@@ -1,0 +1,16 @@
+[
+  {
+    "invocation": "first_two_updates",
+    "loss": 0.1623169585199412,
+    "status": "completed",
+    "target_tokens": 116962,
+    "wall_seconds": 320.8011454138905
+  },
+  {
+    "invocation": "resume_to_four_updates",
+    "loss": 0.14041691403209514,
+    "status": "completed",
+    "target_tokens": 116962,
+    "wall_seconds": 321.0402829684317
+  }
+]

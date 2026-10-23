@@ -1,0 +1,20 @@
+{
+  "cases.jsonl": "96fc0c9a98c7a1d02d9b0111636a213986d9bed09e9ed033fa75ad68802aef85",
+  "execution-references.jsonl": "c8b9d3cb8c3f3121c4e2c99430b48b14253234f1a570a6d9007a5885416a38aa",
+  "execution-tasks.jsonl": "e3acee9c6761baa1ca4dee52a3aadc7901288a4befcaecc04724283ad1181a9d",
+  "export/heldout/ood/cases.jsonl": "9c633e86ac3cf7ce23075c5373232d1c5952abaf511e5af48b6915753e04f864",
+  "export/heldout/ood/gold.jsonl": "5bc7ffcf4bad649e3976e73fc6d83219964b68076a1a8ff5b3f25b653b281cbd",
+  "export/heldout/test/cases.jsonl": "264a2d3ff4b6c992d88c2fdd761390cf3effb755824a7685fca69e03b258f05b",
+  "export/heldout/test/gold.jsonl": "95ed7cf4cccd55ce2c0677427cf8983eb60da1dd74fc9c86e6a49aeade0b4d6f",
+  "export/manifest.json": "07d809688b9e9ad273f463cc2cb3afb20bf1e58eca3193135a4bfb2d4fc757c6",
+  "export/programmatic-labels.jsonl": "e0fada52c16aed606fa61e1abab6b63eccff237ca1063a74feb9c111aa680171",
+  "export/train.jsonl": "0412837a0a5c70b91d15e80838bb59be1c324517e7bef3b2ad63c54653c59714",
+  "export/validation.jsonl": "1fa517787271704d66e30912a0fa68c06e2141d58c3df58507f8b1a644c8ca1b",
+  "natural-cases.jsonl": "a8df8e200968e9c3eabae42f00c892c748fd8a5b598c4ca11f838aa1ba284655",
+  "natural-provenance.jsonl": "e209816e2e0d64886be7a6a1835395a2cbf610f43bc266f2b65d5847e032184c",
+  "programmatic-validation.json": "9cbb4abe73d62c32b620671b2fe0136bec5d5c357c623cde9e396b1b8b25016a",
+  "references.jsonl": "5e1a71bfa23bc957e9f572d7313c960eb9a591e5eeb3cff31169a7ec4548925f",
+  "source-isolation.json": "d3b774ddde3cce14df2d79a9d3aa562591951e98ead19fab7eba764f20e8b4a4",
+  "summary.json": "d712330e3c52add5bff6e0d7d7a8cc3ff641b09ae0a55dbb66689f943b30be8e",
+  "tasks.jsonl": "3adb95d02a0224b4b4078f237813c5f47d808e5055a637d2b7ce3a706c8c4c24"
+}
