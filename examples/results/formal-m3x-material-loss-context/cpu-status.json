@@ -1,0 +1,9 @@
+{
+  "status": "completed",
+  "source_commit": "52451940acfc54441218505fc475ec770e54053a",
+  "cuda_visible_devices": "",
+  "gpu_experiment_source_unchanged": true,
+  "formal_protocol_frozen": false,
+  "test_exit_code": 0,
+  "seal_exit_code": 0
+}

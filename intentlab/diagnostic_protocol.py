@@ -219,7 +219,11 @@ def heldout_loss(protocol, path, cases, gold, record_path):
                     ensure_gpu_lease()
                 pair = {"task_id": row["source_task_id"], "prompt": formal_prompt(row["public"]),
                         "completion": canonical({"findings": [gold[row["case_id"]][req["id"]] for req in row["public"]["requirements"]]})}
-                encoded = encode_pair(backend.tokenizer, pair, min(backend.context, protocol["spec"]["training"]["max_length"]))
+                # Evaluate complete heldout sequences under the declared model
+                # context. A training allocation cap must not silently become
+                # a shorter OOD evaluation limit. encode_pair still rejects
+                # overflow rather than truncating or dropping target tokens.
+                encoded = encode_pair(backend.tokenizer, pair, backend.context)
                 batch = batch_tensors([encoded], backend.tokenizer.pad_token_id, backend.device)
                 with backend.torch.no_grad():
                     loss, count = token_loss(backend.model, batch)
