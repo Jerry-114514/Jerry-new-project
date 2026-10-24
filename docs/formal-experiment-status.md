@@ -1,8 +1,8 @@
 # 正式实验工程审计与执行记录
 
-**2026-10-24当前状态：正式协议已冻结，M4六次串行训练已启动，完成2/6（seed 0配对完成记录）。** [训练前发布的冻结回执](../examples/results/formal-m3af-protocol-freeze/README.md)绑定锁a1b0440b0f93cfcb76ad9971cbfe73e8f08b30e45a6fef091c7cb74cc31fc027及运行源码20214fb。完整450条开发重跑已退出0、逐条复算并跨主机备份，三个k成功率均38%，按预定token次序选k=1。全部4368条材料导出及程序标签、来源记录、封存和300个执行合同绑定通过完整核验；就绪检查ready=true后才生成锁。
+**2026-10-24当前状态：正式协议已冻结，M4六次串行训练已启动，完成4/6（seed 0与seed 1配对完成记录）。** [训练前发布的冻结回执](../examples/results/formal-m3af-protocol-freeze/README.md)绑定锁a1b0440b0f93cfcb76ad9971cbfe73e8f08b30e45a6fef091c7cb74cc31fc027及运行源码20214fb。完整450条开发重跑已退出0、逐条复算并跨主机备份，三个k成功率均38%，按预定token次序选k=1。全部4368条材料导出及程序标签、来源记录、封存和300个执行合同绑定通过完整核验；就绪检查ready=true后才生成锁。
 
-首项cosine-seed-0已完成2464更新、4928次样本暴露，按预登记规则导出第800步最佳验证检查点；完整10文件备份已复制至本机并逐项校验，[首项端点凭据](../examples/results/formal-m4b-first-endpoint/README.md)记录结果及资产SHA。第二项plateau-seed-0也已完成并实际跨主机备份，第三项cosine-seed-1运行中，其余三项待串行执行；[首对核验及第二项备份凭据](../examples/results/formal-m4c-seed0-pair/README.md)已发布。两项初始化、数据身份、更新步数和全部视图暴露次数一致，每项13次完整验证，测试评测均延后；这些结果记录不独立证明逐更新采样顺序。这是训练和备份完成证据，尚不构成独立测试收益结论。M5、M6、M7尚未运行，M8未完成。测试不参与训练选点，预算守护仍生效；估算区间上端超过剩余授权时长，不保证限额内完成全部阶段。
+首项cosine-seed-0已完成2464更新、4928次样本暴露，按预登记规则导出第800步最佳验证检查点；完整10文件备份已复制至本机并逐项校验，[首项端点凭据](../examples/results/formal-m4b-first-endpoint/README.md)记录结果及资产SHA。第二项plateau-seed-0也已完成并实际跨主机备份，第三、四项seed 1两调度均已完成并跨主机备份，第五项cosine-seed-2运行中，最后一项plateau-seed-2待执行；[第二对核验及备份凭据](../examples/results/formal-m4d-seed1-pair/README.md)已发布。[首对核验及第二项备份凭据](../examples/results/formal-m4c-seed0-pair/README.md)已发布。两项初始化、数据身份、更新步数和全部视图暴露次数一致，每项13次完整验证，测试评测均延后；这些结果记录不独立证明逐更新采样顺序。这是训练和备份完成证据，尚不构成独立测试收益结论。M5、M6、M7尚未运行，M8未完成。测试不参与训练选点，预算守护仍生效；估算区间上端超过剩余授权时长，不保证限额内完成全部阶段。
 
 官方底座14文件约19.33GB的本机镜像现已复制完成，源SHA及13项官方资产复核通过，[备份索引](../examples/results/formal-m3ad-model-backup/official-base-backup-index.json)已发布。下面按日期保留的是历史审计和当时依赖，旧“未冻结”“底座在传输”“等待人审”等语句不代表当前状态。标签路线仍完全程序化，结论限定于明确编码规格，不声称人工验证。
 

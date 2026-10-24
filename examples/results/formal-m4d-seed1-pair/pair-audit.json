@@ -1,0 +1,45 @@
+{
+  "kind": "completed_seed1_pair_result_audit",
+  "completed_jobs": 4,
+  "protocol_hash": "a1b0440b0f93cfcb76ad9971cbfe73e8f08b30e45a6fef091c7cb74cc31fc027",
+  "matching_fields": [
+    "initial_trainable_sha256",
+    "data_hash",
+    "base_identity",
+    "step",
+    "train_tokens",
+    "supervised_tokens",
+    "examples_seen",
+    "sample_exposures"
+  ],
+  "non_schedule_config_equal": true,
+  "validation_events_each": 13,
+  "all_training_views_seen_twice": true,
+  "test_deferred_both": true,
+  "scope": "Result-record comparison; exposure counts do not independently prove update order.",
+  "selection": {
+    "cosine": {
+      "rule": "minimum_validation_loss_first_tie",
+      "step": 600,
+      "validation_loss": 0.005492127214313259,
+      "validation_target_tokens": 133026,
+      "trainable_tensor_sha256": "aa3f37c0faee9a9be93c49cd70b542f7617409392c1dc94a22e4cbaba7cabbb6",
+      "trainable_tensor_count": 496,
+      "export_files_sha256": {
+        "adapter_model.safetensors": "1f167e5d261dc978216f773dfa228f4ed02c9407da7dcd30cfbf528cbe468b21"
+      }
+    },
+    "plateau": {
+      "rule": "minimum_validation_loss_first_tie",
+      "step": 600,
+      "validation_loss": 0.004972890037675565,
+      "validation_target_tokens": 133026,
+      "trainable_tensor_sha256": "4038c1bf04daefb5dda477d2640c0c5f0b47ccbe59fcdf8b12ba4b41e86634e1",
+      "trainable_tensor_count": 496,
+      "export_files_sha256": {
+        "adapter_model.safetensors": "2d98c876c723885843d006c925949d07147b0505a2e1295d906b28f5da39274a"
+      }
+    }
+  },
+  "m8_complete": false
+}

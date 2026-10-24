@@ -1,0 +1,82 @@
+{
+  "kind": "observed_off_host_formal_endpoint_backup",
+  "job": "cosine-seed-1",
+  "protocol_hash": "a1b0440b0f93cfcb76ad9971cbfe73e8f08b30e45a6fef091c7cb74cc31fc027",
+  "runtime_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "started_utc": "2026-10-24T06:58:48.921956+00:00",
+  "finished_utc": "2026-10-24T10:15:05.308896+00:00",
+  "steps": 2464,
+  "examples_seen": 4928,
+  "supervised_tokens": 769088,
+  "initial_trainable_sha256": "8c325110d4366ee2dc5eb1db043229467226afc6ac4bba4f88300e78d22f527e",
+  "selection": {
+    "rule": "minimum_validation_loss_first_tie",
+    "step": 600,
+    "validation_loss": 0.005492127214313259,
+    "validation_target_tokens": 133026,
+    "trainable_tensor_sha256": "aa3f37c0faee9a9be93c49cd70b542f7617409392c1dc94a22e4cbaba7cabbb6",
+    "trainable_tensor_count": 496,
+    "export_files_sha256": {
+      "adapter_model.safetensors": "1f167e5d261dc978216f773dfa228f4ed02c9407da7dcd30cfbf528cbe468b21"
+    }
+  },
+  "result_sha256": "70851cf4baf89e1f4f84fad304651779e9b7c8f67466d56a1f4308b4baef511b",
+  "files": {
+    "latest.pt": {
+      "bytes": 693231661,
+      "sha256": "6f35ceaaecf827893e35b865bc77de08280c703a9142fc13d33c32af6d0dd1c2"
+    },
+    "model/README.md": {
+      "bytes": 396,
+      "sha256": "d5d7f8115fd0663fc2b6add007b81866d1b49c979b3823a26e93b5c2c092511a"
+    },
+    "model/adapter_config.json": {
+      "bytes": 1275,
+      "sha256": "c5ae07282b3a4bdbda7980393ab70e6d495a92af5449449078b3bd5e7652637d"
+    },
+    "model/adapter_model.safetensors": {
+      "bytes": 173181072,
+      "sha256": "1f167e5d261dc978216f773dfa228f4ed02c9407da7dcd30cfbf528cbe468b21"
+    },
+    "model/chat_template.jinja": {
+      "bytes": 7756,
+      "sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715"
+    },
+    "model/selection.json": {
+      "bytes": 408,
+      "sha256": "ef539236934cda8833c489efb33f78860d88e169f48dea008d29522e6bef042c"
+    },
+    "model/tokenizer.json": {
+      "bytes": 19989339,
+      "sha256": "a5cd9732badce41de57e6efce8302930ded1c1188c5f81feb2bd6c24c4a1941f"
+    },
+    "model/tokenizer_config.json": {
+      "bytes": 1465,
+      "sha256": "004893c9690cd050e617619eef34e6a13fe58ac4a3f4174f38eed5e408a89636"
+    },
+    "result.json": {
+      "bytes": 639634,
+      "sha256": "70851cf4baf89e1f4f84fad304651779e9b7c8f67466d56a1f4308b4baef511b"
+    },
+    "run_config.json": {
+      "bytes": 442,
+      "sha256": "1c2ee6d0f060d93ae897e49b671073ed4ff83f4ada119e46e1f563d5306117b7"
+    }
+  },
+  "verification": {
+    "kind": "model_backup_byte_verification",
+    "archive_sha256": "05736ed296eeac9f204a0f4bc5d72914123c4c87c52b9fc00f32faa3bf0dfe8c",
+    "files": 10,
+    "source_bytes": 887053448,
+    "index_hash": "e64139d850ea63e053678dc61597223b4b30c3c83170bca62efae1dd6c9013b9",
+    "external_archive_hash_checked": true,
+    "model_or_pickle_loaded": false,
+    "off_host_durability_claim": false
+  },
+  "off_host_copy_observed": true,
+  "destination_storage": "user local Windows workspace disk",
+  "completed_training_jobs_at_observation": 4,
+  "required_training_jobs": 6,
+  "m8_complete": false,
+  "heldout_evaluation_complete": false
+}
