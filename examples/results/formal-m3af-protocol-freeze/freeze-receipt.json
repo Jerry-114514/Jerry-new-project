@@ -1,0 +1,192 @@
+{
+  "kind": "formal_protocol_freeze_public_receipt",
+  "schema_version": 1,
+  "scope": "formal",
+  "lock_hash": "a1b0440b0f93cfcb76ad9971cbfe73e8f08b30e45a6fef091c7cb74cc31fc027",
+  "lock_file_sha256": "0828299942b630fe83ba15b6d1da8ed62aed6d5af3252415db30ce4a4d2cac8a",
+  "created_utc": "2026-10-24T00:22:27.750290+00:00",
+  "source_git": {
+    "commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+    "clean": true
+  },
+  "label_scope": "encoded_specifications_only_no_human_evaluation",
+  "human_evaluation_claim": false,
+  "source_groups": {
+    "train": 600,
+    "validation": 150,
+    "test": 200,
+    "ood": 100
+  },
+  "views": {
+    "train": 2464,
+    "validation": 664,
+    "test": 832,
+    "ood": 408
+  },
+  "dataset_export_files_sha256": {
+    "heldout/ood/cases.jsonl": "c602d2557e1267b647cf934ba4f6d26a76b4e881abfc8a36ffe271f6115e88f0",
+    "heldout/ood/gold.jsonl": "21245a52441c7f870535d431a9c2412daa0979cc331dfb1af6a8c344cdedcc58",
+    "heldout/test/cases.jsonl": "914394d6a105ad0f6d1bd8fedb6e623066a0ba795a8d05be61d1eec677a8cceb",
+    "heldout/test/gold.jsonl": "2687bfc74a4507a6db0c3bd54c40060a563358085760339135cadab0b89cbd38",
+    "manifest.json": "392b43f2e241b00f3a337015a976053b90b1dde40557dbeb04e0554842ca2793",
+    "programmatic-labels.jsonl": "14cd68f8ab8c110c070593f7c555604bbeb6200a7fc3c578a3bc96574b6757cb",
+    "train.jsonl": "380a74890664fe2c61eef0f3ff0dff0902c694ef7ff5582378830d8b7089cfc1",
+    "validation.jsonl": "d86b878e18d0875decef13ae1217b794632bcf40a0ad3679e65cb92497a2ba24"
+  },
+  "training": {
+    "accumulation": 2,
+    "alpha": 32,
+    "batch_size": 1,
+    "defer_test": true,
+    "device": "cuda",
+    "eval_every": 200,
+    "limit": 0,
+    "lr": 5e-05,
+    "max_length": 12288,
+    "minimum_lr": 5e-06,
+    "mode": "qlora",
+    "rank": 16,
+    "revision": null,
+    "steps": 2464,
+    "threads": 2
+  },
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "schedules": [
+    "cosine",
+    "plateau"
+  ],
+  "budgets": {
+    "context_limit": 17408,
+    "max_new_tokens": 1536,
+    "max_repairs": 3,
+    "token_budget": 49152
+  },
+  "few_shot_case_ids": [
+    "proc-v1-87f333a8f0c75a8b25d068f4-complete",
+    "proc-v1-c30036316779161a44d8671b-combined-fault",
+    "proc-v1-7f18d54c2ceb160b9b385f3b-hidden-history"
+  ],
+  "statistics": {
+    "analysis_plan": {
+      "bootstrap_interval": "percentile_floor_indices",
+      "bootstrap_stratification": "operation_family_fixed_source_counts",
+      "bootstrap_unit": "source_task_id",
+      "hypothesis_test": "two_sided_cluster_sign_flip",
+      "loss_estimand": "target_token_weighted_ratio",
+      "max_exact_nonzero_clusters": 16,
+      "minimum_inference_clusters": 2,
+      "minimum_inference_stratum_clusters": 2,
+      "null_assumption": "independent_source_clusters_with_paired_exchangeability",
+      "ood_role": "secondary",
+      "other_generator_quotas": "not_conditioned_on_by_resampling",
+      "permutation_samples": 10000,
+      "primary_split": "test",
+      "schema_version": 2,
+      "secondary_family": "rq2_rq3_rq4_both_splits_plus_rq1_ood_plus_all_m7_controls",
+      "seed_aggregation": "mean_of_three_paired_seed_effects",
+      "seed_uncertainty": "descriptive_sample_sd_only",
+      "undefined_p_values": "retain_family_size_and_return_null"
+    },
+    "bootstrap_samples": 2000,
+    "bootstrap_seed": 20261022,
+    "confidence_level": 0.95,
+    "primary": "RQ1",
+    "primary_scoring": "normalized",
+    "secondary_correction": "holm",
+    "seed_reporting": "separate",
+    "unit": "source_task_id"
+  },
+  "execution_settings": {
+    "actor_envelope": "extract",
+    "analyzer_condition": "D",
+    "analyzer_mode": "model",
+    "analyzer_seed": 0,
+    "checkpoint_selection": "best_validation_loss",
+    "dynamic_policy": "dynamic-k",
+    "fixed_k_values": [
+      1,
+      2,
+      3
+    ],
+    "intensity": {
+      "fixed_k": 1,
+      "hard_weight": 2.0,
+      "max_k": 3,
+      "schema_version": 1,
+      "thresholds": [
+        0.25,
+        0.5
+      ],
+      "unknown_weight": 0.5
+    },
+    "max_tool_steps": 3,
+    "model_residency": "shared-condition-v1",
+    "redact_events": false
+  },
+  "controller_selection": {
+    "selected_k": 1,
+    "rule": "validation_task_mean_success_then_charged_tokens_then_smaller_k",
+    "scores": [
+      {
+        "k": 1,
+        "source_task_mean_compliant_success": 0.38,
+        "source_task_mean_charged_tokens": 8294.4,
+        "source_task_groups": 150
+      },
+      {
+        "k": 2,
+        "source_task_mean_compliant_success": 0.38,
+        "source_task_mean_charged_tokens": 8354.553333333333,
+        "source_task_groups": 150
+      },
+      {
+        "k": 3,
+        "source_task_mean_compliant_success": 0.38,
+        "source_task_mean_charged_tokens": 8347.48,
+        "source_task_groups": 150
+      }
+    ]
+  },
+  "controller_report_hash": "675f57dab4ae17281dff3ab081de29b62f7fcff9bae8ac1baf2bd1f70dd8c30c",
+  "controller_report_sha256": "6904f8ea90e3d65ac14ac198c6065f40a7f5c97e95f66a9b54e39dc9077807b3",
+  "development_archive_sha256": "a913f200399aab1b4c106b6aedb54661eb3718860217d54a84e34c55e5d41020",
+  "private_freeze_archive_sha256": "c135bf2b056ee7352b71e7b6e9c7dee241d9df5ac1f95bc05494c91db27cea5d",
+  "environment": {
+    "python": "3.12.3",
+    "packages": {
+      "torch": "2.8.0+cu128",
+      "transformers": "5.20.2",
+      "peft": "0.21.2",
+      "accelerate": "1.15.0",
+      "bitsandbytes": "0.49.2",
+      "tokenizers": "0.23.3",
+      "fla-core": "0.5.2",
+      "causal-conv1d": "1.7.0"
+    }
+  },
+  "evidence_sha256": {
+    "controller_ablation_audit": "20e4a14d9176a266354896b77eaa012f458497248331ff33fe7d66907defd206",
+    "execution_and_oracle_audit": "68ce79bffad9b7c6606ac0d294269dd7f77f8ea6ec367775d85b7c3a3f13d146",
+    "length_and_compute_budget": "3d4a68daabe81ead58832efff295f8e146a0f1a2017c7941d4209d5cdbd34158",
+    "model_weight_verification": "b90ceca9418f14ae216c07874fb3acae6a41d004544d33b49c4d61074729a658",
+    "power_analysis": "7d677c35c7c8b8fbfa5de3fbbdd79a72530be3e4a1a53a9d839c03268936b6bc",
+    "programmatic_validation": "729dc6f62a250eca6a78094318f1af27829889ba7267d0fed7a1d8510ccaf073",
+    "provenance_and_release_review": "13eec61f3b8c5723fd1e475a1e63fe3f28ab431db76729fb352ffbf0f28c4f9b",
+    "semantic_dedup_review": "50558fcb4b70735e9b6b5494a2061d01a25aa7230feb5f50337a1fa109582cb7",
+    "test_sealing": "f68a49cc4c95e61f8a9a1862e33973032143be47b7564fcfde23b5da3a6480d9"
+  },
+  "annotation_input_sha256": {
+    "cases": "6eb1c5c64cb3061e1fa29e43842506bfe40e0b54fdd552a3f8ad8f901b174935",
+    "labels": "14cd68f8ab8c110c070593f7c555604bbeb6200a7fc3c578a3bc96574b6757cb",
+    "references": "5e1a71bfa23bc957e9f572d7313c960eb9a591e5eeb3cff31169a7ec4548925f",
+    "tasks": "3adb95d02a0224b4b4078f237813c5f47d808e5055a637d2b7ce3a706c8c4c24"
+  },
+  "formal_training_started_at_receipt_creation": false,
+  "completed_formal_trainings": 0,
+  "m8_complete": false,
+  "warning": "Public content-hash receipt before training; not external preregistration certification or scientific-quality proof. Held-out questions/gold and private account records remain unpublished. Budget uncertainty may prevent full completion within the authorized cap."
+}
