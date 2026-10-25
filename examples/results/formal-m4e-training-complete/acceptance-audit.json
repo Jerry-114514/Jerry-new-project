@@ -1,0 +1,53 @@
+{
+  "kind": "m4_acceptance_evidence_audit",
+  "runtime_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "evidence_sha256": {
+    "matrix": {
+      "path": "runs/formal-matrix-completed-20261025.json",
+      "sha256": "56a18aaab625386c60d2f1805a0ef98d812a337a2a49e0de8345fdbf6a3537a9"
+    },
+    "training_receipt": {
+      "path": "examples/results/formal-m4e-training-complete/training-receipt.json",
+      "sha256": "2c3498d375d918fc1c3800d8d9f1505b5e0f4400f050819da1f41bad507fbd3a"
+    },
+    "history": {
+      "path": "examples/results/formal-m4e-training-complete/training-history.json",
+      "sha256": "f135bbbe0185bcadc2a204c9534fd3093f1f092d028458c5543f65a1d434b2fb"
+    },
+    "recovery_summary": {
+      "path": "examples/results/formal-m3p-full-validation-results/training-summary.json",
+      "sha256": "663bcc65f2817e4177e2f4ad90f0eca5991233aedf7fc2bad475e54c80241e59"
+    },
+    "recovery_invocations": {
+      "path": "examples/results/formal-m3p-full-validation-results/invocation-timings.json",
+      "sha256": "4f378c01d062ca73313d4c88b0da0034ef29b468aafb1afbb0501a7fa800830e"
+    }
+  },
+  "six_formal_jobs_complete": true,
+  "thirteen_full_validation_points_per_job": true,
+  "selected_steps_match_minimum_validation_loss": true,
+  "deterministic_sampler_reconstruction": [
+    {
+      "seed": 0,
+      "source_derived_index_order_sha256": "43559c5ff24d625e44d7f57735fbe03f76db0aeec60f2f2ddf9992a902eb62da",
+      "paired_equal": true
+    },
+    {
+      "seed": 1,
+      "source_derived_index_order_sha256": "8dcd6cb3a02873093a92a4d9d1b9563296cad72802a2b3eab16445b3e1c121b7",
+      "paired_equal": true
+    },
+    {
+      "seed": 2,
+      "source_derived_index_order_sha256": "bf47a4c66b93ce379f0dc87fb6c30625a804eb8eed7bf731a16fe5ad78b57205",
+      "paired_equal": true
+    }
+  ],
+  "sampler_evidence_limit": "Index order reconstructed from frozen source and bound matching configuration; not an independently captured per-update execution trace.",
+  "real_9b_recovery_development_run_passed": true,
+  "recovery_evidence_limit": "Earlier development source and two pressure training examples; does not prove bitwise equivalence or resume of a formal run. Formal jobs completed without restart.",
+  "backup_evidence": "Six off-host archives independently verified before this audit; hashes in training_receipt. This audit does not repeat multi-gigabyte byte verification.",
+  "training_loss_evidence_limit": "train_loss is the recorded optimizer-step minibatch target-token mean, not an epoch or whole-training-set average.",
+  "formal_test_efficacy_proven": false,
+  "m5_to_m8_complete": false
+}
