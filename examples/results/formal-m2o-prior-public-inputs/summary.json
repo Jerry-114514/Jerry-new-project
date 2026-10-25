@@ -1,0 +1,47 @@
+{
+  "kind": "prior_public_exact_input_reuse_audit",
+  "source_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "historical_roots": [
+    "data",
+    "examples/results"
+  ],
+  "unique_historical_json_blobs": 962,
+  "current_tasks_file_sha256": "3adb95d02a0224b4b4078f237813c5f47d808e5055a637d2b7ce3a706c8c4c24",
+  "current_tasks_content_hash": "67892c44b95f398810c0a6e04848e8072c00913faa08be1c2847bf9c6289cc0c",
+  "current_sources_by_split": {
+    "train": 600,
+    "validation": 150,
+    "test": 200,
+    "ood": 100
+  },
+  "coverage": {
+    "parsed_json_objects": 960,
+    "objects_without_recognized_inputs": 937,
+    "objects_with_recognized_inputs": 23,
+    "recognized_input_containers": 829,
+    "prompt_strings_seen": 655,
+    "prompt_without_json_object": 15,
+    "prompt_first_json_decoded": 640,
+    "unparsed_json_objects": 2
+  },
+  "match_records": 0,
+  "matching_current_sources_by_mode_and_split": {},
+  "private_matches_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+  "historical_inventory_sha256": "55744bff9710e74175f665407326f8654a2442f8c2c23faaba5c026af94bcac8",
+  "driver_sha256": "1adb5dc8e74f1844c51ebc1202f1947ee9ebbacff4eae4b06a8df1e2ff0e4528",
+  "current_gold_read": false,
+  "current_model_predictions_read": false,
+  "candidate_changed": false,
+  "historical_output_bearing_json_parsed": true,
+  "semantic_independence_proven": false,
+  "m2_complete": false,
+  "limitations": [
+    "Only objects reachable from the named commit in the two recorded roots; not unreachable commits, external/untracked assets or model pretraining data.",
+    "A historical blob has one Git path alias; repeated identical bytes at multiple paths are not separate inputs.",
+    "Recognizes inputs maps of file paths to lists of object rows and first decodable JSON objects in prompt fields only. Other formats remain unassessed.",
+    "Exact modes retain field names, types, record order and all values including identity values. No semantic, alias-renaming or near-duplicate inference.",
+    "Removing paths or file boundaries may flag shared inputs with different requested operations; matches are reuse risks, not proof of answer leakage.",
+    "Public historical JSON is parsed structurally, but answer/output fields are excluded from comparisons; current heldout gold is never opened.",
+    "Zero matches does not resolve previously recorded within-dataset normalized near neighbors or establish statistical independence, licensing or broad exclusion."
+  ]
+}

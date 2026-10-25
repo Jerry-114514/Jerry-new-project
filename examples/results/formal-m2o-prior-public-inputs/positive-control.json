@@ -1,0 +1,16 @@
+{
+  "kind": "public_input_audit_engineering_positive_control",
+  "known_published_input_reuse_detected": true,
+  "typed_values_distinguished": true,
+  "path_renaming_mode_verified": true,
+  "match_records": 9,
+  "scope": "One public historical input fixture, not formal model or dataset results",
+  "driver_sha256": "1adb5dc8e74f1844c51ebc1202f1947ee9ebbacff4eae4b06a8df1e2ff0e4528",
+  "source_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "fixture_origin": {
+    "path": "data/tasks.json",
+    "record_index": 0,
+    "oracle_removed": true
+  },
+  "fixture_tasks_content_hash": "adda718206a145f7110c1a88a0b21f16a0a8aef741245c6935e2cfb350b2539b"
+}
