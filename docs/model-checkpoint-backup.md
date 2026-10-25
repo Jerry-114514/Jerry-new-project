@@ -1,5 +1,7 @@
 # 模型、检查点的跨主机备份与校验
 
+2026-10-25状态说明：六次正式训练及六份端点跨主机备份均已完成，见[正式端点验收](../examples/results/formal-m4e-training-complete/README.md)。下面2026-10-24的“0/6”等数字为当时工程验证记录。正式备份不等于M5–M8完成；完整复现还需协议、数据、源码、基座与各阶段记录，见[M8验收步骤](formal-reproduction-acceptance.md)。
+
 2026-10-24。新增 `python -m intentlab.model_backup`，在每个训练端点完成后，把适配器/完整导出、tokenizer、选点说明、result和恢复检查点封装成可逐文件校验的包。该工具只读取字节，不加载pickle、Torch模型或GPU，不把备份成功当作模型质量或M8完成证明。
 
 实际验证已使用先前两步长历史压力实验端点：10个文件、886409656源字节，生成886435840字节未压缩tar。整包SHA256为4aa8cc37a683b945658c9e266c9ac6be2ead76f29ab3cdb8b1089a33ad81d6b6。源端包校验通过，已从AutoDL传输到用户Windows本地工作区，再用源端预先记录的整包SHA及内部各文件SHA独立核对，全部一致。该端点仍是工程压力产物，正式端点备份数0。
