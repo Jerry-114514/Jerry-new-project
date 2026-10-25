@@ -17,27 +17,45 @@ def digest(value):
     return hashlib.sha256(raw.encode('utf-8')).hexdigest()
 
 
-def signatures(inputs):
+GENERATED_RID = re.compile(r'[0-9a-f]{12}-[0-9]+-[0-9]+')
+
+
+def signatures(inputs, drop_generated_rid=False):
     if not isinstance(inputs, dict) or not inputs or not all(
         isinstance(path, str) and isinstance(rows, list) and all(isinstance(row, dict) for row in rows)
         for path, rows in inputs.items()
     ):
         return None
     groups = [inputs[path] for path in sorted(inputs)]
-    return {
+    result = {
         'exact_paths_fields_values': digest(inputs),
         'path_names_removed_file_groups_preserved': digest(groups),
         'paths_and_file_boundaries_removed': digest([row for rows in groups for row in rows]),
     }
+    if drop_generated_rid:
+        stripped = {path: [{key: value for key, value in row.items()
+                           if not (key == 'rid' and isinstance(value, str) and GENERATED_RID.fullmatch(value))}
+                          for row in rows] for path, rows in inputs.items()}
+        clean_groups = [stripped[path] for path in sorted(stripped)]
+        result.update({
+            'generated_rid_removed_paths_preserved': digest(stripped),
+            'generated_rid_and_paths_removed_groups_preserved': digest(clean_groups),
+            'generated_rid_paths_and_file_boundaries_removed': digest([row for rows in clean_groups for row in rows]),
+        })
+    return result
 
 
-def containers(value, counts):
+def containers(value, counts, drop_generated_rid=False):
     """Read only input containers, plus JSON objects embedded in prompt fields."""
     if isinstance(value, dict):
         if 'inputs' in value:
-            found = signatures(value['inputs'])
+            found = signatures(value['inputs'], drop_generated_rid)
             if found is not None:
                 counts['recognized_input_containers'] += 1
+                if drop_generated_rid:
+                    counts['recognized_generated_rid_fields_removed'] += sum(
+                        isinstance(row.get('rid'), str) and bool(GENERATED_RID.fullmatch(row['rid']))
+                        for rows in value['inputs'].values() for row in rows)
                 yield found
         for key, child in value.items():
             if key in {'oracle', 'gold', 'labels', 'findings', 'completion', 'text',
@@ -53,14 +71,14 @@ def containers(value, counts):
                         counts['prompt_json_not_decodable'] += 1
                     else:
                         counts['prompt_first_json_decoded'] += 1
-                        yield from containers(embedded, counts)
+                        yield from containers(embedded, counts, drop_generated_rid)
                 else:
                     counts['prompt_without_json_object'] += 1
             elif isinstance(child, (dict, list)):
-                yield from containers(child, counts)
+                yield from containers(child, counts, drop_generated_rid)
     elif isinstance(value, list):
         for child in value:
-            yield from containers(child, counts)
+            yield from containers(child, counts, drop_generated_rid)
 
 
 def main():
@@ -70,6 +88,8 @@ def main():
     parser.add_argument('--source-commit', required=True, help='Full pre-test commit SHA')
     parser.add_argument('--repo', type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument('--out', type=Path, required=True, help='New private audit directory')
+    parser.add_argument('--drop-generated-rid', action='store_true',
+                        help='Also compare after removing rid strings matching the declared generated identity format')
     args = parser.parse_args()
     if not re.fullmatch('[0-9a-f]{40}', args.source_commit):
         raise ValueError('A full immutable Git commit is required')
@@ -81,7 +101,7 @@ def main():
     for task in tasks:
         if set(task) & {'oracle', 'gold', 'labels', 'findings', 'references'}:
             raise ValueError('Current contracts must not contain hidden answers')
-        found = signatures(task['inputs'])
+        found = signatures(task['inputs'], args.drop_generated_rid)
         if found is None:
             raise ValueError('Unsupported current input container')
         for mode, signature in found.items():
@@ -115,7 +135,7 @@ def main():
             try:
                 decoded = content.decode('utf-8')
                 values = [json.loads(line) for line in decoded.splitlines() if line.strip()] if alias.endswith('.jsonl') else [json.loads(decoded)]
-                found = {tuple(sorted(item.items())) for value in values for item in containers(value, stats)}
+                found = {tuple(sorted(item.items())) for value in values for item in containers(value, stats, args.drop_generated_rid)}
             except (ValueError, UnicodeError, RecursionError) as exc:
                 record.update(parse_status='unsupported_or_invalid_json', error_type=type(exc).__name__)
                 totals['unparsed_json_objects'] += 1
@@ -145,10 +165,14 @@ def main():
     inventory_bytes = (json.dumps(records, indent=2) + '\n').encode('utf-8')
     (args.out / 'historical-object-inventory.json').write_bytes(inventory_bytes)
     summary = {
-        'kind': 'prior_public_exact_input_reuse_audit', 'source_commit': args.source_commit,
+        'kind': 'prior_public_identity_removed_input_reuse_audit' if args.drop_generated_rid else 'prior_public_exact_input_reuse_audit',
+        'source_commit': args.source_commit, 'generated_rid_removal_enabled': args.drop_generated_rid,
         'historical_roots': ['data', 'examples/results'], 'unique_historical_json_blobs': len(records),
         'current_tasks_file_sha256': hashlib.sha256(raw).hexdigest(), 'current_tasks_content_hash': digest(tasks),
         'current_sources_by_split': dict(Counter(task['split'] for task in tasks)),
+        'current_generated_rid_fields_removed': sum(
+            isinstance(row.get('rid'), str) and bool(GENERATED_RID.fullmatch(row['rid']))
+            for task in tasks for rows in task['inputs'].values() for row in rows) if args.drop_generated_rid else 0,
         'coverage': dict(totals), 'match_records': len(flags),
         'matching_current_sources_by_mode_and_split': {mode + '/' + split: len(sources) for (mode, split), sources in sorted(matched.items())},
         'private_matches_sha256': hashlib.sha256(private_flags).hexdigest(),
@@ -161,7 +185,7 @@ def main():
             'Only objects reachable from the named commit in the two recorded roots; not unreachable commits, external/untracked assets or model pretraining data.',
             'A historical blob has one Git path alias; repeated identical bytes at multiple paths are not separate inputs.',
             'Recognizes inputs maps of file paths to lists of object rows and first decodable JSON objects in prompt fields only. Other formats remain unassessed.',
-            'Exact modes retain field names, types, record order and all values including identity values. No semantic, alias-renaming or near-duplicate inference.',
+            'Three original exact modes retain all fields and values. Optional additional modes remove only rid strings matching [0-9a-f]{12}-[0-9]+-[0-9]+; all other fields, types, values and row order remain. No semantic, arbitrary identity/field-alias renaming or near-duplicate inference.',
             'Removing paths or file boundaries may flag shared inputs with different requested operations; matches are reuse risks, not proof of answer leakage.',
             'Public historical JSON is parsed structurally, but answer/output fields are excluded from comparisons; current heldout gold is never opened.',
             'Zero matches does not resolve previously recorded within-dataset normalized near neighbors or establish statistical independence, licensing or broad exclusion.',

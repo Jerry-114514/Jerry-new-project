@@ -1,0 +1,12 @@
+{
+  "kind": "identity_removed_public_input_engineering_positive_control",
+  "source_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "fixture_origin": "data/tasks.json record 0 inputs only",
+  "change": "Added declared generated-format rid to every original input row; no other input changed",
+  "exact_original_modes_matching": 0,
+  "identity_removed_modes_matching": 3,
+  "match_records": 9,
+  "detected": true,
+  "driver_sha256": "23063e03e879b7cee81671c8793ee4eb9750ed3d8246a79e441bb9df7db28bcd",
+  "formal_dataset_or_model_result": false
+}
