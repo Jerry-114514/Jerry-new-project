@@ -1,6 +1,6 @@
 # 正式实验目标：误差分析、约束保持与动态控制
 
-版本：2.0，2026-10-23；执行状态更新于2026-10-24。用户已明确选择完全采用程序标签，结论限定于明确编码的形式化规格，不声称人工验证。正式协议已冻结并在训练前发布[回执](examples/results/formal-m3af-protocol-freeze/README.md)，M4六次串行训练已启动，正式完成0/6。逐项证据与差距见[执行记录](docs/formal-experiment-status.md)。
+版本：2.0，2026-10-23；执行状态更新于2026-10-25。用户已明确选择完全采用程序标签，结论限定于明确编码的形式化规格，不声称人工验证。正式协议已冻结并在训练前发布[回执](examples/results/formal-m3af-protocol-freeze/README.md)，M4六次正式训练均已完成（6/6），产物绑定和六份跨主机备份已核验；见[完成回执](examples/results/formal-m4e-training-complete/README.md)。M5已启动冻结诊断预测生成，尚未揭晓标签或计算指标；M6–M8待执行与验收。逐项证据与差距见[执行记录](docs/formal-experiment-status.md)。
 
 本次变更替换原逐案例人工双标、仲裁及人员依赖，不替换RQ1–RQ4、两种调度各三个种子、强少样本基线、四组真实闭环、预登记消融、测试隔离及复现要求。旧版和原人工包保留在Git历史中；程序标签不能冒充人工提交。采用理由与工程差距见[程序标签实施指南](docs/programmatic-label-guide.md)。
 

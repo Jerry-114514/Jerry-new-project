@@ -1,0 +1,24 @@
+{
+  "protocol_hash": "a1b0440b0f93cfcb76ad9971cbfe73e8f08b30e45a6fef091c7cb74cc31fc027",
+  "binding_hash": "d27c35ff115f969cbe7a3b45e0b22f1bdb284d925e58f89819be83301523a003",
+  "runtime_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "driver_sha256": "2eb3ad7e41de67243da780d559f9f80d9d973e9d72775cb23c98c1e3e9b49f09",
+  "gold_reveal_requested": false,
+  "no_automatic_retry": true,
+  "kind": "formal_diagnostic_generation_launch_receipt",
+  "started_utc": "2026-10-25T01:05:23.407597+00:00",
+  "conditions": [
+    "A",
+    "B",
+    "C",
+    "D-seed-0",
+    "D-seed-1",
+    "D-seed-2",
+    "E-seed-0",
+    "E-seed-1",
+    "E-seed-2"
+  ],
+  "expected_cases_per_condition": 1240,
+  "completed": false,
+  "m8_complete": false
+}
