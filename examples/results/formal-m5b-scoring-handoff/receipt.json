@@ -1,0 +1,23 @@
+{
+  "kind": "queued_frozen_m5_scoring_handoff",
+  "observed_utc": "2026-10-25T23:56:17.267383+00:00",
+  "runtime_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "protocol_hash": "a1b0440b0f93cfcb76ad9971cbfe73e8f08b30e45a6fef091c7cb74cc31fc027",
+  "binding_hash": "d27c35ff115f969cbe7a3b45e0b22f1bdb284d925e58f89819be83301523a003",
+  "source_sha256": {
+    "run_formal_reveal_handoff_20261026.py": "90e60bfdff7863e15267f310060fc5b1e6ff48d0a1f324c18237e6b33013f87d",
+    "watch_formal_reveal_handoff_20261026.py": "e9b7eefbfa2d72c16afb9fa2263e20bc247f277af4120ced50b4e15eee1da2f9",
+    "test_m5_reveal_handoff_20261026.py": "15583f75fb4c3ac859cf9bbcdac2bf6a7a7277a801d64be598d015bbf20fcfb1"
+  },
+  "remote_driver_compile_and_byte_match_verified": true,
+  "targeted_gate_tests_passed": 4,
+  "frozen_commands_exact_match_verified": true,
+  "queue_status_at_observation": "waiting_for_verified_backup",
+  "scoring_launched_at_observation": false,
+  "no_automatic_retry": true,
+  "off_host_backup_complete_at_observation": false,
+  "gold_read_at_observation": false,
+  "model_generation_restarted": false,
+  "m5_complete": false,
+  "m8_complete": false
+}
