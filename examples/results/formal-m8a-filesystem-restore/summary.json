@@ -1,0 +1,130 @@
+{
+  "kind": "observed_six_endpoint_filesystem_restore",
+  "status": "completed",
+  "training_receipt_sha256": "2c3498d375d918fc1c3800d8d9f1505b5e0f4400f050819da1f41bad507fbd3a",
+  "protocol_hash": "a1b0440b0f93cfcb76ad9971cbfe73e8f08b30e45a6fef091c7cb74cc31fc027",
+  "runtime_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "binding_hash": "d27c35ff115f969cbe7a3b45e0b22f1bdb284d925e58f89819be83301523a003",
+  "restore_driver_sha256": "3560d3ea3d81e6ab52b72172acc64ffe3d0229c719e8f0f358a66eeb36e9fa7d",
+  "jobs": {
+    "cosine-seed-0": {
+      "status": "completed",
+      "archive_sha256": "998c17d980fa7e408ce72467b47662da27099af7251a77ca7c9733b0c8c8472c",
+      "source_index_hash": "23a2ae2f06a850c5cb81deb613aaf1d1905152830f89597bb72da178a6389007",
+      "restored_file_count": 10,
+      "restored_source_bytes": 887053392,
+      "restored_receipt_sha256": "f39440095b15d000277307fd0853365cd8a7c2d47b97c3c01192c3ea92e17d4e",
+      "json_files_parsed": [
+        "backup-index.json",
+        "model/adapter_config.json",
+        "model/selection.json",
+        "model/tokenizer.json",
+        "model/tokenizer_config.json",
+        "result.json",
+        "run_config.json"
+      ],
+      "selected_export_matches_published_hash": true,
+      "elapsed_seconds": 4.666347599995788
+    },
+    "plateau-seed-0": {
+      "status": "completed",
+      "archive_sha256": "9a5f2dfbcb6729c51e65b9b022e4273cfa8784656c51ac7b75d66fec49616b16",
+      "source_index_hash": "fda6b78ec69ba34073f8f006d6eff1affa942d4569b43daeed22ed4e7c479d17",
+      "restored_file_count": 10,
+      "restored_source_bytes": 887059060,
+      "restored_receipt_sha256": "98feb34df0f84552404077f0733d24bd089e222f725a74c12e61b62befdadb52",
+      "json_files_parsed": [
+        "backup-index.json",
+        "model/adapter_config.json",
+        "model/selection.json",
+        "model/tokenizer.json",
+        "model/tokenizer_config.json",
+        "result.json",
+        "run_config.json"
+      ],
+      "selected_export_matches_published_hash": true,
+      "elapsed_seconds": 5.690233999979682
+    },
+    "cosine-seed-1": {
+      "status": "completed",
+      "archive_sha256": "05736ed296eeac9f204a0f4bc5d72914123c4c87c52b9fc00f32faa3bf0dfe8c",
+      "source_index_hash": "e64139d850ea63e053678dc61597223b4b30c3c83170bca62efae1dd6c9013b9",
+      "restored_file_count": 10,
+      "restored_source_bytes": 887053448,
+      "restored_receipt_sha256": "12063db516846369a733bd463d93b6fd49951594b5adff7f74e0910e41f7a5d0",
+      "json_files_parsed": [
+        "backup-index.json",
+        "model/adapter_config.json",
+        "model/selection.json",
+        "model/tokenizer.json",
+        "model/tokenizer_config.json",
+        "result.json",
+        "run_config.json"
+      ],
+      "selected_export_matches_published_hash": true,
+      "elapsed_seconds": 5.498431099986192
+    },
+    "plateau-seed-1": {
+      "status": "completed",
+      "archive_sha256": "19caed5f84dec5d622d84ef6dd2962e0d5bd38ad9d8aa7de56d6dd54ea14b088",
+      "source_index_hash": "1c3a1e220207e9f82c04cd9a81bb1517fcc2a7a8692ceca83d2b3502fe64ad7b",
+      "restored_file_count": 10,
+      "restored_source_bytes": 887059055,
+      "restored_receipt_sha256": "ecdfd4264585e49b4a9a5534fe1932255fe4d1592ae0cecf349030dec12b1e4c",
+      "json_files_parsed": [
+        "backup-index.json",
+        "model/adapter_config.json",
+        "model/selection.json",
+        "model/tokenizer.json",
+        "model/tokenizer_config.json",
+        "result.json",
+        "run_config.json"
+      ],
+      "selected_export_matches_published_hash": true,
+      "elapsed_seconds": 5.406590700033121
+    },
+    "cosine-seed-2": {
+      "status": "completed",
+      "archive_sha256": "10f046e3bae5d7e651b5aacc57732ac4a36a9f100b17fc8b2526b6979826831d",
+      "source_index_hash": "027607ed620e12324884beceac6ce45db647d8c76e88dc3df54fbbe900b30b2b",
+      "restored_file_count": 10,
+      "restored_source_bytes": 887053460,
+      "restored_receipt_sha256": "39abca2198f750c29d5c1ae80032e5273fbf49b048c861add2c7fd7458f33e9a",
+      "json_files_parsed": [
+        "backup-index.json",
+        "model/adapter_config.json",
+        "model/selection.json",
+        "model/tokenizer.json",
+        "model/tokenizer_config.json",
+        "result.json",
+        "run_config.json"
+      ],
+      "selected_export_matches_published_hash": true,
+      "elapsed_seconds": 5.376336600049399
+    },
+    "plateau-seed-2": {
+      "status": "completed",
+      "archive_sha256": "e8274363b60f96795b6bab6510e20a757c74a33eabcbfb8379bf3cc290396768",
+      "source_index_hash": "a8037d9748789915f4a14a1e355b30c5ffc21f3e2cdd7e90e0e7cd3a500003d8",
+      "restored_file_count": 10,
+      "restored_source_bytes": 887059120,
+      "restored_receipt_sha256": "338b2983745582b41cdc636aad4bf984c8748dbd70ce04bc6e91517255588c56",
+      "json_files_parsed": [
+        "backup-index.json",
+        "model/adapter_config.json",
+        "model/selection.json",
+        "model/tokenizer.json",
+        "model/tokenizer_config.json",
+        "result.json",
+        "run_config.json"
+      ],
+      "selected_export_matches_published_hash": true,
+      "elapsed_seconds": 5.452100199996494
+    }
+  },
+  "model_or_pickle_loaded": false,
+  "model_inference_verified": false,
+  "training_resume_verified": false,
+  "m8_complete": false,
+  "restored_endpoints": 6
+}
