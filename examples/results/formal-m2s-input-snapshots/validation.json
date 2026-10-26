@@ -1,0 +1,15 @@
+{
+  "current_candidate_changed": false,
+  "end_to_end_engineering_positive_control_matches": 6,
+  "fixture_tests_passed": 5,
+  "independent_directory_replay_byte_identical": [
+    "summary.json",
+    "private-matches.json",
+    "historical-snapshot-inventory.json"
+  ],
+  "kind": "snapshot_audit_validation",
+  "legacy_counts_reproduced_for_all_objects": true,
+  "m2_complete": false,
+  "positive_control_extractor": "input_array_snapshots",
+  "source_scope_blobs": 962
+}

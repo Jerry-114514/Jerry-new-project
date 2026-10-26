@@ -1,0 +1,71 @@
+{
+  "candidate_changed": false,
+  "coverage": {
+    "objects_with_any_supported_inputs": 81,
+    "objects_with_input_array_snapshots": 76,
+    "objects_without_supported_inputs": 879,
+    "parsed_json_objects": 960,
+    "previously_unrecognized_objects_with_input_array_snapshots": 58,
+    "prompt_first_json_decoded": 640,
+    "prompt_strings_seen": 655,
+    "prompt_without_json_object": 15,
+    "recognized_generated_rid_fields_removed": 0,
+    "recognized_input_containers": 829,
+    "recognized_input_snapshot_containers": 3115,
+    "recognized_snapshot_generated_rid_removed": 0,
+    "recognized_snapshot_input_files": 5709,
+    "snapshot_maps_with_input_paths": 3115,
+    "unparsed_json_objects": 2
+  },
+  "current_generated_rid_fields_removed": 5134,
+  "current_gold_references_or_model_outputs_opened": false,
+  "current_sources_by_split": {
+    "ood": 100,
+    "test": 200,
+    "train": 600,
+    "validation": 150
+  },
+  "current_tasks_content_hash": "67892c44b95f398810c0a6e04848e8072c00913faa08be1c2847bf9c6289cc0c",
+  "current_tasks_file_sha256": "3adb95d02a0224b4b4078f237813c5f47d808e5055a637d2b7ce3a706c8c4c24",
+  "distinct_historical_signatures_by_extractor_mode": {
+    "explicit_inputs/exact_paths_fields_values": 60,
+    "explicit_inputs/generated_rid_and_paths_removed_groups_preserved": 60,
+    "explicit_inputs/generated_rid_paths_and_file_boundaries_removed": 60,
+    "explicit_inputs/generated_rid_removed_paths_preserved": 60,
+    "explicit_inputs/path_names_removed_file_groups_preserved": 60,
+    "explicit_inputs/paths_and_file_boundaries_removed": 60,
+    "input_array_snapshots/exact_paths_fields_values": 95,
+    "input_array_snapshots/generated_rid_and_paths_removed_groups_preserved": 95,
+    "input_array_snapshots/generated_rid_paths_and_file_boundaries_removed": 95,
+    "input_array_snapshots/generated_rid_removed_paths_preserved": 95,
+    "input_array_snapshots/path_names_removed_file_groups_preserved": 95,
+    "input_array_snapshots/paths_and_file_boundaries_removed": 95
+  },
+  "driver_sha256": "66848b6b84b6155e7a999ba7188e70f81237a5a4c718cb4628c85c49a2a9098a",
+  "historical_inventory_sha256": "7925992307b46f63f87274c49abb4463922a37954466f32b51f395c200251628",
+  "historical_json_blobs": 962,
+  "historical_output_bearing_json_parsed": true,
+  "historical_roots": [
+    "data",
+    "examples/results"
+  ],
+  "kind": "prior_public_literal_input_snapshot_reuse_audit",
+  "legacy_counts_reproduced_for_all_objects": true,
+  "legacy_helper_sha256": "23063e03e879b7cee81671c8793ee4eb9750ed3d8246a79e441bb9df7db28bcd",
+  "limitations": [
+    "Only the fixed recorded historical Git scope; external/untracked assets and pretraining data remain outside it.",
+    "New extraction requires a files map whose input/ entries are all literal arrays of object rows; strings, other structures and other path conventions remain unsupported.",
+    "Uses the original six exact signature modes. Only declared generated rid strings and selected path/file-boundary normalization are removed; other fields, values, types and row order remain.",
+    "Only the first JSON object in prompt strings is traversed; answer-bearing fields are skipped using the original policy.",
+    "File snapshots may include modified inputs; a match is a conservative public-reuse risk, not proof of original input identity or answer leakage.",
+    "No matched candidates are removed or regenerated. Cross-split near duplicates and statistical independence are not resolved."
+  ],
+  "m2_complete": false,
+  "match_records": 0,
+  "matching_current_sources_by_extractor_mode_split": {},
+  "new_inventory_sha256": "0a0dca827140b2adb342ac0e3753ed104a21a003748f09460d29da40a447e099",
+  "private_matches_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+  "schema_version": 1,
+  "semantic_independence_proven": false,
+  "source_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0"
+}
