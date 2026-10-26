@@ -1,0 +1,56 @@
+{
+  "kind": "observed_formal_m6_execution_start",
+  "observed_utc": "2026-10-26T05:14:47.745405+00:00",
+  "runtime_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "protocol_hash": "a1b0440b0f93cfcb76ad9971cbfe73e8f08b30e45a6fef091c7cb74cc31fc027",
+  "binding_hash": "d27c35ff115f969cbe7a3b45e0b22f1bdb284d925e58f89819be83301523a003",
+  "diagnostic_receipt_hash": "aecdf1d2fcc991bfb658b64e2c790933b9d5f8c1a319ae1061438d5f1d5eecec",
+  "started_unix": 1792981242.9784925,
+  "supervisor_and_actual_worker_observed_live": true,
+  "active_action": "interact",
+  "active_condition": "P2",
+  "observed_completed_interaction_records": 315,
+  "tasks_per_condition": 300,
+  "planned_total_interactions": 1200,
+  "conditions": {
+    "P1": {
+      "policy": "fixed-full",
+      "hard_guard": false
+    },
+    "P2": {
+      "policy": "dynamic-k",
+      "hard_guard": false
+    },
+    "P3": {
+      "policy": "fixed-full",
+      "hard_guard": true
+    },
+    "P4": {
+      "policy": "dynamic-k",
+      "hard_guard": true
+    }
+  },
+  "model_residency": "shared-condition-v1",
+  "injected_pool": false,
+  "offline_references_opened_during_interactions": false,
+  "m5_off_host_scoring_backup": {
+    "archive_sha256": "59f9fc18546d79d9cb32b228915f1b6353bf3c80349c845c2bb1e2b3d98817de",
+    "archive_bytes": 4044800,
+    "verified_members": 10,
+    "all_archive_members_reverified": true
+  },
+  "backup_attestation_sha256": "a5aa2fbb84ba86ca44229fd25f955d147868026d8d6ce4e822eafb3613a089c4",
+  "targeted_transfer_tests_passed": 7,
+  "frozen_four_commands_exact_match": true,
+  "source_sha256": {
+    "run_formal_execution_20261026.py": "67b74c72cb467c19ae45605a180f0c80dfdbdfe12e7085d91cb1efeb50f90b7d",
+    "prepare_m5_scoring_backup_20261026.py": "b3eda5030ebe2ee5758336fe5d75251af3700de47d26a887bd0e1083ceabd089",
+    "backup_completed_m5_scoring_20261026.py": "041b5bcca70d69ed788820ff7f81a4489324efedc9039f21110cefe0ab8f900e",
+    "test_m5_m6_transfer_20261026.py": "2406f2b17b161a715348b919659353f612543d6f2c7cb0ede450deb76fe88000",
+    "observe_m6_20261026.py": "abd93965eb1fd45e8db37d7fe39a6bfd73edf1f7fdcf6fedf5d6e06867104320"
+  },
+  "no_automatic_model_retry": true,
+  "m6_complete": false,
+  "m7_complete": false,
+  "m8_complete": false
+}

@@ -1,0 +1,1838 @@
+{
+  "aggregates": {
+    "A": {
+      "ood": {
+        "confusion": [
+          {
+            "count": 804,
+            "gold": "satisfied",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 3,
+            "gold": "satisfied",
+            "predicted": "unknown"
+          },
+          {
+            "count": 115,
+            "gold": "satisfied",
+            "predicted": "violated"
+          },
+          {
+            "count": 192,
+            "gold": "unknown",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 8,
+            "gold": "unknown",
+            "predicted": "violated"
+          },
+          {
+            "count": 158,
+            "gold": "violated",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 352,
+            "gold": "violated",
+            "predicted": "violated"
+          }
+        ],
+        "counts": {
+          "cases": 408,
+          "missing_predictions": 0,
+          "nonempty_reference_items": 1629,
+          "normalized_errors": 476,
+          "normalized_valid": 408,
+          "parsed_evidence_items": 1632,
+          "reference_valid_items": 1624,
+          "status_items": 1632,
+          "strict_errors": 476,
+          "strict_valid": 408,
+          "unsafe_opportunities": 460,
+          "unsafe_satisfied": 298
+        },
+        "nonempty_references": {
+          "denominator": 1632,
+          "numerator": 1629,
+          "rate": 0.9981617647058824
+        },
+        "normalized_interface": {
+          "denominator": 408,
+          "numerator": 408,
+          "rate": 1.0
+        },
+        "reference_index_validity": {
+          "denominator": 1632,
+          "numerator": 1624,
+          "rate": 0.9950980392156863
+        },
+        "source_task_groups": 100,
+        "state_recall": {
+          "satisfied": {
+            "denominator": 922,
+            "numerator": 804,
+            "rate": 0.8720173535791758
+          },
+          "unknown": {
+            "denominator": 200,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "violated": {
+            "denominator": 510,
+            "numerator": 352,
+            "rate": 0.6901960784313725
+          }
+        },
+        "strict_interface": {
+          "denominator": 408,
+          "numerator": 408,
+          "rate": 1.0
+        },
+        "task_mean_error_rate": 0.290625,
+        "unsafe_satisfied": {
+          "denominator": 460,
+          "numerator": 298,
+          "rate": 0.6478260869565218
+        }
+      },
+      "test": {
+        "confusion": [
+          {
+            "count": 1609,
+            "gold": "satisfied",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 10,
+            "gold": "satisfied",
+            "predicted": "unknown"
+          },
+          {
+            "count": 277,
+            "gold": "satisfied",
+            "predicted": "violated"
+          },
+          {
+            "count": 400,
+            "gold": "unknown",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 372,
+            "gold": "violated",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 660,
+            "gold": "violated",
+            "predicted": "violated"
+          }
+        ],
+        "counts": {
+          "cases": 832,
+          "missing_predictions": 0,
+          "nonempty_reference_items": 3318,
+          "normalized_errors": 1059,
+          "normalized_valid": 832,
+          "parsed_evidence_items": 3328,
+          "reference_valid_items": 3308,
+          "status_items": 3328,
+          "strict_errors": 1059,
+          "strict_valid": 832,
+          "unsafe_opportunities": 936,
+          "unsafe_satisfied": 645
+        },
+        "nonempty_references": {
+          "denominator": 3328,
+          "numerator": 3318,
+          "rate": 0.9969951923076923
+        },
+        "normalized_interface": {
+          "denominator": 832,
+          "numerator": 832,
+          "rate": 1.0
+        },
+        "reference_index_validity": {
+          "denominator": 3328,
+          "numerator": 3308,
+          "rate": 0.9939903846153846
+        },
+        "source_task_groups": 200,
+        "state_recall": {
+          "satisfied": {
+            "denominator": 1896,
+            "numerator": 1609,
+            "rate": 0.8486286919831224
+          },
+          "unknown": {
+            "denominator": 400,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "violated": {
+            "denominator": 1032,
+            "numerator": 660,
+            "rate": 0.6395348837209303
+          }
+        },
+        "strict_interface": {
+          "denominator": 832,
+          "numerator": 832,
+          "rate": 1.0
+        },
+        "task_mean_error_rate": 0.3177083333333333,
+        "unsafe_satisfied": {
+          "denominator": 936,
+          "numerator": 645,
+          "rate": 0.6891025641025641
+        }
+      }
+    },
+    "B": {
+      "ood": {
+        "confusion": [
+          {
+            "count": 18,
+            "gold": "satisfied",
+            "predicted": "invalid"
+          },
+          {
+            "count": 803,
+            "gold": "satisfied",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 1,
+            "gold": "satisfied",
+            "predicted": "unknown"
+          },
+          {
+            "count": 100,
+            "gold": "satisfied",
+            "predicted": "violated"
+          },
+          {
+            "count": 18,
+            "gold": "unknown",
+            "predicted": "invalid"
+          },
+          {
+            "count": 96,
+            "gold": "unknown",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 80,
+            "gold": "unknown",
+            "predicted": "unknown"
+          },
+          {
+            "count": 6,
+            "gold": "unknown",
+            "predicted": "violated"
+          },
+          {
+            "count": 58,
+            "gold": "violated",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 452,
+            "gold": "violated",
+            "predicted": "violated"
+          }
+        ],
+        "counts": {
+          "cases": 408,
+          "missing_predictions": 0,
+          "nonempty_reference_items": 1515,
+          "normalized_errors": 297,
+          "normalized_valid": 399,
+          "parsed_evidence_items": 1596,
+          "reference_valid_items": 1582,
+          "status_items": 1632,
+          "strict_errors": 297,
+          "strict_valid": 399,
+          "unsafe_opportunities": 460,
+          "unsafe_satisfied": 143
+        },
+        "nonempty_references": {
+          "denominator": 1596,
+          "numerator": 1515,
+          "rate": 0.9492481203007519
+        },
+        "normalized_interface": {
+          "denominator": 408,
+          "numerator": 399,
+          "rate": 0.9779411764705882
+        },
+        "reference_index_validity": {
+          "denominator": 1596,
+          "numerator": 1582,
+          "rate": 0.9912280701754386
+        },
+        "source_task_groups": 100,
+        "state_recall": {
+          "satisfied": {
+            "denominator": 922,
+            "numerator": 803,
+            "rate": 0.8709327548806941
+          },
+          "unknown": {
+            "denominator": 200,
+            "numerator": 80,
+            "rate": 0.4
+          },
+          "violated": {
+            "denominator": 510,
+            "numerator": 452,
+            "rate": 0.8862745098039215
+          }
+        },
+        "strict_interface": {
+          "denominator": 408,
+          "numerator": 399,
+          "rate": 0.9779411764705882
+        },
+        "task_mean_error_rate": 0.18125,
+        "unsafe_satisfied": {
+          "denominator": 460,
+          "numerator": 143,
+          "rate": 0.3108695652173913
+        }
+      },
+      "test": {
+        "confusion": [
+          {
+            "count": 1635,
+            "gold": "satisfied",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 5,
+            "gold": "satisfied",
+            "predicted": "unknown"
+          },
+          {
+            "count": 256,
+            "gold": "satisfied",
+            "predicted": "violated"
+          },
+          {
+            "count": 332,
+            "gold": "unknown",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 66,
+            "gold": "unknown",
+            "predicted": "unknown"
+          },
+          {
+            "count": 2,
+            "gold": "unknown",
+            "predicted": "violated"
+          },
+          {
+            "count": 74,
+            "gold": "violated",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 958,
+            "gold": "violated",
+            "predicted": "violated"
+          }
+        ],
+        "counts": {
+          "cases": 832,
+          "missing_predictions": 0,
+          "nonempty_reference_items": 3257,
+          "normalized_errors": 669,
+          "normalized_valid": 832,
+          "parsed_evidence_items": 3328,
+          "reference_valid_items": 3315,
+          "status_items": 3328,
+          "strict_errors": 669,
+          "strict_valid": 832,
+          "unsafe_opportunities": 936,
+          "unsafe_satisfied": 383
+        },
+        "nonempty_references": {
+          "denominator": 3328,
+          "numerator": 3257,
+          "rate": 0.9786658653846154
+        },
+        "normalized_interface": {
+          "denominator": 832,
+          "numerator": 832,
+          "rate": 1.0
+        },
+        "reference_index_validity": {
+          "denominator": 3328,
+          "numerator": 3315,
+          "rate": 0.99609375
+        },
+        "source_task_groups": 200,
+        "state_recall": {
+          "satisfied": {
+            "denominator": 1896,
+            "numerator": 1635,
+            "rate": 0.8623417721518988
+          },
+          "unknown": {
+            "denominator": 400,
+            "numerator": 66,
+            "rate": 0.165
+          },
+          "violated": {
+            "denominator": 1032,
+            "numerator": 958,
+            "rate": 0.9282945736434108
+          }
+        },
+        "strict_interface": {
+          "denominator": 832,
+          "numerator": 832,
+          "rate": 1.0
+        },
+        "task_mean_error_rate": 0.20010416666666667,
+        "unsafe_satisfied": {
+          "denominator": 936,
+          "numerator": 383,
+          "rate": 0.4091880341880342
+        }
+      }
+    },
+    "C": {
+      "ood": {
+        "confusion": [
+          {
+            "count": 922,
+            "gold": "satisfied",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 200,
+            "gold": "unknown",
+            "predicted": "unknown"
+          },
+          {
+            "count": 510,
+            "gold": "violated",
+            "predicted": "violated"
+          }
+        ],
+        "counts": {
+          "cases": 408,
+          "missing_predictions": 0,
+          "nonempty_reference_items": 1432,
+          "normalized_errors": 0,
+          "normalized_valid": 408,
+          "parsed_evidence_items": 1632,
+          "reference_valid_items": 1632,
+          "status_items": 1632,
+          "strict_errors": 0,
+          "strict_valid": 408,
+          "unsafe_opportunities": 460,
+          "unsafe_satisfied": 0
+        },
+        "nonempty_references": {
+          "denominator": 1632,
+          "numerator": 1432,
+          "rate": 0.8774509803921569
+        },
+        "normalized_interface": {
+          "denominator": 408,
+          "numerator": 408,
+          "rate": 1.0
+        },
+        "reference_index_validity": {
+          "denominator": 1632,
+          "numerator": 1632,
+          "rate": 1.0
+        },
+        "source_task_groups": 100,
+        "state_recall": {
+          "satisfied": {
+            "denominator": 922,
+            "numerator": 922,
+            "rate": 1.0
+          },
+          "unknown": {
+            "denominator": 200,
+            "numerator": 200,
+            "rate": 1.0
+          },
+          "violated": {
+            "denominator": 510,
+            "numerator": 510,
+            "rate": 1.0
+          }
+        },
+        "strict_interface": {
+          "denominator": 408,
+          "numerator": 408,
+          "rate": 1.0
+        },
+        "task_mean_error_rate": 0.0,
+        "unsafe_satisfied": {
+          "denominator": 460,
+          "numerator": 0,
+          "rate": 0.0
+        }
+      },
+      "test": {
+        "confusion": [
+          {
+            "count": 1896,
+            "gold": "satisfied",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 400,
+            "gold": "unknown",
+            "predicted": "unknown"
+          },
+          {
+            "count": 1032,
+            "gold": "violated",
+            "predicted": "violated"
+          }
+        ],
+        "counts": {
+          "cases": 832,
+          "missing_predictions": 0,
+          "nonempty_reference_items": 2928,
+          "normalized_errors": 0,
+          "normalized_valid": 832,
+          "parsed_evidence_items": 3328,
+          "reference_valid_items": 3328,
+          "status_items": 3328,
+          "strict_errors": 0,
+          "strict_valid": 832,
+          "unsafe_opportunities": 936,
+          "unsafe_satisfied": 0
+        },
+        "nonempty_references": {
+          "denominator": 3328,
+          "numerator": 2928,
+          "rate": 0.8798076923076923
+        },
+        "normalized_interface": {
+          "denominator": 832,
+          "numerator": 832,
+          "rate": 1.0
+        },
+        "reference_index_validity": {
+          "denominator": 3328,
+          "numerator": 3328,
+          "rate": 1.0
+        },
+        "source_task_groups": 200,
+        "state_recall": {
+          "satisfied": {
+            "denominator": 1896,
+            "numerator": 1896,
+            "rate": 1.0
+          },
+          "unknown": {
+            "denominator": 400,
+            "numerator": 400,
+            "rate": 1.0
+          },
+          "violated": {
+            "denominator": 1032,
+            "numerator": 1032,
+            "rate": 1.0
+          }
+        },
+        "strict_interface": {
+          "denominator": 832,
+          "numerator": 832,
+          "rate": 1.0
+        },
+        "task_mean_error_rate": 0.0,
+        "unsafe_satisfied": {
+          "denominator": 936,
+          "numerator": 0,
+          "rate": 0.0
+        }
+      }
+    },
+    "D-seed-0": {
+      "ood": {
+        "confusion": [
+          {
+            "count": 915,
+            "gold": "satisfied",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 7,
+            "gold": "satisfied",
+            "predicted": "violated"
+          },
+          {
+            "count": 200,
+            "gold": "unknown",
+            "predicted": "unknown"
+          },
+          {
+            "count": 7,
+            "gold": "violated",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 503,
+            "gold": "violated",
+            "predicted": "violated"
+          }
+        ],
+        "counts": {
+          "cases": 408,
+          "missing_predictions": 0,
+          "nonempty_reference_items": 1432,
+          "normalized_errors": 14,
+          "normalized_valid": 408,
+          "parsed_evidence_items": 1632,
+          "reference_valid_items": 1632,
+          "status_items": 1632,
+          "strict_errors": 14,
+          "strict_valid": 408,
+          "unsafe_opportunities": 460,
+          "unsafe_satisfied": 6
+        },
+        "nonempty_references": {
+          "denominator": 1632,
+          "numerator": 1432,
+          "rate": 0.8774509803921569
+        },
+        "normalized_interface": {
+          "denominator": 408,
+          "numerator": 408,
+          "rate": 1.0
+        },
+        "reference_index_validity": {
+          "denominator": 1632,
+          "numerator": 1632,
+          "rate": 1.0
+        },
+        "source_task_groups": 100,
+        "state_recall": {
+          "satisfied": {
+            "denominator": 922,
+            "numerator": 915,
+            "rate": 0.9924078091106291
+          },
+          "unknown": {
+            "denominator": 200,
+            "numerator": 200,
+            "rate": 1.0
+          },
+          "violated": {
+            "denominator": 510,
+            "numerator": 503,
+            "rate": 0.9862745098039216
+          }
+        },
+        "strict_interface": {
+          "denominator": 408,
+          "numerator": 408,
+          "rate": 1.0
+        },
+        "task_mean_error_rate": 0.008333333333333333,
+        "unsafe_satisfied": {
+          "denominator": 460,
+          "numerator": 6,
+          "rate": 0.013043478260869565
+        }
+      },
+      "test": {
+        "confusion": [
+          {
+            "count": 1883,
+            "gold": "satisfied",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 13,
+            "gold": "satisfied",
+            "predicted": "violated"
+          },
+          {
+            "count": 400,
+            "gold": "unknown",
+            "predicted": "unknown"
+          },
+          {
+            "count": 63,
+            "gold": "violated",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 969,
+            "gold": "violated",
+            "predicted": "violated"
+          }
+        ],
+        "counts": {
+          "cases": 832,
+          "missing_predictions": 0,
+          "nonempty_reference_items": 2928,
+          "normalized_errors": 76,
+          "normalized_valid": 832,
+          "parsed_evidence_items": 3328,
+          "reference_valid_items": 3328,
+          "status_items": 3328,
+          "strict_errors": 76,
+          "strict_valid": 832,
+          "unsafe_opportunities": 936,
+          "unsafe_satisfied": 54
+        },
+        "nonempty_references": {
+          "denominator": 3328,
+          "numerator": 2928,
+          "rate": 0.8798076923076923
+        },
+        "normalized_interface": {
+          "denominator": 832,
+          "numerator": 832,
+          "rate": 1.0
+        },
+        "reference_index_validity": {
+          "denominator": 3328,
+          "numerator": 3328,
+          "rate": 1.0
+        },
+        "source_task_groups": 200,
+        "state_recall": {
+          "satisfied": {
+            "denominator": 1896,
+            "numerator": 1883,
+            "rate": 0.9931434599156118
+          },
+          "unknown": {
+            "denominator": 400,
+            "numerator": 400,
+            "rate": 1.0
+          },
+          "violated": {
+            "denominator": 1032,
+            "numerator": 969,
+            "rate": 0.938953488372093
+          }
+        },
+        "strict_interface": {
+          "denominator": 832,
+          "numerator": 832,
+          "rate": 1.0
+        },
+        "task_mean_error_rate": 0.022395833333333334,
+        "unsafe_satisfied": {
+          "denominator": 936,
+          "numerator": 54,
+          "rate": 0.057692307692307696
+        }
+      }
+    },
+    "D-seed-1": {
+      "ood": {
+        "confusion": [
+          {
+            "count": 14,
+            "gold": "satisfied",
+            "predicted": "invalid"
+          },
+          {
+            "count": 898,
+            "gold": "satisfied",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 10,
+            "gold": "satisfied",
+            "predicted": "violated"
+          },
+          {
+            "count": 14,
+            "gold": "unknown",
+            "predicted": "invalid"
+          },
+          {
+            "count": 186,
+            "gold": "unknown",
+            "predicted": "unknown"
+          },
+          {
+            "count": 47,
+            "gold": "violated",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 463,
+            "gold": "violated",
+            "predicted": "violated"
+          }
+        ],
+        "counts": {
+          "cases": 408,
+          "missing_predictions": 0,
+          "nonempty_reference_items": 1418,
+          "normalized_errors": 85,
+          "normalized_valid": 401,
+          "parsed_evidence_items": 1604,
+          "reference_valid_items": 1498,
+          "status_items": 1632,
+          "strict_errors": 85,
+          "strict_valid": 401,
+          "unsafe_opportunities": 460,
+          "unsafe_satisfied": 26
+        },
+        "nonempty_references": {
+          "denominator": 1604,
+          "numerator": 1418,
+          "rate": 0.8840399002493765
+        },
+        "normalized_interface": {
+          "denominator": 408,
+          "numerator": 401,
+          "rate": 0.9828431372549019
+        },
+        "reference_index_validity": {
+          "denominator": 1604,
+          "numerator": 1498,
+          "rate": 0.9339152119700748
+        },
+        "source_task_groups": 100,
+        "state_recall": {
+          "satisfied": {
+            "denominator": 922,
+            "numerator": 898,
+            "rate": 0.9739696312364425
+          },
+          "unknown": {
+            "denominator": 200,
+            "numerator": 186,
+            "rate": 0.93
+          },
+          "violated": {
+            "denominator": 510,
+            "numerator": 463,
+            "rate": 0.907843137254902
+          }
+        },
+        "strict_interface": {
+          "denominator": 408,
+          "numerator": 401,
+          "rate": 0.9828431372549019
+        },
+        "task_mean_error_rate": 0.05270833333333333,
+        "unsafe_satisfied": {
+          "denominator": 460,
+          "numerator": 26,
+          "rate": 0.05652173913043478
+        }
+      },
+      "test": {
+        "confusion": [
+          {
+            "count": 1883,
+            "gold": "satisfied",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 13,
+            "gold": "satisfied",
+            "predicted": "violated"
+          },
+          {
+            "count": 400,
+            "gold": "unknown",
+            "predicted": "unknown"
+          },
+          {
+            "count": 79,
+            "gold": "violated",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 953,
+            "gold": "violated",
+            "predicted": "violated"
+          }
+        ],
+        "counts": {
+          "cases": 832,
+          "missing_predictions": 0,
+          "nonempty_reference_items": 2928,
+          "normalized_errors": 92,
+          "normalized_valid": 832,
+          "parsed_evidence_items": 3328,
+          "reference_valid_items": 3328,
+          "status_items": 3328,
+          "strict_errors": 92,
+          "strict_valid": 832,
+          "unsafe_opportunities": 936,
+          "unsafe_satisfied": 55
+        },
+        "nonempty_references": {
+          "denominator": 3328,
+          "numerator": 2928,
+          "rate": 0.8798076923076923
+        },
+        "normalized_interface": {
+          "denominator": 832,
+          "numerator": 832,
+          "rate": 1.0
+        },
+        "reference_index_validity": {
+          "denominator": 3328,
+          "numerator": 3328,
+          "rate": 1.0
+        },
+        "source_task_groups": 200,
+        "state_recall": {
+          "satisfied": {
+            "denominator": 1896,
+            "numerator": 1883,
+            "rate": 0.9931434599156118
+          },
+          "unknown": {
+            "denominator": 400,
+            "numerator": 400,
+            "rate": 1.0
+          },
+          "violated": {
+            "denominator": 1032,
+            "numerator": 953,
+            "rate": 0.9234496124031008
+          }
+        },
+        "strict_interface": {
+          "denominator": 832,
+          "numerator": 832,
+          "rate": 1.0
+        },
+        "task_mean_error_rate": 0.027083333333333334,
+        "unsafe_satisfied": {
+          "denominator": 936,
+          "numerator": 55,
+          "rate": 0.05876068376068376
+        }
+      }
+    },
+    "D-seed-2": {
+      "ood": {
+        "confusion": [
+          {
+            "count": 913,
+            "gold": "satisfied",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 9,
+            "gold": "satisfied",
+            "predicted": "violated"
+          },
+          {
+            "count": 200,
+            "gold": "unknown",
+            "predicted": "unknown"
+          },
+          {
+            "count": 5,
+            "gold": "violated",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 505,
+            "gold": "violated",
+            "predicted": "violated"
+          }
+        ],
+        "counts": {
+          "cases": 408,
+          "missing_predictions": 0,
+          "nonempty_reference_items": 1432,
+          "normalized_errors": 14,
+          "normalized_valid": 408,
+          "parsed_evidence_items": 1632,
+          "reference_valid_items": 1625,
+          "status_items": 1632,
+          "strict_errors": 14,
+          "strict_valid": 408,
+          "unsafe_opportunities": 460,
+          "unsafe_satisfied": 0
+        },
+        "nonempty_references": {
+          "denominator": 1632,
+          "numerator": 1432,
+          "rate": 0.8774509803921569
+        },
+        "normalized_interface": {
+          "denominator": 408,
+          "numerator": 408,
+          "rate": 1.0
+        },
+        "reference_index_validity": {
+          "denominator": 1632,
+          "numerator": 1625,
+          "rate": 0.9957107843137255
+        },
+        "source_task_groups": 100,
+        "state_recall": {
+          "satisfied": {
+            "denominator": 922,
+            "numerator": 913,
+            "rate": 0.9902386117136659
+          },
+          "unknown": {
+            "denominator": 200,
+            "numerator": 200,
+            "rate": 1.0
+          },
+          "violated": {
+            "denominator": 510,
+            "numerator": 505,
+            "rate": 0.9901960784313726
+          }
+        },
+        "strict_interface": {
+          "denominator": 408,
+          "numerator": 408,
+          "rate": 1.0
+        },
+        "task_mean_error_rate": 0.008541666666666666,
+        "unsafe_satisfied": {
+          "denominator": 460,
+          "numerator": 0,
+          "rate": 0.0
+        }
+      },
+      "test": {
+        "confusion": [
+          {
+            "count": 1884,
+            "gold": "satisfied",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 12,
+            "gold": "satisfied",
+            "predicted": "violated"
+          },
+          {
+            "count": 400,
+            "gold": "unknown",
+            "predicted": "unknown"
+          },
+          {
+            "count": 19,
+            "gold": "violated",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 1013,
+            "gold": "violated",
+            "predicted": "violated"
+          }
+        ],
+        "counts": {
+          "cases": 832,
+          "missing_predictions": 0,
+          "nonempty_reference_items": 2928,
+          "normalized_errors": 31,
+          "normalized_valid": 832,
+          "parsed_evidence_items": 3328,
+          "reference_valid_items": 3318,
+          "status_items": 3328,
+          "strict_errors": 31,
+          "strict_valid": 832,
+          "unsafe_opportunities": 936,
+          "unsafe_satisfied": 2
+        },
+        "nonempty_references": {
+          "denominator": 3328,
+          "numerator": 2928,
+          "rate": 0.8798076923076923
+        },
+        "normalized_interface": {
+          "denominator": 832,
+          "numerator": 832,
+          "rate": 1.0
+        },
+        "reference_index_validity": {
+          "denominator": 3328,
+          "numerator": 3318,
+          "rate": 0.9969951923076923
+        },
+        "source_task_groups": 200,
+        "state_recall": {
+          "satisfied": {
+            "denominator": 1896,
+            "numerator": 1884,
+            "rate": 0.9936708860759493
+          },
+          "unknown": {
+            "denominator": 400,
+            "numerator": 400,
+            "rate": 1.0
+          },
+          "violated": {
+            "denominator": 1032,
+            "numerator": 1013,
+            "rate": 0.9815891472868217
+          }
+        },
+        "strict_interface": {
+          "denominator": 832,
+          "numerator": 832,
+          "rate": 1.0
+        },
+        "task_mean_error_rate": 0.00875,
+        "unsafe_satisfied": {
+          "denominator": 936,
+          "numerator": 2,
+          "rate": 0.002136752136752137
+        }
+      }
+    },
+    "E-seed-0": {
+      "ood": {
+        "confusion": [
+          {
+            "count": 918,
+            "gold": "satisfied",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 4,
+            "gold": "satisfied",
+            "predicted": "violated"
+          },
+          {
+            "count": 200,
+            "gold": "unknown",
+            "predicted": "unknown"
+          },
+          {
+            "count": 24,
+            "gold": "violated",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 486,
+            "gold": "violated",
+            "predicted": "violated"
+          }
+        ],
+        "counts": {
+          "cases": 408,
+          "missing_predictions": 0,
+          "nonempty_reference_items": 1432,
+          "normalized_errors": 28,
+          "normalized_valid": 408,
+          "parsed_evidence_items": 1632,
+          "reference_valid_items": 1631,
+          "status_items": 1632,
+          "strict_errors": 28,
+          "strict_valid": 408,
+          "unsafe_opportunities": 460,
+          "unsafe_satisfied": 5
+        },
+        "nonempty_references": {
+          "denominator": 1632,
+          "numerator": 1432,
+          "rate": 0.8774509803921569
+        },
+        "normalized_interface": {
+          "denominator": 408,
+          "numerator": 408,
+          "rate": 1.0
+        },
+        "reference_index_validity": {
+          "denominator": 1632,
+          "numerator": 1631,
+          "rate": 0.9993872549019608
+        },
+        "source_task_groups": 100,
+        "state_recall": {
+          "satisfied": {
+            "denominator": 922,
+            "numerator": 918,
+            "rate": 0.9956616052060737
+          },
+          "unknown": {
+            "denominator": 200,
+            "numerator": 200,
+            "rate": 1.0
+          },
+          "violated": {
+            "denominator": 510,
+            "numerator": 486,
+            "rate": 0.9529411764705882
+          }
+        },
+        "strict_interface": {
+          "denominator": 408,
+          "numerator": 408,
+          "rate": 1.0
+        },
+        "task_mean_error_rate": 0.016875,
+        "unsafe_satisfied": {
+          "denominator": 460,
+          "numerator": 5,
+          "rate": 0.010869565217391304
+        }
+      },
+      "test": {
+        "confusion": [
+          {
+            "count": 1880,
+            "gold": "satisfied",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 16,
+            "gold": "satisfied",
+            "predicted": "violated"
+          },
+          {
+            "count": 400,
+            "gold": "unknown",
+            "predicted": "unknown"
+          },
+          {
+            "count": 64,
+            "gold": "violated",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 968,
+            "gold": "violated",
+            "predicted": "violated"
+          }
+        ],
+        "counts": {
+          "cases": 832,
+          "missing_predictions": 0,
+          "nonempty_reference_items": 2928,
+          "normalized_errors": 80,
+          "normalized_valid": 832,
+          "parsed_evidence_items": 3328,
+          "reference_valid_items": 3328,
+          "status_items": 3328,
+          "strict_errors": 80,
+          "strict_valid": 832,
+          "unsafe_opportunities": 936,
+          "unsafe_satisfied": 43
+        },
+        "nonempty_references": {
+          "denominator": 3328,
+          "numerator": 2928,
+          "rate": 0.8798076923076923
+        },
+        "normalized_interface": {
+          "denominator": 832,
+          "numerator": 832,
+          "rate": 1.0
+        },
+        "reference_index_validity": {
+          "denominator": 3328,
+          "numerator": 3328,
+          "rate": 1.0
+        },
+        "source_task_groups": 200,
+        "state_recall": {
+          "satisfied": {
+            "denominator": 1896,
+            "numerator": 1880,
+            "rate": 0.9915611814345991
+          },
+          "unknown": {
+            "denominator": 400,
+            "numerator": 400,
+            "rate": 1.0
+          },
+          "violated": {
+            "denominator": 1032,
+            "numerator": 968,
+            "rate": 0.937984496124031
+          }
+        },
+        "strict_interface": {
+          "denominator": 832,
+          "numerator": 832,
+          "rate": 1.0
+        },
+        "task_mean_error_rate": 0.022916666666666665,
+        "unsafe_satisfied": {
+          "denominator": 936,
+          "numerator": 43,
+          "rate": 0.045940170940170943
+        }
+      }
+    },
+    "E-seed-1": {
+      "ood": {
+        "confusion": [
+          {
+            "count": 914,
+            "gold": "satisfied",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 1,
+            "gold": "satisfied",
+            "predicted": "unknown"
+          },
+          {
+            "count": 7,
+            "gold": "satisfied",
+            "predicted": "violated"
+          },
+          {
+            "count": 200,
+            "gold": "unknown",
+            "predicted": "unknown"
+          },
+          {
+            "count": 2,
+            "gold": "violated",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 5,
+            "gold": "violated",
+            "predicted": "unknown"
+          },
+          {
+            "count": 503,
+            "gold": "violated",
+            "predicted": "violated"
+          }
+        ],
+        "counts": {
+          "cases": 408,
+          "missing_predictions": 0,
+          "nonempty_reference_items": 1430,
+          "normalized_errors": 15,
+          "normalized_valid": 408,
+          "parsed_evidence_items": 1632,
+          "reference_valid_items": 1632,
+          "status_items": 1632,
+          "strict_errors": 15,
+          "strict_valid": 408,
+          "unsafe_opportunities": 460,
+          "unsafe_satisfied": 2
+        },
+        "nonempty_references": {
+          "denominator": 1632,
+          "numerator": 1430,
+          "rate": 0.8762254901960784
+        },
+        "normalized_interface": {
+          "denominator": 408,
+          "numerator": 408,
+          "rate": 1.0
+        },
+        "reference_index_validity": {
+          "denominator": 1632,
+          "numerator": 1632,
+          "rate": 1.0
+        },
+        "source_task_groups": 100,
+        "state_recall": {
+          "satisfied": {
+            "denominator": 922,
+            "numerator": 914,
+            "rate": 0.9913232104121475
+          },
+          "unknown": {
+            "denominator": 200,
+            "numerator": 200,
+            "rate": 1.0
+          },
+          "violated": {
+            "denominator": 510,
+            "numerator": 503,
+            "rate": 0.9862745098039216
+          }
+        },
+        "strict_interface": {
+          "denominator": 408,
+          "numerator": 408,
+          "rate": 1.0
+        },
+        "task_mean_error_rate": 0.008541666666666666,
+        "unsafe_satisfied": {
+          "denominator": 460,
+          "numerator": 2,
+          "rate": 0.004347826086956522
+        }
+      },
+      "test": {
+        "confusion": [
+          {
+            "count": 4,
+            "gold": "satisfied",
+            "predicted": "invalid"
+          },
+          {
+            "count": 1858,
+            "gold": "satisfied",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 13,
+            "gold": "satisfied",
+            "predicted": "unknown"
+          },
+          {
+            "count": 21,
+            "gold": "satisfied",
+            "predicted": "violated"
+          },
+          {
+            "count": 400,
+            "gold": "unknown",
+            "predicted": "unknown"
+          },
+          {
+            "count": 7,
+            "gold": "violated",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 11,
+            "gold": "violated",
+            "predicted": "unknown"
+          },
+          {
+            "count": 1014,
+            "gold": "violated",
+            "predicted": "violated"
+          }
+        ],
+        "counts": {
+          "cases": 832,
+          "missing_predictions": 0,
+          "nonempty_reference_items": 2900,
+          "normalized_errors": 56,
+          "normalized_valid": 831,
+          "parsed_evidence_items": 3324,
+          "reference_valid_items": 3324,
+          "status_items": 3328,
+          "strict_errors": 56,
+          "strict_valid": 831,
+          "unsafe_opportunities": 936,
+          "unsafe_satisfied": 5
+        },
+        "nonempty_references": {
+          "denominator": 3324,
+          "numerator": 2900,
+          "rate": 0.8724428399518652
+        },
+        "normalized_interface": {
+          "denominator": 832,
+          "numerator": 831,
+          "rate": 0.9987980769230769
+        },
+        "reference_index_validity": {
+          "denominator": 3324,
+          "numerator": 3324,
+          "rate": 1.0
+        },
+        "source_task_groups": 200,
+        "state_recall": {
+          "satisfied": {
+            "denominator": 1896,
+            "numerator": 1858,
+            "rate": 0.979957805907173
+          },
+          "unknown": {
+            "denominator": 400,
+            "numerator": 400,
+            "rate": 1.0
+          },
+          "violated": {
+            "denominator": 1032,
+            "numerator": 1014,
+            "rate": 0.9825581395348837
+          }
+        },
+        "strict_interface": {
+          "denominator": 832,
+          "numerator": 831,
+          "rate": 0.9987980769230769
+        },
+        "task_mean_error_rate": 0.015208333333333332,
+        "unsafe_satisfied": {
+          "denominator": 936,
+          "numerator": 5,
+          "rate": 0.005341880341880342
+        }
+      }
+    },
+    "E-seed-2": {
+      "ood": {
+        "confusion": [
+          {
+            "count": 12,
+            "gold": "satisfied",
+            "predicted": "invalid"
+          },
+          {
+            "count": 906,
+            "gold": "satisfied",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 4,
+            "gold": "satisfied",
+            "predicted": "violated"
+          },
+          {
+            "count": 47,
+            "gold": "unknown",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 153,
+            "gold": "unknown",
+            "predicted": "unknown"
+          },
+          {
+            "count": 30,
+            "gold": "violated",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 480,
+            "gold": "violated",
+            "predicted": "violated"
+          }
+        ],
+        "counts": {
+          "cases": 408,
+          "missing_predictions": 0,
+          "nonempty_reference_items": 1469,
+          "normalized_errors": 93,
+          "normalized_valid": 405,
+          "parsed_evidence_items": 1620,
+          "reference_valid_items": 1508,
+          "status_items": 1632,
+          "strict_errors": 93,
+          "strict_valid": 405,
+          "unsafe_opportunities": 460,
+          "unsafe_satisfied": 69
+        },
+        "nonempty_references": {
+          "denominator": 1620,
+          "numerator": 1469,
+          "rate": 0.9067901234567901
+        },
+        "normalized_interface": {
+          "denominator": 408,
+          "numerator": 405,
+          "rate": 0.9926470588235294
+        },
+        "reference_index_validity": {
+          "denominator": 1620,
+          "numerator": 1508,
+          "rate": 0.9308641975308642
+        },
+        "source_task_groups": 100,
+        "state_recall": {
+          "satisfied": {
+            "denominator": 922,
+            "numerator": 906,
+            "rate": 0.982646420824295
+          },
+          "unknown": {
+            "denominator": 200,
+            "numerator": 153,
+            "rate": 0.765
+          },
+          "violated": {
+            "denominator": 510,
+            "numerator": 480,
+            "rate": 0.9411764705882353
+          }
+        },
+        "strict_interface": {
+          "denominator": 408,
+          "numerator": 405,
+          "rate": 0.9926470588235294
+        },
+        "task_mean_error_rate": 0.05583333333333333,
+        "unsafe_satisfied": {
+          "denominator": 460,
+          "numerator": 69,
+          "rate": 0.15
+        }
+      },
+      "test": {
+        "confusion": [
+          {
+            "count": 39,
+            "gold": "satisfied",
+            "predicted": "invalid"
+          },
+          {
+            "count": 1848,
+            "gold": "satisfied",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 9,
+            "gold": "satisfied",
+            "predicted": "violated"
+          },
+          {
+            "count": 14,
+            "gold": "unknown",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 386,
+            "gold": "unknown",
+            "predicted": "unknown"
+          },
+          {
+            "count": 1,
+            "gold": "violated",
+            "predicted": "invalid"
+          },
+          {
+            "count": 72,
+            "gold": "violated",
+            "predicted": "satisfied"
+          },
+          {
+            "count": 959,
+            "gold": "violated",
+            "predicted": "violated"
+          }
+        ],
+        "counts": {
+          "cases": 832,
+          "missing_predictions": 0,
+          "nonempty_reference_items": 2898,
+          "normalized_errors": 135,
+          "normalized_valid": 822,
+          "parsed_evidence_items": 3288,
+          "reference_valid_items": 3176,
+          "status_items": 3328,
+          "strict_errors": 135,
+          "strict_valid": 822,
+          "unsafe_opportunities": 936,
+          "unsafe_satisfied": 69
+        },
+        "nonempty_references": {
+          "denominator": 3288,
+          "numerator": 2898,
+          "rate": 0.8813868613138686
+        },
+        "normalized_interface": {
+          "denominator": 832,
+          "numerator": 822,
+          "rate": 0.9879807692307693
+        },
+        "reference_index_validity": {
+          "denominator": 3288,
+          "numerator": 3176,
+          "rate": 0.9659367396593674
+        },
+        "source_task_groups": 200,
+        "state_recall": {
+          "satisfied": {
+            "denominator": 1896,
+            "numerator": 1848,
+            "rate": 0.9746835443037974
+          },
+          "unknown": {
+            "denominator": 400,
+            "numerator": 386,
+            "rate": 0.965
+          },
+          "violated": {
+            "denominator": 1032,
+            "numerator": 959,
+            "rate": 0.9292635658914729
+          }
+        },
+        "strict_interface": {
+          "denominator": 832,
+          "numerator": 822,
+          "rate": 0.9879807692307693
+        },
+        "task_mean_error_rate": 0.03979166666666666,
+        "unsafe_satisfied": {
+          "denominator": 936,
+          "numerator": 69,
+          "rate": 0.07371794871794872
+        }
+      }
+    }
+  },
+  "binding_hash": "d27c35ff115f969cbe7a3b45e0b22f1bdb284d925e58f89819be83301523a003",
+  "confirmatory_p_values_or_intervals_computed": false,
+  "descriptive_comparisons": {
+    "ood": {
+      "B_error": 0.18125,
+      "D_mean_error": 0.02319444444444444,
+      "D_seed_sample_sd": 0.025559989802496078,
+      "E_mean_error": 0.027083333333333334,
+      "E_seed_sample_sd": 0.02524446446473189,
+      "relative_error_reduction_descriptive": 0.8720306513409962,
+      "rq1_D_minus_B_point": -0.15805555555555556,
+      "rq4_E_minus_D_loss_mean": 0.0012141373635300293,
+      "rq4_E_minus_D_loss_per_seed": [
+        0.004482506891190323,
+        -0.007621312248234778,
+        0.006781217447634543
+      ]
+    },
+    "test": {
+      "B_error": 0.20010416666666667,
+      "D_mean_error": 0.019409722222222224,
+      "D_seed_sample_sd": 0.009524464418207656,
+      "E_mean_error": 0.02597222222222222,
+      "E_seed_sample_sd": 0.012573280568700407,
+      "relative_error_reduction_descriptive": 0.9030019087280929,
+      "rq1_D_minus_B_point": -0.18069444444444444,
+      "rq4_E_minus_D_loss_mean": 0.0018746074331053339,
+      "rq4_E_minus_D_loss_per_seed": [
+        0.00045851852078653953,
+        0.0002572326728727276,
+        0.004908071105656734
+      ]
+    }
+  },
+  "diagnostic_receipt_hash": "aecdf1d2fcc991bfb658b64e2c790933b9d5f8c1a319ae1061438d5f1d5eecec",
+  "driver_sha256": "1e54335ed52a2483308d3f4247f97c15c4ca5b43422cb649b371e4029854e358",
+  "evidence_semantic_support_scored": false,
+  "full_model_binding_verifier_executed_by_this_script": false,
+  "kind": "completed_m5_aggregate_projection",
+  "losses": {
+    "D-seed-0": {
+      "ood": {
+        "cases": 408,
+        "loss": 0.004437208453324693,
+        "loss_sum": 348.4983519241214,
+        "source_task_groups": 100,
+        "target_tokens": 78540
+      },
+      "test": {
+        "cases": 832,
+        "loss": 0.002038637550822134,
+        "loss_sum": 278.9671624545008,
+        "source_task_groups": 200,
+        "target_tokens": 136840
+      }
+    },
+    "D-seed-1": {
+      "ood": {
+        "cases": 408,
+        "loss": 0.00976787400812571,
+        "loss_sum": 767.1688245981932,
+        "source_task_groups": 100,
+        "target_tokens": 78540
+      },
+      "test": {
+        "cases": 832,
+        "loss": 0.008026319466617304,
+        "loss_sum": 1098.3215558119118,
+        "source_task_groups": 200,
+        "target_tokens": 136840
+      }
+    },
+    "D-seed-2": {
+      "ood": {
+        "cases": 408,
+        "loss": 0.002485850762702982,
+        "loss_sum": 195.2387189026922,
+        "source_task_groups": 100,
+        "target_tokens": 78540
+      },
+      "test": {
+        "cases": 832,
+        "loss": 0.0012834803143271713,
+        "loss_sum": 175.63144621253014,
+        "source_task_groups": 200,
+        "target_tokens": 136840
+      }
+    },
+    "E-seed-0": {
+      "ood": {
+        "cases": 408,
+        "loss": 0.008919715344515015,
+        "loss_sum": 700.5544431582093,
+        "source_task_groups": 100,
+        "target_tokens": 78540
+      },
+      "test": {
+        "cases": 832,
+        "loss": 0.0024971560716086734,
+        "loss_sum": 341.71083683893085,
+        "source_task_groups": 200,
+        "target_tokens": 136840
+      }
+    },
+    "E-seed-1": {
+      "ood": {
+        "cases": 408,
+        "loss": 0.002146561759890932,
+        "loss_sum": 168.5909606218338,
+        "source_task_groups": 100,
+        "target_tokens": 78540
+      },
+      "test": {
+        "cases": 832,
+        "loss": 0.008283552139490032,
+        "loss_sum": 1133.521274767816,
+        "source_task_groups": 200,
+        "target_tokens": 136840
+      }
+    },
+    "E-seed-2": {
+      "ood": {
+        "cases": 408,
+        "loss": 0.009267068210337525,
+        "loss_sum": 727.8355372399092,
+        "source_task_groups": 100,
+        "target_tokens": 78540
+      },
+      "test": {
+        "cases": 832,
+        "loss": 0.006191551419983905,
+        "loss_sum": 847.2518963105977,
+        "source_task_groups": 200,
+        "target_tokens": 136840
+      }
+    }
+  },
+  "m8_complete": false,
+  "prediction_seal_hash": "ec2b773ee9addceba4984c78f466f75df0f9a3992c2a3916bafd64dbfb3f4bfb",
+  "protocol_hash": "a1b0440b0f93cfcb76ad9971cbfe73e8f08b30e45a6fef091c7cb74cc31fc027",
+  "raw_gold_files_read": false,
+  "raw_predictions_read": false,
+  "scored_case_and_loss_arithmetic_recomputed": true,
+  "scoring_archive_sha256": "59f9fc18546d79d9cb32b228915f1b6353bf3c80349c845c2bb1e2b3d98817de",
+  "source_files_sha256": {
+    "D-seed-0-loss.jsonl": "fabaa07e3aa03a4ffdd8cdde44219cd35d86df6445213918b87ced7c8f3bcaa1",
+    "D-seed-1-loss.jsonl": "b58143e7e9deeea2d299bc50164c2609084839e7b48cce09c6694a600f1473b4",
+    "D-seed-2-loss.jsonl": "758e355010148dc2d74af0fc911d07f6ebc17e53e3280b14b189fd3b5157ebd4",
+    "E-seed-0-loss.jsonl": "52bced39263db8d9b4f68936a7e7f3f7b39a6b945451785e759e36bedcd16b8f",
+    "E-seed-1-loss.jsonl": "22e43467ae6c05a01bb3c19dbc75841ff320b3c8b6be43fd460f0efc7e92cf17",
+    "E-seed-2-loss.jsonl": "84554ee516d51f3681e693221a18e539a7a56ae24c54c139b80db04a0af97470",
+    "losses.json": "e14832487ef2f5bae37fd6ad204d33d9c6e7146b2d42299d4961b38cf3b5e551",
+    "rq1-per-seed.json": "a3b925b7be901ae3381c116347a5521b8056805e92f7a882325e0dd1c9c37b77",
+    "scores.json": "a906af979122e0b2b7c12f724ca4964d5baecd7fa816c62b577fe6af5bd3de60"
+  }
+}
