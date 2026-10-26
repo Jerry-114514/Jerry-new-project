@@ -1,0 +1,9 @@
+{
+  "README.md": "ce871991debfbaeb551bc055ee3af910f529794aa05c052edee4bd488888b3c1",
+  "backup_completed_m7_20261026.py": "a5215007d7816ffaae9174b3d0c6079c3ce715b1c21983aca95aacc285dbba24",
+  "engineering-tests.txt": "29d6be10ca7250bcc5ce52040e13e307026815321eed54c9912e4afee06e48ba",
+  "preparation.json": "981c1af7c5475d07d80ea1e081f5298a0455bb3d33edc43df227b91be56ffd0d",
+  "prepare_m7_backup_20261026.py": "91441fa36ad3af8d6cc7c0c00bbdf7fc4043a0e161ef049bfbb587a27fdef6c4",
+  "test_m7_backup_probe_20261026.py": "d79a6ada5515867e5ddfbefcc5f633230d5ea4e090d89a90aae62ac539c94402",
+  "test_m7_backup_transfer_20261026.py": "5d73b3e76260476a9fcfb18638ad47260e689b3e68d2b0382e4182f0e56238e8"
+}

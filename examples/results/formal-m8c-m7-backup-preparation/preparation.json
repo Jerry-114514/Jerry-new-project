@@ -1,0 +1,24 @@
+{
+  "actual_m7_off_host_backup_completed": false,
+  "date": "2026-10-26",
+  "deployed": false,
+  "engineering_tests_passed": 10,
+  "expected_m7_supervisor_driver_sha256": "d97fff09401b8579c52b25f68883b1e37adf4b57174cfe8a877650b26cdd06b7",
+  "kind": "m7_off_host_backup_and_statistics_handoff_preparation",
+  "m7_complete": false,
+  "m8_complete": false,
+  "no_automatic_model_retry": true,
+  "no_models_gold_or_ssh_for_preparation": true,
+  "pending": [
+    "actual M7 launch and verified process identity",
+    "deploy and verify probe/statistics driver bytes",
+    "actual M7 completion and receipt verification",
+    "actual archive creation and off-host transfer verification",
+    "actual statistics dispatch and source/budget gates"
+  ],
+  "runtime_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "scope": "engineering_preparation",
+  "statistics_dispatched": false,
+  "statistics_driver_sha256": "32223534e1e6f815102403336e5c14af75f4bdfa0e92053ace3c8745579fe2ab",
+  "waiter_started": false
+}
