@@ -1,0 +1,50 @@
+{
+  "kind": "observed_formal_prediction_seal_backup_and_scoring_start",
+  "runtime_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "protocol_hash": "a1b0440b0f93cfcb76ad9971cbfe73e8f08b30e45a6fef091c7cb74cc31fc027",
+  "binding_hash": "d27c35ff115f969cbe7a3b45e0b22f1bdb284d925e58f89819be83301523a003",
+  "generation_exit_code": 0,
+  "generation_started_unix": 1792890323.4075973,
+  "generation_finished_unix": 1792978162.0749452,
+  "generation_wall_seconds": 87838.66734790802,
+  "conditions": {
+    "A": 1240,
+    "B": 1240,
+    "C": 1240,
+    "D-seed-0": 1240,
+    "D-seed-1": 1240,
+    "D-seed-2": 1240,
+    "E-seed-0": 1240,
+    "E-seed-1": 1240,
+    "E-seed-2": 1240
+  },
+  "language_model_prediction_records": 9920,
+  "rule_prediction_records": 1240,
+  "prediction_seal_hash": "ec2b773ee9addceba4984c78f466f75df0f9a3992c2a3916bafd64dbfb3f4bfb",
+  "prediction_manifest_sha256": "52c0c24ad0a9b988cdbec01cda9eea09412b7b5cbec02f37a58fb26aad849bed",
+  "source_generation_receipt_sha256": "b3674dc44ec07caff27f65abf71763fa4c46c1a9efb6279a2e56fde90d0acb8c",
+  "off_host_backup": {
+    "archive_sha256": "de226fa245ccbf04c42c444d2ac56440d25226ee84bef92188b6cda9b56e8291",
+    "archive_bytes": 17510400,
+    "verified_members": 28,
+    "all_archive_members_reverified": true
+  },
+  "backup_attestation_sha256": "75f2ee222e523f1c238132a985ce0d063e2a952d0ca21d079418e370ec6eb8c1",
+  "generation_gold_loaded": false,
+  "backup_verification_gold_read": false,
+  "prediction_verification_exit_code": 0,
+  "formal_scoring_started": true,
+  "gold_opened_after_reveal_claim": true,
+  "reveal_test_loss_injected": false,
+  "scoring_started_utc": "2026-10-26T01:31:39.106787+00:00",
+  "reveal_driver_sha256": "90e60bfdff7863e15267f310060fc5b1e6ff48d0a1f324c18237e6b33013f87d",
+  "formal_diagnostic_results_verified": false,
+  "no_automatic_retry": true,
+  "m5_complete": false,
+  "m8_complete": false,
+  "limitations": [
+    "Prediction-record counts include retained failures and do not prove successful inference, format compliance or accuracy.",
+    "This receipt proves generation, observed off-host backup and scoring admission only; six loss evaluations and final reveal verification remain required.",
+    "Raw current heldout inputs, labels and predictions remain private; no result-based tuning or model selection is authorized."
+  ]
+}
