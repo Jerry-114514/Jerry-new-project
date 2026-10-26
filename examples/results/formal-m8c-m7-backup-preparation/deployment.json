@@ -1,0 +1,26 @@
+{
+  "actual_m7_backup_completed": false,
+  "budget_config_sha256": "454fa5c55c510ed4521ba7e59d38869e1bcde6d7d6fd697e96198bc3db7cb689",
+  "budget_status": "monitoring",
+  "deployed": true,
+  "deployed_script_sha256": {
+    "prepare_m7_backup_20261026.py": "91441fa36ad3af8d6cc7c0c00bbdf7fc4043a0e161ef049bfbb587a27fdef6c4",
+    "run_formal_statistics_reproduction_20261026.py": "32223534e1e6f815102403336e5c14af75f4bdfa0e92053ace3c8745579fe2ab"
+  },
+  "estimated_proxy_spend_yuan": 303.2926,
+  "formal_statistics_started": false,
+  "gold_or_references_opened_for_deployment": false,
+  "guard_pid": 181444,
+  "guard_start_ticks": "867274705",
+  "kind": "observed_m7_backup_and_statistics_script_deployment",
+  "m7_output_exists": false,
+  "m7_waiter_started": false,
+  "m8_complete": false,
+  "model_calls_for_deployment": 0,
+  "observed_unix": 1793006505.0660436,
+  "remaining_operating_hours": 64.82897516212685,
+  "runtime_clean": true,
+  "runtime_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "scope": "engineering_deployment",
+  "statistics_output_exists": false
+}

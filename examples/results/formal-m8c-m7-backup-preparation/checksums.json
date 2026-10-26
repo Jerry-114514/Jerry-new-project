@@ -1,7 +1,9 @@
 {
-  "README.md": "ce871991debfbaeb551bc055ee3af910f529794aa05c052edee4bd488888b3c1",
+  "README.md": "bfbd940d19b1f561fe8a0f3ac65dbf2ec1b71b0a9fdb000e4711ff6f7f248ed8",
   "backup_completed_m7_20261026.py": "a5215007d7816ffaae9174b3d0c6079c3ce715b1c21983aca95aacc285dbba24",
+  "deployment.json": "417c7e12ed9409c97d9be53332a5c5b46d699cedbff2ccfb575737993faab65c",
   "engineering-tests.txt": "29d6be10ca7250bcc5ce52040e13e307026815321eed54c9912e4afee06e48ba",
+  "preflight_m7_statistics_20261026.py": "df0abb2eaec8060be2566dd59a32b628fd9456ba816e0dbe32d8495d7359245b",
   "preparation.json": "981c1af7c5475d07d80ea1e081f5298a0455bb3d33edc43df227b91be56ffd0d",
   "prepare_m7_backup_20261026.py": "91441fa36ad3af8d6cc7c0c00bbdf7fc4043a0e161ef049bfbb587a27fdef6c4",
   "test_m7_backup_probe_20261026.py": "d79a6ada5515867e5ddfbefcc5f633230d5ea4e090d89a90aae62ac539c94402",

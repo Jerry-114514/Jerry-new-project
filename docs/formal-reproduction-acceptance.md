@@ -41,9 +41,9 @@ python -m intentlab.frozen_statistics verify \
 
 `scripts/audit_statistics_stage_evidence.py`只复算公开engineering夹具，不能用于给正式结果签发完成结论。正式入口的`m8_complete=false`是有意保留的边界；不得改写该字段以代替完整验收。
 
-2026-10-26已补充[统计与独立目录复算监督代码](../examples/results/formal-m8b-statistics-preparation/README.md)，6项工程门槛/命令检查通过；尚未部署或运行正式统计。该代码要求M7验收及实际异机备份，串行执行两份同输入统计和验证，比较完整规范化报告；不会修改冻结统计参数，成功后仍保留M8最终验收边界。
+2026-10-26已补充[统计与独立目录复算监督代码](../examples/results/formal-m8b-statistics-preparation/README.md)，6项工程门槛/命令检查通过；后续已实际部署并核对源文件SHA，正式统计尚未运行。该代码要求M7验收及实际异机备份，串行执行两份同输入统计和验证，比较完整规范化报告；不会修改冻结统计参数，成功后仍保留M8最终验收边界。
 
-对应的[M7异机备份和统计派发工具](../examples/results/formal-m8c-m7-backup-preparation/README.md)另有10项工程检查；尚未部署或运行。工具要求真实M7完成与进程退出，封存1800条交互及评分，实际跨主机复制和逐成员校验后才允许派发；源码和夹具不能代替实际完成凭据。
+对应的[M7异机备份和统计派发工具](../examples/results/formal-m8c-m7-backup-preparation/README.md)另有10项工程检查；远程探针已部署并完成实际SHA与运行身份核验，M7等待器未启动，尚未进行实际归档或复制。工具要求真实M7完成与进程退出，封存1800条交互及评分，实际跨主机复制和逐成员校验后才允许派发；源码和夹具不能代替实际完成凭据。
 
 ## 报告与科学前提
 
