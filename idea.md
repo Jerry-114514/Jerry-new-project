@@ -1,6 +1,6 @@
 # 正式实验目标：误差分析、约束保持与动态控制
 
-版本：2.0，2026-10-23；执行状态更新于2026-10-26。用户已明确选择完全采用程序标签，结论限定于明确编码的形式化规格，不声称人工验证。正式协议已冻结并在训练前发布[回执](examples/results/formal-m3af-protocol-freeze/README.md)，M4六次正式训练均已完成（6/6），产物绑定和六份跨主机备份已核验；见[完成回执](examples/results/formal-m4e-training-complete/README.md)。M5九条件诊断、六模型损失、最终冻结验证及实际异机备份已完成，源任务/混淆/损失算术独立重算一致，见[诊断验收与结果](examples/results/formal-m5d-diagnostic-results/README.md)。M6已按原模型和四条件进入真实闭环，见[启动回执](examples/results/formal-m6a-execution-start/README.md)；M6/M7及M8统计复现验收仍待完成。引用指标只检查索引存在性，不声称证据语义或人审验证。逐项证据与差距见[执行记录](docs/formal-experiment-status.md)。
+版本：2.0，2026-10-23；执行状态更新于2026-10-26。用户已明确选择完全采用程序标签，结论限定于明确编码的形式化规格，不声称人工验证。正式协议已冻结并在训练前发布[回执](examples/results/formal-m3af-protocol-freeze/README.md)，M4六次正式训练均已完成（6/6），产物绑定和六份跨主机备份已核验；见[完成回执](examples/results/formal-m4e-training-complete/README.md)。M5九条件诊断、六模型损失、最终冻结验证及实际异机备份已完成，源任务/混淆/损失算术独立重算一致，见[诊断验收与结果](examples/results/formal-m5d-diagnostic-results/README.md)。M6四组共1200次交互、评分、最终验证与实际异机备份已完成，见[完成凭据及负结果](examples/results/formal-m6c-execution-results/README.md)；M7按原冻结六条件真实运行，见[启动回执](examples/results/formal-m7b-controls-start/README.md)。M2独立性限制、M7及M8统计复现验收仍待完成。引用指标只检查索引存在性，不声称证据语义或人审验证。逐项证据与差距见[执行记录](docs/formal-experiment-status.md)。
 
 本次变更替换原逐案例人工双标、仲裁及人员依赖，不替换RQ1–RQ4、两种调度各三个种子、强少样本基线、四组真实闭环、预登记消融、测试隔离及复现要求。旧版和原人工包保留在Git历史中；程序标签不能冒充人工提交。采用理由与工程差距见[程序标签实施指南](docs/programmatic-label-guide.md)。
 
@@ -108,7 +108,7 @@ RQ1 为首要确认性问题；其余为预先登记的次要问题。次要比�
 - [x] M3：完成强提示基线、开发短跑、功效分析和资源预算；冻结实验协议及测试集哈希。见[冻结回执](examples/results/formal-m3af-protocol-freeze/README.md)；预算为限额内执行计划，不保证研究全部完成。
 - [x] M4：完成余弦和 Plateau 各三个种子的正式训练，验证检查点和恢复，保存完整曲线。见[验收核对及限制](examples/results/formal-m4e-training-complete/README.md)：六次正式运行均正常结束；恢复证据来自此前真实9B开发短跑，不宣称正式运行断点恢复或逐位等价。
 - [x] M5：冻结诊断模型后完成独立测试；分别分析格式、状态、证据和风险错误。见[完成凭据与报告](examples/results/formal-m5d-diagnostic-results/README.md)。证据仅登记引用索引存在性/非空性，语义支持未评分；不以此代替M2数据质量或M8统计验收。
-- [ ] M6：固定真实执行器，完成 P1–P4 配对闭环及预算核验。
+- [x] M6：固定真实执行器，完成 P1–P4 配对闭环及预算核验。见[四阶段、token账本和实际异机备份凭据](examples/results/formal-m6c-execution-results/README.md)；四条件成功数及最终状态相同，零合规修复候选、失败与负结果保留，不能据此宣称硬检查或动态策略增益。
 - [ ] M7：按预先登记范围完成动态强度和反馈消融；新增探索明确标记并另行确认。
 - [ ] M8：完成任务级统计、复现审计、模型资产备份、正式报告及 GitHub 同步。
 

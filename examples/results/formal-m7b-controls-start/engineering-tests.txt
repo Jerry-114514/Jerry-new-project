@@ -1,0 +1,12 @@
+test_changed_m7_process_identity_stops_without_retry (__main__.RetryTests.test_changed_m7_process_identity_stops_without_retry) ... ok
+test_missing_original_handles_stop_without_retry (__main__.RetryTests.test_missing_original_handles_stop_without_retry) ... ok
+test_nontransport_remote_failure_is_not_retried (__main__.RetryTests.test_nontransport_remote_failure_is_not_retried) ... ok
+test_observation_timeout_does_not_restart_model (__main__.RetryTests.test_observation_timeout_does_not_restart_model) ... ok
+test_ssh_255_retries_only_read_only_probe (__main__.RetryTests.test_ssh_255_retries_only_read_only_probe) ... ok
+test_successful_observation_resets_consecutive_error_count (__main__.RetryTests.test_successful_observation_resets_consecutive_error_count) ... ok
+test_three_consecutive_failures_stop (__main__.RetryTests.test_three_consecutive_failures_stop) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.041s
+
+OK

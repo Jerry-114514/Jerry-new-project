@@ -1,0 +1,766 @@
+{
+  "aggregates": {
+    "P1": {
+      "ood": {
+        "accepted_repair_attempts": 0,
+        "analyzer_error_events": 0,
+        "analyzer_error_runs": 0,
+        "candidate_opportunities": {
+          "counts": {
+            "accepted_new_hard_violation_candidates": 0,
+            "attempts": 19,
+            "complete_compliant_candidates": 0,
+            "complete_proposals": 6,
+            "decision_error_false_blocks": 0,
+            "decision_error_trials": 0,
+            "false_blocks": 0,
+            "incomplete_proposals": 13,
+            "independent_guard_false_blocks": 0,
+            "rejected_new_hard_violation_candidates": 6,
+            "rejected_noncompliant_candidates": 6
+          },
+          "eligible_source_task_groups": 0,
+          "pooled_candidate_false_block_rate": null,
+          "source_task_mean_false_block_rate_among_eligible": null,
+          "warning": "Descriptive complete-candidate opportunity rates, not an all-task causal effect. No eligible compliant proposals yields null, not zero. Decision failures after complete submission remain in the denominator."
+        },
+        "candidate_reason_categories": {
+          "no_verified_improvement": 6,
+          "proposal_error": 13
+        },
+        "compliant_success": {
+          "denominator": 100,
+          "numerator": 3,
+          "rate": 0.03
+        },
+        "cost_totals": {
+          "actor_calls": 211,
+          "checks": 99,
+          "hard_rejections": 0,
+          "proposed_actions": 287,
+          "rejected": 19,
+          "tool_step_limit_hits": 0,
+          "verifications": 0
+        },
+        "error_types": {
+          "ValueError": 20
+        },
+        "frozen_counts_recomputed": {
+          "charged_tokens": 805602,
+          "compliant_successes": 3,
+          "errors": 20,
+          "feasible_compliant_successes": 3,
+          "feasible_runs": 93,
+          "initially_irreversible_runs": 7,
+          "repair_introduced_violation_runs": 0,
+          "runs": 100,
+          "source_task_groups": 100
+        },
+        "generation_count": 310,
+        "initially_feasible_success": {
+          "denominator": 93,
+          "numerator": 3,
+          "rate": 0.03225806451612903
+        },
+        "interaction_seconds_sum": 3703.512822462246,
+        "repair_introduced_violation": {
+          "denominator": 100,
+          "numerator": 0,
+          "rate": 0.0
+        },
+        "repair_source_groups": 15,
+        "token_ledger_totals": {
+          "calls": 310,
+          "charged_tokens": 805602,
+          "denied_calls": 0,
+          "failed_reservations": 0,
+          "known_completion_tokens": 109517,
+          "known_prompt_tokens": 696085
+        }
+      },
+      "test": {
+        "accepted_repair_attempts": 0,
+        "analyzer_error_events": 0,
+        "analyzer_error_runs": 0,
+        "candidate_opportunities": {
+          "counts": {
+            "accepted_new_hard_violation_candidates": 0,
+            "attempts": 9,
+            "complete_compliant_candidates": 0,
+            "complete_proposals": 3,
+            "decision_error_false_blocks": 0,
+            "decision_error_trials": 0,
+            "false_blocks": 0,
+            "incomplete_proposals": 6,
+            "independent_guard_false_blocks": 0,
+            "rejected_new_hard_violation_candidates": 1,
+            "rejected_noncompliant_candidates": 3
+          },
+          "eligible_source_task_groups": 0,
+          "pooled_candidate_false_block_rate": null,
+          "source_task_mean_false_block_rate_among_eligible": null,
+          "warning": "Descriptive complete-candidate opportunity rates, not an all-task causal effect. No eligible compliant proposals yields null, not zero. Decision failures after complete submission remain in the denominator."
+        },
+        "candidate_reason_categories": {
+          "no_verified_improvement": 1,
+          "proposal_error": 6,
+          "protected_requirement_regressed": 2
+        },
+        "compliant_success": {
+          "denominator": 200,
+          "numerator": 122,
+          "rate": 0.61
+        },
+        "cost_totals": {
+          "actor_calls": 388,
+          "checks": 187,
+          "hard_rejections": 0,
+          "proposed_actions": 533,
+          "rejected": 9,
+          "tool_step_limit_hits": 0,
+          "verifications": 0
+        },
+        "error_types": {
+          "ValueError": 22
+        },
+        "frozen_counts_recomputed": {
+          "charged_tokens": 1110260,
+          "compliant_successes": 122,
+          "errors": 22,
+          "feasible_compliant_successes": 122,
+          "feasible_runs": 196,
+          "initially_irreversible_runs": 4,
+          "repair_introduced_violation_runs": 0,
+          "runs": 200,
+          "source_task_groups": 200
+        },
+        "generation_count": 575,
+        "initially_feasible_success": {
+          "denominator": 196,
+          "numerator": 122,
+          "rate": 0.6224489795918368
+        },
+        "interaction_seconds_sum": 6100.949620289728,
+        "repair_introduced_violation": {
+          "denominator": 200,
+          "numerator": 0,
+          "rate": 0.0
+        },
+        "repair_source_groups": 7,
+        "token_ledger_totals": {
+          "calls": 575,
+          "charged_tokens": 1110260,
+          "denied_calls": 0,
+          "failed_reservations": 0,
+          "known_completion_tokens": 182316,
+          "known_prompt_tokens": 927944
+        }
+      }
+    },
+    "P2": {
+      "ood": {
+        "accepted_repair_attempts": 0,
+        "analyzer_error_events": 0,
+        "analyzer_error_runs": 0,
+        "candidate_opportunities": {
+          "counts": {
+            "accepted_new_hard_violation_candidates": 0,
+            "attempts": 19,
+            "complete_compliant_candidates": 0,
+            "complete_proposals": 6,
+            "decision_error_false_blocks": 0,
+            "decision_error_trials": 0,
+            "false_blocks": 0,
+            "incomplete_proposals": 13,
+            "independent_guard_false_blocks": 0,
+            "rejected_new_hard_violation_candidates": 6,
+            "rejected_noncompliant_candidates": 6
+          },
+          "eligible_source_task_groups": 0,
+          "pooled_candidate_false_block_rate": null,
+          "source_task_mean_false_block_rate_among_eligible": null,
+          "warning": "Descriptive complete-candidate opportunity rates, not an all-task causal effect. No eligible compliant proposals yields null, not zero. Decision failures after complete submission remain in the denominator."
+        },
+        "candidate_reason_categories": {
+          "no_verified_improvement": 6,
+          "proposal_error": 13
+        },
+        "compliant_success": {
+          "denominator": 100,
+          "numerator": 3,
+          "rate": 0.03
+        },
+        "cost_totals": {
+          "actor_calls": 211,
+          "checks": 99,
+          "hard_rejections": 0,
+          "proposed_actions": 287,
+          "rejected": 19,
+          "tool_step_limit_hits": 0,
+          "verifications": 0
+        },
+        "error_types": {
+          "ValueError": 20
+        },
+        "frozen_counts_recomputed": {
+          "charged_tokens": 804332,
+          "compliant_successes": 3,
+          "errors": 20,
+          "feasible_compliant_successes": 3,
+          "feasible_runs": 93,
+          "initially_irreversible_runs": 7,
+          "repair_introduced_violation_runs": 0,
+          "runs": 100,
+          "source_task_groups": 100
+        },
+        "generation_count": 310,
+        "initially_feasible_success": {
+          "denominator": 93,
+          "numerator": 3,
+          "rate": 0.03225806451612903
+        },
+        "interaction_seconds_sum": 3679.1731412690133,
+        "repair_introduced_violation": {
+          "denominator": 100,
+          "numerator": 0,
+          "rate": 0.0
+        },
+        "repair_source_groups": 15,
+        "token_ledger_totals": {
+          "calls": 310,
+          "charged_tokens": 804332,
+          "denied_calls": 0,
+          "failed_reservations": 0,
+          "known_completion_tokens": 108283,
+          "known_prompt_tokens": 696049
+        }
+      },
+      "test": {
+        "accepted_repair_attempts": 0,
+        "analyzer_error_events": 0,
+        "analyzer_error_runs": 0,
+        "candidate_opportunities": {
+          "counts": {
+            "accepted_new_hard_violation_candidates": 0,
+            "attempts": 9,
+            "complete_compliant_candidates": 0,
+            "complete_proposals": 3,
+            "decision_error_false_blocks": 0,
+            "decision_error_trials": 0,
+            "false_blocks": 0,
+            "incomplete_proposals": 6,
+            "independent_guard_false_blocks": 0,
+            "rejected_new_hard_violation_candidates": 1,
+            "rejected_noncompliant_candidates": 3
+          },
+          "eligible_source_task_groups": 0,
+          "pooled_candidate_false_block_rate": null,
+          "source_task_mean_false_block_rate_among_eligible": null,
+          "warning": "Descriptive complete-candidate opportunity rates, not an all-task causal effect. No eligible compliant proposals yields null, not zero. Decision failures after complete submission remain in the denominator."
+        },
+        "candidate_reason_categories": {
+          "no_verified_improvement": 1,
+          "proposal_error": 6,
+          "protected_requirement_regressed": 2
+        },
+        "compliant_success": {
+          "denominator": 200,
+          "numerator": 122,
+          "rate": 0.61
+        },
+        "cost_totals": {
+          "actor_calls": 388,
+          "checks": 187,
+          "hard_rejections": 0,
+          "proposed_actions": 533,
+          "rejected": 9,
+          "tool_step_limit_hits": 0,
+          "verifications": 0
+        },
+        "error_types": {
+          "ValueError": 22
+        },
+        "frozen_counts_recomputed": {
+          "charged_tokens": 1111376,
+          "compliant_successes": 122,
+          "errors": 22,
+          "feasible_compliant_successes": 122,
+          "feasible_runs": 196,
+          "initially_irreversible_runs": 4,
+          "repair_introduced_violation_runs": 0,
+          "runs": 200,
+          "source_task_groups": 200
+        },
+        "generation_count": 575,
+        "initially_feasible_success": {
+          "denominator": 196,
+          "numerator": 122,
+          "rate": 0.6224489795918368
+        },
+        "interaction_seconds_sum": 6154.685281423852,
+        "repair_introduced_violation": {
+          "denominator": 200,
+          "numerator": 0,
+          "rate": 0.0
+        },
+        "repair_source_groups": 7,
+        "token_ledger_totals": {
+          "calls": 575,
+          "charged_tokens": 1111376,
+          "denied_calls": 0,
+          "failed_reservations": 0,
+          "known_completion_tokens": 183456,
+          "known_prompt_tokens": 927920
+        }
+      }
+    },
+    "P3": {
+      "ood": {
+        "accepted_repair_attempts": 0,
+        "analyzer_error_events": 0,
+        "analyzer_error_runs": 0,
+        "candidate_opportunities": {
+          "counts": {
+            "accepted_new_hard_violation_candidates": 0,
+            "attempts": 19,
+            "complete_compliant_candidates": 0,
+            "complete_proposals": 6,
+            "decision_error_false_blocks": 0,
+            "decision_error_trials": 0,
+            "false_blocks": 0,
+            "incomplete_proposals": 13,
+            "independent_guard_false_blocks": 0,
+            "rejected_new_hard_violation_candidates": 6,
+            "rejected_noncompliant_candidates": 6
+          },
+          "eligible_source_task_groups": 0,
+          "pooled_candidate_false_block_rate": null,
+          "source_task_mean_false_block_rate_among_eligible": null,
+          "warning": "Descriptive complete-candidate opportunity rates, not an all-task causal effect. No eligible compliant proposals yields null, not zero. Decision failures after complete submission remain in the denominator."
+        },
+        "candidate_reason_categories": {
+          "hard_guard_validation_order": 6,
+          "proposal_error": 13
+        },
+        "compliant_success": {
+          "denominator": 100,
+          "numerator": 3,
+          "rate": 0.03
+        },
+        "cost_totals": {
+          "actor_calls": 211,
+          "checks": 99,
+          "hard_rejections": 6,
+          "proposed_actions": 287,
+          "rejected": 19,
+          "tool_step_limit_hits": 0,
+          "verifications": 0
+        },
+        "error_types": {
+          "ValueError": 20
+        },
+        "frozen_counts_recomputed": {
+          "charged_tokens": 805602,
+          "compliant_successes": 3,
+          "errors": 20,
+          "feasible_compliant_successes": 3,
+          "feasible_runs": 93,
+          "initially_irreversible_runs": 7,
+          "repair_introduced_violation_runs": 0,
+          "runs": 100,
+          "source_task_groups": 100
+        },
+        "generation_count": 310,
+        "initially_feasible_success": {
+          "denominator": 93,
+          "numerator": 3,
+          "rate": 0.03225806451612903
+        },
+        "interaction_seconds_sum": 3911.979961503297,
+        "repair_introduced_violation": {
+          "denominator": 100,
+          "numerator": 0,
+          "rate": 0.0
+        },
+        "repair_source_groups": 15,
+        "token_ledger_totals": {
+          "calls": 310,
+          "charged_tokens": 805602,
+          "denied_calls": 0,
+          "failed_reservations": 0,
+          "known_completion_tokens": 109517,
+          "known_prompt_tokens": 696085
+        }
+      },
+      "test": {
+        "accepted_repair_attempts": 0,
+        "analyzer_error_events": 0,
+        "analyzer_error_runs": 0,
+        "candidate_opportunities": {
+          "counts": {
+            "accepted_new_hard_violation_candidates": 0,
+            "attempts": 9,
+            "complete_compliant_candidates": 0,
+            "complete_proposals": 3,
+            "decision_error_false_blocks": 0,
+            "decision_error_trials": 0,
+            "false_blocks": 0,
+            "incomplete_proposals": 6,
+            "independent_guard_false_blocks": 0,
+            "rejected_new_hard_violation_candidates": 1,
+            "rejected_noncompliant_candidates": 3
+          },
+          "eligible_source_task_groups": 0,
+          "pooled_candidate_false_block_rate": null,
+          "source_task_mean_false_block_rate_among_eligible": null,
+          "warning": "Descriptive complete-candidate opportunity rates, not an all-task causal effect. No eligible compliant proposals yields null, not zero. Decision failures after complete submission remain in the denominator."
+        },
+        "candidate_reason_categories": {
+          "hard_guard_validation_order": 1,
+          "proposal_error": 6,
+          "protected_requirement_regressed": 2
+        },
+        "compliant_success": {
+          "denominator": 200,
+          "numerator": 122,
+          "rate": 0.61
+        },
+        "cost_totals": {
+          "actor_calls": 388,
+          "checks": 187,
+          "hard_rejections": 1,
+          "proposed_actions": 533,
+          "rejected": 9,
+          "tool_step_limit_hits": 0,
+          "verifications": 0
+        },
+        "error_types": {
+          "ValueError": 22
+        },
+        "frozen_counts_recomputed": {
+          "charged_tokens": 1110260,
+          "compliant_successes": 122,
+          "errors": 22,
+          "feasible_compliant_successes": 122,
+          "feasible_runs": 196,
+          "initially_irreversible_runs": 4,
+          "repair_introduced_violation_runs": 0,
+          "runs": 200,
+          "source_task_groups": 200
+        },
+        "generation_count": 575,
+        "initially_feasible_success": {
+          "denominator": 196,
+          "numerator": 122,
+          "rate": 0.6224489795918368
+        },
+        "interaction_seconds_sum": 6434.673995053396,
+        "repair_introduced_violation": {
+          "denominator": 200,
+          "numerator": 0,
+          "rate": 0.0
+        },
+        "repair_source_groups": 7,
+        "token_ledger_totals": {
+          "calls": 575,
+          "charged_tokens": 1110260,
+          "denied_calls": 0,
+          "failed_reservations": 0,
+          "known_completion_tokens": 182316,
+          "known_prompt_tokens": 927944
+        }
+      }
+    },
+    "P4": {
+      "ood": {
+        "accepted_repair_attempts": 0,
+        "analyzer_error_events": 0,
+        "analyzer_error_runs": 0,
+        "candidate_opportunities": {
+          "counts": {
+            "accepted_new_hard_violation_candidates": 0,
+            "attempts": 19,
+            "complete_compliant_candidates": 0,
+            "complete_proposals": 6,
+            "decision_error_false_blocks": 0,
+            "decision_error_trials": 0,
+            "false_blocks": 0,
+            "incomplete_proposals": 13,
+            "independent_guard_false_blocks": 0,
+            "rejected_new_hard_violation_candidates": 6,
+            "rejected_noncompliant_candidates": 6
+          },
+          "eligible_source_task_groups": 0,
+          "pooled_candidate_false_block_rate": null,
+          "source_task_mean_false_block_rate_among_eligible": null,
+          "warning": "Descriptive complete-candidate opportunity rates, not an all-task causal effect. No eligible compliant proposals yields null, not zero. Decision failures after complete submission remain in the denominator."
+        },
+        "candidate_reason_categories": {
+          "hard_guard_validation_order": 6,
+          "proposal_error": 13
+        },
+        "compliant_success": {
+          "denominator": 100,
+          "numerator": 3,
+          "rate": 0.03
+        },
+        "cost_totals": {
+          "actor_calls": 211,
+          "checks": 99,
+          "hard_rejections": 6,
+          "proposed_actions": 287,
+          "rejected": 19,
+          "tool_step_limit_hits": 0,
+          "verifications": 0
+        },
+        "error_types": {
+          "ValueError": 20
+        },
+        "frozen_counts_recomputed": {
+          "charged_tokens": 804332,
+          "compliant_successes": 3,
+          "errors": 20,
+          "feasible_compliant_successes": 3,
+          "feasible_runs": 93,
+          "initially_irreversible_runs": 7,
+          "repair_introduced_violation_runs": 0,
+          "runs": 100,
+          "source_task_groups": 100
+        },
+        "generation_count": 310,
+        "initially_feasible_success": {
+          "denominator": 93,
+          "numerator": 3,
+          "rate": 0.03225806451612903
+        },
+        "interaction_seconds_sum": 3790.0687430705875,
+        "repair_introduced_violation": {
+          "denominator": 100,
+          "numerator": 0,
+          "rate": 0.0
+        },
+        "repair_source_groups": 15,
+        "token_ledger_totals": {
+          "calls": 310,
+          "charged_tokens": 804332,
+          "denied_calls": 0,
+          "failed_reservations": 0,
+          "known_completion_tokens": 108283,
+          "known_prompt_tokens": 696049
+        }
+      },
+      "test": {
+        "accepted_repair_attempts": 0,
+        "analyzer_error_events": 0,
+        "analyzer_error_runs": 0,
+        "candidate_opportunities": {
+          "counts": {
+            "accepted_new_hard_violation_candidates": 0,
+            "attempts": 9,
+            "complete_compliant_candidates": 0,
+            "complete_proposals": 3,
+            "decision_error_false_blocks": 0,
+            "decision_error_trials": 0,
+            "false_blocks": 0,
+            "incomplete_proposals": 6,
+            "independent_guard_false_blocks": 0,
+            "rejected_new_hard_violation_candidates": 1,
+            "rejected_noncompliant_candidates": 3
+          },
+          "eligible_source_task_groups": 0,
+          "pooled_candidate_false_block_rate": null,
+          "source_task_mean_false_block_rate_among_eligible": null,
+          "warning": "Descriptive complete-candidate opportunity rates, not an all-task causal effect. No eligible compliant proposals yields null, not zero. Decision failures after complete submission remain in the denominator."
+        },
+        "candidate_reason_categories": {
+          "hard_guard_validation_order": 1,
+          "proposal_error": 6,
+          "protected_requirement_regressed": 2
+        },
+        "compliant_success": {
+          "denominator": 200,
+          "numerator": 122,
+          "rate": 0.61
+        },
+        "cost_totals": {
+          "actor_calls": 388,
+          "checks": 187,
+          "hard_rejections": 1,
+          "proposed_actions": 533,
+          "rejected": 9,
+          "tool_step_limit_hits": 0,
+          "verifications": 0
+        },
+        "error_types": {
+          "ValueError": 22
+        },
+        "frozen_counts_recomputed": {
+          "charged_tokens": 1111376,
+          "compliant_successes": 122,
+          "errors": 22,
+          "feasible_compliant_successes": 122,
+          "feasible_runs": 196,
+          "initially_irreversible_runs": 4,
+          "repair_introduced_violation_runs": 0,
+          "runs": 200,
+          "source_task_groups": 200
+        },
+        "generation_count": 575,
+        "initially_feasible_success": {
+          "denominator": 196,
+          "numerator": 122,
+          "rate": 0.6224489795918368
+        },
+        "interaction_seconds_sum": 6390.845139274374,
+        "repair_introduced_violation": {
+          "denominator": 200,
+          "numerator": 0,
+          "rate": 0.0
+        },
+        "repair_source_groups": 7,
+        "token_ledger_totals": {
+          "calls": 575,
+          "charged_tokens": 1111376,
+          "denied_calls": 0,
+          "failed_reservations": 0,
+          "known_completion_tokens": 183456,
+          "known_prompt_tokens": 927920
+        }
+      }
+    }
+  },
+  "all_final_states_identical_across_conditions": true,
+  "archive_bytes": 24422400,
+  "archive_sha256": "0838a33d80bd45f7f6456f954eff4497e79dcf9ec4cdef0fdc5b3cda9636b2dc",
+  "binding_hash": "d27c35ff115f969cbe7a3b45e0b22f1bdb284d925e58f89819be83301523a003",
+  "common_initial_feasibility": {
+    "RQ2/ood": {
+      "counts": {
+        "common_feasible_variants": 93,
+        "left_only_feasible_variants": 0,
+        "neither_feasible_variants": 7,
+        "paired_variants": 100,
+        "right_only_feasible_variants": 0
+      },
+      "eligible_source_task_groups": 93,
+      "left": 0,
+      "left_condition": "P1",
+      "metric": "new_violation",
+      "right": 0,
+      "right_condition": "P3",
+      "right_minus_left": 0,
+      "split": "ood",
+      "warning": "Descriptive intersection of both conditions' initial historical feasibility. This selected subset is not the primary all-task estimand and has no additional confirmatory p-value."
+    },
+    "RQ2/test": {
+      "counts": {
+        "common_feasible_variants": 196,
+        "left_only_feasible_variants": 0,
+        "neither_feasible_variants": 4,
+        "paired_variants": 200,
+        "right_only_feasible_variants": 0
+      },
+      "eligible_source_task_groups": 196,
+      "left": 0,
+      "left_condition": "P1",
+      "metric": "new_violation",
+      "right": 0,
+      "right_condition": "P3",
+      "right_minus_left": 0,
+      "split": "test",
+      "warning": "Descriptive intersection of both conditions' initial historical feasibility. This selected subset is not the primary all-task estimand and has no additional confirmatory p-value."
+    },
+    "RQ3/ood": {
+      "counts": {
+        "common_feasible_variants": 93,
+        "left_only_feasible_variants": 0,
+        "neither_feasible_variants": 7,
+        "paired_variants": 100,
+        "right_only_feasible_variants": 0
+      },
+      "eligible_source_task_groups": 93,
+      "left": 0.03225806451612903,
+      "left_condition": "P3",
+      "metric": "success",
+      "right": 0.03225806451612903,
+      "right_condition": "P4",
+      "right_minus_left": 0.0,
+      "split": "ood",
+      "warning": "Descriptive intersection of both conditions' initial historical feasibility. This selected subset is not the primary all-task estimand and has no additional confirmatory p-value."
+    },
+    "RQ3/test": {
+      "counts": {
+        "common_feasible_variants": 196,
+        "left_only_feasible_variants": 0,
+        "neither_feasible_variants": 4,
+        "paired_variants": 200,
+        "right_only_feasible_variants": 0
+      },
+      "eligible_source_task_groups": 196,
+      "left": 0.6224489795918368,
+      "left_condition": "P3",
+      "metric": "success",
+      "right": 0.6224489795918368,
+      "right_condition": "P4",
+      "right_minus_left": 0.0,
+      "split": "test",
+      "warning": "Descriptive intersection of both conditions' initial historical feasibility. This selected subset is not the primary all-task estimand and has no additional confirmatory p-value."
+    }
+  },
+  "condition_timings": {
+    "P1": {
+      "seconds_including_loading_and_release": 9805.247046960518
+    },
+    "P2": {
+      "seconds_including_loading_and_release": 9834.686125865206
+    },
+    "P3": {
+      "seconds_including_loading_and_release": 10347.858517644927
+    },
+    "P4": {
+      "seconds_including_loading_and_release": 10182.010688090697
+    }
+  },
+  "descriptive_comparisons": {
+    "ood": {
+      "P4_minus_P3_charged_tokens": -1270,
+      "RQ2_P3_minus_P1_new_violation_rate": 0.0,
+      "RQ3_P4_minus_P3_success_rate": 0.0
+    },
+    "test": {
+      "P4_minus_P3_charged_tokens": 1116,
+      "RQ2_P3_minus_P1_new_violation_rate": 0.0,
+      "RQ3_P4_minus_P3_success_rate": 0.0
+    }
+  },
+  "execution_receipt_hash": "5a3bd558d8e0a28030193dbedefb69b8d45210c9e1ea62212729a34adddd2ea7",
+  "frozen_helper_sha256": {
+    "intentlab/core.py": "46d7ff4f3d5879c3a0b38ac8e94749e66df90e859969b0fa386b3ebe16179eb0",
+    "intentlab/execution_auxiliary.py": "0023c8656aadbd85093f36c1d4f32d25c1d13a2c2bee717a40b3f904545f0991"
+  },
+  "hypothesis_tests_added": 0,
+  "inference_peak_gpu_memory_available": false,
+  "interaction_records": 1200,
+  "interaction_seal_hash": "020bbda4409918079aeafbb044936acf55ad46a558095876a18a082f6990f2d5",
+  "kind": "aggregate_formal_m6_execution_projection",
+  "limitations": [
+    "Source groups are paired across four conditions; 1200 records are not 1200 independent tasks.",
+    "Descriptive arithmetic only; frozen M8 source/family statistics and Holm correction remain pending.",
+    "No eligible compliant repair candidate yields a null false-block rate, not zero.",
+    "Zero observed committed regressions does not establish zero risk or guard benefit.",
+    "This projection does not replay oracle truth, certify semantic independence or replace frozen model verification.",
+    "M6 inference peak GPU memory was not recorded in generation usage; training peaks are not substituted."
+  ],
+  "m6_experiment_complete": true,
+  "m8_complete": false,
+  "projection_script_sha256": "b235a54bf879afdc6ab5a6cf9ee2abf3ae8b11c628f9dfa1e0156531ab1d9445",
+  "protocol_hash": "a1b0440b0f93cfcb76ad9971cbfe73e8f08b30e45a6fef091c7cb74cc31fc027",
+  "raw_gold_or_references_opened_for_projection": false,
+  "runtime_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "schema_version": 1,
+  "scope": "formal",
+  "scored_records": 1200,
+  "scoring_preserved_all_interaction_fields": true,
+  "source_task_groups": 300,
+  "supervised_stage_seconds": 40328.327501773834
+}
