@@ -1,0 +1,104 @@
+{
+  "before_recovery_no_m6_archive_m7_attestation_or_m7_output_observed": true,
+  "engineering_tests_passed": 6,
+  "frozen_protocol_or_model_changed": false,
+  "kind": "observed_local_m6_m7_observer_recovery",
+  "m6_complete": false,
+  "m6_observation": {
+    "active_action": "interact",
+    "active_condition": "P4",
+    "binding_hash": "d27c35ff115f969cbe7a3b45e0b22f1bdb284d925e58f89819be83301523a003",
+    "child": {
+      "pid": 412793,
+      "start_ticks": "889586199",
+      "state": "R"
+    },
+    "completed_interaction_records": 1119,
+    "conditions": {
+      "P1": {
+        "hard_guard": false,
+        "policy": "fixed-full"
+      },
+      "P2": {
+        "hard_guard": false,
+        "policy": "dynamic-k"
+      },
+      "P3": {
+        "hard_guard": true,
+        "policy": "fixed-full"
+      },
+      "P4": {
+        "hard_guard": true,
+        "policy": "dynamic-k"
+      }
+    },
+    "diagnostic_receipt_hash": "aecdf1d2fcc991bfb658b64e2c790933b9d5f8c1a319ae1061438d5f1d5eecec",
+    "driver_sha256": "67b74c72cb467c19ae45605a180f0c80dfdbdfe12e7085d91cb1efeb50f90b7d",
+    "injected_pool": false,
+    "interaction_status": "running",
+    "m6_complete": false,
+    "model_residency": "shared-condition-v1",
+    "observed_unix": 1793018763.9282753,
+    "offline_references_opened": false,
+    "protocol_hash": "a1b0440b0f93cfcb76ad9971cbfe73e8f08b30e45a6fef091c7cb74cc31fc027",
+    "runtime_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+    "supervisor": {
+      "pid": 412780,
+      "start_ticks": "889586178",
+      "state": "S"
+    },
+    "supervisor_status": "running",
+    "tasks_per_condition": 300
+  },
+  "m7_started": false,
+  "m8_complete": false,
+  "model_restart_performed": false,
+  "original_logs_preserved": true,
+  "original_m6_parent_and_worker_revalidated_alive": true,
+  "original_pid_absence_observed": true,
+  "original_waiter": {
+    "exception_type": "CalledProcessError",
+    "failed_observation_utc": "2026-10-26T12:40:53.967051+00:00",
+    "pid": 28332,
+    "ssh_exit_code": 255,
+    "status_file_sha256": "ea9560c1f1e209ee79c8c1eab4386cceb0a5c4b2681e8d7c88cc987102627236",
+    "stderr_log_sha256": "3a4a9389ceb6bf83f17b397e2ea824f76e3bb7c8510be55c4ffce982ba3a31bf",
+    "terminal_status": "observation_or_admission_failed"
+  },
+  "recovery_launch": {
+    "m7_dispatched": false,
+    "no_automatic_model_retry": true,
+    "original_waiter_pid": 28332,
+    "pid": 31976,
+    "script_sha256": "85c853bf872a4f55b702d851b3b8501063cb8c6880d192f8a4572c37e7520dce",
+    "started_utc": "2026-10-26T12:45:46.2496751Z"
+  },
+  "recovery_observation": {
+    "consecutive_probe_errors": 0,
+    "kind": "recovered_m6_to_m7_read_only_wait",
+    "m7_dispatched_by_wait_phase": false,
+    "no_automatic_model_retry": true,
+    "observation": {
+      "active_action": "interact",
+      "active_children": [
+        {
+          "start_ticks": "889586199",
+          "state": "R"
+        }
+      ],
+      "parent": {
+        "start_ticks": "889586178",
+        "state": "S"
+      },
+      "ready": false,
+      "supervisor_status": "running"
+    },
+    "observed_utc": "2026-10-26T12:47:48.112971+00:00",
+    "original_waiter_pid": 28332,
+    "pid": 31976,
+    "probe_errors": [],
+    "status": "waiting_for_m6"
+  },
+  "root_cause_limit": "SSH command returned 255; original SSH stderr was not persisted by the observer, so the exact connection failure cause is not established.",
+  "scope": "engineering_incident"
+}
