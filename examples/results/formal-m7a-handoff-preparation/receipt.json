@@ -1,0 +1,102 @@
+{
+  "engineering_tests_passed": 13,
+  "kind": "m7_handoff_preparation_not_experiment_result",
+  "m6_live_observation": {
+    "active_action": "interact",
+    "active_condition": "P2",
+    "binding_hash": "d27c35ff115f969cbe7a3b45e0b22f1bdb284d925e58f89819be83301523a003",
+    "child": {
+      "pid": 412793,
+      "start_ticks": "889586199",
+      "state": "R"
+    },
+    "completed_interaction_records": 402,
+    "conditions": {
+      "P1": {
+        "hard_guard": false,
+        "policy": "fixed-full"
+      },
+      "P2": {
+        "hard_guard": false,
+        "policy": "dynamic-k"
+      },
+      "P3": {
+        "hard_guard": true,
+        "policy": "fixed-full"
+      },
+      "P4": {
+        "hard_guard": true,
+        "policy": "dynamic-k"
+      }
+    },
+    "diagnostic_receipt_hash": "aecdf1d2fcc991bfb658b64e2c790933b9d5f8c1a319ae1061438d5f1d5eecec",
+    "driver_sha256": "67b74c72cb467c19ae45605a180f0c80dfdbdfe12e7085d91cb1efeb50f90b7d",
+    "injected_pool": false,
+    "interaction_status": "running",
+    "m6_complete": false,
+    "model_residency": "shared-condition-v1",
+    "observed_unix": 1792994378.5365965,
+    "offline_references_opened": false,
+    "protocol_hash": "a1b0440b0f93cfcb76ad9971cbfe73e8f08b30e45a6fef091c7cb74cc31fc027",
+    "runtime_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+    "supervisor": {
+      "pid": 412780,
+      "start_ticks": "889586178",
+      "state": "S"
+    },
+    "supervisor_status": "running",
+    "tasks_per_condition": 300
+  },
+  "m6_off_host_backup_completed": false,
+  "m7_complete": false,
+  "m7_started": false,
+  "m8_complete": false,
+  "no_automatic_model_retry": true,
+  "preflight": {
+    "budget_config_sha256": "454fa5c55c510ed4521ba7e59d38869e1bcde6d7d6fd697e96198bc3db7cb689",
+    "budget_status": "monitoring",
+    "deployed_script_sha256": {
+      "prepare_m6_backup_20261026.py": "29ed725d44212d0ca080f7043f890eee38e2c1c91351a0446bd6fbf9f24ad9a8",
+      "run_formal_ablation_20261026.py": "d97fff09401b8579c52b25f68883b1e37adf4b57174cfe8a877650b26cdd06b7"
+    },
+    "estimated_proxy_spend_yuan": 293.5355,
+    "guard_pid": 181444,
+    "guard_start_ticks": "867274705",
+    "observed_unix": 1792994293.7704384,
+    "remaining_operating_hours": 68.21683019433533,
+    "runtime_clean": true,
+    "runtime_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0"
+  },
+  "scope": "engineering_preparation",
+  "scope_limit": "Actual archive transfer and M7 model execution remain pending; fixtures verify only engineering paths.",
+  "waiter_launch": {
+    "m7_started": false,
+    "no_automatic_model_retry": true,
+    "pid": 28332,
+    "script_sha256": "d3cb0ae5b0bf2fb48c7ee8a90c2f9bb44ecfa13fda18feeff766822f109695c5",
+    "started_utc": "2026-10-26T05:58:37.3826483Z"
+  },
+  "waiter_observation": {
+    "kind": "one_shot_m6_to_m7_wait",
+    "m7_dispatched_by_wait_phase": false,
+    "no_automatic_model_retry": true,
+    "observation": {
+      "active_action": "interact",
+      "active_children": [
+        {
+          "start_ticks": "889586199",
+          "state": "R"
+        }
+      ],
+      "parent": {
+        "start_ticks": "889586178",
+        "state": "S"
+      },
+      "ready": false,
+      "supervisor_status": "running"
+    },
+    "observed_utc": "2026-10-26T05:59:38.402095+00:00",
+    "pid": 28332,
+    "status": "waiting_for_m6"
+  }
+}

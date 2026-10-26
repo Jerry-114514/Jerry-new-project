@@ -1,0 +1,24 @@
+test_complete_archive_is_reverified (__main__.TransferTests.test_complete_archive_is_reverified) ... ok
+test_corrupt_archive_is_rejected (__main__.TransferTests.test_corrupt_archive_is_rejected) ... ok
+test_dispatch_code_is_exclusive_and_parses_without_execution (__main__.TransferTests.test_dispatch_code_is_exclusive_and_parses_without_execution) ... ok
+test_live_m6_does_not_create_backup_directory (__main__.TransferTests.test_live_m6_does_not_create_backup_directory) ... ok
+test_missing_original_handle_does_not_start_any_job (__main__.TransferTests.test_missing_original_handle_does_not_start_any_job) ... ok
+test_missing_record_is_rejected_even_with_correct_member_hashes (__main__.TransferTests.test_missing_record_is_rejected_even_with_correct_member_hashes) ... ok
+test_wait_handles_completed_status_before_parent_exits (__main__.TransferTests.test_wait_handles_completed_status_before_parent_exits) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.022s
+
+OK
+
+test_complete_receipts_pass_pure_gate (__main__.AdmissionTests.test_complete_receipts_pass_pure_gate) ... ok
+test_each_failed_or_missing_stage_is_rejected (__main__.AdmissionTests.test_each_failed_or_missing_stage_is_rejected) ... ok
+test_four_commands_match_prepared_frozen_plan (__main__.AdmissionTests.test_four_commands_match_prepared_frozen_plan) ... ok
+test_live_m6_cannot_admit_m7 (__main__.AdmissionTests.test_live_m6_cannot_admit_m7) ... ok
+test_modified_receipt_rejected_even_if_receipt_string_unchanged (__main__.AdmissionTests.test_modified_receipt_rejected_even_if_receipt_string_unchanged) ... ok
+test_unverified_or_incomplete_backup_is_rejected (__main__.AdmissionTests.test_unverified_or_incomplete_backup_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.005s
+
+OK

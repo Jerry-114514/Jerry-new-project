@@ -2,6 +2,8 @@
 
 **2026-10-26当前状态：M4六训练及端点备份、M5正式诊断评测均已完成；M6四组真实闭环已启动。** [完整训练回执](../examples/results/formal-m4e-training-complete/README.md)保留六组验证选点、曲线及配对核验。运行源码仍冻结为20214fb，协议锁a1b0440b保持不变。[M5完成回执及报告](../examples/results/formal-m5d-diagnostic-results/README.md)记录九条件、六份完整损失、冻结三阶段退出0、评分归档实际异机校验和源任务/混淆/损失算术重算。强少样本B对余弦三种子均值的test源任务平均错误率为20.0104%对1.9410%，OOD为18.1250%对2.3194%；仅是当前形式化规格数据上的描述性结果，不宣称显著性或闭环收益。规则C零状态错误、Plateau平均CE未显示优势、种子差异和证据语义未评分均完整报告。[M6启动回执](../examples/results/formal-m6a-execution-start/README.md)记录真实模型worker、冻结P1–P4及上游备份门槛；M6/M7和M8统计复现验收仍待完成。
 
+2026-10-26补充：[M2q来源重建](../examples/results/formal-m2q-contract-regeneration/README.md)用冻结构造函数和预承诺流重建1050份合同，与冻结任务文件逐字节一致；不读取标签、参考或模型预测，M2更广泛独立性限制仍未消除。[M7衔接准备](../examples/results/formal-m7a-handoff-preparation/README.md)已完成13项工程检查并部署本机等待器；M6四阶段实际完成、结果异机复制校验、预算及GPU门槛全部通过后才启动M7。准备快照为M6 402/1200、P2，M7未启动，不把等待器存活当作实验完成。
+
 此前SSH观测因本机密钥权限中断；2026-10-25修复权限并重连后，确认原矩阵和supervisor均正常完成，无重新启动训练、缩减组别或改变配置。先前四份备份保留，最后两份单独补齐。预算守护持续生效，最终费用仍待实际账单核对，不保证限额内完成剩余评测。
 
 用户标签路线仍完全程序化，结论限定于明确编码规格，不声称人工验证。下面保留的是历史审计和当时状态，旧“未冻结”“训练0/6”“等待人审”等语句不代表当前状态。[训练前冻结回执](../examples/results/formal-m3af-protocol-freeze/README.md)保持不变。
