@@ -1,0 +1,11 @@
+test_changed_receipt_rejected_without_rehash (__main__.StatisticsPreparationTests.test_changed_receipt_rejected_without_rehash) ... ok
+test_claim_identity_and_all_four_stages_required (__main__.StatisticsPreparationTests.test_claim_identity_and_all_four_stages_required) ... ok
+test_complete_pure_gate (__main__.StatisticsPreparationTests.test_complete_pure_gate) ... ok
+test_live_or_failed_m7_cannot_admit_statistics (__main__.StatisticsPreparationTests.test_live_or_failed_m7_cannot_admit_statistics) ... ok
+test_missing_or_mismatched_backup_rejected (__main__.StatisticsPreparationTests.test_missing_or_mismatched_backup_rejected) ... ok
+test_original_commands_match_plan_and_replay_changes_only_destination (__main__.StatisticsPreparationTests.test_original_commands_match_plan_and_replay_changes_only_destination) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.002s
+
+OK

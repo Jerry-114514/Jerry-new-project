@@ -1,0 +1,21 @@
+{
+  "commands_match_original_plan": true,
+  "date": "2026-10-26",
+  "deployed": false,
+  "engineering_tests_passed": 6,
+  "formal_statistics_started": false,
+  "kind": "statistics_reproduction_preparation",
+  "m8_complete": false,
+  "no_models_or_gold_read_for_preparation": true,
+  "pending": [
+    "M6 completed and verified",
+    "M7 completed and verified",
+    "M7 actual off-host archive and gate",
+    "live source, budget and process admission",
+    "actual four command run and report comparison"
+  ],
+  "replay_changes_only_output_destination": true,
+  "runtime_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "scope": "engineering_preparation",
+  "statistics_reproduction_complete": false
+}

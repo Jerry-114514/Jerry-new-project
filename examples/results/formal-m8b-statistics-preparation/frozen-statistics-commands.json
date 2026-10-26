@@ -1,0 +1,67 @@
+{
+  "runtime_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "stage_commands": [
+    {
+      "action": "run",
+      "argv": [
+        "/root/autodl-tmp/intentlab-venv/bin/python",
+        "-m",
+        "intentlab.frozen_statistics",
+        "run",
+        "--protocol",
+        "/root/autodl-tmp/history-shared-freeze-preparation-20261023/formal-protocol.lock.json",
+        "--binding",
+        "/root/autodl-tmp/formal-model-binding-20261025.json",
+        "--predictions",
+        "/root/autodl-tmp/formal-diagnostic-run-20261025/predictions",
+        "--diagnostic-reveal",
+        "/root/autodl-tmp/formal-diagnostic-run-20261025/reveal",
+        "--execution-interactions",
+        "/root/autodl-tmp/formal-execution-run-20261025/interactions",
+        "--execution-reveal",
+        "/root/autodl-tmp/formal-execution-run-20261025/reveal",
+        "--ablation-interactions",
+        "/root/autodl-tmp/formal-ablation-run-20261025/interactions",
+        "--ablation-reveal",
+        "/root/autodl-tmp/formal-ablation-run-20261025/reveal",
+        "--out",
+        "/root/autodl-tmp/formal-statistics-run-20261025"
+      ],
+      "completed": false,
+      "frozen_argument_parser_passed": true,
+      "module": "frozen_statistics",
+      "started": false
+    },
+    {
+      "action": "verify",
+      "argv": [
+        "/root/autodl-tmp/intentlab-venv/bin/python",
+        "-m",
+        "intentlab.frozen_statistics",
+        "verify",
+        "--protocol",
+        "/root/autodl-tmp/history-shared-freeze-preparation-20261023/formal-protocol.lock.json",
+        "--binding",
+        "/root/autodl-tmp/formal-model-binding-20261025.json",
+        "--predictions",
+        "/root/autodl-tmp/formal-diagnostic-run-20261025/predictions",
+        "--diagnostic-reveal",
+        "/root/autodl-tmp/formal-diagnostic-run-20261025/reveal",
+        "--execution-interactions",
+        "/root/autodl-tmp/formal-execution-run-20261025/interactions",
+        "--execution-reveal",
+        "/root/autodl-tmp/formal-execution-run-20261025/reveal",
+        "--ablation-interactions",
+        "/root/autodl-tmp/formal-ablation-run-20261025/interactions",
+        "--ablation-reveal",
+        "/root/autodl-tmp/formal-ablation-run-20261025/reveal",
+        "--statistics",
+        "/root/autodl-tmp/formal-statistics-run-20261025"
+      ],
+      "completed": false,
+      "frozen_argument_parser_passed": true,
+      "module": "frozen_statistics",
+      "started": false
+    }
+  ]
+}

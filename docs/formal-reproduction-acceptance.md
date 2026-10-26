@@ -41,6 +41,8 @@ python -m intentlab.frozen_statistics verify \
 
 `scripts/audit_statistics_stage_evidence.py`只复算公开engineering夹具，不能用于给正式结果签发完成结论。正式入口的`m8_complete=false`是有意保留的边界；不得改写该字段以代替完整验收。
 
+2026-10-26已补充[统计与独立目录复算监督代码](../examples/results/formal-m8b-statistics-preparation/README.md)，6项工程门槛/命令检查通过；尚未部署或运行正式统计。该代码要求M7验收及实际异机备份，串行执行两份同输入统计和验证，比较完整规范化报告；不会修改冻结统计参数，成功后仍保留M8最终验收边界。
+
 ## 报告与科学前提
 
 使用冻结v2分析方案：操作族内源任务重采样、固定三种子向量、任务配对、目标token加权损失；唯一主比较RQ1/test，17项次要比较保留完整Holm家族。不以视图或种子重复扩大独立样本量，不挑选有利的种子、分母、区间或失败组。
