@@ -1,0 +1,47 @@
+{
+  "all_contract_fields_equal": true,
+  "canonical_jsonl_byte_identical": true,
+  "canonical_list_digest": "67892c44b95f398810c0a6e04848e8072c00913faa08be1c2847bf9c6289cc0c",
+  "frozen_data_changed": false,
+  "frozen_source_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "frozen_tasks_file_sha256": "3adb95d02a0224b4b4078f237813c5f47d808e5055a637d2b7ce3a706c8c4c24",
+  "generator_source_sha256": {
+    "intentlab/core.py": "46d7ff4f3d5879c3a0b38ac8e94749e66df90e859969b0fa386b3ebe16179eb0",
+    "intentlab/matched_test_data.py": "f4f23165675408bdb20397776e203e4c4b135a40a2b7323a211012a493f1d330",
+    "intentlab/procedural_data.py": "885f26cb6ee185f46e58fa73465f51b8369bf7f45dbc7b10ea14027c3104689c"
+  },
+  "human_evaluation_claim": false,
+  "id_sets_equal": true,
+  "kind": "frozen_public_contract_regeneration",
+  "labels_or_references_opened": false,
+  "limitations": [
+    "Proves deterministic reconstruction under the recorded generator and seed commitments, not universal originality.",
+    "Shared generators, finite operation support and retained cross-split near duplicates remain unchanged.",
+    "Source license strings are declarations, not independent legal certification.",
+    "Does not audit all external assets, pretraining contamination, label semantics or model generalization."
+  ],
+  "m2_complete": false,
+  "model_calls": 0,
+  "passed": true,
+  "plan_hash": "04da60cbe1560e1c019572ea6cb66912cf21f3c766176413c1f7174937531ee2",
+  "private_seed_commitments_verified": 5,
+  "regenerated_list_digest": "67892c44b95f398810c0a6e04848e8072c00913faa08be1c2847bf9c6289cc0c",
+  "regenerated_tasks_file_sha256": "3adb95d02a0224b4b4078f237813c5f47d808e5055a637d2b7ce3a706c8c4c24",
+  "schema_version": 1,
+  "semantic_independence_proven": false,
+  "source_license_declarations": {
+    "Private research data; public data license not assigned; no third-party source records": 1050
+  },
+  "source_origins": {
+    "program_generated": 1050
+  },
+  "source_tasks": 1050,
+  "split_counts": {
+    "ood": 100,
+    "test": 200,
+    "train": 600,
+    "validation": 150
+  },
+  "unique_original_ids": 1050,
+  "unique_regenerated_ids": 1050
+}
