@@ -47,6 +47,8 @@ class AdapterReleasePreparationTests(unittest.TestCase):
         self.assertEqual(actual, set(first['files']) | {'manifest.json', '.gitattributes', 'README.md'})
         for name in actual:
             self.assertEqual((self.root / 'out' / name).read_bytes(), (self.root / 'replay' / name).read_bytes())
+        for name in ('README.md', 'manifest.json', '.gitattributes'):
+            self.assertNotIn(b'\r\n', (self.root / 'out' / name).read_bytes())
         self.assertFalse(first['public_upload_performed'])
         self.assertFalse(first['model_forward_verified_by_preparation'])
         with self.assertRaises(ValueError):

@@ -60,7 +60,7 @@ def prepare(plan_path, plan_sha, receipt_path, receipt_sha, out):
         if target.stat().st_size != item['bytes'] or sha(target) != item['sha256'] or sha(item['source']) != item['sha256']:
             raise ValueError('Source changed during copy or destination bytes differ')
         files[destination] = {'sha256': item['sha256'], 'bytes': item['bytes']}
-    (out / '.gitattributes').write_text('*/adapter_model.safetensors filter=lfs diff=lfs merge=lfs -text\n', encoding='utf-8')
+    (out / '.gitattributes').write_text('*/adapter_model.safetensors filter=lfs diff=lfs merge=lfs -text\n', encoding='utf-8', newline='\n')
     (out / 'README.md').write_text(
         '# Selected Qwen3.5-9B LoRA inference exports\n\n'
         'This is a locally prepared package, not proof of a public upload or completed M8. '
@@ -80,7 +80,7 @@ def prepare(plan_path, plan_sha, receipt_path, receipt_sha, out):
         'Labels are programmatic under explicitly encoded specifications; no human evaluation is claimed.\n\n'
         'If later published with Git LFS, disable automatic smudging on initial clone and fetch only the needed '
         'adapter to avoid downloading all six. Account LFS usage and overage controls must be checked before upload.\n',
-        encoding='utf-8')
+        encoding='utf-8', newline='\n')
     manifest = {'kind': 'prepared_selected_adapter_release', 'status': 'prepared_not_uploaded',
                 'protocol_hash': receipt['protocol_hash'], 'binding_hash': receipt['binding_hash'],
                 'official_revision': plan['official_revision'], 'training_receipt_sha256': receipt_sha,
@@ -90,7 +90,7 @@ def prepare(plan_path, plan_sha, receipt_path, receipt_sha, out):
                 'base_weights_included': False, 'optimizer_or_pickle_included': False,
                 'test_material_included': False, 'model_forward_verified_by_preparation': False,
                 'public_upload_performed': False, 'm8_complete': False}
-    (out / 'manifest.json').write_text(json.dumps(manifest, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+    (out / 'manifest.json').write_text(json.dumps(manifest, indent=2, sort_keys=True) + '\n', encoding='utf-8', newline='\n')
     return manifest
 
 
