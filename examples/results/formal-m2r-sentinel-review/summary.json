@@ -1,0 +1,70 @@
+{
+  "candidate_changed": false,
+  "current_contracts_gold_references_or_model_outputs_opened": false,
+  "driver_sha256": "9f8e75b4bfe72a15651f239804c7cea596a62c8157973856bf4180629af4f16e",
+  "exact_bytes_only_classification": true,
+  "historical_json_blobs": 962,
+  "historical_roots": [
+    "data",
+    "examples/results"
+  ],
+  "kind": "frozen_historical_invalid_json_sentinel_review",
+  "limitations": [
+    "Only the two original parse failures in the fixed 962-object scope are resolved as documented sentinels.",
+    "Parsed objects without recognized inputs and other asset formats are not further classified here.",
+    "This does not extend semantic reuse detection or prove statistical independence, licensing or absence of pretraining contamination.",
+    "Deferred-test result records are historical evidence for these probes, not a new model execution or universal access-isolation proof."
+  ],
+  "m2_complete": false,
+  "original_inventory_sha256": "7925992307b46f63f87274c49abb4463922a37954466f32b51f395c200251628",
+  "original_inventory_unchanged": true,
+  "original_parsed_json_blobs": 960,
+  "original_unparsed_json_blobs": 2,
+  "parsed_blobs_without_recognized_inputs_not_reclassified": 937,
+  "reviewed": [
+    {
+      "blob_sha": "7bc74b875ecd8731a9b90653dd0360f28134bc19",
+      "bytes": 57,
+      "classification": "deliberately_invalid_non_json_hardware_probe_sentinel",
+      "frozen_path": "examples/results/formal-m3a-context-probe/data-1024/test.jsonl",
+      "generator_line": 63,
+      "generator_path": "examples/results/formal-m3a-context-probe/context_probe.py",
+      "generator_sha256": "66f3285083f145069cb929f6ddbb51a365f12d2698412388c0a8e8215cf4a915",
+      "historical_path_alias": "examples/results/formal-m3a-context-probe/data-1024/test.jsonl",
+      "input_rows_present": false,
+      "original_json_parse_failure_retained": true,
+      "recorded_probe_completed": true,
+      "recorded_result_path": "examples/results/formal-m3a-context-probe/train-1024/result.json",
+      "recorded_result_sha256": "15ac350ffbb08f516f317000d32f3379b93f5bd7f10ba0695c906b30106b66da",
+      "recorded_test_deferred": true,
+      "sentinel_evidence_path": "examples/results/formal-m3a-context-probe/data-1024/manifest.json",
+      "sentinel_evidence_sha256": "f4f0d9cf77db79ad71044bccd582e2048acf393f292358e5972ee208b6b22f92",
+      "sha256": "37d68f37456e6450e119d6885b14809fa32d6a1e217937c32a5d3b83fd1a306e"
+    },
+    {
+      "blob_sha": "e20895c35de19b1662865ffefff0f4dd02098550",
+      "bytes": 33,
+      "classification": "deliberately_invalid_non_json_hardware_probe_sentinel",
+      "frozen_path": "examples/results/formal-m3f-supervised-logits/data/test.jsonl",
+      "generator_line": 39,
+      "generator_path": "examples/results/formal-m3f-supervised-logits/probe-driver.py",
+      "generator_sha256": "2b6071d1f71609ab68064f1f0412072639a59c7095e1bf4566d5527171cc8514",
+      "historical_path_alias": "examples/results/formal-m3f-supervised-logits/data/test.jsonl",
+      "input_rows_present": false,
+      "original_json_parse_failure_retained": true,
+      "recorded_probe_completed": true,
+      "recorded_result_path": "examples/results/formal-m3f-supervised-logits/train/result.json",
+      "recorded_result_sha256": "041544e75451892e091a66b310d0b97589fe0a318db004318e1339ba5e813bdb",
+      "recorded_test_deferred": true,
+      "sentinel_evidence_path": "examples/results/formal-m3f-supervised-logits/checksums.json",
+      "sentinel_evidence_sha256": "c6fbfde9b6680886ba818cc410ac228d2c3d9bb3cf909159801495db4785542a",
+      "sha256": "f2c056f6cb386873a4268f9f0c15d75be84697f14ee77ef67ce41eb8961ee044"
+    }
+  ],
+  "reviewed_non_json_sentinel_blobs": 2,
+  "schema_version": 1,
+  "semantic_independence_proven": false,
+  "source_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "two_unknown_or_extended_content_checks_rejected": true,
+  "unexplained_unparsed_json_blobs_within_recorded_scope": 0
+}
