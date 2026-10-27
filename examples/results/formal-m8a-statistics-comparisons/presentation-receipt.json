@@ -1,0 +1,13 @@
+{
+  "kind": "statistics_comparisons_presentation",
+  "scope": "formal",
+  "manifest_sha256": "d742cdbf3cab21b3001e5e70c8389d568dca853d6f25a307234b018c4138987c",
+  "report_sha256": "d60cfec3972f18eed22b8dc29dbc1c88ae373f7c898529468579df8998bb610f",
+  "markdown_sha256": "e01193697ed0f2c717bfb077bd6de5c3170ec506b1efca0de4cf082e13865301",
+  "comparisons": 18,
+  "secondary_family_size": 17,
+  "statistics_recomputed": false,
+  "upstream_experiments_verified": false,
+  "scientific_assumptions_certified": false,
+  "m8_complete": false
+}

@@ -1,0 +1,12 @@
+{
+  "kind": "actual_restored_probe_output_copy_verification",
+  "sha256": "c55a7c3bfa19fbe1fb497a2efc9b507195f9369beb9cbc5c3254661298c114af",
+  "bytes": 6184,
+  "real_probe_exit_code": 0,
+  "actual_off_host_probe_output_verified": true,
+  "first_attempt_retained": true,
+  "first_attempt_error": "KeyError: cosine-seed-0",
+  "first_attempt_status_sha256": "bd5490b273c1446e27ca9cfeb492dba3b4ec1c2304245033cccd5f3e76cd2024",
+  "formal_evaluation_rerun": false,
+  "m8_complete": false
+}

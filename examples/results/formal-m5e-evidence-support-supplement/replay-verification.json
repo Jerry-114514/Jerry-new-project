@@ -1,0 +1,25 @@
+{
+  "assessment_receipt_hash": "3c40b86e8849ce655a3c0ad9b10798c13905af64169ce9b183edc1eee2b1821f",
+  "output_files_sha256": {
+    "A.json": "cc4c95f78ed059e7d55e3685e6a7fe12e4f0e5cd841ed77ed550a077a37373bc",
+    "B.json": "7a3170486b367578883dda17410fbc683db91c1439afe22459f7f4d66b42e918",
+    "C.json": "e1586a6351c8f5c9b769a588c39ab3338c33c9d648757e32bdddc8451ac728dc",
+    "D-seed-0.json": "ac8dc421eca76d16f94b9ad72f8e6302b7a2b37da60428c9ba9404064d308152",
+    "D-seed-1.json": "56aca5600f42ca8fa0827a18ba2c8efeae70f2fb16e6d10105f411b47508a6fd",
+    "D-seed-2.json": "1e4eede5b26e6c4063c2470a9e871631e27b44a2bbca6b5019b5cc0e50c792fa",
+    "E-seed-0.json": "fe2a7ea79ee9c5ae9aef213fd7215e0800834dbf32115cdf279f4c73d2347fc9",
+    "E-seed-1.json": "f5e46c95a0fcf65c313a9edae9b5c3952c69fb9e49405cdcbc3d86e4e0eea94b",
+    "E-seed-2.json": "d99e8babcf41e25abaa107e08cfa9925b28a8f6b5c94467d31a8b9c9ede5bbe1",
+    "manifest.json": "54a14fd7304b6b89c49730b22d47cde310a02e180656af6cac04877ad239d0ca"
+  },
+  "all_ten_files_byte_identical": true,
+  "actual_stage_exit_codes": [
+    0,
+    0
+  ],
+  "model_called": false,
+  "supplementary_exploratory": true,
+  "frozen_scores_modified": false,
+  "aggregate_projection_sha256": "22e045c90f4b8fa2b04afb51d6643b4e472dd165622003e33adbdb95d9b8903d",
+  "m8_complete": false
+}

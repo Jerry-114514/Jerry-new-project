@@ -1,0 +1,39 @@
+{
+  "kind": "actual_registered_statistics_completion_projection",
+  "protocol_hash": "a1b0440b0f93cfcb76ad9971cbfe73e8f08b30e45a6fef091c7cb74cc31fc027",
+  "binding_hash": "d27c35ff115f969cbe7a3b45e0b22f1bdb284d925e58f89819be83301523a003",
+  "archive_sha256": "6c42104d2585751be0cfb8ee65b0c2028f43c9c3e4efd4a6fc7fe27938021bec",
+  "archive_bytes": 194560,
+  "archive_members_verified": 10,
+  "supervision_status_sha256": "c871a808f2d2349484e35345af4a84c8ff5e64d61569fa8ca8d2b250cd148958",
+  "stages": [
+    {
+      "action": "analysis",
+      "status": "completed",
+      "exit_code": 0
+    },
+    {
+      "action": "verify",
+      "status": "completed",
+      "exit_code": 0
+    },
+    {
+      "action": "replay",
+      "status": "completed",
+      "exit_code": 0
+    },
+    {
+      "action": "verify-replay",
+      "status": "completed",
+      "exit_code": 0
+    }
+  ],
+  "canonical_reports_identical": true,
+  "all_members_verified_off_host": true,
+  "presentation_replay_byte_identical": true,
+  "comparisons": 18,
+  "secondary_family_size": 17,
+  "analysis_report_sha256": "d60cfec3972f18eed22b8dc29dbc1c88ae373f7c898529468579df8998bb610f",
+  "replay_report_sha256": "d60cfec3972f18eed22b8dc29dbc1c88ae373f7c898529468579df8998bb610f",
+  "m8_complete": false
+}
