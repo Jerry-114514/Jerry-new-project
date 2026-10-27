@@ -1,0 +1,98 @@
+{
+  "kind": "postformal_exploratory_fixed_input_strata",
+  "pre_evaluation_masks_exactly_reconstructed": true,
+  "mask_defined_before_outcomes": true,
+  "analysis_registered_before_outcomes": false,
+  "results": {
+    "all_test": {
+      "source_task_count": 200,
+      "per_condition_error_rate": {
+        "A": 0.3177083333333333,
+        "B": 0.20010416666666667,
+        "C": 0.0,
+        "D-seed-0": 0.022395833333333334,
+        "D-seed-1": 0.027083333333333334,
+        "D-seed-2": 0.008749999999999999,
+        "E-seed-0": 0.022916666666666665,
+        "E-seed-1": 0.015208333333333332,
+        "E-seed-2": 0.03979166666666667
+      },
+      "D_seed_mean": 0.019409722222222224,
+      "E_seed_mean": 0.025972222222222223,
+      "D_minus_B": -0.18069444444444444
+    },
+    "normalized_exact_train_overlap": {
+      "source_task_count": 5,
+      "per_condition_error_rate": {
+        "A": 0.30833333333333335,
+        "B": 0.25,
+        "C": 0.0,
+        "D-seed-0": 0.0125,
+        "D-seed-1": 0.05416666666666667,
+        "D-seed-2": 0.020833333333333332,
+        "E-seed-0": 0.03333333333333333,
+        "E-seed-1": 0.029166666666666667,
+        "E-seed-2": 0.05416666666666667
+      },
+      "D_seed_mean": 0.029166666666666667,
+      "E_seed_mean": 0.03888888888888889,
+      "D_minus_B": -0.22083333333333333
+    },
+    "within_25pct_train_overlap": {
+      "source_task_count": 74,
+      "per_condition_error_rate": {
+        "A": 0.3161599099099099,
+        "B": 0.1990427927927928,
+        "C": 0.0,
+        "D-seed-0": 0.02364864864864865,
+        "D-seed-1": 0.02759009009009009,
+        "D-seed-2": 0.006756756756756756,
+        "E-seed-0": 0.02027027027027027,
+        "E-seed-1": 0.01829954954954955,
+        "E-seed-2": 0.03997747747747748
+      },
+      "D_seed_mean": 0.019331831831831833,
+      "E_seed_mean": 0.026182432432432432,
+      "D_minus_B": -0.17971096096096095
+    },
+    "no_normalized_exact_train_overlap": {
+      "source_task_count": 195,
+      "per_condition_error_rate": {
+        "A": 0.31794871794871793,
+        "B": 0.1988247863247863,
+        "C": 0.0,
+        "D-seed-0": 0.02264957264957265,
+        "D-seed-1": 0.02638888888888889,
+        "D-seed-2": 0.00844017094017094,
+        "E-seed-0": 0.02264957264957265,
+        "E-seed-1": 0.01485042735042735,
+        "E-seed-2": 0.03942307692307692
+      },
+      "D_seed_mean": 0.01915954415954416,
+      "E_seed_mean": 0.02564102564102564,
+      "D_minus_B": -0.17966524216524216
+    },
+    "no_within_25pct_development_overlap": {
+      "source_task_count": 126,
+      "per_condition_error_rate": {
+        "A": 0.3186177248677249,
+        "B": 0.20072751322751323,
+        "C": 0.0,
+        "D-seed-0": 0.02166005291005291,
+        "D-seed-1": 0.026785714285714284,
+        "D-seed-2": 0.00992063492063492,
+        "E-seed-0": 0.02447089947089947,
+        "E-seed-1": 0.013392857142857142,
+        "E-seed-2": 0.03968253968253968
+      },
+      "D_seed_mean": 0.01945546737213404,
+      "E_seed_mean": 0.025848765432098762,
+      "D_minus_B": -0.18127204585537918
+    }
+  },
+  "new_p_values_or_confidence_intervals": false,
+  "primary_population_modified": false,
+  "model_called": false,
+  "source_independence_proven": false,
+  "warning": "Descriptive post-test analysis, not a replacement for all 200 primary sources or proof of no semantic overlap."
+}

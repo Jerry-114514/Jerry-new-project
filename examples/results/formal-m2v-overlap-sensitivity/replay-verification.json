@@ -1,0 +1,11 @@
+{
+  "kind": "exploratory_fixed_mask_replay_verification",
+  "fresh_directories_byte_identical": true,
+  "aggregate_sha256": "df27c417e9ae4f5a7ee1fd0bc554432b75b10755cb2ef7fa02d01b46832d5131",
+  "pre_test_mask_commitment_matched": true,
+  "new_confirmatory_tests": 0,
+  "test_sources_removed": 0,
+  "model_calls": 0,
+  "raw_masks_or_task_ids_published": false,
+  "goal_complete": false
+}
