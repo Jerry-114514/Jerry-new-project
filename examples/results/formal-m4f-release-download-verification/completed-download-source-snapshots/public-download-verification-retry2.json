@@ -1,0 +1,32 @@
+{
+  "kind": "actual_unauthenticated_model_release_download_reverification",
+  "status": "running",
+  "release_url": "https://github.com/Jerry-114514/Jerry-new-project/releases/tag/qwen35-9b-m4-adapters-20261027",
+  "git_lfs_used": false,
+  "verified_assets": [
+    {
+      "name": "qwen35-9b-cosine-seed-0.tar.gz",
+      "bytes": 160810650,
+      "sha256": "84b9b4d8cc985582be4130d79c47b099cdc7975b796b8ab85cbfa5bbb9115131",
+      "authorization_header_used": false
+    },
+    {
+      "name": "qwen35-9b-cosine-seed-1.tar.gz",
+      "bytes": 160865076,
+      "sha256": "5c7708dd4037bedbab60180b66fdb2e9cb4f767ec4136a8fdc80960e79dea33e",
+      "authorization_header_used": false
+    },
+    {
+      "name": "qwen35-9b-cosine-seed-2.tar.gz",
+      "bytes": 160787359,
+      "sha256": "ef28700aa129c3293d10a8f656970fbb833926fc29efc0045e5d905b17aaadc0",
+      "authorization_header_used": false
+    }
+  ],
+  "m8_complete": false,
+  "active_asset": "qwen35-9b-plateau-seed-0.tar.gz",
+  "received_bytes": 8388608,
+  "expected_bytes": 160832173,
+  "actual_received_bytes": 160787359,
+  "actual_download_sha256": "ef28700aa129c3293d10a8f656970fbb833926fc29efc0045e5d905b17aaadc0"
+}

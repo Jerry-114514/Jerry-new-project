@@ -1,0 +1,95 @@
+{
+  "kind": "actual_complete_anonymous_model_release_download_verification",
+  "status": "completed",
+  "release_id": 424871886,
+  "release_url": "https://github.com/Jerry-114514/Jerry-new-project/releases/tag/qwen35-9b-m4-adapters-20261027",
+  "observed_unix": 1793070870.8086164,
+  "asset_count": 10,
+  "total_downloaded_asset_bytes": 969742150,
+  "verified_assets": [
+    {
+      "name": "README.md",
+      "bytes": 1412,
+      "sha256": "1b32541647cbac1b7ba35141e1b44210fd20a5a449db674923ffdde3392aea69",
+      "authorization_header_used": false
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 842,
+      "sha256": "90360f94649d74291b1a3d6e732ab8c0f5f58dd4559051218eef746d1aec3e81",
+      "authorization_header_used": false
+    },
+    {
+      "name": "qwen35-9b-cosine-seed-0.tar.gz",
+      "bytes": 160810650,
+      "sha256": "84b9b4d8cc985582be4130d79c47b099cdc7975b796b8ab85cbfa5bbb9115131",
+      "authorization_header_used": false
+    },
+    {
+      "name": "qwen35-9b-cosine-seed-1.tar.gz",
+      "bytes": 160865076,
+      "sha256": "5c7708dd4037bedbab60180b66fdb2e9cb4f767ec4136a8fdc80960e79dea33e",
+      "authorization_header_used": false
+    },
+    {
+      "name": "qwen35-9b-cosine-seed-2.tar.gz",
+      "bytes": 160787359,
+      "sha256": "ef28700aa129c3293d10a8f656970fbb833926fc29efc0045e5d905b17aaadc0",
+      "authorization_header_used": false
+    },
+    {
+      "name": "qwen35-9b-plateau-seed-0.tar.gz",
+      "bytes": 160832173,
+      "sha256": "4b3326f7335d050ef628fd3d1f404bcefe9ca86dc8b26c1e2e63db905bcdf65a",
+      "authorization_header_used": false
+    },
+    {
+      "name": "qwen35-9b-plateau-seed-1.tar.gz",
+      "bytes": 160880844,
+      "sha256": "0dd8f6eee6d8d651f38f8e9121b816a2d8ef7668d2f9688111047de387d742e6",
+      "authorization_header_used": false
+    },
+    {
+      "name": "qwen35-9b-plateau-seed-2.tar.gz",
+      "bytes": 160847267,
+      "sha256": "b0bd00b15c44184af30fb02d324c1afa8c4cfd79687977947e8eeb0eb20eab5c",
+      "authorization_header_used": false
+    },
+    {
+      "name": "qwen35-9b-tokenizer.tar.gz",
+      "bytes": 4707203,
+      "sha256": "a74afad372faca8bff451660e50f2987bff7b75a78efca5727bd0ec035d5b0b8",
+      "authorization_header_used": false
+    },
+    {
+      "name": "release-manifest.json",
+      "bytes": 9324,
+      "sha256": "ffdbaa0be257a704a74c4697e83002c4728a1b3d357b80c9bae3020dd3ed77dd",
+      "authorization_header_used": false
+    }
+  ],
+  "source_observations": {
+    "public-download-verification.json": {
+      "sha256": "c18003d329ca078618117f1f1fa9b8f93cea0871ce8011cc8b3191e6c351d6f5",
+      "observed_status": "failed",
+      "snapshot_path": "completed-download-source-snapshots/public-download-verification.json"
+    },
+    "public-download-verification-retry2.json": {
+      "sha256": "45db11b269064c2d0a68fabbe5590d35fab1789ca1de8ae209697d7c638cedc9",
+      "observed_status": "running",
+      "snapshot_path": "completed-download-source-snapshots/public-download-verification-retry2.json"
+    },
+    "public-download-parallel-verification.json": {
+      "sha256": "6acd877edc499587010f7b6e507e91f169a89997beceb65ba6988e9e7a075e5b",
+      "observed_status": "completed",
+      "snapshot_path": "completed-download-source-snapshots/public-download-parallel-verification.json"
+    }
+  },
+  "all_ten_public_download_hashes_match": true,
+  "all_server_asset_digests_match": true,
+  "git_lfs_used": false,
+  "m8_complete": false,
+  "earlier_failed_or_truncated_attempts_preserved": true,
+  "redundant_sequential_downloader_stopped_after_three_verified_assets": true,
+  "operator_stop_receipt_sha256": "2a945a848ebfc068356b6a9a3c2b8c48e17a17ccbe84132fc0f90cc27cb8c714"
+}

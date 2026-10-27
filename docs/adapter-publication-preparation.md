@@ -1,6 +1,6 @@
 # 六份正式适配器的发布准备
 
-**2026-10-27更新：用户明确要求不使用LFS，已改为[GitHub Release附件发布](https://github.com/Jerry-114514/Jerry-new-project/releases/tag/qwen35-9b-m4-adapters-20261027)。** 六份适配器、去重共享分词器及校验说明共10个附件已发布，服务端大小与SHA256均匹配；独立匿名完整下载核验仍在进行。见[发布与恢复记录](m7-recovery-and-release-20261027.md)。下述LFS相关描述仅为此前准备方案，未执行LFS上传，后续复现请按Release的README操作。
+**2026-10-27更新：用户明确要求不使用LFS，已改为[GitHub Release附件发布](https://github.com/Jerry-114514/Jerry-new-project/releases/tag/qwen35-9b-m4-adapters-20261027)。** 六份适配器、去重共享分词器及校验说明共10个附件已发布，服务端大小与SHA256均匹配；[独立匿名完整下载核验](../examples/results/formal-m4f-release-download-verification/README.md)也已全部通过。见[发布与恢复记录](m7-recovery-and-release-20261027.md)。下述LFS相关描述仅为此前准备方案，未执行LFS上传，后续复现请按Release的README操作。附件字节一致不代替实际模型加载或M8验收。
 
 `scripts/prepare_adapter_release.py`把已有异机备份中的六份验证集所选导出整理成新的本地目录。它不上传文件、不调用模型、不修改GitHub预算或启用付费，也不将准备完成登记为M8完成。
 

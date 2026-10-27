@@ -1,0 +1,101 @@
+{
+  "kind": "independent_anonymous_release_download_verification",
+  "status": "completed",
+  "pid": 14420,
+  "release_id": 424871886,
+  "git_lfs_used": false,
+  "authorization_header_used": false,
+  "max_parallel_downloads": 3,
+  "verified_assets": [
+    {
+      "name": "qwen35-9b-plateau-seed-1.tar.gz",
+      "bytes": 160880844,
+      "sha256": "0dd8f6eee6d8d651f38f8e9121b816a2d8ef7668d2f9688111047de387d742e6",
+      "authorization_header_used": false
+    },
+    {
+      "name": "qwen35-9b-plateau-seed-0.tar.gz",
+      "bytes": 160832173,
+      "sha256": "4b3326f7335d050ef628fd3d1f404bcefe9ca86dc8b26c1e2e63db905bcdf65a",
+      "authorization_header_used": false
+    },
+    {
+      "name": "README.md",
+      "bytes": 1412,
+      "sha256": "1b32541647cbac1b7ba35141e1b44210fd20a5a449db674923ffdde3392aea69",
+      "authorization_header_used": false
+    },
+    {
+      "name": "release-manifest.json",
+      "bytes": 9324,
+      "sha256": "ffdbaa0be257a704a74c4697e83002c4728a1b3d357b80c9bae3020dd3ed77dd",
+      "authorization_header_used": false
+    },
+    {
+      "name": "qwen35-9b-tokenizer.tar.gz",
+      "bytes": 4707203,
+      "sha256": "a74afad372faca8bff451660e50f2987bff7b75a78efca5727bd0ec035d5b0b8",
+      "authorization_header_used": false
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 842,
+      "sha256": "90360f94649d74291b1a3d6e732ab8c0f5f58dd4559051218eef746d1aec3e81",
+      "authorization_header_used": false
+    },
+    {
+      "name": "qwen35-9b-plateau-seed-2.tar.gz",
+      "bytes": 160847267,
+      "sha256": "b0bd00b15c44184af30fb02d324c1afa8c4cfd79687977947e8eeb0eb20eab5c",
+      "authorization_header_used": false
+    }
+  ],
+  "jobs": {
+    "qwen35-9b-plateau-seed-0.tar.gz": {
+      "status": "verified",
+      "received_bytes": 160832173,
+      "expected_bytes": 160832173,
+      "actual_sha256": "4b3326f7335d050ef628fd3d1f404bcefe9ca86dc8b26c1e2e63db905bcdf65a"
+    },
+    "qwen35-9b-plateau-seed-1.tar.gz": {
+      "status": "verified",
+      "received_bytes": 160880844,
+      "expected_bytes": 160880844,
+      "actual_sha256": "0dd8f6eee6d8d651f38f8e9121b816a2d8ef7668d2f9688111047de387d742e6"
+    },
+    "qwen35-9b-plateau-seed-2.tar.gz": {
+      "status": "verified",
+      "received_bytes": 160847267,
+      "expected_bytes": 160847267,
+      "actual_sha256": "b0bd00b15c44184af30fb02d324c1afa8c4cfd79687977947e8eeb0eb20eab5c"
+    },
+    "qwen35-9b-tokenizer.tar.gz": {
+      "status": "verified",
+      "received_bytes": 4707203,
+      "expected_bytes": 4707203,
+      "actual_sha256": "a74afad372faca8bff451660e50f2987bff7b75a78efca5727bd0ec035d5b0b8"
+    },
+    "README.md": {
+      "status": "verified",
+      "received_bytes": 1412,
+      "expected_bytes": 1412,
+      "actual_sha256": "1b32541647cbac1b7ba35141e1b44210fd20a5a449db674923ffdde3392aea69"
+    },
+    "release-manifest.json": {
+      "status": "verified",
+      "received_bytes": 9324,
+      "expected_bytes": 9324,
+      "actual_sha256": "ffdbaa0be257a704a74c4697e83002c4728a1b3d357b80c9bae3020dd3ed77dd"
+    },
+    "SHA256SUMS.txt": {
+      "status": "verified",
+      "received_bytes": 842,
+      "expected_bytes": 842,
+      "actual_sha256": "90360f94649d74291b1a3d6e732ab8c0f5f58dd4559051218eef746d1aec3e81"
+    }
+  },
+  "m8_complete": false,
+  "observed_unix": 1793070870.1541555,
+  "errors": [],
+  "all_seven_downloads_verified": true
+}

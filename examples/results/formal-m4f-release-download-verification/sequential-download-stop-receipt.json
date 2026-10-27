@@ -1,0 +1,28 @@
+{
+  "pid": 16528,
+  "model_process_stopped": false,
+  "verified_assets": [
+    {
+      "name": "qwen35-9b-cosine-seed-0.tar.gz",
+      "bytes": 160810650,
+      "sha256": "84b9b4d8cc985582be4130d79c47b099cdc7975b796b8ab85cbfa5bbb9115131",
+      "authorization_header_used": false
+    },
+    {
+      "name": "qwen35-9b-cosine-seed-1.tar.gz",
+      "bytes": 160865076,
+      "sha256": "5c7708dd4037bedbab60180b66fdb2e9cb4f767ec4136a8fdc80960e79dea33e",
+      "authorization_header_used": false
+    },
+    {
+      "name": "qwen35-9b-cosine-seed-2.tar.gz",
+      "bytes": 160787359,
+      "sha256": "ef28700aa129c3293d10a8f656970fbb833926fc29efc0045e5d905b17aaadc0",
+      "authorization_header_used": false
+    }
+  ],
+  "reason": "Three cosine assets verified; remaining assets already covered by independent parallel downloader",
+  "stopped_script": "recheck_public_release_downloads_20261027.py",
+  "creation_date": "2026-10-27T10:36:07.241162+08:00",
+  "observed_at": "2026-10-27T11:04:53.0578024+08:00"
+}
