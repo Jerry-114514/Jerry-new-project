@@ -5,6 +5,7 @@ contracts or changes the frozen dataset. The output contains aggregate evidence 
 """
 import argparse
 from collections import Counter
+from contextlib import contextmanager, ExitStack
 from copy import deepcopy
 import hashlib
 import json
@@ -12,6 +13,7 @@ from pathlib import Path
 import re
 import subprocess
 import sys
+from unittest.mock import patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,6 +22,21 @@ sys.path.insert(0, str(ROOT))
 
 def sha(raw):
     return hashlib.sha256(raw).hexdigest()
+
+
+@contextmanager
+def isolated_construction():
+    """Block common Python I/O entry points during deterministic generation.
+
+    This checks the executed constructor path, not an adversarial sandbox or
+    proof that source constants have no prior conceptual influence.
+    """
+    def deny(*args, **kwargs):
+        raise RuntimeError('File/network/process I/O forbidden during contract construction')
+    with ExitStack() as stack:
+        for name in ('builtins.open', 'io.open', 'os.open', 'socket.socket', 'subprocess.Popen'):
+            stack.enter_context(patch(name, deny))
+        yield
 
 
 def audit(commit, tasks_path, base_seed_path, matched_seed_path, out):
@@ -71,17 +88,18 @@ def audit(commit, tasks_path, base_seed_path, matched_seed_path, out):
     if digest(tasks) != matched['tasks_hash']:
         raise ValueError('Task list differs from frozen canonical digest')
     rebuilt = []
-    for split in splits:
-        families = plan['ood_families'] if split == 'ood' else plan['train_families']
-        local_plan = deepcopy(plan)
-        seed, count = seeds[split], plan['counts'][split]
-        if split == 'test':
-            seed, count = matched_seed, matched['matched_test_source_tasks']
-            local_plan['layouts']['test'] = deepcopy(plan['layouts']['train'])
-        for index in range(count):
-            family = families[index % len(families)]
-            task, _ = make_task(family, split, index // len(families), seed, local_plan)
-            rebuilt.append(reword(task) if split == 'test' else task)
+    with isolated_construction():
+        for split in splits:
+            families = plan['ood_families'] if split == 'ood' else plan['train_families']
+            local_plan = deepcopy(plan)
+            seed, count = seeds[split], plan['counts'][split]
+            if split == 'test':
+                seed, count = matched_seed, matched['matched_test_source_tasks']
+                local_plan['layouts']['test'] = deepcopy(plan['layouts']['train'])
+            for index in range(count):
+                family = families[index % len(families)]
+                task, _ = make_task(family, split, index // len(families), seed, local_plan)
+                rebuilt.append(reword(task) if split == 'test' else task)
     rebuilt_raw = ''.join(canonical(task) + '\n' for task in rebuilt).encode('utf-8')
     by_id = {task['id']: task for task in tasks}
     rebuilt_by_id = {task['id']: task for task in rebuilt}
@@ -99,6 +117,7 @@ def audit(commit, tasks_path, base_seed_path, matched_seed_path, out):
         'source_origins': dict(Counter(t['source']['origin'] for t in tasks)),
         'source_license_declarations': dict(Counter(t['source']['license'] for t in tasks)),
         'labels_or_references_opened': False, 'model_calls': 0,
+        'common_python_file_network_process_io_blocked_during_construction': True,
         'frozen_data_changed': False, 'human_evaluation_claim': False,
         'semantic_independence_proven': False, 'm2_complete': False,
         'limitations': [

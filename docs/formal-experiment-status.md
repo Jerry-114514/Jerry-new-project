@@ -2,7 +2,7 @@
 
 **2026-10-27最终阶段核验：M4–M7实际实验已完成，注册统计、独立复算、证据支持补充评分和恢复推理均完成；M2及M8整体验收仍未完成。** [正式报告](formal-experiment-report.md)、[完整18项统计](../examples/results/formal-m8a-statistics-comparisons/STATISTICS.md)、[M7候选及成本](../examples/results/formal-m7c-ablation-results/README.md)和[恢复推理凭据](../examples/results/formal-m8b-restored-inference-check/README.md)已上传。M7各次尝试实际只选中一个根要求，六条件实际目标未分离，不能用零增益声称控制器一般无效。独立CPU离线入口已实际重算原完整统计报告，见[指南](final-archive-reproduction.md)。
 
-完整数据、程序gold、模型输出和构造随机流已在本地准备为九个归档，尚未公开。此前自动审批拒绝heldout/gold元数据上传，当前等待对目的地与完整内容范围的明确公开确认。来源与独立性限制见[逐项数据核对](final-data-requirements-audit.md)。以下旧“未运行”“待统计”“证据支持未评分”均为带日期的历史快照。
+用户已明确选择“暂不公开测试题和答案，仅保留当前代码与聚合结果”。完整数据、程序gold、原始模型输出、构造随机流及六份完整训练端点已作为本机私有包交付并校验，没有发布数据Release。新增[实验结果报告](intentlab-experiment-results-2026-10-27.md)汇总已完成统计、本地原始评分重放和负结果；来源与独立性限制见[逐项数据核对](final-data-requirements-audit.md)。以下旧“待公开确认”“未运行”“待统计”“证据支持未评分”均为历史快照。
 
 已增加[规格内证据支持与正式门禁](evidence-support-protocol.md)，22项合成开发检查和对应GitHub三项CI均通过；正式补充评分未运行。已增加并独立部署[恢复模型加载/推理检查](restored-inference-verification.md)，四项字节门禁检查及三项CI通过，尚未加载额外模型。实际推理配置为BF16底座加LoRA；NF4是正式训练配置，不混淆两者。恢复的61份推理资产已整包逐文件哈希复核，不能据此宣称模型已加载或M8完成。
 
