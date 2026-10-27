@@ -1,0 +1,32 @@
+{
+  "scope": "approved_compute_limited_30h_followup",
+  "launch_utc": "2026-10-27T16:17:20.349824+00:00",
+  "core_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "orchestration_commit": "abfa450a17f9690326b1702ae0b30d60bd22a960",
+  "private_protocol_frozen_before_training": true,
+  "planned_training_jobs": 6,
+  "training_order": [
+    "D-seed-0",
+    "E-seed-0",
+    "D-seed-1",
+    "E-seed-1",
+    "D-seed-2",
+    "E-seed-2"
+  ],
+  "first_verified_active_job": "D-seed-0",
+  "verified_completed_jobs_at_launch": 0,
+  "first_training_worker_live_verified": true,
+  "updates_per_run": 1250,
+  "sample_exposures_per_run": 2500,
+  "supervised_tokens_per_run": 389407,
+  "original_cost_guard_changed": false,
+  "duration_clock_reset": false,
+  "linux_supervision_tests_passed": 3,
+  "linux_analysis_and_archive_tests_passed": 5,
+  "offhost_observer_started": true,
+  "model_archives_verified_at_observer_start": 0,
+  "heldout_predictions_generated_at_launch": 0,
+  "full_goal_complete": false,
+  "offhost_observer_live_verified": true,
+  "offhost_observer_verified_unix": 1793118990.5218706
+}
