@@ -1,0 +1,20 @@
+{
+  "kind": "actual_constructor_execution_without_external_io",
+  "source_tasks": 1050,
+  "split_counts": {
+    "train": 600,
+    "validation": 150,
+    "test": 200,
+    "ood": 100
+  },
+  "file_network_and_subprocess_access_disabled_during_all_construction": true,
+  "all_frozen_contract_bytes_reconstructed": true,
+  "unique_source_contracts": 1050,
+  "generator_inputs": "Recorded plan, five committed pseudorandom streams and generator source constants only",
+  "legacy_task_files_read_during_construction": false,
+  "model_calls": 0,
+  "labels_or_references_used": false,
+  "frozen_data_changed": false,
+  "strict_iid_or_universal_semantic_independence_proven": false,
+  "warning": "Tests the actual generation path; does not prove no prior conceptual influence or no coincidental semantic near-neighbors."
+}

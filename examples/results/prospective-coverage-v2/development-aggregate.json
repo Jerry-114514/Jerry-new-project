@@ -1,0 +1,24 @@
+{
+  "kind": "postformal_missing_coverage_development_package",
+  "scope": "development_only_after_formal_evaluation",
+  "selected_existing_development_sources": 32,
+  "new_independent_sources": 0,
+  "views": 80,
+  "scenarios": {
+    "hidden_snapshot_violation": 32,
+    "forbidden_extra_artifact": 32,
+    "data_repair_stale_report": 16
+  },
+  "split_views": {
+    "train": 40,
+    "validation": 40
+  },
+  "heldout_sources_selected": 0,
+  "mixed_source_catalog_filtered_by_split": true,
+  "model_scores_or_outputs_opened": false,
+  "programmatic_and_rule_scenario_disagreements": 0,
+  "formal_dataset_modified": false,
+  "formal_models_trained_on_these_new_views": false,
+  "formal_coverage_retroactively_completed": false,
+  "warning": "Development regression data only. New formal training/testing requires a separately frozen prospective protocol and fresh heldout sources."
+}

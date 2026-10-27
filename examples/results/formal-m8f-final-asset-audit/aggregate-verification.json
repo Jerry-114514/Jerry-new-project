@@ -1,0 +1,30 @@
+{
+  "kind": "actual_final_asset_byte_audit_aggregate",
+  "frozen_before_all_training": true,
+  "six_training_endpoints_current_bytes_verified": true,
+  "paired_initialization_exposure_data_and_base_equal": true,
+  "official_base": {
+    "passed": true,
+    "files": 14,
+    "bytes": 19329305870
+  },
+  "private_delivery_packages_current_bytes_verified": {
+    "passed": true,
+    "packages": 2
+  },
+  "full_score_and_statistics_replay": {
+    "passed": true,
+    "record_counts": [
+      11160,
+      1200,
+      1800
+    ]
+  },
+  "restored_inference": {
+    "passed": true,
+    "finite_forward_count": 7
+  },
+  "public_scope": "code_and_aggregate_results_only",
+  "model_or_pickle_loaded_for_byte_audit": false,
+  "scientific_independence_proven": false
+}

@@ -1,0 +1,60 @@
+{
+  "kind": "explicit_view_predicate_coverage",
+  "views": 7428,
+  "source_contracts": 1050,
+  "counts": {
+    "hidden_history_snapshot_proves_input_violation": 1050,
+    "input_written_then_restored": 1367,
+    "data_repair_leaves_stale_report": 960,
+    "forbidden_extra_artifact_final": 1050,
+    "insufficient_evidence_unknown": 2132,
+    "multiple_data_and_report_rewrites": 52,
+    "long_history_31_or_more_events": 104,
+    "result_report_dependency": 7428
+  },
+  "by_split": {
+    "ood": {
+      "hidden_history_snapshot_proves_input_violation": 100,
+      "input_written_then_restored": 129,
+      "data_repair_leaves_stale_report": 90,
+      "forbidden_extra_artifact_final": 100,
+      "insufficient_evidence_unknown": 200,
+      "multiple_data_and_report_rewrites": 4,
+      "long_history_31_or_more_events": 8,
+      "result_report_dependency": 698
+    },
+    "test": {
+      "hidden_history_snapshot_proves_input_violation": 200,
+      "input_written_then_restored": 266,
+      "data_repair_leaves_stale_report": 184,
+      "forbidden_extra_artifact_final": 200,
+      "insufficient_evidence_unknown": 400,
+      "multiple_data_and_report_rewrites": 16,
+      "long_history_31_or_more_events": 32,
+      "result_report_dependency": 1416
+    },
+    "train": {
+      "hidden_history_snapshot_proves_input_violation": 600,
+      "input_written_then_restored": 768,
+      "data_repair_leaves_stale_report": 544,
+      "forbidden_extra_artifact_final": 600,
+      "insufficient_evidence_unknown": 1216,
+      "multiple_data_and_report_rewrites": 16,
+      "long_history_31_or_more_events": 32,
+      "result_report_dependency": 4208
+    },
+    "validation": {
+      "hidden_history_snapshot_proves_input_violation": 150,
+      "input_written_then_restored": 204,
+      "data_repair_leaves_stale_report": 142,
+      "forbidden_extra_artifact_final": 150,
+      "insufficient_evidence_unknown": 316,
+      "multiple_data_and_report_rewrites": 16,
+      "long_history_31_or_more_events": 32,
+      "result_report_dependency": 1106
+    }
+  },
+  "model_outputs_read": false,
+  "data_changed": false,
+  "warning": "Counts apply only to these explicit predicates and input files. They do not measure learned-model ability, exhaustive semantic coverage or formal proof."
+}

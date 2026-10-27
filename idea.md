@@ -106,10 +106,10 @@ RQ1 为首要确认性问题；其余为预先登记的次要问题。次要比�
 ## 九、执行清单
 
 - [x] M1：审计现有代码与正式需求，补齐数据加载、标注、预算和指标接口，形成差距清单。见[逐项工程验收证据](docs/m1-m2-evidence-review.md)；实际诊断、闭环、消融及统计结果仍由M5–M8分别验收。
-- [ ] M2：构建新候选任务及程序标签工具，完成来源/模板谱系、跨划分去重、独立参考核验、对抗与变异检查；无需人工双标或仲裁，不声称人工验证。
+- [ ] M2：构造、程序标签、参考和去重检查已有证据，但正式4368视图缺少三个明确必需场景，数据覆盖验收未完成。见[覆盖缺口与候选补齐](docs/prospective-coverage-v2-plan.md)及[逐项核对](docs/final-data-requirements-audit.md)。第二轮候选7428视图已私有构建，尚未冻结或训练，不追改第一轮材料。
 - [x] M3：完成强提示基线、开发短跑、功效分析和资源预算；冻结实验协议及测试集哈希。见[冻结回执](examples/results/formal-m3af-protocol-freeze/README.md)；预算为限额内执行计划，不保证研究全部完成。
 - [x] M4：完成余弦和 Plateau 各三个种子的正式训练，验证检查点和恢复，保存完整曲线。见[验收核对及限制](examples/results/formal-m4e-training-complete/README.md)：六次正式运行均正常结束；恢复证据来自此前真实9B开发短跑，不宣称正式运行断点恢复或逐位等价。
-- [x] M5：冻结诊断模型后完成独立测试；分别分析格式、状态、证据和风险错误。见[完成凭据与报告](examples/results/formal-m5d-diagnostic-results/README.md)。证据仅登记引用索引存在性/非空性，语义支持未评分；不以此代替M2数据质量或M8统计验收。
+- [x] M5：冻结诊断模型后完成独立测试；分别分析格式、状态、证据和风险错误。见[完成凭据与报告](examples/results/formal-m5d-diagnostic-results/README.md)。原注册证据指标为引用索引存在性/非空性；另已完成[规格内充分见证的探索性补充评分](examples/results/formal-m5e-evidence-support-supplement/README.md)，不改原注册评分，不声称任意自然语言蕴含或人工验证。
 - [x] M6：固定真实执行器，完成 P1–P4 配对闭环及预算核验。见[四阶段、token账本和实际异机备份凭据](examples/results/formal-m6c-execution-results/README.md)；四条件成功数及最终状态相同，零合规修复候选、失败与负结果保留，不能据此宣称硬检查或动态策略增益。
 - [x] M7：完成预先登记六条件、封存评分及异机备份，见[完整结果与成本](examples/results/formal-m7c-ablation-results/README.md)。实际修复目标未形成分离，不能据此证明动态控制有效或一般无效；中断失败和额外成本保留。新增探索须另行确认。
 - [ ] M8：完成任务级统计、复现审计、模型资产备份、正式报告及 GitHub 同步。

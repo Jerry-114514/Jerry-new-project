@@ -1,0 +1,99 @@
+{
+  "kind": "supplementary_public_synthetic_inference_capacity",
+  "status": "completed",
+  "pid": 42857,
+  "source_commit": "20214fb28ba1c8a4a2be0be075c97e33eedb2ba0",
+  "protocol_hash": "a1b0440b0f93cfcb76ad9971cbfe73e8f08b30e45a6fef091c7cb74cc31fc027",
+  "binding_hash": "d27c35ff115f969cbe7a3b45e0b22f1bdb284d925e58f89819be83301523a003",
+  "driver_sha256": "58248fbca6eb3129656c0321008e75fc937eaa721dbceb339fb096d099b33cf9",
+  "device": "NVIDIA GeForce RTX 5090",
+  "device_total_bytes": 33670758400,
+  "inference_dtype": "bfloat16",
+  "quantization": null,
+  "residency": "shared-condition-v1",
+  "test_or_gold_files_opened": false,
+  "formal_experiment_restarted": false,
+  "formal_peak_memory_backfilled": false,
+  "model_or_controller_selected": false,
+  "decode_override": "EOS disabled; min_new_tokens=max_new_tokens for synthetic full-budget stress only",
+  "cases": [
+    {
+      "shape": "short",
+      "role": "actor",
+      "prompt_tokens": 1024,
+      "requested_new_tokens": 256,
+      "actual_new_tokens": 256,
+      "seconds": 8.549057994037867,
+      "baseline": {
+        "allocated_bytes": 18080748544,
+        "reserved_bytes": 18289262592
+      },
+      "peak_allocated_bytes": 18326477824,
+      "peak_reserved_bytes": 18637389824,
+      "device_used_bytes_after": 19299303424,
+      "output_text_retained": false
+    },
+    {
+      "shape": "short",
+      "role": "analyzer",
+      "prompt_tokens": 1024,
+      "requested_new_tokens": 256,
+      "actual_new_tokens": 256,
+      "seconds": 12.671072768047452,
+      "baseline": {
+        "allocated_bytes": 18089268224,
+        "reserved_bytes": 18637389824
+      },
+      "peak_allocated_bytes": 18376349696,
+      "peak_reserved_bytes": 18687721472,
+      "device_used_bytes_after": 19349635072,
+      "output_text_retained": false
+    },
+    {
+      "shape": "full_budget",
+      "role": "actor",
+      "prompt_tokens": 15872,
+      "requested_new_tokens": 1536,
+      "actual_new_tokens": 1536,
+      "seconds": 56.311298079788685,
+      "baseline": {
+        "allocated_bytes": 18089268224,
+        "reserved_bytes": 18687721472
+      },
+      "peak_allocated_bytes": 20888786944,
+      "peak_reserved_bytes": 21946695680,
+      "device_used_bytes_after": 22608609280,
+      "output_text_retained": false
+    },
+    {
+      "shape": "full_budget",
+      "role": "analyzer",
+      "prompt_tokens": 15872,
+      "requested_new_tokens": 1536,
+      "actual_new_tokens": 1536,
+      "seconds": 75.914335668087,
+      "baseline": {
+        "allocated_bytes": 18089268224,
+        "reserved_bytes": 21946695680
+      },
+      "peak_allocated_bytes": 21787842560,
+      "peak_reserved_bytes": 24547164160,
+      "device_used_bytes_after": 25209143296,
+      "output_text_retained": false
+    }
+  ],
+  "m8_complete": false,
+  "active_case": {
+    "shape": "full_budget",
+    "role": "analyzer",
+    "prompt_tokens": 15872,
+    "requested_new_tokens": 1536
+  },
+  "seconds_including_loading": 164.3925599604845,
+  "limitations": [
+    "Synthetic resource measurement, not formal M6/M7 historical peaks or task quality.",
+    "EOS/min-length stress override differs from formal natural stopping.",
+    "Allocator reservation carries over sequential calls; allocated and reserved are not added.",
+    "Device-used sample after a call is not a device-wide peak."
+  ]
+}

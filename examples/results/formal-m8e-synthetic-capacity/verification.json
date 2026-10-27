@@ -1,0 +1,12 @@
+{
+  "kind": "actual_synthetic_profile_off_host_verification",
+  "actual_remote_exit_code": 0,
+  "observed_remote_status_sha256": "f1aa08a167d99c2671d6ac32d71a5afa1e1cf73264651eca104328c1d7dc37e8",
+  "local_copied_raw_status_sha256": "f1aa08a167d99c2671d6ac32d71a5afa1e1cf73264651eca104328c1d7dc37e8",
+  "published_json_reformatted": true,
+  "published_json_sha256": "f1aa08a167d99c2671d6ac32d71a5afa1e1cf73264651eca104328c1d7dc37e8",
+  "cases": 4,
+  "all_generation_lengths_completed": true,
+  "test_data_used": false,
+  "formal_memory_backfilled": false
+}

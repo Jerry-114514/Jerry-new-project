@@ -1,0 +1,17 @@
+{
+  "kind": "current_full_contract_and_source_split_audit",
+  "source_contracts": 1050,
+  "evidence_views": 4368,
+  "source_groups_with_multiple_splits": 0,
+  "signature_excludes_task_id_source_id_split_template_id_and_source_metadata": true,
+  "signature_retains_all_actual_inputs_specs_requirement_quotes_and_output_contracts": true,
+  "full_operational_contract_duplicate_pairs": 0,
+  "full_operational_contract_cross_split_duplicates": 0,
+  "trajectory_view_counts": {
+    "injected": 4304,
+    "natural": 64
+  },
+  "normalized_near_neighbor_findings_unchanged": true,
+  "semantic_independence_or_universal_novelty_proven": false,
+  "warning": "Full operational uniqueness and source grouping do not prove broad semantic independence; normalized risk flags remain."
+}

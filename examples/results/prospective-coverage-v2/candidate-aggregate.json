@@ -1,0 +1,33 @@
+{
+  "kind": "prospective_coverage_v2_candidate",
+  "formal_protocol_frozen": false,
+  "source_counts": {
+    "train": 600,
+    "validation": 150,
+    "test": 200,
+    "ood": 100
+  },
+  "views_by_split": {
+    "train": 4208,
+    "validation": 1106,
+    "test": 1416,
+    "ood": 698
+  },
+  "new_coverage_by_scenario": {
+    "hidden_snapshot_violation": 1050,
+    "forbidden_extra_artifact": 1050,
+    "data_repair_stale_report": 960
+  },
+  "fresh_heldout_sources": 300,
+  "v1_heldout_sources_reused": 0,
+  "preserved_v1_development_sources": 750,
+  "preserved_v1_development_views": 3128,
+  "new_history_views": 40,
+  "labels": 7428,
+  "independent_references_checked": 1050,
+  "coverage_assertion_disagreements": 0,
+  "model_calls": 0,
+  "v1_results_replaced": false,
+  "training_started": false,
+  "warning": "Prospective candidate only; not a replacement for V1, not yet protocol-frozen or budget-approved. Shared-generator and normalized-neighbor risks still require audit."
+}
