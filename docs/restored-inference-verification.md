@@ -18,7 +18,9 @@
 
 参数包含`--root`、`--source`、`--source-commit`、`--protocol`、`--protocol-hash`、`--expected-plan-digest`、`--statistics-status`、`--statistics-status-sha256`、`--budget-config`、`--budget-config-sha256`、`--budget-status`及`--out`。完成后仍需把真实状态与输出异机备份、核验，结合原模型备份和统计结果评估M8。脚本成功本身不等于训练断点恢复、旧模型输出逐位复现、新环境重建或M8整体完成。
 
-四项字节夹具测试覆盖统计结束及进程退出门禁、六导出完整性、文件/计划改动、额外文件、缺导出和路径穿越；不使用真实权重，不模拟为模型运行成功：
+首次实际探针已执行，但未完成全部六个适配器：删除第一个活动适配器后，PEFT 在加载下一个适配器时仍查询旧的 `active_peft_config`，触发 `KeyError: 'cosine-seed-0'`。原失败日志保留，不把它计作完整恢复验收成功。修复为先加载新适配器、激活新适配器，再删除旧适配器；末尾活动适配器随整个模型释放。再次实际验收必须使用新输出目录，保留首次失败记录。
+
+五项测试覆盖统计结束及进程退出门禁、六导出完整性、文件/计划改动、额外文件、缺导出、路径穿越及连续六适配器切换中的有效活动配置；不使用真实权重，不模拟为模型运行成功：
 
 ```powershell
 python -X utf8 -m unittest discover -s tests -p test_restored_inference_admission.py -v

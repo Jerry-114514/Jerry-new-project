@@ -33,6 +33,17 @@ def read(path):
     return json.loads(Path(path).read_text(encoding='utf-8'))
 
 
+def replace_active_adapter(model, adapter_path, job, previous):
+    """Keep the current adapter registered until its replacement is active.
+
+    PEFT consults active_peft_config during load_adapter. Deleting the sole
+    active adapter first leaves a stale name and makes the next load fail.
+    """
+    model.load_adapter(adapter_path, adapter_name=job, is_trainable=False, local_files_only=True)
+    model.set_adapter(job, inference_mode=True)
+    model.delete_adapter(previous)
+
+
 def completed_statistics(path, expected_sha, identity):
     if sha(path) != expected_sha:
         raise ValueError('Statistics supervision differs from previously observed trusted SHA256')
@@ -182,9 +193,9 @@ def main():
             ensure_gpu_lease()
             if index == 0:
                 model = PeftModel.from_pretrained(model, adapter_path, adapter_name=job, is_trainable=False, local_files_only=True)
+                model.set_adapter(job, inference_mode=True)
             else:
-                model.load_adapter(adapter_path, adapter_name=job, is_trainable=False, local_files_only=True)
-            model.set_adapter(job, inference_mode=True)
+                replace_active_adapter(model, adapter_path, job, JOBS[index - 1])
             model.requires_grad_(False).eval()
             stored = load_file(str(adapter_path / 'adapter_model.safetensors'), device='cpu')
             loaded = get_peft_model_state_dict(model, adapter_name=job, save_embedding_layers=False)
@@ -193,7 +204,6 @@ def main():
                 raise ValueError('Loaded adapter tensors do not equal restored safetensors')
             del stored, loaded
             probe(job, transformers.AutoTokenizer.from_pretrained(adapter_path, local_files_only=True, trust_remote_code=False))
-            model.delete_adapter(job)
         torch.cuda.synchronize()
         budget()
         state.update(status='completed', base_and_six_exports_loaded=True, finite_forward_count=7,

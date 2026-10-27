@@ -7,10 +7,34 @@ import tempfile
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from verify_restored_inference import JOBS, assets, completed_statistics, digest, sha
+from verify_restored_inference import JOBS, assets, completed_statistics, digest, sha, replace_active_adapter
 
 
 class RestoredInferenceAdmissionTests(unittest.TestCase):
+    def test_replacement_keeps_active_configuration_valid_during_every_load(self):
+        class AdapterLifecycle:
+            def __init__(self):
+                self.active = JOBS[0]
+                self.configs = {self.active: object()}
+
+            def load_adapter(self, path, *, adapter_name, is_trainable, local_files_only):
+                # Mirrors the PEFT lookup that failed in the real probe.
+                self.configs[self.active]
+                self.configs[adapter_name] = object()
+
+            def set_adapter(self, name, *, inference_mode):
+                self.configs[name]
+                self.active = name
+
+            def delete_adapter(self, name):
+                del self.configs[name]
+
+        model = AdapterLifecycle()
+        for previous, job in zip(JOBS, JOBS[1:]):
+            replace_active_adapter(model, Path(job), job, previous)
+            self.assertEqual(model.active, job)
+            self.assertEqual(set(model.configs), {job})
+
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
