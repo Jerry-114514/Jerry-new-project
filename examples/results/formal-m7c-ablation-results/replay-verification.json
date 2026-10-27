@@ -1,0 +1,11 @@
+{
+  "kind": "actual_m7_descriptive_replay_verification",
+  "files_byte_identical": true,
+  "files": {
+    "summary.json": "8616c837dfa1a9c93c0edc8b94d497db70a8e7fa68a90952d9bc7701165e6d54",
+    "REPORT.md": "200d47dd7e337cb5a175d976ea26585df6a095956d7993b6503cccce00557670"
+  },
+  "wrong_archive_hash_rejected": true,
+  "missing_interrupted_archive_rejected": true,
+  "m8_complete": false
+}
