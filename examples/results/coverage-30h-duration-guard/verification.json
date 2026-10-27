@@ -1,0 +1,27 @@
+{
+  "kind": "actual_additional_duration_guard_verification",
+  "source_sha256": "01ac1f4f75c06376829ffb0547765e3b7931b5b537a77afb8cad09c9d1aa2e99",
+  "installed_and_live_verified": true,
+  "linux_unit_tests_passed": 9,
+  "local_full_tests_passed": 382,
+  "local_tests_skipped": 16,
+  "authorized_max_seconds": 108000,
+  "fixed_start_utc": "2026-10-27T14:10:12+00:00",
+  "conservative_hard_deadline_utc": "2026-10-28T20:10:12+00:00",
+  "planned_shutdown_utc": "2026-10-28T19:10:12+00:00",
+  "admission_closes_utc": "2026-10-28T18:10:12+00:00",
+  "verification_utc": "2026-10-27T15:11:47.754424+00:00",
+  "remaining_seconds_at_verification": 104304.2461836338,
+  "original_cost_config_unchanged": true,
+  "off_host_guard_record_bytes_verified": true,
+  "gpu_empty_before_install": true,
+  "new_model_jobs_launched": 0,
+  "model_scope_choice_pending": true,
+  "actual_shutdown_verified": false,
+  "actual_invoice_verified": false,
+  "limitations": [
+    "Admission is a preflight check; the job runner must enforce each stage timeout and monitor guard liveness.",
+    "Installation and logical deadline tests do not demonstrate provider shutdown or billing termination.",
+    "Original cost guard remains active; source records and time window are separate and must not be reset."
+  ]
+}
