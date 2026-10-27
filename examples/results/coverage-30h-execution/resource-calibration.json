@@ -1,0 +1,24 @@
+{
+  "calibration_optimizer_steps": 8,
+  "calibration_wall_seconds": 640.2270567119122,
+  "validation_1106_seconds": 575.9623983446509,
+  "step_seconds_excluding_validation": 3.4344079634174705,
+  "per_run_load_save_tokenization_allowance_seconds": 96.78939465992153,
+  "projections": {
+    "1500": {
+      "optimizer_steps_per_run": 1500,
+      "estimated_six_run_seconds": 52225.054379124194,
+      "with_25_percent_margin_seconds": 65281.31797390524
+    },
+    "1250": {
+      "optimizer_steps_per_run": 1250,
+      "estimated_six_run_seconds": 47073.44243399799,
+      "with_25_percent_margin_seconds": 58841.803042497486
+    }
+  },
+  "selected_steps": 1250,
+  "selection_uses_heldout_model_outputs": false,
+  "selection_uses_validation_loss_values": false,
+  "peak_allocated_bytes": 22121434624,
+  "peak_reserved_bytes": 23760732160
+}
