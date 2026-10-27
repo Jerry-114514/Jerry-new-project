@@ -1,0 +1,198 @@
+{
+  "kind": "fixed_30h_compute_limited_selection",
+  "policy": "coverage-30h-selection-v1",
+  "views_by_split": {
+    "ood": 100,
+    "test": 200,
+    "train": 3000,
+    "validation": 1106
+  },
+  "sources_by_split": {
+    "train": 600,
+    "validation": 150,
+    "test": 200,
+    "ood": 100
+  },
+  "mandatory_training_views": 2412,
+  "training_views": 3000,
+  "heldout_views_per_source": 1,
+  "panel_quotas": {
+    "test": {
+      "hidden_snapshot": 32,
+      "restored_input": 32,
+      "stale_report": 32,
+      "extra_artifact": 32,
+      "unknown_only": 32,
+      "compliant": 32,
+      "long_rewrites": 8
+    },
+    "ood": {
+      "hidden_snapshot": 16,
+      "restored_input": 16,
+      "stale_report": 16,
+      "extra_artifact": 16,
+      "unknown_only": 16,
+      "compliant": 18,
+      "long_rewrites": 2
+    }
+  },
+  "panel_category_family_counts": {
+    "test/ascii_filter_project": {
+      "compliant": 4,
+      "extra_artifact": 4,
+      "hidden_snapshot": 4,
+      "restored_input": 4,
+      "stale_report": 4,
+      "unknown_only": 4,
+      "long_rewrites": 1
+    },
+    "test/date_format": {
+      "compliant": 4,
+      "extra_artifact": 4,
+      "hidden_snapshot": 4,
+      "restored_input": 4,
+      "stale_report": 4,
+      "unknown_only": 4,
+      "long_rewrites": 1
+    },
+    "test/decimal_round": {
+      "compliant": 4,
+      "extra_artifact": 4,
+      "hidden_snapshot": 4,
+      "restored_input": 4,
+      "stale_report": 4,
+      "unknown_only": 4,
+      "long_rewrites": 1
+    },
+    "test/half_open_interval": {
+      "compliant": 4,
+      "extra_artifact": 4,
+      "hidden_snapshot": 4,
+      "restored_input": 4,
+      "stale_report": 4,
+      "unknown_only": 4,
+      "long_rewrites": 1
+    },
+    "test/key_present": {
+      "compliant": 4,
+      "extra_artifact": 4,
+      "hidden_snapshot": 4,
+      "restored_input": 4,
+      "stale_report": 4,
+      "unknown_only": 4,
+      "long_rewrites": 1
+    },
+    "test/local_date_filter": {
+      "compliant": 4,
+      "extra_artifact": 4,
+      "hidden_snapshot": 4,
+      "restored_input": 4,
+      "long_rewrites": 1,
+      "stale_report": 4,
+      "unknown_only": 4
+    },
+    "test/stable_sort": {
+      "compliant": 4,
+      "extra_artifact": 4,
+      "hidden_snapshot": 4,
+      "restored_input": 4,
+      "unknown_only": 4,
+      "stale_report": 4,
+      "long_rewrites": 1
+    },
+    "test/unicode_nfc": {
+      "compliant": 4,
+      "extra_artifact": 4,
+      "hidden_snapshot": 4,
+      "restored_input": 4,
+      "stale_report": 4,
+      "long_rewrites": 1,
+      "unknown_only": 4
+    },
+    "ood/conditional_group_sum": {
+      "compliant": 9,
+      "extra_artifact": 8,
+      "hidden_snapshot": 8,
+      "restored_input": 8,
+      "stale_report": 8,
+      "unknown_only": 8,
+      "long_rewrites": 1
+    },
+    "ood/stable_unique": {
+      "compliant": 9,
+      "extra_artifact": 8,
+      "hidden_snapshot": 8,
+      "restored_input": 8,
+      "stale_report": 8,
+      "unknown_only": 8,
+      "long_rewrites": 1
+    }
+  },
+  "selected_training_natural_views": 24,
+  "selected_training_natural_violated_views": 20,
+  "model_outputs_read": false,
+  "training_started": false,
+  "formal_protocol_frozen": false,
+  "v1_data_or_results_modified": false,
+  "coverage": {
+    "kind": "explicit_view_predicate_coverage",
+    "views": 4406,
+    "source_contracts": 1050,
+    "counts": {
+      "hidden_history_snapshot_proves_input_violation": 798,
+      "input_written_then_restored": 864,
+      "data_repair_leaves_stale_report": 734,
+      "forbidden_extra_artifact_final": 798,
+      "insufficient_evidence_unknown": 1030,
+      "multiple_data_and_report_rewrites": 42,
+      "long_history_31_or_more_events": 74,
+      "result_report_dependency": 4406
+    },
+    "by_split": {
+      "ood": {
+        "hidden_history_snapshot_proves_input_violation": 16,
+        "input_written_then_restored": 16,
+        "data_repair_leaves_stale_report": 16,
+        "forbidden_extra_artifact_final": 16,
+        "insufficient_evidence_unknown": 32,
+        "multiple_data_and_report_rewrites": 2,
+        "long_history_31_or_more_events": 2,
+        "result_report_dependency": 100
+      },
+      "test": {
+        "hidden_history_snapshot_proves_input_violation": 32,
+        "input_written_then_restored": 32,
+        "data_repair_leaves_stale_report": 32,
+        "forbidden_extra_artifact_final": 32,
+        "insufficient_evidence_unknown": 64,
+        "multiple_data_and_report_rewrites": 8,
+        "long_history_31_or_more_events": 8,
+        "result_report_dependency": 200
+      },
+      "train": {
+        "hidden_history_snapshot_proves_input_violation": 600,
+        "input_written_then_restored": 612,
+        "data_repair_leaves_stale_report": 544,
+        "forbidden_extra_artifact_final": 600,
+        "insufficient_evidence_unknown": 618,
+        "multiple_data_and_report_rewrites": 16,
+        "long_history_31_or_more_events": 32,
+        "result_report_dependency": 3000
+      },
+      "validation": {
+        "hidden_history_snapshot_proves_input_violation": 150,
+        "input_written_then_restored": 204,
+        "data_repair_leaves_stale_report": 142,
+        "forbidden_extra_artifact_final": 150,
+        "insufficient_evidence_unknown": 316,
+        "multiple_data_and_report_rewrites": 16,
+        "long_history_31_or_more_events": 32,
+        "result_report_dependency": 1106
+      }
+    },
+    "model_outputs_read": false,
+    "data_changed": false,
+    "warning": "Counts apply only to these explicit predicates and input files. They do not measure learned-model ability, exhaustive semantic coverage or formal proof."
+  },
+  "warning": "Private fixed challenge panel, not full-candidate evaluation. Resource calibration, leakage audit and protocol freeze remain prerequisites."
+}

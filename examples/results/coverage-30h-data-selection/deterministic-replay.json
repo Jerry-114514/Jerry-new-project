@@ -1,0 +1,9 @@
+{
+  "status": "completed",
+  "deterministic_replay_files": 13,
+  "all_replay_files_byte_identical": true,
+  "fallback_train_views": 2500,
+  "mandatory_views": 2412,
+  "fallback_panel_unchanged": true,
+  "model_calls": 0
+}

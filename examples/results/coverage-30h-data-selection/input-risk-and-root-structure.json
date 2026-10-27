@@ -1,0 +1,41 @@
+{
+  "kind": "prospective_candidate_input_risk_audit",
+  "source_contracts": 1050,
+  "new_heldout_sources": 300,
+  "v1_source_ids_reused_by_new_heldout": 0,
+  "v1_exact_operational_contract_matches_by_new_heldout": 0,
+  "cross_split_normalized_pairs": {
+    "test / train": {
+      "same_operation_parameter_pairs": 10198,
+      "normalized_exact_pairs": 12,
+      "within_25_percent_row_edits": 152
+    },
+    "test / validation": {
+      "same_operation_parameter_pairs": 2557,
+      "normalized_exact_pairs": 0,
+      "within_25_percent_row_edits": 0
+    },
+    "train / validation": {
+      "same_operation_parameter_pairs": 7687,
+      "normalized_exact_pairs": 0,
+      "within_25_percent_row_edits": 2
+    }
+  },
+  "declared_repairable_root_antichain_counts": {
+    "1": 1050
+  },
+  "contracts_with_two_independent_declared_repairable_roots": 0,
+  "threshold": 0.25,
+  "threshold_role": "descriptive flags only; no removal or resampling",
+  "model_outputs_read": false,
+  "gold_read": false,
+  "task_selection_based_on_model_outcomes": false,
+  "candidate_changed": false,
+  "all_previously_public_assets_excluded": false,
+  "limitations": [
+    "Normalization removes identity/tag values and paths that may affect outputs; exact flags do not establish answer leakage.",
+    "Shared generator, templates and cross-family semantic overlap are not excluded.",
+    "Exact V1 contract exclusion is not exclusion of every historical/public semantic variant.",
+    "Graph antichain counts classify the two encoded result rules; they do not measure actor capability or predict model findings."
+  ]
+}
