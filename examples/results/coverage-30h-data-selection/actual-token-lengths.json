@@ -1,0 +1,83 @@
+{
+  "kind": "actual_cpu_tokenizer_length_audit",
+  "status": "completed",
+  "tokenizer_class": "Qwen3_5Tokenizer",
+  "transformers": "5.20.2",
+  "tokenizers": "0.23.3",
+  "original_revision_assets_verified": 6,
+  "training": {
+    "train": {
+      "rows": 3000,
+      "min": 1202,
+      "max": 9086,
+      "mean": 2519.134666666667,
+      "p95": 3588,
+      "over_limit": 0,
+      "limit": 12288,
+      "supervised_tokens_in_one_pass": 481539
+    },
+    "validation": {
+      "rows": 1106,
+      "min": 1879,
+      "max": 12150,
+      "mean": 4046.5650994575044,
+      "p95": 5838,
+      "over_limit": 0,
+      "limit": 12288,
+      "supervised_tokens_in_one_pass": 215880
+    }
+  },
+  "diagnostics_prompt_plus_reserved_generation": {
+    "test/A": {
+      "rows": 200,
+      "min": 2804,
+      "max": 8388,
+      "mean": 4009.965,
+      "p95": 5443,
+      "over_limit": 0,
+      "limit": 17408,
+      "max_prompt_tokens": 6852,
+      "reserved_new_tokens": 1536
+    },
+    "test/B": {
+      "rows": 200,
+      "min": 6697,
+      "max": 12281,
+      "mean": 7902.965,
+      "p95": 9336,
+      "over_limit": 0,
+      "limit": 17408,
+      "max_prompt_tokens": 10745,
+      "reserved_new_tokens": 1536
+    },
+    "ood/A": {
+      "rows": 100,
+      "min": 3443,
+      "max": 9336,
+      "mean": 4852.71,
+      "p95": 6328,
+      "over_limit": 0,
+      "limit": 17408,
+      "max_prompt_tokens": 7800,
+      "reserved_new_tokens": 1536
+    },
+    "ood/B": {
+      "rows": 100,
+      "min": 7336,
+      "max": 13229,
+      "mean": 8745.71,
+      "p95": 10221,
+      "over_limit": 0,
+      "limit": 17408,
+      "max_prompt_tokens": 11693,
+      "reserved_new_tokens": 1536
+    }
+  },
+  "frozen_B_examples": 3,
+  "model_weights_loaded": false,
+  "heldout_gold_loaded": false,
+  "model_calls": 0,
+  "gpu_training_or_generation_performed": false,
+  "all_lengths_fit": true,
+  "warning": "Actual token lengths only. Does not measure training/inference memory, throughput or model accuracy."
+}

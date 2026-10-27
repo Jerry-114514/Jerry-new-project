@@ -20,7 +20,8 @@ from intentlab.spec_reference import verify_references
 from audit_view_coverage import audit,case_predicates
 
 
-POLICY='coverage-30h-selection-v1'
+POLICY='coverage-30h-selection-v2-frozen-examples'
+RANK_POLICY='coverage-30h-selection-v1'  # Preserve the original heldout panel.
 QUOTAS={
     'test':{'hidden_snapshot':32,'restored_input':32,'stale_report':32,
             'extra_artifact':32,'unknown_only':32,'compliant':32,'long_rewrites':8},
@@ -28,7 +29,7 @@ QUOTAS={
            'extra_artifact':16,'unknown_only':16,'compliant':18,'long_rewrites':2}}
 
 
-def rank(value):return hashlib.sha256((POLICY+'\0'+value).encode()).hexdigest()
+def rank(value):return hashlib.sha256((RANK_POLICY+'\0'+value).encode()).hexdigest()
 
 
 def match_quotas(eligible,quotas):
@@ -68,7 +69,7 @@ def categories(case,features,states):
     return found
 
 
-def select(tasks,cases,labels,train_count=3000):
+def select(tasks,cases,labels,train_count=3000,example_case_ids=()):
     validate_cases(cases);validate_tasks(tasks)
     by_source={t['source_task_id']:t for t in tasks}
     truth={r['case_id']:{f['id']:f['status'] for f in r['findings']} for r in labels}
@@ -95,6 +96,12 @@ def select(tasks,cases,labels,train_count=3000):
                 c=choice(options[sid][category]);panel.append(c);assignments[c['case_id']]=category
     train=[c for c in cases if c['split']=='train'];required={}
     def keep(c):required[c['case_id']]=c
+    case_by_id={c['case_id']:c for c in cases}
+    if len(set(example_case_ids))!=len(example_case_ids):raise ValueError('Duplicate frozen example ID')
+    for cid in example_case_ids:
+        if cid not in case_by_id or case_by_id[cid]['split'] not in ('train','validation'):
+            raise ValueError('Frozen examples must exist in development data')
+        if case_by_id[cid]['split']=='train':keep(case_by_id[cid])
     train_sources={t['source_task_id'] for t in tasks if t['split']=='train'}
     for sid in sorted(train_sources,key=rank):
         if not options[sid]['compliant']:raise ValueError('Missing mandatory per-source compliant training view')
@@ -135,6 +142,8 @@ def select(tasks,cases,labels,train_count=3000):
         'views_by_split':dict(Counter(c['split'] for c in chosen)),
         'sources_by_split':{s:len({c['source_task_id'] for c in chosen if c['split']==s}) for s in ('train','validation','test','ood')},
         'mandatory_training_views':mandatory,'training_views':train_count,
+        'frozen_B_example_count':len(example_case_ids),
+        'frozen_B_examples_preserved':set(example_case_ids)<=subset,
         'heldout_views_per_source':1,'panel_quotas':QUOTAS,'panel_category_family_counts':family_counts,
         'selected_training_natural_views':sum(c['source']['trajectory']=='natural' for c in required.values()),
         'selected_training_natural_violated_views':sum(c['source']['trajectory']=='natural' and 'violated' in truth[c['case_id']].values() for c in required.values()),
@@ -144,12 +153,19 @@ def select(tasks,cases,labels,train_count=3000):
     return chosen,assignments,summary
 
 
-def build(candidate,out,expected_summary_sha,train_count=3000):
+def build(candidate,out,expected_summary_sha,train_count=3000,example_protocol=None,expected_example_protocol_sha=None):
     candidate,out=Path(candidate),Path(out)
     if out.exists():raise FileExistsError('Use a fresh directory and preserve previous selections')
     raw=(candidate/'summary.json').read_bytes()
     if hashlib.sha256(raw).hexdigest()!=expected_summary_sha:raise ValueError('Candidate summary differs from external receipt')
     expected=json.loads(raw)
+    if example_protocol is None or expected_example_protocol_sha is None:
+        raise ValueError('Externally bound original few-shot protocol is required')
+    example_raw=Path(example_protocol).read_bytes()
+    if hashlib.sha256(example_raw).hexdigest()!=expected_example_protocol_sha:
+        raise ValueError('Original example protocol binding mismatch')
+    example_ids=json.loads(example_raw)['spec']['few_shot_case_ids']
+    if not example_ids:raise ValueError('Frozen B must have development examples')
     tasks=read_jsonl(candidate/'tasks.jsonl');cases=read_jsonl(candidate/'cases.jsonl')
     references=read_jsonl(candidate/'references.jsonl');refs={r['task_id']:r for r in references}
     labels=read_jsonl(candidate/'export/programmatic-labels.jsonl')
@@ -158,7 +174,7 @@ def build(candidate,out,expected_summary_sha,train_count=3000):
     validate_references(references,tasks);verify_references(tasks,refs)
     if digest(generate_labels(cases,tasks,refs))!=expected['labels_hash']:
         raise ValueError('Candidate labels no longer agree with independent saved references')
-    chosen,assignment,summary=select(tasks,cases,labels,train_count)
+    chosen,assignment,summary=select(tasks,cases,labels,train_count,example_ids)
     out.mkdir(parents=True,exist_ok=False)
     write_jsonl(out/'cases.jsonl',chosen);write_jsonl(out/'tasks.jsonl',tasks);write_jsonl(out/'references.jsonl',references)
     export_programmatic(chosen,tasks,refs,out/'export')
@@ -171,6 +187,8 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--candidate',type=Path,required=True);p.add_argument('--out',type=Path,required=True)
     p.add_argument('--candidate-summary-sha256',required=True)
+    p.add_argument('--example-protocol',type=Path,required=True)
+    p.add_argument('--example-protocol-sha256',required=True)
     p.add_argument('--train-views',type=int,choices=(2500,3000),default=3000);a=p.parse_args()
-    result=build(a.candidate,a.out,a.candidate_summary_sha256,a.train_views)
+    result=build(a.candidate,a.out,a.candidate_summary_sha256,a.train_views,a.example_protocol,a.example_protocol_sha256)
     print(json.dumps({k:result[k] for k in ('views_by_split','sources_by_split','mandatory_training_views','model_outputs_read','formal_protocol_frozen')}))
