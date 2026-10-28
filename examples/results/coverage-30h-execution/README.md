@@ -54,4 +54,4 @@ python scripts/render_limited_training_curves.py --history /path/to/new-aggregat
 
 [前两个配对的曲线与验收](curves-two-pairs/README.md)：4/6组完成并通过40个归档成员的异机校验，第五组运行，第六组尚未开始。第二个配对验证选点为余弦1250步、Plateau836步；Plateau seed 1没有实际降率，保留与seed 0不同的轨迹，不据此修改超参数。本轮尚无新测试结果。
 
-已核对原17小时训练阶段子限时会计入此前等待，存在中断最后一组的风险。[总30小时内资源重分配提案](../../../docs/coverage-30h-resource-reallocation-proposal.md)拟将训练阶段增至18小时并由补充协调器接管同一在训进程，保持总时长与费用守护不变；提案待批准，尚未执行。
+已核对原17小时训练阶段子限时会计入此前等待，存在中断最后一组的风险。[总30小时内资源重分配修订](../../../docs/coverage-30h-resource-reallocation-proposal.md)将训练阶段增至18小时并由补充协调器接管同一在训进程，保持总时长与费用守护不变。用户已明确批准，补充代码完成本地接管/时限检查；真实部署与接管完成仍须另有实例凭据。
