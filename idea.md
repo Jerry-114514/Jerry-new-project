@@ -1,8 +1,14 @@
 # 正式实验目标：误差分析、约束保持与动态控制
 
-版本：2.0，2026-10-23；执行状态更新于2026-10-27。用户已明确选择完全采用程序标签，结论限定于明确编码的形式化规格，不声称人工验证。正式协议已冻结并在训练前发布[回执](examples/results/formal-m3af-protocol-freeze/README.md)，M4六次正式训练均已完成（6/6），产物绑定和六份跨主机备份已核验；见[完成回执](examples/results/formal-m4e-training-complete/README.md)。M5九条件诊断、六模型损失、最终冻结验证及实际异机备份已完成，源任务/混淆/损失算术独立重算一致，见[诊断验收与结果](examples/results/formal-m5d-diagnostic-results/README.md)。M6四组共1200次交互、评分、最终验证与实际异机备份已完成，见[完成凭据及负结果](examples/results/formal-m6c-execution-results/README.md)；M7按原冻结六条件真实运行，见[启动回执](examples/results/formal-m7b-controls-start/README.md)。M2独立性限制、M7及M8统计复现验收仍待完成。引用指标只检查索引存在性，不声称证据语义或人审验证；原始要求中的[证据支持补充评估](docs/evidence-support-protocol.md)已准备代码但未正式运行，[模型恢复推理验收](docs/restored-inference-verification.md)也仍待实际执行。已封存结果与剩余要求见[阶段报告](docs/formal-experiment-report.md)，逐项证据与历史记录见[执行记录](docs/formal-experiment-status.md)。
+版本：2.0，2026-10-23；执行状态更新于2026-10-28。本次状态校正不改变RQ1–RQ4、原科学比较或验收要求。用户已明确选择完全采用程序标签，结论限定于明确编码的形式化规格，不声称人工验证。
 
-2026-10-27补充：[六份所选适配器及共享分词器的Release发布与公开下载校验](examples/results/formal-m4f-release-download-verification/README.md)已完成，十个附件实际完整下载后的大小和SHA256全部匹配，未使用LFS；恢复模型真实加载、M7与M8仍待验收。
+第一轮M1、M3–M7已有完成凭据：六次正式训练、九条件诊断、四组真实闭环及六条件强度消融均已执行，失败和负结果保留。M7的实际根修复目标没有形成分离，不能由六条件相同结果推断动态控制一般有效或无效。M2正式场景覆盖与M8整体验收仍未完成，第一轮结论见[结果报告](docs/intentlab-experiment-results-2026-10-27.md)。
+
+原18项注册统计的analysis、verify、replay、verify-replay已完成，进一步从私有归档重放原始评分及统计算术也一致；见[统计完成凭据](examples/results/formal-m8a-statistics-comparisons/README.md)。官方基础模型与六份恢复适配器已实际完成有限前向和有界生成，见[恢复推理验收及首次失败记录](examples/results/formal-m8b-restored-inference-check/README.md)。[证据支持探索性补充评分](examples/results/formal-m5e-evidence-support-supplement/README.md)也已运行及复算；不改原注册指标，不声称任意自然语言蕴含或人审验证。
+
+用户另批准最多新增30小时的受限覆盖补充：六组等训练量短训和300源定向诊断，完整2114视图诊断及全量新闭环/控制继续列待办。输入与执行代码在本轮首训前锁定；当前首组已完成并核验本地备份，第二组真实训练进程已确认存活，其余四组尚未开始。见[受限执行及容量处理](examples/results/coverage-30h-execution/README.md)。受限执行不替代完整M1–M8验收；等待计入既有时限，不承诺全部组别一定能在限时内结束。
+
+GitHub公开范围按用户决定为代码、聚合结果及报告；完整测试题、gold、参考答案、原始输出、生成种子和完整模型状态保持私有。此前已发布的[六份所选适配器及共享分词器](examples/results/formal-m4f-release-download-verification/README.md)不变。2026-10-28用户明确不公开加密检查点备份并保留全部本地及服务器旧副本，未上传密文或删除旧归档；通过现有两块磁盘分配尚未使用的新输出恢复训练，成本与30小时守护计时未重置。外部读者不能只凭公开仓库逐例独立复算全部私有结果，不将本地复算称为公共独立复现。
 
 本次变更替换原逐案例人工双标、仲裁及人员依赖，不替换RQ1–RQ4、两种调度各三个种子、强少样本基线、四组真实闭环、预登记消融、测试隔离及复现要求。旧版和原人工包保留在Git历史中；程序标签不能冒充人工提交。采用理由与工程差距见[程序标签实施指南](docs/programmatic-label-guide.md)。
 
@@ -106,12 +112,12 @@ RQ1 为首要确认性问题；其余为预先登记的次要问题。次要比�
 ## 九、执行清单
 
 - [x] M1：审计现有代码与正式需求，补齐数据加载、标注、预算和指标接口，形成差距清单。见[逐项工程验收证据](docs/m1-m2-evidence-review.md)；实际诊断、闭环、消融及统计结果仍由M5–M8分别验收。
-- [ ] M2：构造、程序标签、参考和去重检查已有证据，但正式4368视图缺少三个明确必需场景，数据覆盖验收未完成。见[覆盖缺口与候选补齐](docs/prospective-coverage-v2-plan.md)及[逐项核对](docs/final-data-requirements-audit.md)。第二轮候选7428视图已私有构建，尚未冻结或训练，不追改第一轮材料。
+- [ ] M2：构造、程序标签、参考和去重检查已有证据，但正式4368视图缺少三个明确必需场景，数据覆盖验收未完成。见[覆盖缺口与候选补齐](docs/prospective-coverage-v2-plan.md)及[逐项核对](docs/final-data-requirements-audit.md)。第二轮候选7428视图已私有构建；完整候选未全量模型评估。另有2500训练视图、300源诊断面板的受限执行已锁定并启动，见[受限执行](examples/results/coverage-30h-execution/README.md)，不追改第一轮材料，不据此关闭完整覆盖验收。
 - [x] M3：完成强提示基线、开发短跑、功效分析和资源预算；冻结实验协议及测试集哈希。见[冻结回执](examples/results/formal-m3af-protocol-freeze/README.md)；预算为限额内执行计划，不保证研究全部完成。
 - [x] M4：完成余弦和 Plateau 各三个种子的正式训练，验证检查点和恢复，保存完整曲线。见[验收核对及限制](examples/results/formal-m4e-training-complete/README.md)：六次正式运行均正常结束；恢复证据来自此前真实9B开发短跑，不宣称正式运行断点恢复或逐位等价。
 - [x] M5：冻结诊断模型后完成独立测试；分别分析格式、状态、证据和风险错误。见[完成凭据与报告](examples/results/formal-m5d-diagnostic-results/README.md)。原注册证据指标为引用索引存在性/非空性；另已完成[规格内充分见证的探索性补充评分](examples/results/formal-m5e-evidence-support-supplement/README.md)，不改原注册评分，不声称任意自然语言蕴含或人工验证。
 - [x] M6：固定真实执行器，完成 P1–P4 配对闭环及预算核验。见[四阶段、token账本和实际异机备份凭据](examples/results/formal-m6c-execution-results/README.md)；四条件成功数及最终状态相同，零合规修复候选、失败与负结果保留，不能据此宣称硬检查或动态策略增益。
 - [x] M7：完成预先登记六条件、封存评分及异机备份，见[完整结果与成本](examples/results/formal-m7c-ablation-results/README.md)。实际修复目标未形成分离，不能据此证明动态控制有效或一般无效；中断失败和额外成本保留。新增探索须另行确认。
-- [ ] M8：完成任务级统计、复现审计、模型资产备份、正式报告及 GitHub 同步。
+- [ ] M8：第一轮任务级统计、私有原始记录重算、恢复文件有界推理、完整端点异机备份、结果报告及代码/聚合结果同步已有凭据。M2正式场景覆盖、受限补充的训练/诊断/复算和完整新增评估仍未结束，故整体验收保持未完成。公开范围不包含逐例私有材料，不以公开独立复现替代本地复算的实际范围。
 
 每个里程碑记录完成证据及剩余依赖。程序标签不登记为人工审核，来源授权和预算等外部依赖如实记录；可独立推进的工作持续执行。实验预算和实际资源先核实再安排长时间任务，不在进度报告中把计划写成已运行。
