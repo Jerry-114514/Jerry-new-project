@@ -1,0 +1,20 @@
+{
+  "completed_histories": 1,
+  "planned_histories": 6,
+  "histories_not_provided": [
+    "E-seed-0",
+    "D-seed-1",
+    "E-seed-1",
+    "D-seed-2",
+    "E-seed-2"
+  ],
+  "selected_by_validation": {
+    "D-seed-0": {
+      "step": 209,
+      "validation_loss": 0.012809501442873955
+    }
+  },
+  "heldout_efficacy_inferred": false,
+  "smoothing": false,
+  "missing_histories_imputed": false
+}
