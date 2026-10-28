@@ -1,0 +1,58 @@
+{
+  "snapshot_date_asia_shanghai": "2026-10-28",
+  "scope": "first_pair_training_and_validation_only",
+  "training_runs_completed": 2,
+  "planned_training_runs": 6,
+  "paired_initialization_equal": true,
+  "paired_training_data_equal": true,
+  "paired_sample_exposures_equal": true,
+  "non_scheduler_configuration_equal": true,
+  "every_endpoint_configuration_matches_frozen_lock": true,
+  "every_archive_member_hash_verified": true,
+  "both_test_deferred": true,
+  "both_selection_rules_verified": true,
+  "training": {
+    "D-seed-0": {
+      "steps": 1250,
+      "examples_seen": 2500,
+      "supervised_tokens": 389407,
+      "validation_points": 6,
+      "selected_step": 209,
+      "selected_validation_loss": 0.012809501442873955,
+      "final_validation_loss": 0.034180327053621,
+      "peak_allocated_bytes": 22120239104,
+      "peak_reserved_bytes": 25864175616,
+      "reported_training_invocation_seconds": 6864.084016380832
+    },
+    "E-seed-0": {
+      "steps": 1250,
+      "examples_seen": 2500,
+      "supervised_tokens": 389407,
+      "validation_points": 6,
+      "selected_step": 209,
+      "selected_validation_loss": 0.01932600159653612,
+      "final_validation_loss": 0.07077660966341515,
+      "peak_allocated_bytes": 22120239104,
+      "peak_reserved_bytes": 25864175616,
+      "reported_training_invocation_seconds": 6859.643573105335
+    }
+  },
+  "scheduler_reduction_events": {
+    "D-seed-0": [],
+    "E-seed-0": [
+      {
+        "step": 836,
+        "old_lr": 5e-05,
+        "new_lr": 2.5e-05
+      }
+    ]
+  },
+  "scheduler_event_timing": "after the validation at the recorded step; lr_used is before that event",
+  "new_heldout_evaluation_performed": false,
+  "new_hypothesis_test_performed": false,
+  "frozen_training_parameters_changed": false,
+  "model_or_pickle_loaded": false,
+  "old_archives_removed": 0,
+  "encrypted_archives_uploaded": false,
+  "full_goal_complete": false
+}

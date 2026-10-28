@@ -1,0 +1,102 @@
+{
+  "D-seed-0": [
+    {
+      "step": 209,
+      "validation": {
+        "loss": 0.012809501442873955,
+        "target_tokens": 215880
+      },
+      "lr_used": 4.834100184051982e-05
+    },
+    {
+      "step": 418,
+      "validation": {
+        "loss": 0.023593420802272357,
+        "target_tokens": 215880
+      },
+      "lr_used": 4.0778106701183406e-05
+    },
+    {
+      "step": 627,
+      "validation": {
+        "loss": 0.027294966680612844,
+        "target_tokens": 215880
+      },
+      "lr_used": 2.9254940342379543e-05
+    },
+    {
+      "step": 836,
+      "validation": {
+        "loss": 0.03028944154872756,
+        "target_tokens": 215880
+      },
+      "lr_used": 1.7208352995462323e-05
+    },
+    {
+      "step": 1045,
+      "validation": {
+        "loss": 0.0322532938526174,
+        "target_tokens": 215880
+      },
+      "lr_used": 8.23130819329332e-06
+    },
+    {
+      "step": 1250,
+      "validation": {
+        "loss": 0.034180327053621,
+        "target_tokens": 215880
+      },
+      "lr_used": 5e-06
+    }
+  ],
+  "E-seed-0": [
+    {
+      "step": 209,
+      "validation": {
+        "loss": 0.01932600159653612,
+        "target_tokens": 215880
+      },
+      "lr_used": 5e-05
+    },
+    {
+      "step": 418,
+      "validation": {
+        "loss": 0.022159008955627325,
+        "target_tokens": 215880
+      },
+      "lr_used": 5e-05
+    },
+    {
+      "step": 627,
+      "validation": {
+        "loss": 0.04042075692479944,
+        "target_tokens": 215880
+      },
+      "lr_used": 5e-05
+    },
+    {
+      "step": 836,
+      "validation": {
+        "loss": 0.05334074481512764,
+        "target_tokens": 215880
+      },
+      "lr_used": 5e-05
+    },
+    {
+      "step": 1045,
+      "validation": {
+        "loss": 0.0675870935984038,
+        "target_tokens": 215880
+      },
+      "lr_used": 2.5e-05
+    },
+    {
+      "step": 1250,
+      "validation": {
+        "loss": 0.07077660966341515,
+        "target_tokens": 215880
+      },
+      "lr_used": 2.5e-05
+    }
+  ]
+}

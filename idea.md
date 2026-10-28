@@ -6,7 +6,7 @@
 
 原18项注册统计的analysis、verify、replay、verify-replay已完成，进一步从私有归档重放原始评分及统计算术也一致；见[统计完成凭据](examples/results/formal-m8a-statistics-comparisons/README.md)。官方基础模型与六份恢复适配器已实际完成有限前向和有界生成，见[恢复推理验收及首次失败记录](examples/results/formal-m8b-restored-inference-check/README.md)。[证据支持探索性补充评分](examples/results/formal-m5e-evidence-support-supplement/README.md)也已运行及复算；不改原注册指标，不声称任意自然语言蕴含或人审验证。
 
-用户另批准最多新增30小时的受限覆盖补充：六组等训练量短训和300源定向诊断，完整2114视图诊断及全量新闭环/控制继续列待办。输入与执行代码在本轮首训前锁定；当前首组已完成并核验本地备份，第二组真实训练进程已确认存活，其余四组尚未开始。见[受限执行及容量处理](examples/results/coverage-30h-execution/README.md)。受限执行不替代完整M1–M8验收；等待计入既有时限，不承诺全部组别一定能在限时内结束。
+用户另批准最多新增30小时的受限覆盖补充：六组等训练量短训和300源定向诊断，完整2114视图诊断及全量新闭环/控制继续列待办。输入与执行代码在本轮首训前锁定；截至2026-10-28 10:15（北京时间），首个余弦/Plateau配对均已完成并通过异机归档验收，第三组真实训练进程已确认存活，其余三组尚未开始。见[受限执行及容量处理](examples/results/coverage-30h-execution/README.md)。受限执行不替代完整M1–M8验收；等待计入既有时限，不承诺全部组别一定能在限时内结束。
 
 GitHub公开范围按用户决定为代码、聚合结果及报告；完整测试题、gold、参考答案、原始输出、生成种子和完整模型状态保持私有。此前已发布的[六份所选适配器及共享分词器](examples/results/formal-m4f-release-download-verification/README.md)不变。2026-10-28用户明确不公开加密检查点备份并保留全部本地及服务器旧副本，未上传密文或删除旧归档；通过现有两块磁盘分配尚未使用的新输出恢复训练，成本与30小时守护计时未重置。外部读者不能只凭公开仓库逐例独立复算全部私有结果，不将本地复算称为公共独立复现。
 
