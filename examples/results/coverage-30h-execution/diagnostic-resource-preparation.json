@@ -1,0 +1,18 @@
+{
+  "status": "prepared_not_deployed_awaiting_explicit_approval",
+  "date": "2026-10-28",
+  "local_windows_checks": {"passed": 12, "linux_process_checks_skipped": 4},
+  "original_instance_linux_cpu_checks": {"passed": 16, "failed": 0, "skipped": 0},
+  "original_supervisor_real_success_and_failure_exit_collection_tested": true,
+  "new_gpu_stage_original_admission_remains_required": true,
+  "both_existing_guards_must_remain_live_and_unchanged": true,
+  "cpu_statistics_cuda_disabled_tested": true,
+  "existing_experiment_processes_signalled": false,
+  "handoff_deployed": false,
+  "new_model_calls": 0,
+  "gold_decoded_by_preparation": false,
+  "model_restarts": 0,
+  "budget_clock_resets": 0,
+  "formal_test_results_available": false,
+  "full_M1_M8_goal_complete": false
+}
