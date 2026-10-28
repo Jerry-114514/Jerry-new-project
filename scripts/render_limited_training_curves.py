@@ -64,7 +64,7 @@ def render(history, out):
                 if metric == 'validation-loss':
                     best = summary['selected_by_validation'][name]
                     ax.plot(best['step'], best['validation_loss'], marker='*', markersize=14,
-                            color=colors[kind], markeredgecolor='#111827')
+                            color=colors[kind], markeredgecolor='#111827', clip_on=False)
             ax.set_title(f'Seed {seed}')
             ax.set_xlim(0, 1250); ax.set_ylim(bottom=0)
             ax.set_xticks([0, 209, 627, 1045, 1250]); ax.tick_params(axis='x', labelrotation=25)

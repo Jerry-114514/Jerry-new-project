@@ -49,3 +49,9 @@ python scripts/render_limited_training_curves.py --history /path/to/new-aggregat
 ```
 
 端点目录使用`D-seed-0-model.tar`等既有命名。输入回执包含`protocol_hash`及`models`中的各端点SHA256；这些私有输入不随代码公开。输出仅含`aggregate-training.json`及四种标量的`training-history.json`，不导出逐例身份、原配置、路径或模型/数据哈希。尚无配对端点的已完成单组仍保留，但不会据此虚构已完成配对；该工具不认证正式诊断、闭环、假设检验或M8整体验收。
+
+## 两个配对完成（2026-10-28 14:40，北京时间）
+
+[前两个配对的曲线与验收](curves-two-pairs/README.md)：4/6组完成并通过40个归档成员的异机校验，第五组运行，第六组尚未开始。第二个配对验证选点为余弦1250步、Plateau836步；Plateau seed 1没有实际降率，保留与seed 0不同的轨迹，不据此修改超参数。本轮尚无新测试结果。
+
+已核对原17小时训练阶段子限时会计入此前等待，存在中断最后一组的风险。[总30小时内资源重分配提案](../../../docs/coverage-30h-resource-reallocation-proposal.md)拟将训练阶段增至18小时并由补充协调器接管同一在训进程，保持总时长与费用守护不变；提案待批准，尚未执行。
