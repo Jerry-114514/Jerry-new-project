@@ -70,7 +70,7 @@ class DiagnosticSupervisionTests(unittest.TestCase):
             kill.assert_not_called()
 
     def test_cleanup_waits_for_outputs_to_stop_before_archive(self):
-        with patch.object(d,'checked_identity',side_effect=[('S','worker'),('Z','worker'),('Z','worker'),('Z','worker'),('Z','worker')]),patch.object(d,'signal_bound') as signals:
+        with patch.object(d,'checked_identity',side_effect=[('S','worker'),('Z','worker'),('Z','worker'),('Z','worker'),('Z','worker'),None]),patch.object(d,'signal_bound') as signals:
             d.stop_adopted({'pid':1},{'pid':2})
             self.assertEqual(signals.call_args_list[0].args,({'pid':2},signal.SIGINT))
             self.assertEqual(signals.call_args_list[1].args,({'pid':1},signal.SIGCONT))

@@ -56,6 +56,12 @@ def stop_adopted(supervisor,worker):
             if time.monotonic()>=until:break
             time.sleep(.05)
     if live(checked_identity(worker)):raise RuntimeError('Adopted worker did not stop within bounded cleanup')
+    # The original parent writes the exit receipt after its next child.poll().
+    # Wait for that writer too, so failure archives cannot race its heartbeat.
+    until=time.monotonic()+10
+    while live(checked_identity(supervisor)):
+        if time.monotonic()>=until:raise RuntimeError('Original supervisor did not finish its exit receipt')
+        time.sleep(.05)
 
 
 def save(path,value):
