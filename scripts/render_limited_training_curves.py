@@ -50,7 +50,8 @@ def render(history, out):
     colors = {'D': '#2563eb', 'E': '#d97706'}
     labels = {'D': 'Cosine', 'E': 'Plateau'}
     for metric in ('validation-loss', 'learning-rate'):
-        fig, axes = plt.subplots(1, 3, figsize=(14, 4.3), sharey=True, layout='constrained')
+        fig, axes = plt.subplots(1, 3, figsize=(14, 4.3), sharey=True, layout='constrained',
+                                 gridspec_kw={'wspace': .12})
         for seed, ax in enumerate(axes):
             provided = []
             for kind in ('D', 'E'):
@@ -67,7 +68,7 @@ def render(history, out):
                             color=colors[kind], markeredgecolor='#111827', clip_on=False)
             ax.set_title(f'Seed {seed}')
             ax.set_xlim(0, 1250); ax.set_ylim(bottom=0)
-            ax.set_xticks([0, 209, 627, 1045, 1250]); ax.tick_params(axis='x', labelrotation=25)
+            ax.set_xticks([0, 209, 627, 1045, 1250])
             ax.set_xlabel('Optimizer update'); ax.grid(alpha=.2)
             if provided:
                 ax.legend(fontsize=9)

@@ -1,0 +1,116 @@
+{
+  "scope": "completed_limited_training_endpoints_only",
+  "completed_runs": 6,
+  "planned_runs": 6,
+  "completed_paired_seeds": [
+    0,
+    1,
+    2
+  ],
+  "unprovided_runs": [],
+  "frozen_config_base_and_data_bindings_verified": true,
+  "sample_exposure_inventories_equal": true,
+  "paired_initializations_and_non_schedule_configurations_verified": true,
+  "observed_training_seed_initializations_distinct": true,
+  "training": {
+    "D-seed-0": {
+      "steps": 1250,
+      "examples_seen": 2500,
+      "supervised_tokens": 389407,
+      "validation_points": 6,
+      "selected_step": 209,
+      "selected_validation_loss": 0.012809501442873955,
+      "final_validation_loss": 0.034180327053621,
+      "seconds_this_invocation": 6864.084016380832,
+      "peak_allocated_bytes": 22120239104,
+      "peak_reserved_bytes": 25864175616
+    },
+    "E-seed-0": {
+      "steps": 1250,
+      "examples_seen": 2500,
+      "supervised_tokens": 389407,
+      "validation_points": 6,
+      "selected_step": 209,
+      "selected_validation_loss": 0.01932600159653612,
+      "final_validation_loss": 0.07077660966341515,
+      "seconds_this_invocation": 6859.643573105335,
+      "peak_allocated_bytes": 22120239104,
+      "peak_reserved_bytes": 25864175616
+    },
+    "D-seed-1": {
+      "steps": 1250,
+      "examples_seen": 2500,
+      "supervised_tokens": 389407,
+      "validation_points": 6,
+      "selected_step": 1250,
+      "selected_validation_loss": 0.0097055157413113,
+      "final_validation_loss": 0.0097055157413113,
+      "seconds_this_invocation": 6843.302712788805,
+      "peak_allocated_bytes": 21954055680,
+      "peak_reserved_bytes": 23261609984
+    },
+    "E-seed-1": {
+      "steps": 1250,
+      "examples_seen": 2500,
+      "supervised_tokens": 389407,
+      "validation_points": 6,
+      "selected_step": 836,
+      "selected_validation_loss": 0.012197201442796918,
+      "final_validation_loss": 0.014085311172661957,
+      "seconds_this_invocation": 6828.963764593005,
+      "peak_allocated_bytes": 21954055680,
+      "peak_reserved_bytes": 23261609984
+    },
+    "D-seed-2": {
+      "steps": 1250,
+      "examples_seen": 2500,
+      "supervised_tokens": 389407,
+      "validation_points": 6,
+      "selected_step": 627,
+      "selected_validation_loss": 0.014902914195267661,
+      "final_validation_loss": 0.02011954836159518,
+      "seconds_this_invocation": 6833.575539186597,
+      "peak_allocated_bytes": 21954137600,
+      "peak_reserved_bytes": 23660068864
+    },
+    "E-seed-2": {
+      "steps": 1250,
+      "examples_seen": 2500,
+      "supervised_tokens": 389407,
+      "validation_points": 6,
+      "selected_step": 1045,
+      "selected_validation_loss": 0.008199287407617545,
+      "final_validation_loss": 0.013535791156819197,
+      "seconds_this_invocation": 6861.30660314858,
+      "peak_allocated_bytes": 21954137600,
+      "peak_reserved_bytes": 23660068864
+    }
+  },
+  "scheduler_reduction_events": {
+    "D-seed-0": [],
+    "E-seed-0": [
+      {
+        "step": 836,
+        "old_lr": 5e-05,
+        "new_lr": 2.5e-05
+      }
+    ],
+    "D-seed-1": [],
+    "E-seed-1": [],
+    "D-seed-2": [],
+    "E-seed-2": [
+      {
+        "step": 836,
+        "old_lr": 5e-05,
+        "new_lr": 2.5e-05
+      }
+    ]
+  },
+  "scheduler_event_timing": "after validation at the event step; lr_used precedes that event",
+  "test_deferred_for_all_provided_runs": true,
+  "new_hypothesis_tests_performed": false,
+  "model_or_pickle_loaded": false,
+  "full_goal_complete": false,
+  "all_archive_member_hashes_verified": true,
+  "verified_archive_members": 60
+}

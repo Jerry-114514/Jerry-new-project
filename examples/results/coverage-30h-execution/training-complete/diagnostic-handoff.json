@@ -1,0 +1,16 @@
+{
+  "status": "six_model_binding_and_diagnostic_handoff_verified",
+  "completed_training_runs": 6,
+  "all_six_model_bindings_verified": true,
+  "paired_initializations_verified": true,
+  "frozen_source_and_original_tool_hashes_verified": true,
+  "frozen_training_and_public_inputs_verified": true,
+  "model_binding_existed_before_generation_claim": true,
+  "acknowledged_diagnostic_worker_verified": true,
+  "generation_manifest_status": "running",
+  "generation_manifest_gold_loaded": false,
+  "first_scoring_claim_present": false,
+  "new_model_calls_by_this_audit": 0,
+  "new_hypothesis_tests_by_this_audit": 0,
+  "full_goal_complete": false
+}

@@ -1,0 +1,34 @@
+{
+  "completed_histories": 6,
+  "planned_histories": 6,
+  "histories_not_provided": [],
+  "selected_by_validation": {
+    "D-seed-0": {
+      "step": 209,
+      "validation_loss": 0.012809501442873955
+    },
+    "E-seed-0": {
+      "step": 209,
+      "validation_loss": 0.01932600159653612
+    },
+    "D-seed-1": {
+      "step": 1250,
+      "validation_loss": 0.0097055157413113
+    },
+    "E-seed-1": {
+      "step": 836,
+      "validation_loss": 0.012197201442796918
+    },
+    "D-seed-2": {
+      "step": 627,
+      "validation_loss": 0.014902914195267661
+    },
+    "E-seed-2": {
+      "step": 1045,
+      "validation_loss": 0.008199287407617545
+    }
+  },
+  "heldout_efficacy_inferred": false,
+  "smoothing": false,
+  "missing_histories_imputed": false
+}
