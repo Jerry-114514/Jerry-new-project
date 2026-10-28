@@ -38,3 +38,14 @@
 [两组曲线与配对验收](curves-first-pair/README.md)：首个余弦/Plateau配对均已完成并通过完整异机归档校验，初始化、训练数据、暴露列表和除调度外配置实际一致。两组均按验证选择209步，最低验证CE分别约0.01281/0.01933；末步分别约0.03418/0.07078。Plateau实际在836步验证后降率一次，早于该事件选中的检查点不能归因于它。
 
 该快照下第三组真实训练进程存活，其余三组未开始；费用与30小时守护正常，六份旧服务器归档完整保留。只有2/6组训练完成，没有新测试结果或全量闭环/消融完成声明。后续在预期完成、异常或备份验收节点检查，避免重复查询中间进度。
+
+## 从私有端点复算训练验收
+
+[统一训练归档汇总工具](../../../scripts/summarize_limited_training_runs.py)复用已有逐成员校验，检查私有协议锁、端点回执、配置/基础模型/训练数据绑定、2500条单次暴露、1250更新、监督token、验证选点、配对初始化及降率事件。它只解析归档中的JSON，不加载权重或优化器，不读取测试题/gold，不调用模型。已用首对既有归档离线重算，公开标量历史、选点、资源和降率事件与已发布记录一致；10项汇总/绘图测试及3个子检查通过。
+
+```sh
+python scripts/summarize_limited_training_runs.py --protocol /private/protocol.lock.json --receipts /private/mirror-status.json --archives /private/endpoint-tars --out /path/to/new-aggregate-directory
+python scripts/render_limited_training_curves.py --history /path/to/new-aggregate-directory/training-history.json --out /path/to/new-curve-directory
+```
+
+端点目录使用`D-seed-0-model.tar`等既有命名。输入回执包含`protocol_hash`及`models`中的各端点SHA256；这些私有输入不随代码公开。输出仅含`aggregate-training.json`及四种标量的`training-history.json`，不导出逐例身份、原配置、路径或模型/数据哈希。尚无配对端点的已完成单组仍保留，但不会据此虚构已完成配对；该工具不认证正式诊断、闭环、假设检验或M8整体验收。
