@@ -1,5 +1,5 @@
 {
-  "status": "prepared_not_deployed_awaiting_explicit_approval",
+  "status": "approved_but_window_expired_not_deployed",
   "date": "2026-10-28",
   "local_windows_checks": {"passed": 12, "linux_process_checks_skipped": 4},
   "original_instance_linux_cpu_checks": {"passed": 16, "failed": 0, "skipped": 0},
@@ -9,6 +9,9 @@
   "cpu_statistics_cuda_disabled_tested": true,
   "existing_experiment_processes_signalled": false,
   "handoff_deployed": false,
+  "explicit_approval_received": true,
+  "approval_processed_after_execution_window_closed": true,
+  "github_ci_jobs_passed": 3,
   "new_model_calls": 0,
   "gold_decoded_by_preparation": false,
   "model_restarts": 0,
