@@ -8,7 +8,7 @@ import unittest
 from unittest.mock import patch
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-import autodl_shutdown as shutdown
+import additional_gpu_time_guard as shutdown
 
 
 class ShutdownTests(unittest.TestCase):
@@ -60,7 +60,7 @@ class NativeShutdownTests(unittest.TestCase):
     def test_actual_script_without_shebang_uses_validated_bash(self):
         with tempfile.TemporaryDirectory() as folder:
             path=Path(folder)/'fake-official';path.write_text('exit 0\n');path.chmod(0o700)
-            result=shutdown._invoke(path)
+            result=shutdown._invoke_shutdown(path)
             self.assertEqual(result['method'],'validated_bash_after_enoexec')
             self.assertEqual(result['returncode'],0);self.assertFalse(result['provider_stop_verified'])
 

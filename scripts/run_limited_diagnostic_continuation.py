@@ -137,7 +137,7 @@ def supervise(protocol,guard_tools,guard_root,amendment_path):
                     raise ValueError('Partial-state receipt differs')
                 state.update(status=outcome,phase='shutdown_requested',off_host_backup_verified=True);snapshot()
                 os.sync()
-                rc=subprocess.run(['/usr/bin/shutdown'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=30).returncode
+                rc=g.request_shutdown()['returncode']
                 state.update(shutdown_exit_code=rc,provider_stop_verified=False);snapshot()
                 return 0 if outcome=='completed' else 1
             snapshot();time.sleep(5)

@@ -5,6 +5,7 @@ it does not authorize any new model work. A successful shutdown command is not
 proof billing stopped; the coordinator must verify the provider/instance state.
 """
 import argparse
+import errno
 import hashlib
 import json
 import math
@@ -22,6 +23,32 @@ SHUTDOWN_RESERVE=3600
 MODULES={'intentlab.neural','intentlab.matrix','intentlab.matrix_worker',
          'intentlab.controller_plan','intentlab.diagnostic_protocol',
          'intentlab.frozen_execution','intentlab.frozen_ablation','intentlab.frozen_statistics'}
+
+
+def _invoke_shutdown(official,timeout=30):
+    """Handle provider text scripts without shebangs without using shell text."""
+    official=Path(official);command_path=official.as_posix()
+    try:
+        completed=subprocess.run([command_path],capture_output=True,text=True,timeout=timeout)
+        method='direct'
+    except OSError as exc:
+        if exc.errno!=errno.ENOEXEC:raise
+        raw=official.read_bytes()
+        if not official.is_file() or not 0<len(raw)<65536 or b'\0' in raw:
+            raise ValueError('Official shutdown file is not a bounded text script') from exc
+        try:raw.decode('utf-8')
+        except UnicodeError as bad:raise ValueError('Official shutdown script is not UTF-8') from bad
+        syntax=subprocess.run(['/bin/bash','-n',command_path],capture_output=True,text=True,timeout=10)
+        if syntax.returncode!=0:raise ValueError('Official shutdown file did not pass Bash syntax validation')
+        completed=subprocess.run(['/bin/bash',command_path],capture_output=True,text=True,timeout=timeout)
+        method='validated_bash_after_enoexec'
+    return {'method':method,'returncode':completed.returncode,'provider_stop_verified':False}
+
+
+def request_shutdown():
+    """Fixed official path only. Callers must still verify provider termination."""
+    if sys.platform!='linux':raise ValueError('AutoDL instance shutdown is Linux-only')
+    return _invoke_shutdown('/usr/bin/shutdown')
 
 
 def sha(raw):return hashlib.sha256(raw).hexdigest()
@@ -161,11 +188,14 @@ def watch(root):
                 groups=stop_owned(c);os.sync()
                 for attempt in range(1,4):
                     atomic_status(root,{**base,'status':'issuing_instance_shutdown','attempt':attempt,'groups':groups,'unix':time.time()})
+                    method=None;error_type=None
                     try:
-                        rc=subprocess.run(['/usr/bin/shutdown'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=30).returncode
-                    except (OSError,subprocess.TimeoutExpired):rc=None
+                        shutdown=request_shutdown();rc=shutdown['returncode'];method=shutdown['method']
+                    except (OSError,ValueError,subprocess.TimeoutExpired) as stop_error:
+                        rc=None;error_type=type(stop_error).__name__
                     atomic_status(root,{**base,'status':'shutdown_unverified_requires_external_check',
-                                        'attempt':attempt,'shutdown_exit_code':rc,'unix':time.time()})
+                                        'attempt':attempt,'shutdown_exit_code':rc,'shutdown_method':method,
+                                        'shutdown_error_type':error_type,'unix':time.time()})
                     time.sleep(60)  # Successful provider stop normally terminates this process.
                 return 2  # Preserve failure; coordinator must request/perform external instance stop.
             time.sleep(15)
